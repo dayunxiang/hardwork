@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>坐标拾取</title>
+		<meta charset="utf-8" />
+		<link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="./lib/jquery/jquery.js"></script>
+		<script src="./lib/bootstrap/js/bootstrap.js"></script>
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {
+				padding: 0;
+				margin: 0;
+			}
+			
+			html,
+			body {
+				height: 100%;
+			}
+			
+			.menuBar {
+				position: relative;
+				height: 54px;
+				margin-top: 0;
+				z-index: 9999;
+			}
+			
+			.map {
+				position: absolute;
+				height: 100%;
+				right: 0;
+				left: 0;
+			}
+			 .zs_info {
+				width: 300px;
+				height: 70px;
+				border-radius: 2px;
+				background-color: rgba(0, 168, 0, 0.7);
+				opacity: 0.9;
+				line-height: 70px;
+				text-align: center;
+				position: absolute;
+				left: 50%;
+				top: 50px;
+				margin-left: -150px;
+				display: none;
+				z-index: 10000;
+				font-size: 20px;
+				color: #FFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="zs_pickup menuBar">
+			<div class="zs_info">√ 复制成功,可粘贴!</div>
+			<div class="topbar clearfix">
+				<span>
+	        	<img src="images/page/mapPoint.png" alt="">
+	          	坐标拾取工具
+        	</span>
+				<ul>
+					<li>
+						<button type="button" id="getPoint" class="btn btn-success">拾取</button>
+					</li>
+					<li>经度:
+						<input type="text" id="longitude" value="116.390985">
+					</li>
+					<li>纬度:
+						<input type="text" id="latitude" value="39.906358">
+					</li>
+					<li>
+						<button type="button" id="locationPoint" class="btn btn-success">反查</button>
+					</li>
+					<li>
+						<button type="button" id="copyCoordBtn" class="btn btn-success">复制坐标</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<input id="coordCopy" type="text" value="" style="position: fixed; "/>
+	<script>
+		//初始化地图，默认地图为在线高德地图
+		var rmap = new RMap.Map('map');
+		$(".leaflet-top").css("top", "50px"); //改变控制缩放按钮位置
+		//以116.390985, 39.906358（天安门广场）为中心点坐标，地图缩放到12级
+		rmap.centerZoom(116.390985, 39.906358, 12);
+//		getCoordinate();
+
+		function onResult(e) {
+			$("#longitude").val(e.lng);
+			$("#latitude").val(e.lat);
+			rmap.removePoint();
+			rmap.addPoint(e.lng, e.lat);
+		}
+		
+		function getCoordinate(){
+			rmap.getCoordinate(onResult, {
+				showTime: 0
+			});
+		}
+		
+		$("#getPoint").click(function() {
+			getCoordinate();
+		});
+
+		$("#locationPoint").click(function() {
+//			rmap.stopGetCoordinate();
+			var lng = $("#longitude").val();
+			var lat = $("#latitude").val();
+			rmap.removePoint();
+			rmap.addPoint(lng, lat);
+			rmap.center(lng, lat);
+		});
+
+		$("#copyCoordBtn").click(function() {
+			var coordStr = $("#longitude").val() + "," + $("#latitude").val();
+			$("#coordCopy").val(coordStr)
+			var currentTA = $("#coordCopy");
+			currentTA.select(); // 选择对象
+			document.execCommand("Copy"); // 执行浏览器复制命令
+			$(".zs_info").fadeIn(500);
+			setTimeout(function(){
+				$(".zs_info").fadeOut(500);
+			},1000);
+		});
+	</script>
+
+</html>
