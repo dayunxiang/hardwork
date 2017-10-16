@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>供水管网漏损评估及分析系统</title>
-  <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/main.css">
+    <meta charset="UTF-8">
+    <title>供水管网漏损评估及分析系统</title>
+    <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
+<style>
+</style>
+
 <body>
-  <div class="container-fluid">
-    <!-- header -->
-    <div class="header col-md-12">
-      <h2>供水管网漏损评估及分析系统</h2>
+    <div class="container-fluid">
+        <!-- header -->
+        <div class="header col-md-12">
+            <h2>供水管网漏损评估及分析系统</h2>
+        </div>
+        <!-- main -->
+        <div class="main col-md-12">
+            <!-- sidebar -->
+            <div class="sidebar-container"></div>
+            <!-- map -->
+            <div class="map-container" id="map"></div>
+        </div>
     </div>
-    <!-- main -->
-    <div class="main">
-      <!-- sidebar -->
-      <div class="sidebar"></div>
-      <!-- map -->
-      <div class="map-container"></div>
-    </div>
-  </div>
-  <script src="../lib/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
-  <script src="../lib/jquery.min.js"></script>
-  <script src="../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="../lib/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap/bootstrap.min.js"></script>
+    <script>
+   $(function () {
+      resizeWindow();
+    $(window).resize(function() {
+        resizeWindow();
+    });
+    function resizeWindow() {
+        var winH = $(window).height() - 50;
+        $(".sidebar").css('height', winH + 'px'); 
+        $(".map-container").css('height', winH + 'px');//这里的div，选择你的那个div
+        $(".main").css('height', winH + 'px');//这里的div，选择你的那个div
+    }
+
+    //初始化地图，默认地图为在线高德地图
+       var rmap = new RMap.Map('map');
+       //以116.390985, 39.906358（天安门广场）为中心点坐标，地图缩放到12级
+       rmap.centerZoom(116.390985, 39.906358, 12);
+   })
+    </script>
 </body>
+
 </html>
