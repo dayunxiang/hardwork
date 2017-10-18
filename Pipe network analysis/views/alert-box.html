@@ -71,7 +71,7 @@
                 <li>
                     <div class="flowmeter">
                         <div class="top">
-                          <i class="fa fa-times close"></i>
+                            <i class="fa fa-times close"></i>
                             <h3>基本信息</h3>
                             <ul id="countTabChange" class="counttabbar">
                                 <li><a href="#" class="active">基本信息</a></li>
@@ -81,26 +81,26 @@
                         <div class="bottom zs_tabcont">
                             <div class="flowmetertabcontent" id="zs_tabMap">
                                 <ul>
-                                  <li>
-                                    <p>名称</p>
-                                    <p>动物园便捷流量计1</p>
-                                  </li>
-                                  <li>
-                                    <p>所属分区</p>
-                                    <p>动物园分区</p>
-                                  </li>
-                                  <li>
-                                    <p>类型</p>
-                                    <p>流量计</p>
-                                  </li>
-                                  <li>
-                                    <p>数值(m3/h)</p>
-                                    <p>2456</p>
-                                  </li>
-                                  <li>
-                                    <p>正流向</p>
-                                    <p>动物园分区 > 紫竹院分区</p>
-                                  </li>
+                                    <li>
+                                        <p>名称</p>
+                                        <p>动物园便捷流量计1</p>
+                                    </li>
+                                    <li>
+                                        <p>所属分区</p>
+                                        <p>动物园分区</p>
+                                    </li>
+                                    <li>
+                                        <p>类型</p>
+                                        <p>流量计</p>
+                                    </li>
+                                    <li>
+                                        <p>数值(m3/h)</p>
+                                        <p>2456</p>
+                                    </li>
+                                    <li>
+                                        <p>正流向</p>
+                                        <p>动物园分区 > 紫竹院分区</p>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="flowmetertabcontent" id="tabcontentc" style="display: none;">
@@ -111,9 +111,9 @@
                 </li>
                 <!-- 动物园分区 -->
                 <li>
-                  <div class="subarea">
-                    <div class="top">
-                          <i class="fa fa-times close"></i>
+                    <div class="subarea">
+                        <div class="top">
+                            <i class="fa fa-times close"></i>
                             <h3>动物园分区</h3>
                             <ul id="subareaChangge" class="counttabbar">
                                 <li><a href="#" class="active">基本信息</a></li>
@@ -124,43 +124,95 @@
                         <div class="bottom zs_tabcont">
                             <div class="subareatabcontent" id="zs_tabMap">
                                 <ul>
-                                  <li>
-                                    <p>级别</p>
-                                    <p>一级分区</p>
-                                  </li>
-                                  <li>
-                                    <p>基本漏损率(百分比)</p>
-                                    <p>15%</p>
-                                  </li>
-                                  <li>
-                                    <p>管线总长度(公里)</p>
-                                    <p>215456</p>
-                                  </li>
-                                  <li>
-                                    <p>用户总数(万户)</p>
-                                    <p>545</p>
-                                  </li>
-                                  <li>
-                                    <a href="#">分区计量效果评估</a>
-                                    <a href="#">下级分区</a>
-                                  </li>
+                                    <li>
+                                        <p>级别</p>
+                                        <p>一级分区</p>
+                                    </li>
+                                    <li>
+                                        <p>基本漏损率(百分比)</p>
+                                        <p>15%</p>
+                                    </li>
+                                    <li>
+                                        <p>管线总长度(公里)</p>
+                                        <p>215456</p>
+                                    </li>
+                                    <li>
+                                        <p>用户总数(万户)</p>
+                                        <p>545</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">分区计量效果评估</a>
+                                        <a href="#">下级分区</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="subareatabcontent" id="tabcontenta" style="display: none;">
-                               <ul class="top">
-                                 <li><a href="#">基本漏损率</a></li>
-                                 <li><a href="#">夜间最小流量</a></li>
-                                 <li><a href="#">漏损报警(10)</a></li>
-                               </ul>
-                               <div class="dataContent">
-                                 
-                               </div>
+                                <ul class="tabtop" id="subareatabtop">
+                                    <li><a href="#" class="active">基本漏损率</a></li>
+                                    <li><a href="#">夜间最小流量</a></li>
+                                    <li><a href="#">漏损报警(10)</a></li>
+                                </ul>
+                                <div class="dataContent">
+                                    <div class="dataTabContent">
+                                      <div id="jibenChart" style="height: 90px;"></div>
+                                       <a href="#">下级分区</a>
+                                    </div>
+                                    <div class="dataTabContent" style="display: none;">
+                                      <div id="yejChart" style="height: 90px;"></div>
+                                       <a href="#">下级分区</a>
+                                    </div>
+                                    <div class="dataTabContent " style="display: none; ">
+                                        <table class="table fx_table tabponsive table-xxs  table-hover text-center ">
+                                            <thead class="fxtable_head">
+                                                <tr>
+                                                    <th class="text-center">报警时间</th>
+                                                    <th class="text-center">分区名称</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2017.8.21 11:33</td>
+                                                    <td>紫竹院分区</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2017.8.21 11:33</td>
+                                                    <td>玉渊潭分区</td>
+                                                </tr>
+                                              
+
+
+                                            </tbody>
+                                        </table>
+                                        <a href="#">下级分区</a>
+                                    </div>
+                                </div>
                             </div>
-                             <div class="subareatabcontent" id="tabcontentb" style="display: none;">
-                                333
+                            <div class="subareatabcontent" id="tabcontentb" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <p>级别</p>
+                                        <p>一级分区</p>
+                                    </li>
+                                    <li>
+                                        <p>基本漏损率(百分比)</p>
+                                        <p>15%</p>
+                                    </li>
+                                    <li>
+                                        <p>管线总长度(公里)</p>
+                                        <p>215456</p>
+                                    </li>
+                                    <li>
+                                        <p>用户总数(万户)</p>
+                                        <p>545</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">分区计量效果评估</a>
+                                        <a href="#">下级分区</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                  </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -169,11 +221,13 @@
     <script src="../lib/jquery.min.js"></script>
     <script src="../lib/echarts.min.js"></script>
     <script src="../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/utils.js"></script>
     <script>
     $(function() {
         resizeWindow();
-        tabcount("#countTabChange", 'active','.flowmetertabcontent')
-        tabcount("#subareaChangge", 'active','.subareatabcontent')
+        tabcount("#countTabChange", 'active', '.flowmetertabcontent')
+        tabcount("#subareaChangge", 'active', '.subareatabcontent')
+        tabcount("#subareatabtop", 'active', '.dataTabContent')
 
         $(window).resize(function() {
             resizeWindow();
@@ -186,78 +240,94 @@
             $(".main").css('height', winH + 'px'); //这里的div，选择你的那个div
         }
 
-         var myChart = echarts.init(document.getElementById('charts'))
-         var subareaChart = echarts.init(document.getElementById('subareacharts'))
-    
-
-data = [["00:00",116],["00:01",120],["00:02",120],["00:03",150],["00:04",160],["00:05",180],["00:06",100],["00:07",180],["00:08",120],["00:09",200],["00:10",220],["00:11",120],["00:12",150],["00:13",160],["00:14",180],["00:15",210],["00:16",190],["00:17",150],["00:18",180],["00:19",120],["00:20",130],["00:21",160],["00:22",120],["00:23",120]];
-
-var dateList = data.map(function (item) {
-    return item[0];
-});
-var valueList = data.map(function (item) {
-    return item[1];
-});
-
-option = {
-
-    // Make gradient line here
-    visualMap: [{
-        show: false,
-        type: 'continuous',
-        seriesIndex: 0,
-        min: 0,
-       
-    }],
+        var myChart = echarts.init(document.getElementById('charts'))
+        var jibenChart = echarts.init(document.getElementById('jibenChart'))
+        var yejChart = echarts.init(document.getElementById('yejChart'))
 
 
-    title: [{
-        left: 'center',
-        
-    }],
-    tooltip: {
-        trigger: 'axis'
-    },
-    xAxis: [{
-        data: dateList,
-         "axisLabel":{
-            show:false,  
-            interval: 0  
-        },
-        
-    }],
-    yAxis: [{
-       name : '(m^2/h)',
-        splitLine: {show: true},
-         "axisLabel":{
-            show:false,  
-            interval: 0  
-        },
-    }],
-   
-    series: [{
-        type: 'line',
-        showSymbol: false,
-        data: valueList
-    }]
-};
-     // 使用刚指定的配置项和数据显示图表。
-     myChart.setOption(option);
-     subareaChart.setOption(option);
+        data = [
+            ["00:00", 116],
+            ["00:01", 120],
+            ["00:02", 120],
+            ["00:03", 150],
+            ["00:04", 160],
+            ["00:05", 180],
+            ["00:06", 100],
+            ["00:07", 180],
+            ["00:08", 120],
+            ["00:09", 200],
+            ["00:10", 220],
+            ["00:11", 120],
+            ["00:12", 150],
+            ["00:13", 160],
+            ["00:14", 180],
+            ["00:15", 210],
+            ["00:16", 190],
+            ["00:17", 150],
+            ["00:18", 180],
+            ["00:19", 120],
+            ["00:20", 130],
+            ["00:21", 160],
+            ["00:22", 120],
+            ["00:23", 120]
+        ];
 
-        //tab
-        function tabcount(eleid, activeclass,subareatabcontent) {
-            $(eleid + ' li').click(function() {
-                var index = $(this).index();
-                $(this).find('a').addClass(activeclass);
-                $(this).siblings('li').find("a").removeClass(activeclass)
-                $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
-                myChart.resize(); //关键步骤
-                myChart.setOption(option, true);
-                subareaChart.resize(); //关键步骤
-                subareaChart.setOption(option, true);
-            })
-        }
+        var dateList = data.map(function(item) {
+            return item[0];
+        });
+        var valueList = data.map(function(item) {
+            return item[1];
+        });
+
+        option = {
+
+            // Make gradient line here
+            visualMap: [{
+                show: false,
+                type: 'continuous',
+                seriesIndex: 0,
+                min: 0,
+
+            }],
+
+
+            title: [{
+                left: 'center',
+
+            }],
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [{
+                data: dateList,
+                "axisLabel": {
+                    show: false,
+                    interval: 0
+                },
+
+            }],
+            yAxis: [{
+                name: '(m^2/h)',
+                splitLine: { show: true },
+                "axisLabel": {
+                    show: false,
+                    interval: 0
+                },
+            }],
+
+            series: [{
+                type: 'line',
+                showSymbol: false,
+                data: valueList
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        jibenChart.setOption(option);
+        yejChart.setOption(option);
+        // subareaChart.setOption(option);
+
+      
 
     })
     </script>

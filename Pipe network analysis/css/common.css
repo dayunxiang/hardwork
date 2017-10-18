@@ -1,6 +1,7 @@
-h1,h2,h3,h4,h5,h6,ul,li {
+body,h1,h2,h3,h4,h5,h6,ul,li {
   margin: 0;
   padding: 0;
+  transition: all 2s;
 
 }
 ul,li {
@@ -12,7 +13,7 @@ a {
 a:focus, a:hover {
    text-decoration:none
 }
-.col-md-12 {
+.col-xs-12 {
   padding-left:0;
   padding-right:0;
 }
