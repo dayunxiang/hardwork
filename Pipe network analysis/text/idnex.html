@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>供水管网漏损评估及分析系统</title>
+    <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap-treeview/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<style>
+    .box {
+    width: 500px;
+    height: 600px;
+    background-color: pink;
+}
+
+.b,
+.a {
+    height: 100px;
+    width: 100%;
+    background-color: red;
+}
+
+.searchtabcontent {
+    height: 500px;
+    width: 100%;
+}
+
+.c {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 500px;
+    height: 600px;
+    background-color: pink;
+    z-index: 1099;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+</style>
+
+<body>
+     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    ...
+                </div>
+            </div>
+        </div>
+    <div class="container-fluid">
+        <div class="c"></div>
+        <!-- Large modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+       
+      
+    </div>
+    <script src="../lib/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-treeview/bootstrap-treeview.js"></script>
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <script src="../js/index.js"></script>
+    <!-- <script src="../js/utils.js"></script> -->
+    <script>
+    $(".c").on("click", function() {
+        alert(1111)
+    })
+    </script>
+    <script>
+    $(document).ready(
+        function() {
+            // $("#deviceContent").niceScroll({
+
+            // });
+            $(".searchtabcontent").niceScroll({
+                cursorcolor: "#646660",
+                autohidemode: false,
+                cursorborderradius: 4,
+                background: '#e8e5df',
+                cursorminheight: 32,
+                disableoutline: true,
+                zindex: 9999
+            }).show();
+            $(".searchtabcontent").niceScroll({
+                cursorcolor: "#646660",
+                autohidemode: false,
+                cursorborderradius: 4,
+                background: '#e8e5df',
+                cursorminheight: 32,
+                disableoutline: true,
+                zindex: 9999
+            }).resize();
+
+        }
+    );
+    </script>
+</body>
+
+</html>

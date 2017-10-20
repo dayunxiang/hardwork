@@ -1,15 +1,23 @@
-  //tab
-  function tabcount(eleid, activeclass, subareatabcontent) {
-      $(eleid + ' li').click(function() {
-          var index = $(this).index();
-          $(this).find('a').addClass(activeclass);
-          $(this).siblings('li').find("a").removeClass(activeclass)
-          $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
-          myChart.resize(); //关键步骤
-          myChart.setOption(option, true);
-          jibenChart.resize(); //关键步骤
-          jibenChart.setOption(option, true);
-          yejChart.resize(); //关键步骤
-          yejChart.setOption(option, true);
-      })
+
+  
+//滚动条
+  function setNiceScroll(containerClass1) {
+      $(containerClass1).niceScroll({
+          cursorcolor: "#dfdfdf",
+          autohidemode: false,
+          // cursorborderradius: 4,
+          background: '#f8f8f8',
+          cursorminheight: 32,
+          // disableoutline: true,
+      }).show();
+      $(containerClass1).niceScroll({
+          cursorcolor: "#dfdfdf",
+          autohidemode: false,
+          // cursorborderradius: 4,
+          background: '#f8f8f8',
+          cursorminheight: 32,
+          // disableoutline: true,
+      }).resize();
   }
+
+  

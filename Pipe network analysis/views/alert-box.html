@@ -214,6 +214,27 @@
                         </div>
                     </div>
                 </li>
+
+                <li>
+                     <!-- 报警框 -->
+            <div class="alarm-box">
+                <div class="alert alert-warning alert-dismissible " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>动物园分区警报</p>
+                    <p>2017.8.22 10:48</p>
+                </div>
+                <div class="alert alert-warning alert-dismissible " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>动物园分区警报</p>
+                    <p>2017.8.22 10:48</p>
+                </div>
+                <div class="alert alert-warning alert-dismissible " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p>动物园分区警报</p>
+                    <p>2017.8.22 10:48</p>
+                </div>
+            </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -225,9 +246,9 @@
     <script>
     $(function() {
         resizeWindow();
-        tabcount("#countTabChange", 'active', '.flowmetertabcontent')
-        tabcount("#subareaChangge", 'active', '.subareatabcontent')
-        tabcount("#subareatabtop", 'active', '.dataTabContent')
+        tab("#countTabChange", 'active', '.flowmetertabcontent')
+        tab("#subareaChangge", 'active', '.subareatabcontent')
+        tab("#subareatabtop", 'active', '.dataTabContent')
 
         $(window).resize(function() {
             resizeWindow();
@@ -327,8 +348,22 @@
         yejChart.setOption(option);
         // subareaChart.setOption(option);
 
-      
 
+          //tab
+  function tab(eleid, activeclass, subareatabcontent) {
+      $(eleid + ' li').click(function() {
+          var index = $(this).index();
+          $(this).find('a').addClass(activeclass);
+          $(this).siblings('li').find("a").removeClass(activeclass)
+          $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
+          myChart.resize(); //关键步骤
+          myChart.setOption(option, true);
+          jibenChart.resize(); //关键步骤
+          jibenChart.setOption(option, true);
+          yejChart.resize(); //关键步骤
+          yejChart.setOption(option, true);
+      })
+  }
     })
     </script>
 </body>

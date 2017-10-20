@@ -26,23 +26,29 @@
 }
 
 /* 侧边栏 */
-.sidebarOpened {
-  transform:translateX(0px);
 
-}
 .sidebar-container {
   // width: 642px;
   height: 100%;
   float: left;
   border-right: 1px solid #eaeaea;
-  transform:translateX(-600px);
   position: absolute;
-  z-index:9999;
+  z-index:10000;
   transition: all 1s;
+}
+.lsidebar-container {
+  transform:translateX(-600px);
+
+}
+.ssidebar-container {
+  transform:translateX(-300px);
+  
 }
 .sidebarOpened {
   transform:translateX(0px);
 }
+
+
 .sidebar-container .open {
   width: 25px;
   height: 25px;
@@ -59,16 +65,17 @@
 }
 
 .sidebar-container .sidebar-list {
-  width: 600px;
   height: 100%;
   background-color: #fff;
-  // transform:translateX(-600px);
-  // position: absolute;
-  // top: 0;
-  // left: -640px;
-  // z-index:9999;
   float: left;
 }
+.sidebar-container .lsidebar-list {
+    width: 600px;
+}
+.sidebar-container .ssidebar-list {
+    width: 300px;
+}
+
 .sidebar-container .sidebar-list .tree {
   width: 300px;
   height: 100%;
@@ -153,28 +160,33 @@ text-align:center;
 .sidebar-container .sidebar-list .tree-content .content .treeContentBar li a.active {
   border-bottom: 4px solid #00bc66;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul {
   width: 100%;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li {
   width: 100%;
   height: 35px;
   line-height: 35px;
   border-bottom:1px solid #f8f8f8;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li a {
   display:block;
   height: 100%;
   width: 100%;
   color:#3b3b3b;
   padding-left:20px;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a span {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a span,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li a span {
   float: left;
   width: 80%;
   height: 100%;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a i {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a i,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li a i {
   float: right;
   width: 20%;
   text-align:center;
@@ -182,15 +194,15 @@ text-align:center;
   color:transparent;
 
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a:hover{
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a:hover,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li a:hover{
   background-color: #00bc66;
   color:#fff;
 }
-.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a:hover i {
+.sidebar-container .sidebar-list .tree-content .content .bottom .treetabcontent ul li a:hover i,
+.sidebar-container .sidebar-list .tree-content .content .bottom .nbtreetabcontent ul li a:hover i {
   color:#fff;
 }
-
-
 
 
 
@@ -211,9 +223,7 @@ text-align:center;
   background-color: #00bc66;
   text-align:center;
 }
-.sidebar-container .sidebar li.now {
-  background-color: #009651;
-}
+
 .sidebar-container .sidebar li a {
   position: relative;
   display: block;
@@ -221,24 +231,31 @@ text-align:center;
   transition:all 3s;
 
 }
-
+.sidebar-container .sidebar li a.now {
+  background-color: #009651;
+}
 .sidebar-container .sidebar li  .sidebar-name {
   position: absolute;
   width: 86px;
   height: 50px;
-  left: 40px;
-  z-index: 9999;
+  left: 0px;
+  z-index: -99;
   top: 0;
   line-height: 50px;
   background-color: #00bc66;
   color:#fff;
-  display:none;
-  transition:all 3s;
+  transform:translateX(-86px);
+  transition:all 0.5s;
 
 }
 .sidebar-container .sidebar li a:hover .sidebar-name {
-  display:block;
+  transform:translateX(40px);
 }
+.nbdevice {
+  margin-top: 15px;
+}
+
+
 
 /* 地图容器 */
 
@@ -246,6 +263,10 @@ text-align:center;
   margin-left: 40px;
   height: 100%;
 }
+
+
+
+
 
 /* 搜索框 */
 
@@ -255,36 +276,49 @@ text-align:center;
   right: 0;
   top: 0;
   z-index:9999;
+
 }
-.search-container .nonesearch-top {
+.search-container .search-top {
   height: 80px;
   padding: 20px;
-  background-color: #transparent;
+  background-color: transparent;
 }
 
 
 .search-container .search-top {
   height: 80px;
   padding: 20px;
-  background-color: #00bc66;
 }
-.search-container .search-top .search-content,
-.search-container .nonesearch-top .search-content {
+.search-container .search-top .search-content{
   height: 40px;
   width: 230px;
   padding:10px 0 10px 10px;
   background-color: #fff;
   float: left;
 }
-.search-container .search-top .search-content input,
-.search-container .nonesearch-top .search-content input {
+.search-container .search-top .search-content input{
   border: none;
   outline: none;
-  border-right: 1px solid #d8d8d8;
   width: 100%;
+  border-right: 1px solid #d8d8d8;
+  position: relative;
+
 }
-.search-container .search-top .search-icon,
-.search-container .nonesearch-top .search-icon {
+.search-container .search-top .search-content i {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align:center;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #d8d8d8;
+  color:#fff;
+  right: 70px;
+  font-size: 12px;
+  top: 30px;
+  display:none;
+}
+.search-container .search-top .search-icon {
   float: right;
   width: 40px;
   height: 40px;
@@ -292,6 +326,163 @@ text-align:center;
   line-height: 40px;
   text-align:center;
 }
+
+.search-container .search-result {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display:none;
+}
+.search-container .search-result .searchContentBar {
+  height: 50px;
+  line-height: 48px;
+  border-bottom:1px solid #f4f4f4;
+
+}
+.search-container .search-result .searchContentBar li {
+  width: 25%;
+  float: left;
+  text-align:center;
+}
+.search-container .search-result .searchContentBar li a {
+  display:block;
+  width: 100%;
+  height: 100%;
+  float: left;
+  color:#acadb0;
+}
+.search-container .search-result .searchContentBar li a.active {
+  color:#000;
+  border-bottom:2px solid #00bc66
+}
+.search-container .search-result .bottom .searchtabcontent {
+  width: 100%;
+  height: 100%;
+}
+.search-container .search-result .bottom .searchtabcontent ul {
+  width: 100%;
+}
+.search-container .search-result .bottom .searchtabcontent ul li{
+  width: 100%;
+  height: 67px;
+  border-bottom:1px solid #f4f4f4;
+  padding-left:20px;
+
+}
+.search-container .search-result .bottom .searchtabcontent ul li a {
+  display:block;
+  width: 100%;
+  height: 100%;
+}
+.search-container .search-result .bottom .searchtabcontent ul li a .resultContent {
+  width: 80%;
+  float: left;
+  line-height: 25px;
+}
+.search-container .search-result .bottom .searchtabcontent ul li a .resultContent span {
+  float: left;
+  width: 100%;
+  color:#acadb0
+}
+.search-container .search-result .bottom .searchtabcontent ul li a .resultContent span:first-child {
+  margin-top:10px;
+  color:#565656
+}
+.search-container .search-result .bottom .searchtabcontent ul li a i {
+  float: right;
+  width: 20%;
+  height: 100%;
+  text-align:center;
+  line-height: 66px;
+  color:#999999;
+}
+
+
+
+
+/* 分析评估 */
+
+.sidebar-container .analyze-list {
+  height: 100%;
+  width: 100%;
+
+}
+.sidebar-container .analyze-list .addList {
+  height: 50px;
+  padding:15px 0;
+  box-shadow: 0px 3px 1px #e6e6e6;
+}
+.sidebar-container .analyze-list .addList h5 {
+  float: left;
+  font-size:14px;
+  padding:3px 0 3px 10px;
+  width: 80%;
+  border-left:4px solid #00bc66;
+}
+.sidebar-container .analyze-list .addList i {
+  float: right;
+  width: 20px;
+  height: 20px;
+  text-align:center;
+  line-height: 20px;
+  color:#00bc66;
+  border: 1px solid #00bc66;
+  border-radius:50%;
+  margin-right:35px;
+}
+.sidebar-container .analyze-list  .addListContainer {
+  width: 100%;
+  height: 100%;
+}
+.sidebar-container .analyze-list  .addListContainer ul {
+  width: 100%;
+  height: 100%;
+}
+.sidebar-container .analyze-list  .addListContainer ul li {
+  width: 100%;
+  height: 50px;
+  // padding: 15px 0 15px 20px;
+  position: relative;
+  color:#7a7a7a;
+
+}
+.sidebar-container .analyze-list  .addListContainer ul li input{
+  float: left;
+  width: 100%;
+  height: 50px;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  outline-style: none;
+  cursor:pointer;
+
+
+}
+.sidebar-container .analyze-list  .addListContainer ul li i{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  text-align:center;
+  line-height: 20px;
+  color:transparent;
+  margin-right:35px;
+  margin-top:15px;
+  cursor:pointer;
+
+}
+
+.sidebar-container .analyze-list  .addListContainer ul li:hover input {
+  color:#fff;
+  background-color: #00bc66;
+  transition:all 1s;
+}
+.sidebar-container .analyze-list  .addListContainer ul li:hover i {
+  color:#fff;
+  
+}
+
 /* 警报框 */
 
 .alarm-box {

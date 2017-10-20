@@ -15,6 +15,24 @@
 </style>
 
 <body>
+     <!-- Modal 新建评估分析表 -->
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal" data-backdrop="static">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                   <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- header -->
         <div class="header col-xs-12">
@@ -23,231 +41,40 @@
         <!-- main -->
         <div class="main col-xs-12">
             <!-- sidebar -->
-            <div class="sidebar-container lsidebar-container">
-                <div class="sidebar-list lsidebar-list">
-                    <div class="tree">
-                        <div class="title">
-                            <h3>分区设备</h3>
-                            <div class="line"></div>
+            <div class="sidebar-container ssidebar-container ">
+                <div class="sidebar-list ssidebar-list">
+                    <div class="analyze-list">
+                        <div class="addList">
+                            <h5>统计列表</h5>
+                            <i class="fa fa-plus" data-toggle="modal" data-target="#myModal"></i>
                         </div>
-                        <div class="content" id="tree">
-                        </div>
-                    </div>
-                    <div class="tree-content">
-                        <div class="title">
-                            <h3>设备列表</h3>
-                        </div>
-                        <div class="content" id="deviceContent" style="overflow: auto;">
-                            <div class="bjdevice">
-                                <h4>边界设备列表</h4>
-                                <ul id="treeContentBar" class="treeContentBar">
-                                    <li><a href="#" class="active">流量计(6)</a></li>
-                                    <li><a href="#">阀门(10)</a></li>
-                                </ul>
-                                <div class="bottom">
-                                    <div class="treetabcontent" id="zs_tabMap">
-                                        <ul>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="treetabcontent" id="tabcontentc" style="display: none;">
-                                        <ul>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>阀门1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="nbdevice">
-                                <h4>内部设备列表</h4>
-                                <ul id="nbtreeContentBar" class="treeContentBar">
-                                    <li><a href="#" class="active">压力计(6)</a></li>
-                                    <li><a href="#">流量计(10)</a></li>
-                                </ul>
-                                <div class="bottom">
-                                    <div class="nbtreetabcontent" id="zs_tabMap">
-                                        <ul>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>压力计1</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="nbtreetabcontent" id="tabcontentc" style="display: none;">
-                                        <ul>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                        
-                                      </a></li>
-                                            <li><a href="#">
-                                        <span>流量计</span>
-                                        <i class="fa fa-file-text-o"></i>
-                                       
-                                      </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="addListContainer">
+                            <ul>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                                <li>
+                                    <input class="title" type="text" value="室内六区漏损率对比">
+                                    <i class="fa fa-edit edit"></i>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -256,8 +83,8 @@
                         <i class="fa fa-angle-right"></i>
                     </div>
                     <ul class="sidebarIcon">
-                        <li >
-                            <a href="#" class="now">
+                        <li>
+                            <a href="#">
                           <i class="fa fa-bar-chart"></i>
                           <div class="sidebar-name">
                             分区设备
@@ -265,7 +92,7 @@
                         </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" class="now">
                           <i class="fa fa-shield"></i>
                           <div class="sidebar-name">
                             评估分析
@@ -724,6 +551,7 @@
                 </div>
             </div>
         </div>
+       
     </div>
     <script src="../lib/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
     <script src="../lib/jquery.min.js"></script>
@@ -758,6 +586,7 @@
             $("#tree").css('height', (winH - 67) + 'px');
             $(".treetabcontent").css('height', (winH - 244) / 2 + 'px');
             $(".nbtreetabcontent").css('height', (winH - 200) / 2 + 'px');
+            $(".addListContainer").css('height', (winH - 50) + 'px');
 
 
         }
@@ -949,6 +778,10 @@
         })
 
 
+
+
+
+
     })
     </script>
     <script>
@@ -958,6 +791,7 @@
             setNiceScroll("#tree")
             setNiceScroll(".treetabcontent")
             setNiceScroll(".nbtreetabcontent")
+            setNiceScroll(".addListContainer ul")
 
         }
     );

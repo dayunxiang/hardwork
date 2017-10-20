@@ -17,3 +17,29 @@ a:focus, a:hover {
   padding-left:0;
   padding-right:0;
 }
+.glyphicon-triangle-right:before {
+  color: #00bc66;
+}
+.glyphicon-triangle-right:before:hover {
+  color: #fff;
+}
+.glyphicon-triangle-bottom:before {
+  color: #00bc66;
+}
+.glyphicon-triangle-bottom:before:hover {
+  color: #fff;
+}
+.modal {
+  z-index:10001;
+}
+@media (min-width: 992px)
+.modal-lg {
+    width: 100%;
+    padding: 50px;
+}
+
+@media (min-width: 768px)
+.modal-dialog {
+    width: 100%;
+    padding: 50px;
+}
