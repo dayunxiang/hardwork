@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>案例1</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加点" onclick="addPointList()" />
+			<input type="button" value="移除点" onclick="removeAllPoint()" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+
+		var pointList = getpointList();
+		
+		//初始化时添加点位
+		setTimeout(function(){
+			addPointList();
+		},100);
+		
+		//添加多点，自定义图片
+		function addPointList() {
+			var picUrl = "Images/location.png"; //自定义图片地址
+			var points=[];
+			for(var i = 0; i < pointList.length; i++) {
+				var sPoint = pointList[i];
+				points.push([sPoint.lng, sPoint.lat]);
+				rmap.addPoint(sPoint.lng, sPoint.lat, {
+					id: sPoint.id, //定义id，移除指定点位时使用，不能重复
+					pic: picUrl,
+					anchor:[12,24],//图标偏移，默认不传，偏移量为图标宽、高的一半（像素值），[x,y]:x大，往左偏移；y大，往上偏移
+					data:sPoint.data,
+					onClick: onPointClick
+				});
+			}
+			rmap.extentByData(points);//地图缩放居中到该组点
+		};
+		//点位鼠标点击回调方法
+		function onPointClick(e) {
+			var userDiv = document.createElement('div');
+			userDiv.style.cssText = "border:3px solid #ddd;border-radius:5px;background-color:#ddd; display:block;color:#333;padding:5px;";
+			
+			userDiv.innerHTML = "编码：" + e.data.code;
+			userDiv.innerHTML += "<br>经度：" + e.lng;
+			userDiv.innerHTML += "<br>纬度：" + e.lat;
+			userDiv.innerHTML += "<br><div style='text-align: right;'><a href='http://192.168.200.100:8020/RunMapAPI/develop/Examples/helloWorld.html'  target='_blank'>详细信息</a></div>";
+			
+			rmap.showPopWindow(e.lng, e.lat, userDiv, {
+				isHighLight:true,
+				autoPan:false//显示气泡时是否确保当前气泡在地图范围，默认为true
+			});
+		}
+		//移除所有点
+		function removeAllPoint() {
+			rmap.removePoint();
+			rmap.hidePopWindow();
+		};
+		//获取100个随机点位数据
+		function getpointList() {
+			var pointList = [];
+			for(var i = 0; i < 100; i++) {
+				var x = 116.380726 + (0.02 * Math.random());
+				var y = 39.906430 + (0.02 * Math.random());
+				pointList.push({
+					lng: x,
+					lat: y,
+					id: i,
+					data:{
+						code:"TESTPOINT_"+i
+					}
+				});
+			}
+			return pointList;
+		};
+	</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>绘制圆</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+
+		<div class="menuBar">
+			<input type="button" value="绘制圆" onclick="drawCircle()" /> 图形ID：
+			<input id="graphicID" type="text" style="width: 50px;" />
+			<input type="button" value="删除指定ID圆" onclick="deleteCircleByID()" />
+			<input type="button" value="移除所有" onclick="removeAll()" />
+		</div>
+	</body>
+	<div id="infoWindow"></div>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		var cId = 0;
+		
+		//画圆
+		function drawCircle() {
+			rmap.drawCircle(onDrawCircleComplate, {
+				id: cId++,
+				color: "rgba(100, 0, 0, 0.5)"
+			});
+		};
+		
+		//绘制画圆完成
+		function onDrawCircleComplate(e) {
+			console.log(e);
+			graphicID.value = e.id;
+		};
+		
+		//删除指定ID圆
+		function deleteCircleByID() {
+			rmap.removeDrawCircle(graphicID.value);
+		};
+		
+		//移除所有
+		function removeAll() {
+			rmap.removeDrawCircle();
+		};
+	</script>
+
+</html>

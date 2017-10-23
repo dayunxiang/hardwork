@@ -1,0 +1,50 @@
+body,h1,h2,h3,h4,h5,h6,ul,li {
+  margin: 0;
+  padding: 0;
+  transition: all 2s;
+
+}
+ul,li {
+  list-style: none;
+}
+a {
+  text-decoration:none
+}
+a:focus, a:hover {
+   text-decoration:none
+}
+input,button {
+  outline-style:none;
+  outline: none;
+  border:none;
+}
+.col-xs-12 {
+  padding-left:0;
+  padding-right:0;
+}
+.glyphicon-triangle-right:before {
+  color: #00bc66;
+}
+.glyphicon-triangle-right:before:hover {
+  color: #fff;
+}
+.glyphicon-triangle-bottom:before {
+  color: #00bc66;
+}
+.glyphicon-triangle-bottom:before:hover {
+  color: #fff;
+}
+.modal {
+  z-index:10001;
+}
+
+
+.modal-footer,
+.modal-header {
+  border: none;
+}
+.modal-dialog {
+  width: 343px;
+ margin:0 auto;
+ margin-top:200px;
+}

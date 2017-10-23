@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HelloWorld</title>
+		<meta charset="utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {
+				padding: 0;
+				margin: 0;
+			}
+			html,body,#map {
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map" class="map"></div>
+		</div>
+	</body>
+	<script>
+		var rmap;
+//		?name=GDYX_OL&type=baseLayer
+//		?name=china_dijishi&type=thematicLayer
+		var mapName = getQueryString("name");
+		var mapType = getQueryString("type");
+		var centerLng = getQueryString("centerLng");
+		var centerLat = getQueryString("centerLat");
+		var zoom = getQueryString("zoom");
+		// console.log(centerLng);
+		// console.log(centerLat);
+		// console.log(zoom);
+		if(mapType == "baseLayer"){
+			rmap = new RMap.Map('map',{
+				type:[mapName],
+				center:[centerLng, centerLat],
+				zoom:zoom
+			})
+		}else{
+			rmap = new RMap.Map('map');
+		}
+		if(mapType == "thematicLayer"){
+			rmap.addLayer(mapName,{
+				isCenter:true,//缩放到数据
+				where:"OBJECTID<100"//显示前100条数据
+			});
+		}
+		
+		function getQueryString(name) {
+		    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+		    var r = window.location.search.substr(1).match(reg);
+		    if (r != null) {
+		        return unescape(r[2]);
+		    }
+		    return null;
+		}
+	</script>
+</html>

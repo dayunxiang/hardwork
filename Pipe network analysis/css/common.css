@@ -1,45 +1,56 @@
-body,h1,h2,h3,h4,h5,h6,ul,li {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
   margin: 0;
   padding: 0;
   transition: all 2s;
-
 }
-ul,li {
+
+ul,
+li {
   list-style: none;
 }
+
 a {
-  text-decoration:none
+  text-decoration: none
 }
-a:focus, a:hover {
-   text-decoration:none
+
+a:focus,
+a:hover {
+  text-decoration: none
 }
+
 .col-xs-12 {
-  padding-left:0;
-  padding-right:0;
+  padding-left: 0;
+  padding-right: 0;
 }
+
 .glyphicon-triangle-right:before {
   color: #00bc66;
 }
+
 .glyphicon-triangle-right:before:hover {
   color: #fff;
 }
+
 .glyphicon-triangle-bottom:before {
   color: #00bc66;
 }
+
 .glyphicon-triangle-bottom:before:hover {
   color: #fff;
 }
+
 .modal {
-  z-index:10001;
-}
-@media (min-width: 992px)
-.modal-lg {
-    width: 100%;
-    padding: 50px;
+  z-index: 10001;
 }
 
-@media (min-width: 768px)
-.modal-dialog {
-    width: 100%;
-    padding: 50px;
+.modal-footer {
+  border-top: 1px solid transparent;
 }
