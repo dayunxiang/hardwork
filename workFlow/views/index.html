@@ -6,6 +6,7 @@
   <title>工作流</title>
   <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../lib/choosen/chosen.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
 </head>
@@ -918,30 +919,26 @@
           <div class="assignOption">
             <ul>
               <li>
-                <input class="showchoose" type="text" />
+                <div class="showchoose optionpz" type="text" onfocus="this.blur();"></div>
                 <div class="choose">
                   <ul>
                     <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 是
-                      </label>
+                      <i></i><b></b><span>是</span>
                     </li>
                     <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 否
-                      </label>
+                      <i></i><b></b><span>否</span>
                     </li>
                   </ul>
                 </div>
               </li>
               <li class="next">
-                <input type="button" value="下一步">
+                <input type="button" value="下一步" id="nexta">
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <!-- <div class="designate">
+      <div class="designate" style="display:none;">
         <div class="optionTitle">
           <ul>
             <li>
@@ -968,33 +965,26 @@
           <div class="assignOption">
             <ul>
               <li>
-                <div class="showchoose">
-                </div>
-                <div class="choose">
-                  <ul>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 是
-                      </label>
-                    </li>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 否
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+                <select class="chosen-select" multiple style="width:350px;" tabindex="4">
+                  <option value=""></option>
+                  <option>指派人1</option>
+                  <option>指派人2</option>
+                  <option>指派人3</option>
+                  <option>指派人4</option>
+                  <option>指派人5</option>
+                  <option>指派人6</option>
+                </select>
               </li>
               <li class="next">
-                <input type="button" value="上一步">
-                <input type="button" value="下一步">
+                <input type="button" value="上一步" id="preb">
+                <input type="button" value="下一步" id="nextb">
               </li>
             </ul>
           </div>
         </div>
-      </div> -->
-
-      <!-- <div class="designate">
+      </div>
+      
+      <div class="appointApproval" style="display:none;">
         <div class="optionTitle">
           <ul>
             <li>
@@ -1021,31 +1011,27 @@
           <div class="assignOption">
             <ul>
               <li>
-                <div class="showchoose">
-                </div>
+                <div class="showchoose " id="optionzpsp" type="text" onfocus="this.blur();"></div>
                 <div class="choose">
                   <ul>
                     <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 是
-                      </label>
+                      <i></i><b></b><span>是</span>
                     </li>
                     <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 否
-                      </label>
+                      <i></i><b></b><span>否</span>
                     </li>
                   </ul>
                 </div>
               </li>
               <li class="next">
-                <input type="button" value="上一步">
-                <input type="button" value="下一步">
+                <input type="button" value="上一步" id="prec">
+
+                <input type="button" value="下一步" id="nextc">
               </li>
             </ul>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
   <!-- 新建工作流 -->
@@ -1097,67 +1083,10 @@
   </div>
   <script src="../lib/jquery.min.js"></script>
   <script src="../lib/bootstrap/bootstrap.min.js"></script>
+  <script src="../lib/choosen/chosen.jquery.js"></script>
+  <script src="../js/index.js"></script>
   <script>
-    $(function () {
-        height()
-        ReName()
-        Copy()
-        $(window).on("resize", function () {
-          height()
-        })
-
-        //新建工作流
-        $("#modalSure").on('click', function () {
-          if ($("#flowName").val().length !== 0) {
-            var str = ''
-            str = '<li>' +
-              '<input type="text" value=' + $("#flowName").val() + '>' +
-              '<span class="fa fa-edit edit"></span>' +
-              '<span class="fa fa-copy copy"></span>' +
-              '</li>'
-            $(".sideBarContent").find("ul").append(str);
-          }
-          ReName()
-          Copy()
-
-        })
-
-
-        //侧边栏开关
-        $(".opened").on("click", function () {
-          $(".sideBar").toggleClass("openToggle")
-          $(this).toggleClass('ToggleOpend')
-        })
-
-
-      })
-      // 设置高度
-    function height() {
-      var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-      var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-      $(".container-fluid").css("height", h + "px")
-      $(".sideBarContent").css("height", (h - 63) + "px")
-      $(".option").css("height", h)
-      $(".optioncontent").css("height", (h - 83) + "px")
-      $(".assignOption").css("height", (h - 103) + "px")
-    }
-    //重命名
-    function ReName() {
-      $(".edit").on("click", function () {
-        var value = $(this).parent("li").find("input").val()
-        $(this).parent("li").find("input").focus().val(value)
-      })
-    }
-
-    //复制
-    function Copy() {
-      $(".copy").on("click", function () {
-        var sourceNode = $(this).parent("li")
-        console.log(sourceNode)
-        var clonedNode = sourceNode.clone(true);
-        $(".sideBarContent").find("ul").append(clonedNode);
-      })
-    }
+   
   </script>
   <script>
     var start = document.getElementById("开始判断")
@@ -1194,12 +1123,69 @@
     zxgppzs.style.display = 'none'
     zxztjpdxyjpdf.style.display = 'none'
     end.style.display = 'none'
-      // 
-      // var g = document.getElementsByTagName('g')
-      // for (var i = 0; i < g.length; i++) {
-      //   g[i].style.display = 'none'
-      // }
+    
     start.style.display = 'block'
+
+    //判断是否指派
+    $(".start .optionpz").on("DOMNodeInserted ", function () {
+      if ($(".start .optionpz").find("span").text() == '是') {
+        iszhipai.style.display = 'block';
+        kspdsfzp.style.display = 'none'
+        zppd.style.display = 'none'
+        zppds.style.display = 'none'
+        zppdszxgppz.style.display = 'none'
+        zppdszxgppzf.style.display = 'none'
+        zxzpz.style.display = 'none'
+        yqsppz.style.display = 'none'
+        zxztjpd.style.display = 'none'
+        zxztjpdxyjpds.style.display = 'none'
+        zxgppzhl.style.display = 'none'
+        zxgppzf.style.display = 'none'
+        zxgppzs.style.display = 'none'
+        zxztjpdxyjpdf.style.display = 'none'
+        end.style.display = 'none'
+      } else if ($(".start .optionpz").find("span").text() == '否') {
+        iszhipai.style.display = 'none';
+        kspdsfzp.style.display = 'block'
+        zppd.style.display = 'none'
+        zppds.style.display = 'none'
+        zppdszxgppz.style.display = 'none'
+        zppdszxgppzf.style.display = 'none'
+        zxzpz.style.display = 'none'
+        yqsppz.style.display = 'none'
+        zxztjpd.style.display = 'none'
+        zxztjpdxyjpds.style.display = 'none'
+        zxgppzhl.style.display = 'none'
+        zxgppzf.style.display = 'none'
+        zxgppzs.style.display = 'none'
+        zxztjpdxyjpdf.style.display = 'none'
+        end.style.display = 'none'
+
+        //点击下一步到 指派人
+        $("#nexta").on("click", function () {
+          $(".start").css("display", 'none')
+          $(".designate").css("display", 'block')
+        })
+
+      } else if ($(".start .optionpz").text() == " ") {
+        kspdsfzp.style.display = 'none';
+        iszhipai.style.display = 'none';
+      }
+    })
+
+
+
+    //指派 上一步
+    $("#preb").on("click", function () {
+        $(".start").css("display", 'block')
+        $(".designate").css("display", 'none')
+      })
+      //指派 下一步
+    $("#nextb").on("click", function () {
+      zppd.style.display = 'block';
+      $(".designate").css("display", 'none')
+      $(".appointApproval").css("display", 'block')
+    })
   </script>
 </body>
 
