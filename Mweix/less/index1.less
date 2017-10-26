@@ -1,0 +1,222 @@
+@charset "utf-8";
+@import "var";
+@import "mixin";
+@import "normalize";
+@import "adpater";
+
+/*样式处理*/
+
+body {
+  font-size: 14px;
+}
+
+*,
+::before,
+::after,
+input[type="search"] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,li {
+  list-style: none;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #999;
+  text-align: right;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999;
+  opacity: 1;
+  text-align: right;
+  letter-spacing: -0.41px;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999;
+  opacity: 1;
+  text-align: right;
+  letter-spacing: -0.41px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+  text-align: right;
+  letter-spacing: -0.41px;
+}
+
+.clearfix::after,
+.clearfix::before,
+{
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+/*register*/
+img {
+  width: 100%;
+  display: block;
+  margin: 1em auto 1em auto;
+}
+.zs_layout {
+  max-width: 750px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 30/100rem;
+  padding: 0.4rem 0.3rem 0.4rem 0.4rem;
+  background-color: #fff;
+  .title {
+    h2 {
+      font-size: 0.38rem;
+      color: #333333;
+      letter-spacing: 0;
+      margin-bottom: 0.4rem;
+    }
+    .time {
+      ont-size: 0.26rem;
+      color: #999999;
+      letter-spacing: 0;
+      margin-right: 0.4rem;
+    }
+    .company {
+      font-size: 0.3rem;
+      color: #1082ff;
+      letter-spacing: 0;
+    }
+  }
+  .content {
+    .Parent_title {
+      font-size: 0.38rem;
+      color: #333333;
+      margin-top: 0.4rem;
+      font-weight: normal;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        margin: 0;
+        margin-bottom: 0.4rem;
+        .subTitle {
+          margin-top: 0.4rem;
+          font-size: 0.35rem;
+          color: #333;
+          letter-spacing: 0;
+          line-height: 0.5rem;
+          font-weight: normal;
+          margin-bottom: 0.4rem;
+          span {
+            font-size: 0.35rem;
+            color: #80017c;
+            letter-spacing: 0;
+          }
+        }
+        .summary {
+          font-size: 0.32rem;
+          color: #333333;
+          letter-spacing: 0;
+          line-height: 0.5rem;
+          margin-bottom: 0.4rem;
+        }
+        .service {
+          .twoTitle {
+            font-weight: 700;
+            font-size: 0.34rem;
+            color: #333333;
+            letter-spacing: 0;
+            margin-bottom: 0.4rem;
+          }
+        }
+        .cases {
+          .twoTitle {
+            font-weight: 700;
+            font-size: 0.34rem;
+            color: #333333;
+            letter-spacing: 0;
+            margin-bottom: 0.4rem;
+          }
+          ul {
+            li {
+              .caseTitle {
+                font-size: 0.32rem;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 0.5rem;
+                margin-bottom: 0.4rem;
+              }
+              .summary {
+                font-size: 0.32rem;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 0.5rem;
+                margin-bottom: 0.4rem;
+              }
+            }
+          }
+        }
+        .superiority {
+          display: block;
+          width: 100%;
+          h5 {
+            font-weight: 700;
+            font-size: 0.34rem;
+            color: #333333;
+            letter-spacing: 0;
+            margin-bottom: 0.4rem;
+            margin-top: 0.4rem;
+            display: block;
+          }
+          ul {
+            width: 100%;
+            display: block;
+            li {
+              width: 100%;
+              margin-bottom: 0.2rem;
+              p {
+                text-align: left;
+                font-size: 0.32rem;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

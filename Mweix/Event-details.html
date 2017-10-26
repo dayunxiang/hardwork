@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.css" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/swiper.min.css">
+</head>
+
+<body>
+    <div class="zs_layout masker">
+        <!-- <div class="zs_topbar">
+            <ul>
+                <li><a href="./query.html" class="return" style="float: left;">
+                <span><</span>返回</a></li>
+                <li class="title" style="text-align: center">水务查询系统</li>
+            </ul>
+        </div> -->
+        <div class="zs_maptab">
+            <div class="tabcontent" id="tabcontenta">
+                <div style="width: 100%;height:100%;" id="map" class='map'></div>
+            </div>
+            <div class="tabcontent" id="tabcontentb" style="display: none;">
+               <!--  <ul class="prepic">
+                    <li><img src="" alt=""></li>
+                </ul> -->
+                <div class="swiper-container" style="width: 100%;height:100%;">
+                    <div class="swiper-wrapper" id="swiperBox">
+                        <!-- <img class="swiper-slide" src="">
+                        <img class="swiper-slide" src="">
+                        <img class="swiper-slide" src="">
+                        <img class="swiper-slide" src="">
+                        <img class="swiper-slide" src=""> -->
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination" style="color: #fff;font-size: 0.26rem;text-align: right;padding-right: 0.2rem;"></div>
+                    
+                </div>
+            </div>
+        </div>
+        <ul id="tabchange" class="tabchange">
+            <li><a href="#" class="now">地图</a></li>
+            <li><a href="#">图片</a></li>
+        </ul>
+        <div class="zs_eventinfo">
+            <ul class="clearfix" id="evInfo">
+            </ul>
+        </div>
+    </div>
+    <script src="lib/zepto.min.js"></script>
+    <script src="lib/swiper.jquery.min.js"></script>
+    <script src="http://47.95.1.140:8585/mapapi/rmap.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/Event-details.js"></script>
+    <script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: false,
+    
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    paginationType:'fraction',
+    observer:true,//修改swiper自己或子元素时，自动初始化swiper
+    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+    // 如果需要前进后退按钮
+    // nextButton: '.swiper-button-next',
+    // prevButton: '.swiper-button-prev',
+    
+    // 如果需要滚动条
+    // scrollbar: '.swiper-scrollbar',
+  })        
+  </script>
+</body>
+
+</html>

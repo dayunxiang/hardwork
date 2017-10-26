@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.css" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="zs_layout masker">
+        <form class="register" id="cform">
+            <ul id="login">
+                <li >
+                    <label style="position: relative;">姓名 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em; display: none; ">请输入姓名</i>
+                        <input type="text" id="RealName" placeholder="请输入真实姓名" value="" name="RealName" minlength="2" required>
+                        <!-- <i style="float: left;color: red;">请输入姓名</i> -->
+                    </label>
+                </li>
+                <li id="box" style="position: relative;">
+                    <label style="position: relative;">公司全称 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 5em;  display: none;">请输入公司名称</i>
+                        <input type="text" id="CompanyName" placeholder="例如:清控人居环境研究院" style="width: 78%" value="" name="CompanyName" required>
+                    </label>
+                    <div id='searchBox'>
+                    </div>
+                </li>
+                <li>
+                    <label style="position: relative;">部门 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入所在部门</i>
+                        <input type="text" id="Department" placeholder="请输入所在部门" value="" name="Department" required>
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">职务 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入职务</i>
+                        <input type="text" id="position" placeholder="请输入职务" value="" name="position" required>
+                    </label>
+                </li>
+                <li id="role">
+                    <label style="position: relative;">角色 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请选择角色</i>
+                        <input type="text" id="Role" placeholder="请选择你在水务巡检系统中的角色>" value="" name="Role" required readonly="readonly" style="ime-mode:disabled" onfocus="this.blur();">
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">邮箱 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入正确的邮箱</i>
+                        <input type="email" id="Email" placeholder="请输入常用邮箱" value="" name="Email" required>
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">电话 <span>*</span><i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入正确的手机号</i>
+                        <input type="number" id="Phone" placeholder="请输入手机号" value="" name="Phone"  required>
+                    </label>
+                </li>
+                <li class="submit">
+                    <input type="button" id="sub" value="提交">
+                </li>
+            </ul>
+            <!-- </form> -->
+        </form>
+        <div class="popmasker"></div>
+        <div class="layermaker">
+            <ul>
+                <!-- <li>
+                    <a href="javascript:void(0)" id="cancle" style="float: left;">取消</a>
+                    <a href="javascript:void(0)" id="sure" style="float: right;">完成</a>
+                </li> -->
+                <li class="select">公司管理员</li>
+                <li class="select">巡检员</li>
+            </ul>
+        </div>
+    </div>
+    <script src="lib/zepto.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/register.js"></script>
+   
+</body>
+
+</html>

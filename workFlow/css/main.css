@@ -2,7 +2,8 @@
   padding-left: 0;
   padding-right: 0;
   height: 100%;
-  transition :all 1s;
+  transition: all 1s;
+  position: relative;
 }
 
 
@@ -16,6 +17,8 @@
   padding: 0 10px;
   font-size: 15px;
   color: #333333;
+  position: relative;
+  transition: all 1s;
 }
 
 .container-fluid .sideBar .sideBarTitle {
@@ -65,62 +68,252 @@
   height: 36px;
   margin-bottom: 5px;
   border-left: 4px solid #3d8bfb;
-  padding:8px 5px 0 5px;
-  cursor:pointer;
-
+  padding: 8px 5px 0 5px;
+  cursor: pointer;
 }
+
 .container-fluid .sideBar .sideBarContent ul li input {
   height: 20px;
   width: 150px;
-  border:none;
+  border: none;
   outline: none;
   outline-style: none;
   float: left;
-  cursor:pointer;
-
+  cursor: pointer;
+  font-size: 12px;
 }
+
 .container-fluid .sideBar .sideBarContent ul li span {
   float: right;
   width: 20px;
   height: 20px;
   line-height: 20px;
   text-align: center;
-  margin-right:5px;
-  cursor:pointer;
-  color:transparent;
+  margin-right: 5px;
+  cursor: pointer;
+  color: transparent;
 }
+
 .container-fluid .sideBar .sideBarContent ul li:hover {
-   border-left: 4px solid #7482D6;
+  border-left: 4px solid #7482D6;
 }
+
 .container-fluid .sideBar .sideBarContent ul li:hover span {
-    color:#7482D6;
+  color: #7482D6;
 }
+
+.container-fluid .sideBar .opened {
+  position: absolute;
+  right: -25px;
+  top: 15px;
+  font-size: 20px;
+  color: #59585f;
+  transition: all 1s;
+  cursor:pointer;
+}
+
+.openToggle {
+  transform: translateX(-269px);
+}
+
+.ToggleOpend {
+  transform: rotate(-90deg);
+}
+
+
 /* showContainer */
 
 .container-fluid .showContainer {
-  margin-left: 269px;
+  // margin-left: 269px;
   height: 100%;
-  background: #fff;
+  background: #fff url(../images/grid.png) repeat  left top;
+  // background-size: cover;
 }
 
-.newModal .modal-body input{
-  outline-style:none;
+.newModal .modal-body input {
+  outline-style: none;
   outline: none;
-  border:none;
+  border: none;
   width: 100%;
   height: 30px;
-  border:1px solid #77b8f9;
-  border-radius: 15px ;
-  margin-top:10px;
-  padding:0 20px;
-}
-.newModal .modalCancle,
-.newModal .modalSure{
-background:#3d8bfb;
-box-shadow:0 6px 8px 0 rgba(61,139,251,0.50);
-border-radius:100px;
-width:101px;
-height:38px;
-color:#FFF;
+  border: 1px solid #77b8f9;
+  border-radius: 15px;
+  margin-top: 10px;
+  padding: 0 20px;
 }
 
+.newModal .modalCancle,
+.newModal .modalSure {
+  background: #3d8bfb;
+  box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
+  border-radius: 100px;
+  width: 101px;
+  height: 38px;
+  color: #FFF;
+}
+
+
+/* option 配置项 */
+
+.option {
+  background: #f9fafb;
+  width: 376px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 15px;
+}
+
+.option .start .optionTitle,
+.option .designate .optionTitle {
+  height: 63px;
+  width: 100%;
+  line-height: 63px;
+  font-size: 15px;
+}
+
+.option .start .optionTitle ul,
+.option .designate .optionTitle ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optionTitle ul li,
+.option .designate .optionTitle ul li {
+  float: left;
+}
+
+.option .start .optionTitle ul li:last-child,
+.option .designate .optionTitle ul li:last-child {
+  float: right;
+}
+
+.option .start .optionTitle ul li span,
+.option .designate .optionTitle ul li span {
+  margin-left: 10px;
+}
+
+.option .start .optioncontent,
+.option .designate .optioncontent {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.option .start .optioncontent .isAssign,
+.option .designate .optioncontent .isAssign {
+  width: 100%;
+  height: 20px;
+}
+
+.option .start .optioncontent .isAssign ul,
+.option .designate .optioncontent .isAssign ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optioncontent .isAssign ul li,
+.option .designate .optioncontent .isAssign ul li {
+  float: left;
+  width: 93%;
+  height: 100%;
+}
+
+.option .start .optioncontent .isAssign ul li:last-child,
+.option .designate .optioncontent .isAssign ul li:last-child {
+  float: right;
+  text-align: right;
+  width: 7%;
+}
+
+.option .start .optioncontent .isAssign ul li span,
+.option .designate .optioncontent .isAssign ul li span {
+  float: left;
+}
+
+.option .start .optioncontent .isAssign ul li span:last-child,
+.option .designate .optioncontent .isAssign ul li span:last-child {
+  color: #EB645D;
+}
+
+.option .start .optioncontent .isAssign ul li i,
+.option .designate .optioncontent .isAssign ul li i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #7482D6;
+  border-radius: 50%;
+  font-style: normal;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.option .start .optioncontent .assignOption,
+.option .designate .optioncontent .assignOption {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.option .start .optioncontent .assignOption ul,
+.option .designate .optioncontent .assignOption ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optioncontent .assignOption ul li,
+.option .designate .optioncontent .assignOption ul li {
+  width: 100%;
+  position: relative;
+}
+
+.option .start .optioncontent .assignOption ul li .showchoose,
+.option .designate .optioncontent .assignOption ul li .showchoose {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 18px;
+  border: 1px solid #77b8f9;
+  padding: 0 20px;
+}
+
+.option .start .optioncontent .assignOption ul li .choose,
+.option .designate .optioncontent .assignOption ul li .choose {
+  position: absolute;
+  top: 38px;
+  left: 20px;
+  width: 310px;
+  border: 1px solid #77b8f9;
+  border-radius: 2px;
+  height: 90px;
+  padding: 10px;
+  z-index:1;
+  background-color: #fff;
+  display: none;
+}
+
+.option .start .optioncontent .assignOption ul li .choose .radio,
+.option .designate .optioncontent .assignOption ul li .choose .radio {
+  margin-bottom: 20px;
+}
+
+.option .start .optioncontent .assignOption ul .next input,
+.option .designate .optioncontent .assignOption ul .next input {
+  background: #3d8bfb;
+  box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
+  border-radius: 100px;
+  width: 100%;
+  height: 36px;
+  margin-top:10px;
+  color:#fff;
+}
+.option .designate .optioncontent .assignOption ul .next input {
+  float: left;
+  width: 45%;
+}
+.option .designate .optioncontent .assignOption ul .next input:last-child {
+  float: right;
+}

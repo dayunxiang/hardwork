@@ -56,8 +56,7 @@
     </div>
     <!-- showContainer -->
     <div class="showContainer">
-      <!-- <embed src="./流程图.svg" type="image/svg+xml" style="margin-top: 50px; margin-left: 150px;" /> -->
-      <svg width="638px" height="714px" viewBox="0 0 638 714" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: 50px;margin-left: 100px;">
+      <svg width="638px" height="714px" viewBox="0 0 638 714" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: 50px;margin-left: 150px;">
         <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
         <title>流程图</title>
         <desc>Created with Sketch.</desc>
@@ -918,7 +917,8 @@
           <div class="assignOption">
             <ul>
               <li>
-                <input class="showchoose" type="text" />
+                <div class="showchoose">
+                </div>
                 <div class="choose">
                   <ul>
                     <li class="radio">
@@ -941,111 +941,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="designate">
-        <div class="optionTitle">
-          <ul>
-            <li>
-              <i class="fa fa-bookmark-o"></i>
-              <span>指派</span>
-            </li>
-            <li>
-              <i class="fa fa-close" data-toggle="modal" data-target=".exitEdit"></i>
-            </li>
-          </ul>
-        </div>
-        <div class="optioncontent">
-          <div class="isAssign">
-            <ul>
-              <li>
-                <span>指派人</span>
-                <span>*</span>
-              </li>
-              <li>
-                <i>?</i>
-              </li>
-            </ul>
-          </div>
-          <div class="assignOption">
-            <ul>
-              <li>
-                <div class="showchoose">
-                </div>
-                <div class="choose">
-                  <ul>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 是
-                      </label>
-                    </li>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 否
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="next">
-                <input type="button" value="上一步">
-                <input type="button" value="下一步">
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="designate">
-        <div class="optionTitle">
-          <ul>
-            <li>
-              <i class="fa fa-bookmark-o"></i>
-              <span>指派审批</span>
-            </li>
-            <li>
-              <i class="fa fa-close" data-toggle="modal" data-target=".exitEdit"></i>
-            </li>
-          </ul>
-        </div>
-        <div class="optioncontent">
-          <div class="isAssign">
-            <ul>
-              <li>
-                <span>是否指派审批</span>
-                <span>*</span>
-              </li>
-              <li>
-                <i>?</i>
-              </li>
-            </ul>
-          </div>
-          <div class="assignOption">
-            <ul>
-              <li>
-                <div class="showchoose">
-                </div>
-                <div class="choose">
-                  <ul>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 是
-                      </label>
-                    </li>
-                    <li class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 否
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="next">
-                <input type="button" value="上一步">
-                <input type="button" value="下一步">
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
   <!-- 新建工作流 -->
@@ -1138,8 +1033,8 @@
       $(".container-fluid").css("height", h + "px")
       $(".sideBarContent").css("height", (h - 63) + "px")
       $(".option").css("height", h)
-      $(".optioncontent").css("height", (h - 83) + "px")
-      $(".assignOption").css("height", (h - 103) + "px")
+      $(".optioncontent").css("height", (h - 63) + "px")
+      $(".assignOption").css("height", (h - 83) + "px")
     }
     //重命名
     function ReName() {

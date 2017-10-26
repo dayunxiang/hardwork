@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.css" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="zs_layout masker">
+        <form class="register" id="cform">
+            <ul id="login">
+                <li>
+                    <label style="position: relative;">姓名 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em; display: none; ">请输入姓名</i>
+                        <input type="text" id="RealName" placeholder="请输入真实姓名" value="" name="RealName" minlength="2" required>
+                        <!-- <i style="float: left;color: red;">请输入姓名</i> -->
+                    </label>
+                </li>
+                <li id="box" style="position: relative;">
+                    <label style="position: relative;">公司全称 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 5em;  display: none;">请输入公司名称</i>
+                        <input type="text" id="CompanyName" placeholder="例如:清控人居环境研究院" style="width: 78%" value="" name="CompanyName" required>
+                    </label>
+                    <div id='searchBox'>
+                    </div>
+                </li>
+                <li>
+                    <label style="position: relative;">部门 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入所在部门</i>
+                        <input type="text" id="Department" placeholder="请输入所在部门" value="" name="Department" required>
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">职务 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入职务</i>
+                        <input type="text" id="position" placeholder="请输入职务" value="" name="position" required>
+                    </label>
+                </li>
+                <li id="role">
+                    <label style="position: relative;">角色 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请选择角色</i>
+                        <input type="text" id="Role" placeholder="请选择你在水务巡检系统中的角色>" value="" name="Role" required readonly="readonly" style="ime-mode:disabled" onfocus="this.blur();" >
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">邮箱 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入正确的邮箱</i>
+                        <input type="email" id="Email" placeholder="请输入常用邮箱" value="" name="Email" required>
+                    </label>
+                </li>
+                <li>
+                    <label style="position: relative;">电话 <i style="position: absolute;top: 0;left: 0; color: red; text-indent: 3em;  display: none;">请输入正确的手机号</i>
+                        <input type="number" id="Phone" placeholder="请输入手机号" value="" name="Phone"  required>
+                    </label>
+                </li>
+                <li class="submit">
+                    <input type="button" id="sub" value="保存修改">
+                </li>
+            </ul>
+            </form>
+        </form>
+        <div class="zs_bottombar">
+            <ul>
+                <li class="up" url='index'><a href="./report.html"><img src="images/ico-up-normal.png" alt=""><div>上报</div></a></li>
+                <li class="search" url='query'><a href="./query.html"><img src="images/ico-search-normal.png" alt=""><div>查询</div></a></li>
+                <li class="pie" url='count'><a href="./count.html"><img src="images/ico-pie-normal.png" alt=""><div>统计</div></a></li>
+            
+                 <li class="pie" url='count'><a href="./personal.html"  style="color: #1082ff;"><i class="fa fa-user"></i><div>我</div></a></li>
+            </ul>
+        </div>
+        <div class="popmasker"></div>
+        <div class="layermaker">
+            <ul>
+              
+                <li class="select">公司管理员</li>
+                <li class="select">巡检员</li>
+            </ul>
+        </div>
+    </div>
+    <script src="lib/zepto.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+    $(function() {
+        console.log(localStorage.getItem("userInfo"))
+        var userInfo = JSON.parse(localStorage.getItem("userInfo"))
+        $("#RealName").val(userInfo.RealName)
+        $("#CompanyName").val(userInfo.CompanyName)
+        $("#Department").val(userInfo.Department)
+        $("#position").val(userInfo.Position)
+       
+        $("#Email").val(userInfo.Email)
+        $("#Phone").val(userInfo.Phone)
+        if(userInfo.Role == '1'){
+             $("#Role").val('公司管理员')
+        }else if(userInfo.Role == '2') {
+             $("#Role").val('巡检员')
+
+        }
+
+        $("#sub").on('click',function () {
+             $.ajax({
+                    type: 'post',
+                    url: "http://47.95.1.140/wx/wechat/api/Account/UpdateUserRegister?id_usserid=" + GetParams().ID_USERID + "&realName=" + GetParams().RealName + "&companyName=" + GetParams().CompanyName + "&department=" + GetParams().Department + "&position=" + GetParams().position + "&role=" + GetParams().Role + "&email=" + GetParams().Email + "&phoneNum=" + GetParams().Phone,
+                    dataType: 'json',
+                    headers: {
+                        "Authorization": localStorage.getItem('tk')
+                    },
+                    success: function(data) {
+                        localStorage.removeItem('userInfo');
+                        localStorage.removeItem('IsRegister');
+                        localStorage.removeItem('Role');
+                        data = JSON.parse(data)[0]
+                        localStorage.setItem("IsRegister", data.IsRegister)
+                        localStorage.setItem("Role", data.Role)
+                        localStorage.setItem("userInfo", JSON.stringify(data))
+                        window.location.reload()
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+                })
+        })
+          // 获取表单内容
+    function GetParams() {
+        var params = JSON.parse(localStorage.getItem("userInfo"));
+        var theParams = new Object();
+
+        $(".register").find("input").each(function(index, item) {
+
+            theParams[$(item).attr("name")] = $(item).val()
+            delete theParams[undefined]
+        })
+        if (theParams.Role === "公司管理员") {
+            theParams.Role = '1'
+        } else if (theParams.Role === "巡检员") {
+            theParams.Role = '2'
+        } 
+        theParams.IsRegister = 1
+
+        params.Subscribe_time = new Date().format("yyyy-MM-dd hh:mm:ss");
+        var param = $.extend({}, params, theParams);
+        return param
+    }
+
+     //过滤匹配公司名称
+    $.ajax({
+        type: 'get',
+        url: 'http://47.95.1.140/wx/wechat/api/Account/GetCompanyList',
+        headers: {
+            "Authorization": localStorage.getItem('tk')
+        },
+        success: function(data) {
+            var companyList = JSON.parse(data);
+            $('#CompanyName').on('input propertychange', function() {
+
+                //判断文本框中的内容在companyList中是否存在 如果存在的话放在一个临时数组中
+                var temp = [];
+                $.each(companyList, function(index, value) {
+                    if (value.indexOf($("#CompanyName").val()) == 0) {
+                        temp.push(value);
+                        console.log(temp)
+                    }
+                })
+                //如果文本框为空或者临时数组中美与内容 则童谣也要删除div
+                if (($("#CompanyName").val()).length == 0 || temp.length == 0) {
+                    if ($("#searchBox")) {
+                        // $("#box").remove($("#searchBox"));
+                        $("#searchBox").css('display', 'none')
+
+                    }
+                    return;
+                }
+
+
+                //临时数组中与内容 创建元素
+
+                $("#searchBox").css('display', 'block')
+                //循环比那里临时数组
+                $.each(temp, function(index, item) {
+                    var pObj = $('<p></p>')
+                    pObj.text(item)
+                    pObj.appendTo($("#searchBox"))
+
+                    pObj.on('click', function() {
+                        $("#CompanyName").val($(this).text());
+                        $("#searchBox").css('display', 'none')
+
+                    })
+
+                })
+
+
+            })
+        }
+
+    })
+    })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="lib/dropload.css"> -->
+</head>
+
+<body>
+    <div class="zs_layout masker">
+        <!--  <div class="zs_topbar">
+            <ul>
+                
+                <li class="title" style="margin: 0 auto;">水务查询系统</li>
+            </ul>
+        </div> -->
+        <div class="zs_querytab">
+            <ul>
+                <li id="queryTime">选择时间<span></span></li>
+                <li id="queryEvent">选择事件类型<span></span></li>
+            </ul>
+        </div>
+        <div class="zs_querylist">
+            <ul id="queryLists">
+            </ul>
+        </div>
+        <div class="zs_bottombar">
+            <ul>
+                <li class="up" url='index'><a href="./report.html"><img src="images/ico-up-normal.png" alt=""><div>上报</div></a></li>
+                <li class="search" url='query'><a href="./query.html" style="color: #1082ff;"><img src="images/ico-search-hover.png" alt=""><div>查询</div></a></li>
+                <li class="pie" url='count'><a href="./count.html"><img src="images/ico-pie-normal.png" alt=""><div>统计</div></a></li>
+                 <li class="pie" url='count'><a href="./personal.html"  ><i class="fa fa-user"></i><div>我</div></a></li>
+            </ul>
+        </div>
+        <div class="popmasker"></div>
+        <div class="layermaker">
+            <ul>
+                <li class="select">全部</li>
+                <li class="select">堵塞漫溢</li>
+                <li class="select">井盖丢失破损</li>
+                <li class="select">违规事件</li>
+                <li class="select">水质异常</li>
+                <li class="select">其他</li>
+            </ul>
+        </div>
+        <div class="timemaker">
+            <ul>
+                <li class="select">全部</li>
+                <li class="select">最近一周</li>
+                <li class="select">最近一月</li>
+                <li class="select">最近三个月</li>
+                <li class="select">最近半年</li>
+            </ul>
+        </div>
+    </div>
+    <script src="lib/jquery.js"></script>
+    <!-- <script src="lib/zepto.min.js"></script> -->
+    <script src="lib/jquery.lazyload.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/query.js"></script>
+</body>
+
+</html>

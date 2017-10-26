@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="zs_layout masker">
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="tinfo">
+            上报成功
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="queinfo">
+            请选择问题类型
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="quePic">
+            请上传现场照片
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="queDes">
+            请描述现场情况
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="queDess">
+            描述不能小于10个字
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="queDesl">
+            请描不能大于200个字
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="queLocation">
+            请选择地理位置
+        </div>
+        <div style="width: 50%;height: 1rem; line-height: 1rem;text-align: center; background-color: #333; color: #fff;border-radius: 4px; position: fixed; top: 50%; left: 25%; display: none; z-index: 1000" id="quechuan">
+            图片上传中,请稍等
+        </div>
+        <!-- <div class="zs_topbar">
+            <ul>
+                <li class="title" style="text-align: center;">水务查询系统</li>
+                <li style="text-align: right;"><a href="javascript:void(0)" class="Submit" style="display: inline;">提交</a></li>
+            </ul>
+        </div> -->
+        <div class="zs_map" id="map"></div>
+        <div class="zs_reportlist clearfix">
+            <div action="" class="clearfix zs_report">
+                <ul class="clearfix">
+                    <input type="hidden" name="X" id="X">
+                    <input type="hidden" name="Y" id="Y">
+                    <input type="hidden" name="Year">
+                    <input type="hidden" name="Name">
+                    <input type="hidden" name="Date">
+                    <input type="hidden" name="UserId">
+                    <li class="clearfix">
+                        <label>当前位置
+                            <input type="text" placeholder="请输入您的具体地址" name="Location" id="Location">
+                        </label>
+                    </li class="clearfix">
+                    <li id="question">
+                        <label>问题类型 <span>*</span>
+                            <input id="queinput" type="text" placeholder="请选择问题类型>" readonly name="Type" style="ime-mode:disabled" onfocus="this.blur();">
+                        </label>
+                    </li>
+                    <li class="clearfix">
+                        问题描述 <span style="color:#ff7989">*</span>
+                        <textarea id="des" class="clearfix" name="Description" onfocus="if(value=='详细述现场情况,最少输入10字,最多输入200字'){value=''}" onblur="if (value ==''){value='详细述现场情况,最少输入10字,最多输入200字'}">详细述现场情况,最少输入10字,最多输入200字</textarea>
+                    </li>
+                    <li class="clearfix">
+                        <label class="clearfix">上传现场照片 <span>*</span>
+                            <i class="clearfix">最少上传一张,最多上传9张</i>
+                            <ul class="clearfix picList">
+                                <li class="clearfix images">
+                                    <img src="" alt="" id="img">
+                                </li>
+                            </ul>
+                        </label>
+                    </li>
+                </ul>
+                <input type="button" value="提交" class="Submit">
+            </div>
+        </div>
+        <div class="zs_bottombar">
+            <ul>
+                <li class="up" url='index'>
+                    <a href="./report.html" style="color: #1082ff;"><img src="images/ico-up-hover.png" alt="">
+            <div>上报</div>
+          </a>
+                </li>
+                <li class="search" url='query'>
+                    <a href="./query.html"><img src="images/ico-search-normal.png" alt="">
+            <div>查询</div>
+          </a>
+                </li>
+                <li class="pie" url='count'>
+                    <a href="./count.html"><img src="images/ico-pie-normal.png" alt="">
+            <div>统计</div>
+          </a>
+                </li>
+                <li class="pie" url='count'><a href="./personal.html" ><i class="fa fa-user"></i><div>我</div></a></li>
+            </ul>
+        </div>
+        <div class="popmasker"></div>
+        <div class="layermaker">
+            <ul>
+                <li class="select">堵塞漫溢</li>
+                <li class="select">井盖丢失破损</li>
+                <li class="select">违规事件</li>
+                <li class="select">水质异常</li>
+                <li class="select">其他</li>
+            </ul>
+        </div>
+    </div>
+    <script src="lib/zepto.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="http://47.95.1.140:8585/mapapi/rmap.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/report.js"></script>
+</body>
+
+</html>

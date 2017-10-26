@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>微信</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+    <script src="lib/less.min.js"></script>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="zs_layout masker">
+      
+        <ul id="countTabChange" class="counttabbar" style="margin-bottom: 0;">
+            <li><a href="#" class="active">地图</a></li>
+            <li><a href="#">图表</a></li>
+        </ul>
+        <ul id="filterinfo">
+            <li id="mapqueryYear">2017 <span></span></li>
+            <li id="mapqueryEvent">全部<span></span></li>
+        </ul>
+        <div class="zs_tabcont">
+            <div class="tabcontent" id="zs_tabMap">
+                <div id="map" class="map" style="width: 100%;height:100%;"></div>
+            </div>
+            <div class="tabcontent" id="tabcontenta" style="display: none;">
+                <div id="main" style="padding-top:1.2rem;  height: 100%; width: 100%;"></div>
+            </div>
+        </div>
+        <div class="zs_querylist zs_countlist">
+            <h3 id="countNum"></h3>
+            <ul id="ListsInfo">
+            </ul>
+        </div>
+        <div class="zs_bottombar">
+            <ul>
+                <li class="up" url='index'><a href="./report.html"><img src="images/ico-up-normal.png" alt=""><div>上报</div></a></li>
+                <li class="search" url='query'><a href="./query.html"><img src="images/ico-search-normal.png" alt=""><div>查询</div></a></li>
+                <li class="pie" url='count'><a href="./count.html" style="color: #1082ff;"><img src="images/ico-pie-hover.png" alt=""><div>统计</div></a></li>
+                <li class="pie" url='count'><a href="./personal.html" ><i class="fa fa-user"></i><div>我</div></a></li>
+            </ul>
+        </div>
+        <div class="popmasker"></div>
+        <div class="layermaker">
+            <ul>
+                <li class="select">全部</li>
+                <li class="select">堵塞漫溢</li>
+                <li class="select">井盖丢失破损</li>
+                <li class="select">违规事件</li>
+                <li class="select">水质异常</li>
+                <li class="select">其他</li>
+            </ul>
+        </div>
+        <div class="timemaker">
+            <ul>
+               
+                <li class="select">2017</li>
+                <li class="select">2016</li>
+                <li class="select">2015</li>
+                <li class="select">2014</li>
+                <li class="select">2013</li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://47.95.1.140:8585/mapapi/rmap.js"></script>
+   <!-- <script src="lib/jquery.js"></script> -->
+    <script src="lib/jquery.lazyload.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="./lib/echarts.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/count.js"></script>
+    <script>
+   
+    </script>
+</body>
+
+</html>
