@@ -3,8 +3,11 @@
       sideBarOpen()
       ReName()
       Copy()
-      radiooption("#optionzpsp")
-      radiooption(".optionpz")
+      radiooption(".optionpz",".radio")
+      radiooption("#optionzpsp",".radio1")
+      radiooption("#optionzxztjsfsp",".radio2")
+      radiooption("#optiongdsfys",".radio3")
+
       newWorkFlow()
       $(window).on("resize", function () {
         height()
@@ -71,13 +74,13 @@
     }
 
     //是否选项
-  function radiooption(option) {
+  function radiooption(option,subop) {
       $(option).on("click", function () {
         $(".choose").css("display", "block")
       })
-      $(".radio").on("click", function () {
+      $(subop).on("click", function () {
         $(this).find("b").css("display", 'block');
-        $(this).siblings(".radio").find("b").css("display", "none");
+        $(this).siblings(subop).find("b").css("display", "none");
         $(".choose").css("display", "none")
         var text = "<span>" + $(this).find('span').text() + "</span>" + "<i class='fa fa-close faclear'></i>"
         $(option).html(text)

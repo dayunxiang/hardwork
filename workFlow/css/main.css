@@ -125,6 +125,7 @@
 
 .container-fluid .showContainer {
   // margin-left: 269px;
+  // margin-right: 376px;
   height: 100%;
   background: #fff url(../images/grid.png) repeat left top;
   // background-size: cover;
@@ -159,15 +160,26 @@
   background: #f9fafb;
   width: 376px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   padding: 0 15px;
+  transform: translateX(376px);
+  transition: all 1s;
+}
+
+.optionClosed {
+  transform: translateX(0px)
 }
 
 .option .start .optionTitle,
 .option .designate .optionTitle,
-.option .appointApproval .optionTitle {
+.option .appointApproval .optionTitle,
+.option .zxORgp .optionTitle,
+.option .zxz .optionTitle,
+.option .yqsp .optionTitle,
+.option .zxztjsfsp .optionTitle,
+.option .gdsfys .optionTitle{
   height: 63px;
   width: 100%;
   line-height: 63px;
@@ -176,32 +188,57 @@
 
 .option .start .optionTitle ul,
 .option .designate .optionTitle ul,
-.option .appointApproval .optionTitle ul {
+.option .appointApproval .optionTitle ul,
+.option .zxORgp .optionTitle ul,
+.option .zxz .optionTitle ul,
+.option .yqsp .optionTitle ul,
+.option .zxztjsfsp .optionTitle ul,
+.option .gdsfys .optionTitle ul {
   width: 100%;
   height: 100%;
 }
 
 .option .start .optionTitle ul li,
 .option .designate .optionTitle ul li,
-.option .appointApproval .optionTitle ul li {
+.option .appointApproval .optionTitle ul li,
+.option .zxORgp .optionTitle ul li,
+.option .zxz .optionTitle ul li,
+.option .yqsp .optionTitle ul li,
+.option .zxztjsfsp .optionTitle ul li,
+.option .gdsfys .optionTitle ul li {
   float: left;
 }
 
 .option .start .optionTitle ul li:last-child,
 .option .designate .optionTitle ul li:last-child,
-.option .appointApproval .optionTitle ul li:last-child {
+.option .appointApproval .optionTitle ul li:last-child,
+.option .zxORgp .optionTitle ul li:last-child,
+.option .zxz .optionTitle ul li:last-child,
+.option .yqsp .optionTitle ul li:last-child,
+.option .zxztjsfsp .optionTitle ul li:last-child,
+.option .gdsfys .optionTitle ul li:last-child {
   float: right;
 }
 
 .option .start .optionTitle ul li span,
 .option .designate .optionTitle ul li span,
-.option .appointApproval .optionTitle ul li span {
+.option .appointApproval .optionTitle ul li span,
+.option .zxORgp .optionTitle ul li span,
+.option .zxz .optionTitle ul li span,
+.option .yqsp .optionTitle ul li span,
+.option .zxztjsfsp .optionTitle ul li span,
+.option .gdsfys .optionTitle ul li span {
   margin-left: 10px;
 }
 
 .option .start .optioncontent,
 .option .designate .optioncontent,
-.option .appointApproval .optioncontent  {
+.option .appointApproval .optioncontent,
+.option .zxORgp .optioncontent,
+.option .zxz .optioncontent,
+.option .yqsp .optioncontent,
+.option .zxztjsfsp .optioncontent,
+.option .gdsfys .optioncontent {
   width: 100%;
   height: 100%;
   margin-top: 20px;
@@ -209,21 +246,36 @@
 
 .option .start .optioncontent .isAssign,
 .option .designate .optioncontent .isAssign,
-.option .appointApproval .optioncontent .isAssign {
+.option .appointApproval .optioncontent .isAssign,
+.option .zxORgp .optioncontent .isAssign,
+.option .zxz .optioncontent .isAssign,
+.option .yqsp .optioncontent .isAssign,
+.option .zxztjsfsp .optioncontent .isAssign,
+.option .gdsfys .optioncontent .isAssign {
   width: 100%;
-  height: 20px;
+  height: 40px;
 }
 
 .option .start .optioncontent .isAssign ul,
 .option .designate .optioncontent .isAssign ul,
-.option .appointApproval .optioncontent .isAssign ul {
+.option .appointApproval .optioncontent .isAssign ul,
+.option .zxORgp .optioncontent .isAssign ul,
+.option .zxz .optioncontent .isAssign ul,
+.option .yqsp .optioncontent .isAssign ul,
+.option .zxztjsfsp .optioncontent .isAssign ul,
+.option .gdsfys .optioncontent .isAssign ul {
   width: 100%;
   height: 100%;
 }
 
 .option .start .optioncontent .isAssign ul li,
 .option .designate .optioncontent .isAssign ul li,
-.option .appointApproval .optioncontent .isAssign ul li {
+.option .appointApproval .optioncontent .isAssign ul li,
+.option .zxORgp .optioncontent .isAssign ul li,
+.option .zxz .optioncontent .isAssign ul li,
+.option .yqsp .optioncontent .isAssign ul li,
+.option .zxztjsfsp .optioncontent .isAssign ul li,
+.option .gdsfys .optioncontent .isAssign ul li {
   float: left;
   width: 93%;
   height: 100%;
@@ -231,7 +283,12 @@
 
 .option .start .optioncontent .isAssign ul li:last-child,
 .option .designate .optioncontent .isAssign ul li:last-child,
-.option .appointApproval .optioncontent .isAssign ul li:last-child {
+.option .appointApproval .optioncontent .isAssign ul li:last-child,
+.option .zxORgp .optioncontent .isAssign ul li:last-child,
+.option .zxz .optioncontent .isAssign ul li:last-child,
+.option .yqsp .optioncontent .isAssign ul li:last-child,
+.option .zxztjsfsp .optioncontent .isAssign ul li:last-child,
+.option .gdsfys .optioncontent .isAssign ul li:last-child {
   float: right;
   text-align: right;
   width: 7%;
@@ -239,19 +296,34 @@
 
 .option .start .optioncontent .isAssign ul li span,
 .option .designate .optioncontent .isAssign ul li span,
-.option .appointApproval .optioncontent .isAssign ul li span {
+.option .appointApproval .optioncontent .isAssign ul li span,
+.option .zxORgp .optioncontent .isAssign ul li span,
+.option .zxz .optioncontent .isAssign ul li span,
+.option .yqsp .optioncontent .isAssign ul li span,
+.option .zxztjsfsp .optioncontent .isAssign ul li span,
+.option .gdsfys .optioncontent .isAssign ul li span {
   float: left;
 }
 
 .option .start .optioncontent .isAssign ul li span:last-child,
 .option .designate .optioncontent .isAssign ul li span:last-child,
-.option .appointApproval .optioncontent .isAssign ul li span:last-child {
+.option .appointApproval .optioncontent .isAssign ul li span:last-child,
+.option .zxORgp .optioncontent .isAssign ul li span:last-child,
+.option .zxz .optioncontent .isAssign ul li span:last-child,
+.option .yqsp .optioncontent .isAssign ul li span:last-child,
+.option .zxztjsfsp .optioncontent .isAssign ul li span:last-child,
+.option .gdsfys .optioncontent .isAssign ul li span:last-child {
   color: #EB645D;
 }
 
 .option .start .optioncontent .isAssign ul li i,
 .option .designate .optioncontent .isAssign ul li i,
-.option .appointApproval .optioncontent .isAssign ul li i {
+.option .appointApproval .optioncontent .isAssign ul li i,
+.option .zxORgp .optioncontent .isAssign ul li i,
+.option .zxz .optioncontent .isAssign ul li i,
+.option .yqsp .optioncontent .isAssign ul li i,
+.option .zxztjsfsp .optioncontent .isAssign ul li i,
+.option .gdsfys .optioncontent .isAssign ul li i {
   display: block;
   width: 20px;
   height: 20px;
@@ -266,15 +338,24 @@
 
 .option .start .optioncontent .assignOption,
 .option .designate .optioncontent .assignOption,
-.option .appointApproval .optioncontent .assignOption {
+.option .appointApproval .optioncontent .assignOption,
+.option .zxORgp .optioncontent .assignOption,
+.option .zxz .optioncontent .assignOption,
+.option .yqsp .optioncontent .assignOption,
+.option .zxztjsfsp .optioncontent .assignOption,
+.option .gdsfys .optioncontent .assignOption  {
   width: 100%;
   height: 100%;
-  padding-top: 20px;
 }
 
 .option .start .optioncontent .assignOption ul,
 .option .designate .optioncontent .assignOption ul,
-.option .appointApproval .optioncontent .assignOption ul {
+.option .appointApproval .optioncontent .assignOption ul,
+.option .zxORgp .optioncontent .assignOption ul,
+.option .zxz .optioncontent .assignOption ul,
+.option .yqsp .optioncontent .assignOption ul,
+.option .zxztjsfsp .optioncontent .assignOption ul,
+.option .gdsfys .optioncontent .assignOption ul {
   width: 100%;
   height: 100%;
 }
@@ -285,13 +366,30 @@
 }
 
 .option .designate .optioncontent .assignOption ul li,
-.option .appointApproval .optioncontent .assignOption ul li {
+.option .appointApproval .optioncontent .assignOption ul li,
+.option .zxORgp .optioncontent .assignOption ul li,
+.option .zxz .optioncontent .assignOption ul li,
+.option .yqsp .optioncontent .assignOption ul li,
+.option .zxztjsfsp .optioncontent .assignOption ul li,
+.option .gdsfys .optioncontent .assignOption ul li {
   position: relative;
+}
+
+.option .appointApproval .optioncontent .assignOption ul li.zpspr,
+.option .zxztjsfsp .optioncontent .assignOption ul li.zpspr,
+.option .gdsfys .optioncontent .assignOption ul li.zpspr {
+  margin-top: 40px;
+  display: none;
 }
 
 .option .start .optioncontent .assignOption ul li .showchoose,
 .option .designate .optioncontent .assignOption ul li .showchoose,
-.option .appointApproval .optioncontent .assignOption ul li .showchoose {
+.option .appointApproval .optioncontent .assignOption ul li .showchoose,
+.option .zxORgp .optioncontent .assignOption ul li .showchoose,
+.option .zxz .optioncontent .assignOption ul li .showchoose,
+.option .yqsp .optioncontent .assignOption ul li .showchoose,
+.option .zxztjsfsp .optioncontent .assignOption ul li .showchoose,
+.option .gdsfys .optioncontent .assignOption ul li .showchoose {
   width: 100%;
   height: 36px;
   line-height: 36px;
@@ -302,7 +400,12 @@
 
 .option .start .optioncontent .assignOption ul li .choose,
 .option .designate .optioncontent .assignOption ul li .choose,
-.option .appointApproval .optioncontent .assignOption ul li .choose {
+.option .appointApproval .optioncontent .assignOption ul li .choose,
+.option .zxORgp .optioncontent .assignOption ul li .choose,
+.option .zxz .optioncontent .assignOption ul li .choose,
+.option .yqsp .optioncontent .assignOption ul li .choose,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose,
+.option .gdsfys .optioncontent .assignOption ul li .choose {
   position: absolute;
   top: 38px;
   left: 20px;
@@ -316,15 +419,22 @@
   display: none;
 }
 
-.option .start .optioncontent .assignOption ul li .choose .radio,
-.option .designate .optioncontent .assignOption ul li .choose .radio,
-.option .appointApproval .optioncontent .assignOption ul li .choose .radio {
+.option .start .optioncontent .assignOption ul li .choose li,
+.option .designate .optioncontent .assignOption ul li .choose li,
+.option .appointApproval .optioncontent .assignOption ul li .choose li,
+.option .zxORgp .optioncontent .assignOption ul li .choose li,
+.option .zxz .optioncontent .assignOption ul li .choose li,
+.option .yqsp .optioncontent .assignOption ul li .choose li,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li,
+.option .gdsfys .optioncontent .assignOption ul li .choose li {
   margin-bottom: 20px;
   cursor: pointer;
 }
 
-.option .start .optioncontent .assignOption ul li .choose .radio i,
-.option .appointApproval .optioncontent .assignOption ul li .choose .radio i {
+.option .start .optioncontent .assignOption ul li .choose li i,
+.option .appointApproval .optioncontent .assignOption ul li .choose li i,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li i,
+.option .gdsfys .optioncontent .assignOption ul li .choose li i {
   float: left;
   width: 18px;
   height: 18px;
@@ -335,8 +445,10 @@
   transition: all 0.5s;
 }
 
-.option .start .optioncontent .assignOption ul li .choose .radio b,
-.option .appointApproval .optioncontent .assignOption ul li .choose .radio b {
+.option .start .optioncontent .assignOption ul li .choose li b,
+.option .appointApproval .optioncontent .assignOption ul li .choose li b,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li b,
+.option .gdsfys .optioncontent .assignOption ul li .choose li b {
   content: '';
   width: 10px;
   height: 10px;
@@ -350,7 +462,12 @@
 
 .option .start .optioncontent .assignOption ul .next input,
 .option .designate .optioncontent .assignOption ul .next input,
-.option .appointApproval .optioncontent .assignOption ul .next input  {
+.option .appointApproval .optioncontent .assignOption ul .next input,
+.option .zxORgp .optioncontent .assignOption ul .next input,
+.option .zxz .optioncontent .assignOption ul .next input,
+.option .yqsp .optioncontent .assignOption ul .next input,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input,
+.option .gdsfys .optioncontent .assignOption ul .next input {
   background: #3d8bfb;
   box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
   border-radius: 100px;
@@ -361,22 +478,31 @@
 }
 
 .option .designate .optioncontent .assignOption ul .next input,
-.option .appointApproval .optioncontent .assignOption ul .next input {
+.option .appointApproval .optioncontent .assignOption ul .next input,
+.option .zxORgp .optioncontent .assignOption ul .next input,
+.option .zxz .optioncontent .assignOption ul .next input,
+.option .yqsp .optioncontent .assignOption ul .next input,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input,
+.option .gdsfys .optioncontent .assignOption ul .next input {
   float: left;
   width: 45%;
 }
 
 .option .designate .optioncontent .assignOption ul .next input:last-child,
-.option .appointApproval .optioncontent .assignOption ul .next input:last-child {
+.option .appointApproval .optioncontent .assignOption ul .next input:last-child,
+.option .zxORgp .optioncontent .assignOption ul .next input:last-child,
+.option .zxz .optioncontent .assignOption ul .next input:last-child,
+.option .yqsp .optioncontent .assignOption ul .next input:last-child,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input:last-child,
+.option .gdsfys .optioncontent .assignOption ul .next input:last-child {
   float: right;
 }
 
 .chzn-container-multi .chzn-choices {
-  border:none;
-  outline:none;
-  outline-style:none;
+  border: none;
+  outline: none;
+  outline-style: none;
   border: 1px solid #8DC3F9;
-  border-radius:18px;
-  padding:0 20px;
+  border-radius: 18px;
+  padding: 0 20px;
 }
-
