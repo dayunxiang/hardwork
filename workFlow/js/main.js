@@ -99,7 +99,7 @@ function zxhgp() {
     // }
 
 
-  } else if ($("#zxORgp0").attr('feik')=="feik" && $("#zxORgp1").attr('feik')=="feik" && $("#zxORgp2").attr('feik')=="feik" && $("#zxORgp3").attr('feik')=="feik" && $("#qyzjdgn").find("input").is(':checked') == true) {
+  } else if (($("#zxORgp0").attr('feik')=="feik") && ($("#zxORgp1").attr('feik')=="feik") && ($("#zxORgp2").attr('feik')=="feik") && ($("#zxORgp3").attr('feik')=="feik") && ($("#qyzjdgn").find("input").is(':checked') == true)) {
     console.log("feik")
     addcolor("#pred", "#nextd")
 
