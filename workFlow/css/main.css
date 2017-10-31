@@ -70,6 +70,8 @@
   border-left: 4px solid #3d8bfb;
   padding: 8px 5px 0 5px;
   cursor: pointer;
+  position: relative;
+
 }
 
 .container-fluid .sideBar .sideBarContent ul li input {
@@ -82,7 +84,15 @@
   cursor: pointer;
   font-size: 12px;
 }
-
+.container-fluid .sideBar .sideBarContent ul li:before {
+  content: '';
+  width: 160px;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-color: transparent;
+}
 .container-fluid .sideBar .sideBarContent ul li span {
   float: right;
   width: 20px;
@@ -131,7 +141,8 @@
   // background-size: cover;
 }
 
-.newModal .modal-body input {
+.newModal .modal-body input,
+.tubjmodal .modal-body input {
   outline-style: none;
   outline: none;
   border: none;
@@ -144,7 +155,9 @@
 }
 
 .newModal .modalCancle,
-.newModal .modalSure {
+.newModal .modalSure,
+.tubjmodal .modaljx,
+.tubjmodal .modalbc {
   background: #3d8bfb;
   box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
   border-radius: 100px;
