@@ -58,26 +58,8 @@ function zxhgp() {
         $(".zxORgp").css("display", 'none')
         $(".zxz").css("display", 'none')
       })
-
-      console.log(zppd.style.display)
-      if(zppd.style.display == 'block'){
-         //执行或改派 下一步
-      $("#nextd").on("click", function () {
-        zxzpz.style.display = 'block';
-        zxzguadan.style.display = 'block';
-        zxztuidan.style.display = 'block';
-        kspdsfzp.style.display = 'block';
-        kspdfzppzline.style.display = 'none';
-        kspdfzppzrect.style.display = 'none';
-        //option
-        $(".start").css("display", 'none')
-        $(".appointApproval").css("display", 'none')
-        $(".designate").css("display", 'none')
-        $(".zxORgp").css("display", 'none')
-        $(".zxz").css("display", 'block')
-
-      })
-      }else if(zppd.style.display == 'none'){
+                    
+     
          //执行或改派 下一步
       $("#nextd").on("click", function () {
         zxzpz.style.display = 'block';
@@ -94,7 +76,7 @@ function zxhgp() {
         $(".zxz").css("display", 'none')
 
       })
-      }
+      
 
      
 
@@ -631,26 +613,7 @@ $(".zxz .chzn-choices").each(function (index, value) {
           $(".zxORgp").css("display", 'block')
           $(".zxz").css("display", 'none')
         })
-        if (zppd.style.display == 'block') {
-          //下一步
-          $("#nexte").on("click", function () {
-            //svg
-            zxzpz.style.display = 'block';
-            zxzguadan.style.display = 'block';
-            zxztuidan.style.display = 'block';
-            kspdsfzp.style.display = 'block';
-            kspdfzppzline.style.display = 'none';
-            kspdfzppzrect.style.display = 'none';
-            // option
-            $(".start").css("display", 'none')
-            $(".designate").css("display", 'none')
-            $(".appointApproval").css("display", 'none')
-            $(".zxORgp").css("display", 'none')
-            $(".zxz").css("display", 'none')
-            $(".yqsp").css("display", 'block')
-
-          })
-        } else if (zppd.style.display == 'none') {
+      
           //下一步
           $("#nexte").on("click", function () {
             //svg
@@ -667,7 +630,7 @@ $(".zxz .chzn-choices").each(function (index, value) {
             $(".zxORgp").css("display", 'none')
             $(".zxz").css("display", 'none')
           })
-        }
+        
 
       } else if (iszhipai.style.display == 'none') {
         //上一步
