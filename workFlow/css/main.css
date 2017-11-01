@@ -389,8 +389,8 @@
 }
 
 .option .appointApproval .optioncontent .assignOption ul li.zpspr,
-.option .zxztjsfsp .optioncontent .assignOption ul li.zpspr,
-.option .gdsfys .optioncontent .assignOption ul li.zpspr {
+.option .zxztjsfsp .optioncontent .assignOption ul li.zxztisp,
+.option .gdsfys .optioncontent .assignOption ul li.gdsfyssho {
   margin-top: 40px;
   display: none;
 }
