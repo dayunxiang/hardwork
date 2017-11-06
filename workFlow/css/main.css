@@ -192,7 +192,8 @@
 .option .zxz .optionTitle,
 .option .yqsp .optionTitle,
 .option .zxztjsfsp .optionTitle,
-.option .gdsfys .optionTitle{
+.option .gdsfys .optionTitle,
+.option .designateS .optionTitle{
   height: 63px;
   width: 100%;
   line-height: 63px;
@@ -201,6 +202,7 @@
 
 .option .start .optionTitle ul,
 .option .designate .optionTitle ul,
+.option .designateS .optionTitle ul,
 .option .appointApproval .optionTitle ul,
 .option .zxORgp .optionTitle ul,
 .option .zxz .optionTitle ul,
@@ -213,6 +215,7 @@
 
 .option .start .optionTitle ul li,
 .option .designate .optionTitle ul li,
+.option .designateS .optionTitle ul li,
 .option .appointApproval .optionTitle ul li,
 .option .zxORgp .optionTitle ul li,
 .option .zxz .optionTitle ul li,
@@ -224,6 +227,7 @@
 
 .option .start .optionTitle ul li:last-child,
 .option .designate .optionTitle ul li:last-child,
+.option .designateS .optionTitle ul li:last-child,
 .option .appointApproval .optionTitle ul li:last-child,
 .option .zxORgp .optionTitle ul li:last-child,
 .option .zxz .optionTitle ul li:last-child,
@@ -235,6 +239,7 @@
 
 .option .start .optionTitle ul li span,
 .option .designate .optionTitle ul li span,
+.option .designateS .optionTitle ul li span,
 .option .appointApproval .optionTitle ul li span,
 .option .zxORgp .optionTitle ul li span,
 .option .zxz .optionTitle ul li span,
@@ -242,10 +247,16 @@
 .option .zxztjsfsp .optionTitle ul li span,
 .option .gdsfys .optionTitle ul li span {
   margin-left: 10px;
+  font-size:20px;
+  font-weight:700;
 }
-
+.fa-bookmark-o {
+   font-size:22px;
+  font-weight:700;
+}
 .option .start .optioncontent,
 .option .designate .optioncontent,
+.option .designateS .optioncontent,
 .option .appointApproval .optioncontent,
 .option .zxORgp .optioncontent,
 .option .zxz .optioncontent,
@@ -259,6 +270,7 @@
 
 .option .start .optioncontent .isAssign,
 .option .designate .optioncontent .isAssign,
+.option .designateS .optioncontent .isAssign,
 .option .appointApproval .optioncontent .isAssign,
 .option .zxORgp .optioncontent .isAssign,
 .option .zxz .optioncontent .isAssign,
@@ -271,6 +283,7 @@
 
 .option .start .optioncontent .isAssign ul,
 .option .designate .optioncontent .isAssign ul,
+.option .designateS .optioncontent .isAssign ul,
 .option .appointApproval .optioncontent .isAssign ul,
 .option .zxORgp .optioncontent .isAssign ul,
 .option .zxz .optioncontent .isAssign ul,
@@ -283,6 +296,7 @@
 
 .option .start .optioncontent .isAssign ul li,
 .option .designate .optioncontent .isAssign ul li,
+.option .designateS .optioncontent .isAssign ul li,
 .option .appointApproval .optioncontent .isAssign ul li,
 .option .zxORgp .optioncontent .isAssign ul li,
 .option .zxz .optioncontent .isAssign ul li,
@@ -296,6 +310,7 @@
 
 .option .start .optioncontent .isAssign ul li:last-child,
 .option .designate .optioncontent .isAssign ul li:last-child,
+.option .designateS .optioncontent .isAssign ul li:last-child,
 .option .appointApproval .optioncontent .isAssign ul li:last-child,
 .option .zxORgp .optioncontent .isAssign ul li:last-child,
 .option .zxz .optioncontent .isAssign ul li:last-child,
@@ -309,6 +324,7 @@
 
 .option .start .optioncontent .isAssign ul li span,
 .option .designate .optioncontent .isAssign ul li span,
+.option .designateS .optioncontent .isAssign ul li span,
 .option .appointApproval .optioncontent .isAssign ul li span,
 .option .zxORgp .optioncontent .isAssign ul li span,
 .option .zxz .optioncontent .isAssign ul li span,
@@ -320,6 +336,7 @@
 
 .option .start .optioncontent .isAssign ul li span:last-child,
 .option .designate .optioncontent .isAssign ul li span:last-child,
+.option .designateS .optioncontent .isAssign ul li span:last-child,
 .option .appointApproval .optioncontent .isAssign ul li span:last-child,
 .option .zxORgp .optioncontent .isAssign ul li span:last-child,
 .option .zxz .optioncontent .isAssign ul li span:last-child,
@@ -331,6 +348,7 @@
 
 .option .start .optioncontent .isAssign ul li i,
 .option .designate .optioncontent .isAssign ul li i,
+.option .designateS .optioncontent .isAssign ul li i,
 .option .appointApproval .optioncontent .isAssign ul li i,
 .option .zxORgp .optioncontent .isAssign ul li i,
 .option .zxz .optioncontent .isAssign ul li i,
@@ -351,6 +369,7 @@
 
 .option .start .optioncontent .assignOption,
 .option .designate .optioncontent .assignOption,
+.option .designateS .optioncontent .assignOption,
 .option .appointApproval .optioncontent .assignOption,
 .option .zxORgp .optioncontent .assignOption,
 .option .zxz .optioncontent .assignOption,
@@ -363,6 +382,7 @@
 
 .option .start .optioncontent .assignOption ul,
 .option .designate .optioncontent .assignOption ul,
+.option .designateS .optioncontent .assignOption ul,
 .option .appointApproval .optioncontent .assignOption ul,
 .option .zxORgp .optioncontent .assignOption ul,
 .option .zxz .optioncontent .assignOption ul,
@@ -373,12 +393,13 @@
   height: 100%;
 }
 
-.option .start .optioncontent .assignOption ul li {
+.option .start .optioncontent .assignOption ul li{
   width: 100%;
   position: relative;
 }
 
 .option .designate .optioncontent .assignOption ul li,
+.option .designateS .optioncontent .assignOption ul li,
 .option .appointApproval .optioncontent .assignOption ul li,
 .option .zxORgp .optioncontent .assignOption ul li,
 .option .zxz .optioncontent .assignOption ul li,
@@ -397,6 +418,7 @@
 
 .option .start .optioncontent .assignOption ul li .showchoose,
 .option .designate .optioncontent .assignOption ul li .showchoose,
+.option .designateS .optioncontent .assignOption ul li .showchoose,
 .option .appointApproval .optioncontent .assignOption ul li .showchoose,
 .option .zxORgp .optioncontent .assignOption ul li .showchoose,
 .option .zxz .optioncontent .assignOption ul li .showchoose,
@@ -413,6 +435,7 @@
 
 .option .start .optioncontent .assignOption ul li .choose,
 .option .designate .optioncontent .assignOption ul li .choose,
+.option .designateS .optioncontent .assignOption ul li .choose,
 .option .appointApproval .optioncontent .assignOption ul li .choose,
 .option .zxORgp .optioncontent .assignOption ul li .choose,
 .option .zxz .optioncontent .assignOption ul li .choose,
@@ -434,6 +457,7 @@
 
 .option .start .optioncontent .assignOption ul li .choose li,
 .option .designate .optioncontent .assignOption ul li .choose li,
+.option .designateS .optioncontent .assignOption ul li .choose li,
 .option .appointApproval .optioncontent .assignOption ul li .choose li,
 .option .zxORgp .optioncontent .assignOption ul li .choose li,
 .option .zxz .optioncontent .assignOption ul li .choose li,
@@ -475,6 +499,7 @@
 
 .option .start .optioncontent .assignOption ul .next input,
 .option .designate .optioncontent .assignOption ul .next input,
+.option .designateS .optioncontent .assignOption ul .next input,
 .option .appointApproval .optioncontent .assignOption ul .next input,
 .option .zxORgp .optioncontent .assignOption ul .next input,
 .option .zxz .optioncontent .assignOption ul .next input,
