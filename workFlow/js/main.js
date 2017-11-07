@@ -39,6 +39,8 @@
 
     start.style.display = 'block'
 
+    //清空
+    clear()
     //添加颜色
     function addcolor(next) {
         $(next).css({
@@ -158,9 +160,20 @@
     }
     //所有的都清空
     function clear() {
+    $("#dl_chose2").val("")
+    $("#dl_chose2").trigger("chosen:updated");
+     $("#dl_chose3").val("")
+    $("#dl_chose3").trigger("chosen:updated");
+     $("#dl_chose14").val("")
+    $("#dl_chose14").trigger("chosen:updated");
+    $("#dl_chose15").val("")
+    $("#dl_chose15").trigger("chosen:updated");
       $(".optionzpsp").empty()
       $("#optionzxztjsfsp").empty()
       $("#optiongdsfys").empty()
+      $(".zxztisp").css("display",'none')
+      $(".gdsfyssho").css("display",'none')
+
       
     }
     //点击开始判断 
@@ -169,8 +182,8 @@
       clear()
         start.style.display = 'block'
         //option 控制
-        $(".option").toggleClass("optionClosed")
-
+        // $(".option").toggleClass("optionClosed")
+        $(".option").css('transform','translateX(0px)')
         //控制option
         $(".start").css("display", 'block')
         $(".designate").css("display", 'none')
