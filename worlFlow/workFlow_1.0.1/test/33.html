@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../lib/choosen/chosen.css"> -->
+    <link rel="stylesheet" href="../lib/chosen_v1.8.2/chosen.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <div class="option">
+      <div class="zxORgp" style="display:none;">
+        <div class="optionTitle">
+            <ul>
+                <li>
+                    <i class="fa fa-bookmark-o"></i>
+                    <span>执行/改派</span>
+                </li>
+                <li>
+                    <i class="fa fa-close" data-toggle="modal" data-target=".exitEdit"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="optioncontent">
+            <div class="isAssign">
+                <ul>
+                    <li>
+                        <span>改派</span>
+                        <span>*</span>
+                    </li>
+                    <li>
+                        <i>?</i>
+                    </li>
+                </ul>
+            </div>
+            <div class="assignOption">
+                <ul>
+                    <li>
+                        <select class="chzn-select dl_chose4" multiple style="width:315px;">
+                            <option value=""></option>
+                            <option value="1">a</option>
+                            <option value="2">b</option>
+                            <option value="3">c</option>
+                            <option value="4">d</option>
+                        </select>
+                    </li>
+                    <li style="margin-top: 40px;">
+                        <ul>
+                            <li>
+                                <div class="isAssign">
+                                    <ul>
+                                        <li>
+                                            <span>接单</span>
+                                            <span>*</span>
+                                        </li>
+                                        <li>
+                                            <i>?</i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <select class="chzn-select dl_chose5" multiple style="width:315px;">
+                                    <option value=""></option>
+                                    <option value="1">a</option>
+                                    <option value="2">b</option>
+                                    <option value="3">c</option>
+                                    <option value="4">d</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 40px;">
+                        <ul>
+                            <li>
+                                <div class="isAssign">
+                                    <ul>
+                                        <li id="qyzjdgn">
+                                            <input type="checkbox">启用转接单功能
+                                            <!-- <span>*</span> -->
+                                        </li>
+                                        <li>
+                                            <i>?</i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 40px; display: none;" class="zd">
+                        <ul>
+                            <li>
+                                <div class="isAssign">
+                                    <ul>
+                                        <li>
+                                            <span>转单</span>
+                                            <span>*</span>
+                                        </li>
+                                        <li>
+                                            <i>?</i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="zhudanr">
+                                <select class="chzn-select dl_chose6" multiple style="width:315px;">
+                                    <option value=""></option>
+                                    <option value="1">a</option>
+                                    <option value="2">b</option>
+                                    <option value="3">c</option>
+                                    <option value="4">d</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 40px; display: none;" class="zwzd">
+                        <ul>
+                            <li>
+                                <div class="isAssign">
+                                    <ul>
+                                        <li>
+                                            <span>转外接单</span>
+                                            <span>*</span>
+                                        </li>
+                                        <li>
+                                            <i>?</i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <select class="chzn-select dl_chose7" multiple style="width:315px;">
+                                    <option value=""></option>
+                                    <option value="1">a</option>
+                                    <option value="2">b</option>
+                                    <option value="3">c</option>
+                                    <option value="4">d</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="next">
+                        <input type="button" value="上一步" id="pred">
+                        <input type="button" value="下一步" id="nextd">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/chosen_v1.8.2/chosen.jquery.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        $(".chzn-select").chosen({
+            width: "100%"
+        });
+
+    });
+    </script>
+</body>
+
+</html>

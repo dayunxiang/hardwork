@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../lib/chosen_v1.8.2/chosen.css" rel="stylesheet" />
+    <!--引入chosen.css-->
+    <script src="../lib/jquery.min.js"></script>
+    <!--引入jquery-*.js-->
+    <script src="../lib/chosen_v1.8.2/chosen.jquery.js"></script>
+    <!--引入chosen.jquery.js-->
+</head>
+
+<body>
+    <div class="form-group">
+        <label class="font-noraml">多选</label>
+        <div class="input-group">
+            <select id="cse" data-placeholder="选择省份" class="chosen-select" multiple style="width:350px;" tabindex="1" onchange="">
+                <option value="">请选择省份</option>
+                <option value="310000" hassubinfo="true">上海</option>
+                <option value="320000" hassubinfo="true">江苏省</option>
+                <option value="330000" hassubinfo="true">浙江省</option>
+                <option value="340000" hassubinfo="true">安徽省</option>
+                <option value="350000" hassubinfo="true">福建省</option>
+                <option value="990000" hassubinfo="true">海外</option>
+            </select>
+        </div>
+    </div>
+    <script>
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {
+            allow_single_deselect: true
+        },
+        '.chosen-select-no-single': {
+            disable_search_threshold: 10
+        },
+        '.chosen-select-no-results': {
+            no_results_text: '找不到数据!'
+        },
+        '.chosen-select-width': {
+            width: "95%"
+        }
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    $(document).ready(function() {
+        //chosen初始化  
+        //$(".chosen-select").chosen();  
+        //多选select 数据同步  
+        chose_get_ini('#cse');
+        //change 事件  
+        $('#cse').change(function() {
+            console.log(chose_get_value('#cse'));
+            //console.log(chose_get_value('#cse'));  
+            console.log(chose_get_value('#cse') + ' : ' + chose_get_text('#cse'));
+        });
+    });
+    //select 数据同步  
+    function chose_get_ini(select) {
+        $(select).chosen().change(function() { $(select).trigger("liszt:updated"); });
+    }
+    //select value获取  
+    function chose_get_value(select) {
+        return $(select).val();
+    }
+    //select text获取，多选时请注意  
+    function chose_get_text(select) {
+        return $(select + " option:selected").text();
+    }
+    </script>
+</body>
+
+</html>

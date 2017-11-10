@@ -1,0 +1,571 @@
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  transition: all 1s;
+  position: relative;
+}
+
+
+/* 侧边栏 */
+
+.container-fluid .sideBar {
+  background: #f2f4f6;
+  height: 100%;
+  float: left;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #333333;
+  position: relative;
+  transition: all 1s;
+}
+
+.container-fluid .sideBar .sideBarTitle {
+  width: 100%;
+  height: 63px;
+  line-height: 63px;
+}
+
+.container-fluid .sideBar .sideBarTitle ul {
+  width: 100%;
+  height: 100%;
+}
+
+.container-fluid .sideBar .sideBarTitle ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+.container-fluid .sideBar .sideBarTitle ul li:last-child {
+  width: 66px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #3d8bfb;
+  border: 1px solid #3d8bfb;
+  border-radius: 2px;
+  float: right;
+  margin-top: 15px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.container-fluid .sideBar .sideBarContent {
+  width: 100%;
+  height: 100%;
+}
+
+.container-fluid .sideBar .sideBarContent ul {
+  width: 100%;
+  height: 100%;
+}
+
+.container-fluid .sideBar .sideBarContent ul li {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 3px;
+  height: 36px;
+  margin-bottom: 5px;
+  border-left: 4px solid #3d8bfb;
+  // padding: 8px 5px 0 5px;
+  cursor: pointer;
+  position: relative;
+
+}
+
+.container-fluid .sideBar .sideBarContent ul li input {
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  border: none;
+  outline: none;
+  outline-style: none;
+  float: left;
+  cursor: pointer;
+  font-size: 12px;
+  position: relative;
+  transition: all 1s;
+}
+.container-fluid .sideBar .sideBarContent ul li:before {
+  content: '';
+  width: 100%;
+  height: 36px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-color: transparent;
+  z-index:99;
+}
+.container-fluid .sideBar .sideBarContent ul li span {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin-right: 5px;
+  cursor: pointer;
+  color: red;
+  z-index:999;
+}
+.container-fluid .sideBar .sideBarContent ul li span:last-child {
+   right: 40px;
+}
+.container-fluid .sideBar .sideBarContent ul li:hover {
+  border-left: 4px solid #7482D6;
+}
+
+.container-fluid .sideBar .sideBarContent ul li:hover span {
+  color: #7482D6;
+}
+
+.container-fluid .sideBar .opened {
+  position: absolute;
+  right: -25px;
+  top: 15px;
+  font-size: 20px;
+  color: #59585f;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+// .openToggle {
+//   transform: translateX(-269px);
+// }
+
+.ToggleOpend {
+  transform: rotate(-90deg);
+}
+
+
+/* showContainer */
+
+.container-fluid .showContainer {
+  // margin-left: 269px;
+  // margin-right: 376px;
+  height: 100%;
+  background: #fff url(../images/grid.png) repeat left top;
+  // background-size: cover;
+}
+
+.newModal .modal-body input,
+.tubjmodal .modal-body input {
+  outline-style: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 30px;
+  border: 1px solid #77b8f9;
+  border-radius: 15px;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.newModal .modalCancle,
+.newModal .modalSure,
+.tubjmodal .modaljx,
+.tubjmodal .modalbc {
+  background: #3d8bfb;
+  box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
+  border-radius: 100px;
+  width: 101px;
+  height: 38px;
+  color: #FFF;
+}
+
+
+/* option 配置项 */
+.optioncontentContainer {
+  width: 100%;
+}
+.option {
+  background: #f9fafb;
+  // width: 376px;
+  height: 100%;
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 0 15px;
+  transform: translateX(376px);
+  transition: all 1s;
+}
+
+.optionClosed {
+  transform: translateX(0px)
+}
+
+.option .start .optionTitle,
+.option .designate .optionTitle,
+.option .appointApproval .optionTitle,
+.option .zxORgp .optionTitle,
+.option .zxz .optionTitle,
+.option .yqsp .optionTitle,
+.option .zxztjsfsp .optionTitle,
+.option .gdsfys .optionTitle,
+.option .designateS .optionTitle{
+  height: 63px;
+  width: 100%;
+  line-height: 63px;
+  font-size: 15px;
+}
+
+.option .start .optionTitle ul,
+.option .designate .optionTitle ul,
+.option .designateS .optionTitle ul,
+.option .appointApproval .optionTitle ul,
+.option .zxORgp .optionTitle ul,
+.option .zxz .optionTitle ul,
+.option .yqsp .optionTitle ul,
+.option .zxztjsfsp .optionTitle ul,
+.option .gdsfys .optionTitle ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optionTitle ul li,
+.option .designate .optionTitle ul li,
+.option .designateS .optionTitle ul li,
+.option .appointApproval .optionTitle ul li,
+.option .zxORgp .optionTitle ul li,
+.option .zxz .optionTitle ul li,
+.option .yqsp .optionTitle ul li,
+.option .zxztjsfsp .optionTitle ul li,
+.option .gdsfys .optionTitle ul li {
+  float: left;
+}
+
+.option .start .optionTitle ul li:last-child,
+.option .designate .optionTitle ul li:last-child,
+.option .designateS .optionTitle ul li:last-child,
+.option .appointApproval .optionTitle ul li:last-child,
+.option .zxORgp .optionTitle ul li:last-child,
+.option .zxz .optionTitle ul li:last-child,
+.option .yqsp .optionTitle ul li:last-child,
+.option .zxztjsfsp .optionTitle ul li:last-child,
+.option .gdsfys .optionTitle ul li:last-child {
+  float: right;
+}
+
+.option .start .optionTitle ul li span,
+.option .designate .optionTitle ul li span,
+.option .designateS .optionTitle ul li span,
+.option .appointApproval .optionTitle ul li span,
+.option .zxORgp .optionTitle ul li span,
+.option .zxz .optionTitle ul li span,
+.option .yqsp .optionTitle ul li span,
+.option .zxztjsfsp .optionTitle ul li span,
+.option .gdsfys .optionTitle ul li span {
+  margin-left: 10px;
+  font-size:20px;
+  font-weight:700;
+}
+.fa-bookmark-o {
+   font-size:22px;
+  font-weight:700;
+}
+.option .start .optioncontent,
+.option .designate .optioncontent,
+.option .designateS .optioncontent,
+.option .appointApproval .optioncontent,
+.option .zxORgp .optioncontent,
+.option .zxz .optioncontent,
+.option .yqsp .optioncontent,
+.option .zxztjsfsp .optioncontent,
+.option .gdsfys .optioncontent {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.option .start .optioncontent .isAssign,
+.option .designate .optioncontent .isAssign,
+.option .designateS .optioncontent .isAssign,
+.option .appointApproval .optioncontent .isAssign,
+.option .zxORgp .optioncontent .isAssign,
+.option .zxz .optioncontent .isAssign,
+.option .yqsp .optioncontent .isAssign,
+.option .zxztjsfsp .optioncontent .isAssign,
+.option .gdsfys .optioncontent .isAssign {
+  width: 100%;
+  height: 40px;
+}
+
+.option .start .optioncontent .isAssign ul,
+.option .designate .optioncontent .isAssign ul,
+.option .designateS .optioncontent .isAssign ul,
+.option .appointApproval .optioncontent .isAssign ul,
+.option .zxORgp .optioncontent .isAssign ul,
+.option .zxz .optioncontent .isAssign ul,
+.option .yqsp .optioncontent .isAssign ul,
+.option .zxztjsfsp .optioncontent .isAssign ul,
+.option .gdsfys .optioncontent .isAssign ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optioncontent .isAssign ul li,
+.option .designate .optioncontent .isAssign ul li,
+.option .designateS .optioncontent .isAssign ul li,
+.option .appointApproval .optioncontent .isAssign ul li,
+.option .zxORgp .optioncontent .isAssign ul li,
+.option .zxz .optioncontent .isAssign ul li,
+.option .yqsp .optioncontent .isAssign ul li,
+.option .zxztjsfsp .optioncontent .isAssign ul li,
+.option .gdsfys .optioncontent .isAssign ul li {
+  float: left;
+  width: 93%;
+  height: 100%;
+}
+
+/* .option .start .optioncontent .isAssign ul li:last-child,
+.option .designate .optioncontent .isAssign ul li:last-child,
+.option .designateS .optioncontent .isAssign ul li:last-child,
+.option .appointApproval .optioncontent .isAssign ul li:last-child,
+.option .zxORgp .optioncontent .isAssign ul li:last-child,
+.option .zxz .optioncontent .isAssign ul li:last-child,
+.option .yqsp .optioncontent .isAssign ul li:last-child,
+.option .zxztjsfsp .optioncontent .isAssign ul li:last-child,
+.option .gdsfys .optioncontent .isAssign ul li:last-child {
+  float: right;
+  text-align: right;
+  width: 7%;
+} */
+
+.option .start .optioncontent .isAssign ul li span,
+.option .designate .optioncontent .isAssign ul li span,
+.option .designateS .optioncontent .isAssign ul li span,
+.option .appointApproval .optioncontent .isAssign ul li span,
+.option .zxORgp .optioncontent .isAssign ul li span,
+.option .zxz .optioncontent .isAssign ul li span,
+.option .yqsp .optioncontent .isAssign ul li span,
+.option .zxztjsfsp .optioncontent .isAssign ul li span,
+.option .gdsfys .optioncontent .isAssign ul li span {
+  float: left;
+}
+
+.option .start .optioncontent .isAssign ul li span:last-child,
+.option .designate .optioncontent .isAssign ul li span:last-child,
+.option .designateS .optioncontent .isAssign ul li span:last-child,
+.option .appointApproval .optioncontent .isAssign ul li span:last-child,
+.option .zxORgp .optioncontent .isAssign ul li span:last-child,
+.option .zxz .optioncontent .isAssign ul li span:last-child,
+.option .yqsp .optioncontent .isAssign ul li span:last-child,
+.option .zxztjsfsp .optioncontent .isAssign ul li span:last-child,
+.option .gdsfys .optioncontent .isAssign ul li span:last-child {
+  color: #EB645D;
+}
+
+.option .start .optioncontent .isAssign ul li i,
+.option .designate .optioncontent .isAssign ul li i,
+.option .designateS .optioncontent .isAssign ul li i,
+.option .appointApproval .optioncontent .isAssign ul li i,
+.option .zxORgp .optioncontent .isAssign ul li i,
+.option .zxz .optioncontent .isAssign ul li i,
+.option .yqsp .optioncontent .isAssign ul li i,
+.option .zxztjsfsp .optioncontent .isAssign ul li i,
+.option .gdsfys .optioncontent .isAssign ul li i {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #7482D6;
+  border-radius: 50%;
+  font-style: normal;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.option .start .optioncontent .assignOption,
+.option .designate .optioncontent .assignOption,
+.option .designateS .optioncontent .assignOption,
+.option .appointApproval .optioncontent .assignOption,
+.option .zxORgp .optioncontent .assignOption,
+.option .zxz .optioncontent .assignOption,
+.option .yqsp .optioncontent .assignOption,
+.option .zxztjsfsp .optioncontent .assignOption,
+.option .gdsfys .optioncontent .assignOption  {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optioncontent .assignOption ul,
+.option .designate .optioncontent .assignOption ul,
+.option .designateS .optioncontent .assignOption ul,
+.option .appointApproval .optioncontent .assignOption ul,
+.option .zxORgp .optioncontent .assignOption ul,
+.option .zxz .optioncontent .assignOption ul,
+.option .yqsp .optioncontent .assignOption ul,
+.option .zxztjsfsp .optioncontent .assignOption ul,
+.option .gdsfys .optioncontent .assignOption ul {
+  width: 100%;
+  height: 100%;
+}
+
+.option .start .optioncontent .assignOption ul li{
+  width: 100%;
+  position: relative;
+}
+
+.option .designate .optioncontent .assignOption ul li,
+.option .designateS .optioncontent .assignOption ul li,
+.option .appointApproval .optioncontent .assignOption ul li,
+.option .zxORgp .optioncontent .assignOption ul li,
+.option .zxz .optioncontent .assignOption ul li,
+.option .yqsp .optioncontent .assignOption ul li,
+.option .zxztjsfsp .optioncontent .assignOption ul li,
+.option .gdsfys .optioncontent .assignOption ul li {
+  position: relative;
+}
+
+.option .appointApproval .optioncontent .assignOption ul li.zpspr,
+.option .zxztjsfsp .optioncontent .assignOption ul li.zxztisp,
+.option .gdsfys .optioncontent .assignOption ul li.gdsfyssho {
+  margin-top: 40px;
+  display: none;
+}
+
+.option .start .optioncontent .assignOption ul li .showchoose,
+.option .designate .optioncontent .assignOption ul li .showchoose,
+.option .designateS .optioncontent .assignOption ul li .showchoose,
+.option .appointApproval .optioncontent .assignOption ul li .showchoose,
+.option .zxORgp .optioncontent .assignOption ul li .showchoose,
+.option .zxz .optioncontent .assignOption ul li .showchoose,
+.option .yqsp .optioncontent .assignOption ul li .showchoose,
+.option .zxztjsfsp .optioncontent .assignOption ul li .showchoose,
+.option .gdsfys .optioncontent .assignOption ul li .showchoose {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 18px;
+  border: 1px solid #77b8f9;
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+.option .start .optioncontent .assignOption ul li .choose,
+.option .designate .optioncontent .assignOption ul li .choose,
+.option .designateS .optioncontent .assignOption ul li .choose,
+.option .appointApproval .optioncontent .assignOption ul li .choose,
+.option .zxORgp .optioncontent .assignOption ul li .choose,
+.option .zxz .optioncontent .assignOption ul li .choose,
+.option .yqsp .optioncontent .assignOption ul li .choose,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose,
+.option .gdsfys .optioncontent .assignOption ul li .choose {
+  position: absolute;
+  top: 38px;
+  left: 20px;
+  // width: 310px;
+  border: 1px solid #77b8f9;
+  border-radius: 2px;
+  height: 90px;
+  padding: 10px;
+  z-index: 1;
+  background-color: #fff;
+  display: none;
+}
+
+.option .start .optioncontent .assignOption ul li .choose li,
+.option .designate .optioncontent .assignOption ul li .choose li,
+.option .designateS .optioncontent .assignOption ul li .choose li,
+.option .appointApproval .optioncontent .assignOption ul li .choose li,
+.option .zxORgp .optioncontent .assignOption ul li .choose li,
+.option .zxz .optioncontent .assignOption ul li .choose li,
+.option .yqsp .optioncontent .assignOption ul li .choose li,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li,
+.option .gdsfys .optioncontent .assignOption ul li .choose li {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.option .start .optioncontent .assignOption ul li .choose li i,
+.option .appointApproval .optioncontent .assignOption ul li .choose li i,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li i,
+.option .gdsfys .optioncontent .assignOption ul li .choose li i {
+  float: left;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #7482D6;
+  margin-right: 10px;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.option .start .optioncontent .assignOption ul li .choose li b,
+.option .appointApproval .optioncontent .assignOption ul li .choose li b,
+.option .zxztjsfsp .optioncontent .assignOption ul li .choose li b,
+.option .gdsfys .optioncontent .assignOption ul li .choose li b {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;
+  background-color: #7482D6;
+  display: none;
+}
+
+.option .start .optioncontent .assignOption ul .next input,
+.option .designate .optioncontent .assignOption ul .next input,
+.option .designateS .optioncontent .assignOption ul .next input,
+.option .appointApproval .optioncontent .assignOption ul .next input,
+.option .zxORgp .optioncontent .assignOption ul .next input,
+.option .zxz .optioncontent .assignOption ul .next input,
+.option .yqsp .optioncontent .assignOption ul .next input,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input,
+.option .gdsfys .optioncontent .assignOption ul .next input {
+  background: #D7D7D7;
+  box-shadow: 0 6px 8px 0 rgba(215, 215, 215, 0.50);
+  border-radius: 100px;
+  width: 100%;
+  height: 36px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.option .designate .optioncontent .assignOption ul .next input,
+.option .appointApproval .optioncontent .assignOption ul .next input,
+.option .zxORgp .optioncontent .assignOption ul .next input,
+.option .zxz .optioncontent .assignOption ul .next input,
+.option .yqsp .optioncontent .assignOption ul .next input,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input,
+.option .gdsfys .optioncontent .assignOption ul .next input {
+  float: left;
+  width: 45%;
+  background: #3D8BFB;
+  box-shadow: 0 6px 8px 0 rgba(61, 139, 251, 0.50);
+  border-radius: 100px;
+  height: 36px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.option .designate .optioncontent .assignOption ul .next input:last-child,
+.option .appointApproval .optioncontent .assignOption ul .next input:last-child,
+.option .zxORgp .optioncontent .assignOption ul .next input:last-child,
+.option .zxz .optioncontent .assignOption ul .next input:last-child,
+.option .yqsp .optioncontent .assignOption ul .next input:last-child,
+.option .zxztjsfsp .optioncontent .assignOption ul .next input:last-child,
+.option .gdsfys .optioncontent .assignOption ul .next input:last-child {
+  float: right;
+   background: #D7D7D7;
+  box-shadow: 0 6px 8px 0 rgba(215, 215, 215, 0.50);
+  border-radius: 100px;
+  height: 36px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.chosen-container-multi .chosen-choices {
+  border: none;
+  outline: none;
+  outline-style: none;
+  border: 1px solid #8DC3F9;
+  border-radius: 18px;
+  padding: 0 20px;
+}
+// .chosen-container-multi .chosen-choices
