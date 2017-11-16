@@ -1,0 +1,431 @@
+﻿<html>
+
+	<head>
+		<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+		<meta name=Generator content="Microsoft Word 15 (filtered)">
+		<style>
+			<!--
+			/* Font Definitions */
+			
+			@font-face {
+				font-family: 宋体;
+				panose-1: 2 1 6 0 3 1 1 1 1 1;
+			}
+			
+			@font-face {
+				font-family: "Cambria Math";
+				panose-1: 2 4 5 3 5 4 6 3 2 4;
+			}
+			
+			@font-face {
+				font-family: 微软雅黑;
+				panose-1: 2 11 5 3 2 2 4 2 2 4;
+			}
+			
+			@font-face {
+				font-family: Consolas;
+				panose-1: 2 11 6 9 2 2 4 3 2 4;
+			}
+			
+			@font-face {
+				font-family: "\@微软雅黑";
+				panose-1: 2 11 5 3 2 2 4 2 2 4;
+			}
+			
+			@font-face {
+				font-family: "\@宋体";
+				panose-1: 2 1 6 0 3 1 1 1 1 1;
+			}
+			/* Style Definitions */
+			
+			p.MsoNormal,
+			li.MsoNormal,
+			div.MsoNormal {
+				margin: 0cm;
+				margin-bottom: .0001pt;
+				text-align: justify;
+				text-justify: inter-ideograph;
+				font-size: 10.5pt;
+				font-family: "Times New Roman", "serif";
+			}
+			
+			p.MsoHeader,
+			li.MsoHeader,
+			div.MsoHeader {
+				mso-style-link: "页眉 Char";
+				margin: 0cm;
+				margin-bottom: .0001pt;
+				text-align: center;
+				layout-grid-mode: char;
+				border: none;
+				padding: 0cm;
+				font-size: 9.0pt;
+				font-family: "Times New Roman", "serif";
+			}
+			
+			p.MsoFooter,
+			li.MsoFooter,
+			div.MsoFooter {
+				mso-style-link: "页脚 Char";
+				margin: 0cm;
+				margin-bottom: .0001pt;
+				layout-grid-mode: char;
+				font-size: 9.0pt;
+				font-family: "Times New Roman", "serif";
+			}
+			
+			span.Char {
+				mso-style-name: "页眉 Char";
+				mso-style-link: 页眉;
+			}
+			
+			span.Char0 {
+				mso-style-name: "页脚 Char";
+				mso-style-link: 页脚;
+			}
+			
+			.MsoChpDefault {
+				font-family: "Calibri", "sans-serif";
+			}
+			/* Page Definitions */
+			
+			@page WordSection1 {
+				size: 595.3pt 841.9pt;
+				margin: 72.0pt 90.0pt 72.0pt 90.0pt;
+				layout-grid: 15.6pt;
+			}
+			
+			div.WordSection1 {
+				page: WordSection1;
+			}
+			
+			-->
+		</style>
+
+	</head>
+
+	<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+		<div class=WordSection1 style='layout-grid:15.6pt'>
+
+			<p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+6.0pt;margin-left:0cm;line-height:27.75pt;text-autospace:ideograph-other'><b><span
+style='font-size:14.0pt;font-family:"微软雅黑","sans-serif";color:#333333'>智水地图的<span
+lang=EN-US>“Hello, World”</span></span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>开始学习智水地图</span><span lang=EN-US style='font-size:
+9.0pt;line-height:200%;font-family:"Arial","sans-serif";color:#333333'>API</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;color:#333333'>最简单的方式是看一个简单的示例。以下代码实现了创建了一个地图并设定地图显示范围</span><span lang=EN-US style='font-size:9.0pt;line-height:200%;font-family:"Arial","sans-serif";
+color:#333333'>(</span><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>该代码可从调用示例源代码页面中复制获取</span><span lang=EN-US style='font-size:9.0pt;line-height:200%;font-family:"Arial","sans-serif";
+color:#333333'>)</span><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>：</span></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&lt;!</span><span lang=EN-US style='font-family:Consolas;
+color:#2369B6'>DOCTYPE </span><span lang=EN-US style='font-family:Consolas;
+color:#3E4B53'>html&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&lt;</span><span lang=EN-US style='font-family:Consolas;
+color:#2369B6'>html</span><span lang=EN-US style='font-family:Consolas;
+color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>head</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>title</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;HelloWorld&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>title</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>meta </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>charset</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;utf-8&quot; </span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>/&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>src</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span id="rmapUrl1" lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;http://192.168.200.30:7003/mapapi/rmap.js&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>style </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>type</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;text/css&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#2369B6'>body</span><span style='color:#080808'> </span><span style='color:#808040'>{</span></span>
+				</p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>padding</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>0</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>margin</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>0</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#808040'>}</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#808040'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>html</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>,</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>,</span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>#map</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#808040'>{</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>height</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>100</span><span lang=EN-US style='font-family:Consolas;color:#577909'>%</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#808040'>}</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#808040'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>style</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>head</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>id</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;map&quot; </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>class</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;map&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#95A3AB'>//</span></span><span style='font-family:宋体;color:#95A3AB'>初始化地图，默认地图为在线高德地图</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#364BC0'>var </span><span style='color:#080808'>rmap </span><span style='color:#577909'>= new </span><span style='color:#080808'>RMap.Map(</span><span style='color:#248C85'>'map'</span><span style='color:#080808'>);</span></span>
+				</p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#95A3AB'>//</span><span style='font-family:宋体;color:#95A3AB'>以</span><span lang=EN-US style='font-family:
+Consolas;color:#95A3AB'>116.390985, 39.906358</span><span style='font-family:
+宋体;color:#95A3AB'>（天安门广场）为中心点坐标，地图缩放到</span><span lang=EN-US style='font-family:
+Consolas;color:#95A3AB'>12</span><span style='font-family:宋体;color:#95A3AB'>级</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#080808'>rmap.centerZoom(</span><span style='color:#9B1CEB'>116.390985</span><span style='color:#080808'>, </span><span style='color:#9B1CEB'>39.906358</span><span style='color:#080808'>, </span><span style='color:#9B1CEB'>12</span><span style='color:#080808'>);</span></span>
+				</p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&lt;/</span><span lang=EN-US style='font-family:Consolas;
+color:#2369B6'>html</span><span lang=EN-US style='font-family:Consolas;
+color:#3E4B53'>&gt;</span></p>
+
+			</div>
+
+			<p class=MsoNormal align=left style='text-align:left;text-autospace:none'><span lang=EN-US style='font-size:9.0pt;font-family:"Courier New";color:#666652;
+background:#FBFBC8'>&nbsp;</span></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;line-height:15.0pt;background:white;text-autospace:ideograph-other'><span style='font-size:9.0pt;font-family:宋体;color:#333333;background:white'>下面我们分步向您介绍：</span></p>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>准备页面</span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>首先我们设置样式，使地图充满整个浏览器窗口：</span></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>style </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>type</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;text/css&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='color:#2369B6'>body</span><span style='color:#080808'> </span><span style='color:#808040'>{</span></span>
+				</p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>padding</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>0</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>margin</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>0</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#808040'>}</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#808040'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>html</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>,</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>,</span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>#map</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#808040'>{</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3C7A03'>height</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>:</span><span lang=EN-US style='font-family:Consolas;color:#080808'> </span><span lang=EN-US style='font-family:Consolas;color:#9B1CEB'>100</span><span lang=EN-US style='font-family:Consolas;color:#577909'>%</span><span lang=EN-US style='font-family:Consolas;color:#080808'>;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#080808'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#808040'>}</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#808040'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>style</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+			</div>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>创建地图容器元素</span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>地图需要一个</span><span lang=EN-US style='font-size:
+9.0pt;line-height:200%;font-family:"Arial","sans-serif";color:#333333'>HTML</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;color:#333333'>元素作为容器，这样才能展现到页面上。这里我们创建了一个</span><span lang=EN-US style='font-size:9.0pt;line-height:200%;font-family:"Arial","sans-serif";
+color:#333333'>div</span><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>元素。</span></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt;
+background:#EEF5F0;text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>id</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;map&quot; </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>class</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;map&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>div</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp; &lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>body</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+			</div>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>引用智水地图<span lang=EN-US>API</span>文件</span></b></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas;color:#3E4B53'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script </span><span lang=EN-US style='font-family:Consolas;color:#CB2D01'>src</span><span lang=EN-US style='font-family:Consolas;color:#38444B'>=</span><span id="rmapUrl2" lang=EN-US style='font-family:Consolas;color:#248C85'>&quot;http://192.168.200.30:7003/mapapi/rmap.js&quot;</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;&lt;/</span><span lang=EN-US style='font-family:Consolas;color:#2369B6'>script</span><span lang=EN-US style='font-family:Consolas;color:#3E4B53'>&gt;</span></p>
+
+			</div>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>命名空间</span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>智水地图</span><span lang=EN-US style='font-size:
+9.0pt;line-height:200%;font-family:"Arial","sans-serif";color:#333333'>API</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;color:#333333'>使用</span><span lang=EN-US style='font-size:9.0pt;line-height:200%;font-family:"Arial","sans-serif";
+color:#333333'>RMap</span><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>作为命名空间，所有类均在该命名空间之下，比如：</span><span lang=EN-US style='font-size:9.0pt;line-height:200%;font-family:"Arial","sans-serif";
+color:#333333'>RMap.centerZoom</span><span style='font-size:9.0pt;line-height:
+200%;font-family:宋体;color:#333333'>、</span><span lang=EN-US style='font-size:
+9.0pt;line-height:200%;font-family:"Arial","sans-serif";color:#333333'>RMap.
+addPoint</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;
+color:#333333'>等等。</span></p>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>初始化地图</span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>初始化地图，默认地图为在线高德地图。</span></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#364BC0'>var </span><span style='color:#080808'>rmap </span><span style='color:#577909'>= new </span><span style='color:#080808'>RMap.Map(</span><span style='color:#248C85'>'map'</span><span style='color:#080808'>);</span></span>
+				</p>
+
+			</div>
+
+			<p class=MsoNormal style='margin-top:7.5pt;margin-right:0cm;margin-bottom:7.5pt;
+margin-left:11.35pt;line-height:12.0pt;background:white;text-autospace:ideograph-other'><b><span
+style='font-size:12.0pt;font-family:"微软雅黑","sans-serif";color:black;background:
+white'>设置地图显示范围</span></b></p>
+
+			<p class=MsoNormal style='margin-top:4.2pt;margin-right:0cm;margin-bottom:5.25pt;
+margin-left:0cm;text-indent:4.5pt;line-height:200%;background:whitesmoke;
+text-autospace:ideograph-other'><span style='font-size:9.0pt;line-height:200%;
+font-family:宋体;color:#333333'>以</span><span lang=EN-US style='font-size:9.0pt;
+line-height:200%;font-family:"Arial","sans-serif";color:#333333'>116.390985,
+39.906358</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;
+color:#333333'>（天安门广场）为中心点坐标，地图缩放到</span><span lang=EN-US style='font-size:
+9.0pt;line-height:200%;font-family:"Arial","sans-serif";color:#333333'>12</span><span style='font-size:9.0pt;line-height:200%;font-family:宋体;color:#333333'>级。</span></p>
+
+			<div style='border:solid #2EBC53 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#EEF5F0'>
+
+				<p class=MsoNormal align=left style='text-align:left;background:#EEF5F0;
+text-autospace:none;border:none;padding:0cm'><span lang=EN-US style='font-family:
+Consolas'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style='color:#080808'>rmap.centerZoom(</span><span style='color:#9B1CEB'>116.390985</span><span style='color:#080808'>, </span><span style='color:#9B1CEB'>39.906358</span><span style='color:#080808'>, </span><span style='color:#9B1CEB'>12</span><span style='color:#080808'>);</span></span>
+				</p>
+
+			</div>
+
+			<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+		</div>
+
+	</body>
+	
+	<script>
+		document.getElementById("rmapUrl1").innerText = document.getElementById("rmapUrl1").innerText.replace("http://192.168.200.30:7003",window.location.origin);
+		document.getElementById("rmapUrl2").innerText = document.getElementById("rmapUrl2").innerText.replace("http://192.168.200.30:7003",window.location.origin);
+	</script>
+
+</html>

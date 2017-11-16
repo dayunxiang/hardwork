@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>案例2</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加点" onclick="addPointList()" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		
+		//初始化时添加点位
+		setTimeout(function(){
+			addPointList();
+		},100);
+
+		//添加多点，自定义图片
+		function addPointList() {
+			var jsonPoints = '[{"lng":116.315751,"lat":39.893688,"name":"北京西站","isOnLine":0},{"lng":116.372635,"lat":39.863035,"name":"北京南站","isOnLine":1},{"lng":116.421389,"lat":39.901236,"name":"北京站","isOnLine":1},{"lng":116.346917,"lat":39.943920,"name":"北京北站","isOnLine":1},{"lng":116.478885,"lat":39.899780,"name":"北京东站","isOnLine":1}]';
+			var picUrl1 = "Images/station.png"; //自定义图片地址
+			var picUrl0 = "Images/station.png"; //自定义图片地址
+			rmap.addPointList(jsonPoints, {
+				id: '1234',
+				pic: picUrl0,
+				isCenter: true,
+				attrPic: [{
+					"field": "isOnLine",
+					"value": 1,
+					"pic": picUrl1
+				}, {
+					"field": "isOnLine",
+					"value": 0,
+					"pic": picUrl0
+				}],
+				onClick: onPointClick
+			});
+		};
+		//点位鼠标点击回调方法
+		function onPointClick(e) {
+			var userDiv = document.createElement('div');
+			userDiv.innerHTML = "名称：" + e.data.name;
+			userDiv.innerHTML += "<br>经度：" + e.lng;
+			userDiv.innerHTML += "<br>纬度：" + e.lat;
+			userDiv.innerHTML += "<br><div style='text-align: right;'><a href='http://192.168.200.100:8020/RunMapAPI/develop/Examples/helloWorld.html'  target='_blank'>详细信息</a></div>";
+
+			rmap.showPopWindow(e.lng, e.lat, userDiv, {
+				autoPan: false //显示气泡时是否确保当前气泡在地图范围，默认为true
+			});
+		}
+		//移除所有点
+		function removeAll() {
+			rmap.removePoint();
+		};
+	</script>
+
+</html>

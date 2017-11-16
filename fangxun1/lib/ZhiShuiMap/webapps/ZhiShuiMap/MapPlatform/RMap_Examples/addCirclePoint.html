@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>添加圆形点</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加单点" onclick="addOnePoint()" />
+			<input type="button" value="添加多点" onclick="addMorePoint()" />
+			<input type="button" value="移除指定多点" onclick="removeMorePoint()" />
+			<input type="button" value="移除所有点" onclick="removeAll()" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		
+		//添加单点
+		function addOnePoint() {
+			rmap.addCirclePoint(116.34979, 40.04442, {
+				id: '1234',
+				onClick: onPointClick
+			});
+		};
+		
+		//点位鼠标点击回调方法
+		function onPointClick(e) {
+			console.log(e);
+		}
+		
+		//添加多点，自定义图片
+		function addMorePoint() {
+			var pointList = getpointList();
+			var picUrl = "img/icon_wechat.png"; //自定义图片地址
+			for(var i = 0; i < pointList.length; i++) {
+				var sPoint = pointList[i];
+				rmap.addCirclePoint(sPoint.lng, sPoint.lat, {
+					id: sPoint.id, //定义id，移除指定点位时使用，不能重复
+					color: 'red',
+					opacity: 0.5,
+					radius: 2
+				});
+			}
+			rmap.centerZoom(116.34979, 40.04442, 15); //地图定位
+		};
+		
+		//移除指定多点
+		function removeMorePoint() {
+			var ids = [];
+			for(var i = 0; i < 10; i++) {
+				var a = Math.round(Math.random() * 100);
+				ids.push(a);
+			}
+			rmap.removeCirclePoint(ids);
+		};
+		
+		//移除所有点
+		function removeAll() {
+			rmap.removeCirclePoint();
+		};
+		
+		//获取100个随机点位数据
+		function getpointList() {
+			var pointList = [];
+			for(var i = 0; i < 100; i++) {
+				var x = 116.33979 + (0.02 * Math.random());
+				var y = 40.03442 + (0.02 * Math.random());
+				pointList.push({
+					lng: x,
+					lat: y,
+					id: i
+				});
+			}
+			return pointList;
+		};
+	</script>
+
+</html>

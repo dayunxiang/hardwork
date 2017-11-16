@@ -1,30 +1,486 @@
- html,
- body {
-     position: relative;
-     height: 100%;
- }
-
- body {
-     background: red;
-     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-     font-size: 14px;
-     color: #000;
-     margin: 0;
-     padding: 0;
- }
-
- .swiper-container {
-     width: 100%;
-     height: 100%;
- }
-
- .swiper-slide {
-     font-size: 18px;
-     background: #fff;
- }
-
-.box {
-    width: 100%;
-    height: 200px;
-    background-color: red;
+html,
+body {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: .14rem;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height: .86rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #325BA7;
+    z-index: 9999
+}
+
+.swiper-container {
+    padding-top: .86rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide {
+    font-size: .18rem;
+    background: #fff;
+    position: relative;
+}
+
+
+
+
+/* 清淤整改 */
+
+.swiper-container .swiper-slide .qingyucard,
+.swiper-container .swiper-slide .zhihuicard,
+.swiper-container .swiper-slide .yilaocard,
+.swiper-container .swiper-slide .zhenggaicard,
+.swiper-container .swiper-slide .fengxiancard {
+    width: 3.3rem;
+    position: absolute;
+    top: 1.56rem;
+    left: 0.3rem;
+    z-index: 10000;
+}
+
+.swiper-container .swiper-slide .qingyucard .title,
+.swiper-container .swiper-slide .zhihuicard .title,
+.swiper-container .swiper-slide .yilaocard .title,
+.swiper-container .swiper-slide .zhenggaicard .title,
+.swiper-container .swiper-slide .fengxiancard .title {
+    width: 100%;
+    font-size: .20rem;
+    color: #FFFFFF;
+    padding: .4rem 0;
+    text-align: center;
+    background: #325BA7;
+}
+
+.swiper-container .swiper-slide .qingyucard .main,
+.swiper-container .swiper-slide .zhihuicard .main,
+.swiper-container .swiper-slide .yilaocard .main,
+.swiper-container .swiper-slide .zhenggaicard .main,
+.swiper-container .swiper-slide .fengxiancard .main {
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+    padding: .15rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption {
+    width: 100%;
+    padding: .15rem 0 .3rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption>span {
+    font-size: .12rem;
+    float: left;
+    color: #8D96BA;
+    line-height: .22rem;
+    margin-top: .12rem; 
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select {
+    float: left;
+    border: 1px solid #5A6388;
+    width: 60%;
+    margin-left: .15rem;
+    padding: .09rem .20rem;
+    border-radius: .50rem;
+    position: relative;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select>i {
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select>span {
+    font-size: .12rem;
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .selectOption {
+    position: absolute;
+    top: 2rem;
+    left: .7rem;
+    width: 60%;
+    border: 1px solid #5A6388;
+    background-color: #fff;
+    border-radius: .1rem;
+    display: none;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .selectOption li {
+    width: 100%;
+    cursor: pointer;
+    font-size: .12rem;
+    padding: .10rem .10rem;
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent {
+    width: 100%;
+    padding: .20rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul {
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li span {
+    font-size: .12rem;
+    color: #8D96BA;
+    float: left;
+    width: 100%;
+    margin: 0.05rem 0;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li span:last-child {
+    color: #5A6388;
+    font-size: .22rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom {
+    width: 100%;
+    padding-top: .15rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom>li {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom>li span {
+    font-size: .15rem;
+    color: #5A6388;
+    margin-left: .10rem;
+}
+
+
+
+
+/* 指挥调度图 */
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption {
+    padding: 0.08rem 0 .3rem 0;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li {
+    width: 40%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li:last-child {
+    width: 60%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li span {
+    font-size: .12rem;
+    float: left;
+    width: 100%;
+    color: #8D96BA;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li span:last-child {
+    font-size: .22rem;
+    color: #FE6036;
+    margin-top: .10rem;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent,
+.swiper-container .swiper-slide .yilaocard .main .countcontent,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent {
+    padding: .20rem 0 .15rem 0;
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li>span {
+    float: left;
+    width: 100%;
+    font-size: .12rem;
+    color: #8D96BA;
+    margin-top: .10rem;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li>span:last-child {
+    font-size: .22rem;
+    color: #5A6388;
+    margin-top: .10rem;
+}
+
+
+
+
+/* 易涝分布图 */
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption {
+    width: 100%;
+    padding: .15rem 0 .3rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul li,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul li {
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul li p,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul li p {
+    font-size: .12rem;
+    color: #8D96BA;
+}
+
+
+
+
+ /* 人员物资统计 */
+
+
+ /* 汛情/警情统计 */
+
+.swiper-container .swiper-slide .wuzitongji,
+.swiper-container .swiper-slide .xunjingqingtongji,
+.swiper-container .swiper-slide .xitongjianjie {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.swiper-container .swiper-slide .wuzitongji .title,
+.swiper-container .swiper-slide .xunjingqingtongji .title,
+.swiper-container .swiper-slide .xitongjianjie .title {
+    font-size: .2rem;
+    color: #4A4A4A;
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main,
+.swiper-container .swiper-slide .xunjingqingtongji .main,
+.swiper-container .swiper-slide .xitongjianjie .main {
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .main {
+    background-color: transparent;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing {
+    width: 50%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid rgba(50, 91, 167, .1);
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren .title,
+.swiper-container .swiper-slide .wuzitongji .main .fxwu .title,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing .title,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing .title {
+    font-size: .20rem;
+    color: #325BA7;
+    margin-top: .4rem;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren #fxren,
+.swiper-container .swiper-slide .wuzitongji .main .fxwu #fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing #xunqing,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing #jingqing {
+    padding: .3rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxwu #fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jignqing #jignqing {
+    padding: .3rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+.swiper-container .swiper-slide .xitongjianjie .intro {
+    float: left;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .intromain {
+    background-color: #fff;
+    margin-top: .1rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather {
+    float: left;
+    margin-left: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain {
+    margin-top: .1rem;
+    background-color: #6AB3E6;
+    padding: .3rem;
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo {}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul {}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul li {
+    margin-top: .1rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul li span {
+    font-size: .2rem;
+    color: #FFFFFF;
+    line-height: .2rem;
+    margin-right: .2rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab {
+    margin-top: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar {
+    height: .4rem;
+    border-radius: .4rem;
+    background-color: #356EBA;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar li {
+    width: 50%;
+    float: left;
+    height: .4rem;
+    border-radius: .4rem;
+    text-align: center;
+    line-height: .4rem;
+    color: #9DB9DE;
+    font-size: .2rem;
+    cursor: pointer;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar>li.active {
+    background-color: #fff;
+    color: #325BA7;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent {
+    // padding-top: 28px;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent li {
+    margin-top: .4rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li span:first-child {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    float: left;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li span:last-child {
+    font-size: .5rem;
+    float: left;
+    color: #FFFFFF;
+    margin-top: .2rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li div {
+    float: left;
+    display: inline-block;
+    margin-right: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li i {
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: .15rem;
+    vertical-align: middle;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li img {
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child .kqzl {
+    height: .35rem;
+    line-height: .35rem;
+    width: 1.6rem;
+    background-color: #41C978;
+    color: #fff;
+    border-radius: .35rem;
+    font-size: .15rem;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:last-child {
+    font-size: .15rem;
+    color: #FFFFFF
+}
+
