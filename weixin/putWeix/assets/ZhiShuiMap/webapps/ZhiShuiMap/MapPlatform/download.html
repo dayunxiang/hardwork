@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- 要求当前浏览器用最新的渲染引擎来渲染页面 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>智水地图</title>
+		<!-- css 核心层叠样式表 -->
+		<link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/download.css">
+		
+		<!-- js加载文件 -->
+		<script src="port/config_download.js"></script>
+		<script src="lib/artTemplate/dist/template.js"></script>
+	</head>
+
+	<body>
+		<!-- navbar -->
+		<nav class="navbar zs_navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+        			</button>
+					<a class="navbar-brand zs_logo" href="index.html">
+						<img src="images/page/logo.png" alt="">
+						<span>智水地图</span>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav  ">
+						<li>
+							<a href="index.html">首页</a>
+						</li>
+						<li>
+							<a href="guid.html">开发指南</a>
+						</li>
+						<li>
+							<a href="case.html">应用案例</a>
+						</li>
+						<li>
+							<a href="interfaceDetail.html">接口详情</a>
+						</li>
+						<li>
+							<a href="resource.html">地图资源</a>
+						</li>
+						<li class="active">
+							<a href="download.html">相关下载</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="zs_content">
+			<div class="row " style="margin-left: 0;margin-right: 0; ">
+				<h3>智水地图相关下载</h3>
+				<table class="mytable" border="1" cellpadding="5" cellspacing="0" >
+					<thead>
+						<tr>
+							<th width="20%">版本</th>
+							<th width="20%">更新日期</th>
+							<th width="60%">版本描述</th>
+						</tr>
+					</thead>
+					<tbody id="downloadTB"></tbody>
+				</table>
+			</div>
+			
+		</div>
+		<script type="text/html" id="downloadTpl">
+			{{each data as value i}}
+			<tr style="height: 30px; line-height: 30px;">
+				<td><a href="{{value.url}}" >{{value.version}}</a></td>
+				<td>{{value.updatatime}}</td>
+				<td>{{value.describe}}</td>
+			</tr>
+			{{/each}}
+		</script>
+		<script src="./lib/jquery/jquery.js"></script>
+		<script src="./lib/bootstrap/js/bootstrap.js"></script>
+		<script src="./lib/nicescroll/dist/jquery.nicescroll.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/download.js"></script>
+	</body>
+	
+	
+	
+
+</html>

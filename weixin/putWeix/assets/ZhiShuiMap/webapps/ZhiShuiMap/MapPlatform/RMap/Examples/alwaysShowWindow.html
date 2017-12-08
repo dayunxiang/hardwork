@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>常显式信息窗口</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加点" onclick="addPoint()" />
+			<input type="button" value="显示气泡" onclick="showWindow()" />
+			<input type="button" value="移除气泡窗口" onclick="removeAlwaysShowWindow()" />
+			<input type="button" value="移除所有点" onclick="removePoint()" />
+		</div>
+	</body>
+
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		
+		var pointList = getpointList();
+		//添加点
+		function addPoint(option) {
+			var picUrl = "Images/circle.png";
+			for(var i = 0; i < pointList.length; i++) {
+				var sPoint = pointList[i];
+				rmap.addPoint(sPoint.lng, sPoint.lat, {
+					id: sPoint.id,
+					pic: picUrl
+				});
+			}
+			rmap.centerZoom(116.390726, 39.916430, 15); //地图定位
+		};
+		
+		 //显示气泡窗口
+		function showWindow(point) {
+			for (var i = 0; i < pointList.length; i++) {
+				var sPoint = pointList[i];
+				doShowWindow(sPoint);
+			}
+		};
+		function doShowWindow(point){
+			var userDiv = document.createElement('infoWindow')
+			userDiv.innerHTML = "电话：" + point.data.phoneNumber;
+			if (point.id % 2 == 0) {
+				userDiv.innerHTML += "<br><a href='http://www.baidu.com' target='_blank'>详细信息</a>";
+			}
+			rmap.addAlwaysShowWindow(point.lng, point.lat, userDiv);
+		}
+		
+		//移除气泡窗口
+		function removeAlwaysShowWindow() {
+			rmap.removeAlwaysShowWindow();
+		};
+		
+		//清空所有点
+		function removePoint() {
+			rmap.removePoint();
+			rmap.removeAlwaysShowWindow();
+		};
+		
+		//获取100个随机点位数据
+		function getpointList() {
+			var pointList = [];
+			for(var i = 0; i < 30; i++) {
+				var x = 116.380726 + (0.02 * Math.random());
+				var y = 39.906430 + (0.02 * Math.random());
+				var data = {};
+				if (i < 10) {
+					data.phoneNumber = "1890108900" + i;
+				} else if (i >= 10 && i < 100) {
+					data.phoneNumber = "189010890" + i;
+				}
+				pointList.push({
+					lng: x,
+					lat: y,
+					id: i,
+					data: data
+				});
+			}
+			return pointList;
+		};
+	</script>
+
+</html>

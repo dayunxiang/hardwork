@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>添加线</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+
+		<div class="menuBar">
+			<input type="button" value="简单添加线" onclick="addSimpleLine()" />
+			<input type="button" value="自定义线样式" onclick="addLine()" />
+			<input type="button" value="移除指定ID折线" onclick="removeByID()" />
+			<input type="button" value="移除折线" onclick="removeAll()" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+
+		//简单添加线
+		function addSimpleLine() {
+			var points = getLinePointRandom();
+			rmap.addLine(points); //简单调用
+			rmap.extentByData(points);
+		};
+
+		//自定义线样式
+		function addLine() {
+			var pointList = getLinePoint();
+			rmap.addLine(pointList, {
+				id: '7890',
+				width: 5,
+				color: 'green',
+				opacity: 0.5,
+				isCenter: true,
+				onClick: onClick
+			});
+		};
+		
+		//鼠标点击回调方法
+		function onClick(e) {
+			console.log(e);
+		}
+
+		//移除指定ID折线
+		function removeByID() {
+			rmap.removeLine(['7890']);
+		};
+
+		//移除折线
+		function removeAll() {
+			rmap.removeLine();
+		};
+
+		//获取单条随机线段
+		function getLinePointRandom() {
+			var pointList = [];
+			var sX = 116.33979;
+			var sY = 40.03442;
+			for(var i = 0; i < 100; i++) {
+				var x = sX + (0.002 * Math.random());
+				var y = sY + (0.002 * Math.random());
+				sX = x;
+				pointList.push([x, y]);
+			}
+			return pointList;
+		};
+
+		//获取单条指定路径
+		function getLinePoint() {
+			var linePoints = [
+				[116.391844, 39.898457],
+				[116.377947, 39.898595],
+				[116.368001, 39.898341],
+				[116.357144, 39.898063],
+				[116.351934, 39.899095],
+				[116.350670, 39.905871],
+				[116.349800, 39.922329],
+				[116.349671, 39.931017],
+				[116.349225, 39.939104],
+				[116.349910, 39.942233],
+				[116.366892, 39.947263],
+				[116.387537, 39.947568],
+				[116.401988, 39.947764],
+				[116.410824, 39.947929],
+				[116.426740, 39.947558],
+				[116.427338, 39.939700],
+				[116.427919, 39.932404],
+				[116.428377, 39.923109],
+				[116.429583, 39.907094],
+				[116.414040, 39.906858],
+				[116.405321, 39.906622],
+				[116.394954, 39.906324],
+				[116.391264, 39.906308],
+				[116.390748, 39.916611]
+			];
+			return linePoints;
+		}
+	</script>
+
+</html>

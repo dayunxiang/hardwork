@@ -2,6 +2,7 @@ html,
 body {
     position: relative;
     height: 100%;
+    // min-height: 6.16rem;
     box-sizing: border-box;
 }
 
@@ -28,6 +29,9 @@ body {
     padding-top: .86rem;
     width: 100%;
     height: 100%;
+    
+    // min-height: 616px;
+    // min-height: 6.16rem;
     box-sizing: border-box;
 }
 
@@ -47,7 +51,7 @@ body {
 .swiper-container .swiper-slide .yilaocard,
 .swiper-container .swiper-slide .zhenggaicard,
 .swiper-container .swiper-slide .fengxiancard {
-    width: 3.3rem;
+    width: 3.6rem;
     position: absolute;
     top: 1.56rem;
     left: 0.3rem;
@@ -274,13 +278,13 @@ body {
 
 .swiper-container .swiper-slide .yilaocard .main .timeOption ul,
 .swiper-container .swiper-slide .zhenggaicard .main .timeOption ul {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
 }
 
 .swiper-container .swiper-slide .yilaocard .main .timeOption ul li,
 .swiper-container .swiper-slide .zhenggaicard .main .timeOption ul li {
-    width: 100%;
+    // width: 100%;
 }
 
 .swiper-container .swiper-slide .yilaocard .main .timeOption ul li p,
@@ -336,7 +340,7 @@ body {
 .swiper-container .swiper-slide .wuzitongji .main .fxwu .title,
 .swiper-container .swiper-slide .xunjingqingtongji .main .xunqing .title,
 .swiper-container .swiper-slide .xunjingqingtongji .main .jingqing .title {
-    font-size: .20rem;
+    font-size: .26rem;
     color: #325BA7;
     margin-top: .4rem;
     text-align: center;
@@ -484,3 +488,11 @@ body {
     color: #FFFFFF
 }
 
+
+
+/* 防汛应急页面 */
+
+.mainContainer {
+    background: red;
+   
+}

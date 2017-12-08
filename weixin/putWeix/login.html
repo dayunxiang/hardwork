@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>微信 - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <h2>欢迎来到智慧水务管理系统</h2>
+            <h5>扫码登录</h5>
+            <div>使用微信扫码登录</div>
+            <div class="erweipic">
+                <iframe src="" frameborder="0" width="165px" height="165px" scrolling="no" frameborder="0" id="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+        $.ajax({
+            type: 'get',
+            url: 'http://47.95.1.140/wx/webapi/GetQrcodeTicketBySceneId?sceneStr=1001',
+            dataType: 'json',
+            success: function(data) {
+                var rncodedata = encodeURIComponent(data)
+                var iframe = document.getElementById('iframe').contentWindow;
+                iframe.document.designMode = 'on';
+                iframe.document.contentEditable = true;
+                iframe.document.open();
+                iframe.document.writeln('<html><head>');
+                iframe.document.writeln('</head><body><img style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-color: white;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%);" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='+rncodedata+'"width="165" height="165"></body></html>');
+                iframe.document.close();
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://47.95.1.140/wx/webapi/UserQrcodeLogin?ticket='+data+'&sceneid=1001',
+                    dataType: 'json',
+                    success:function (data) {
+                       if (data != 4001) {
+                        window.localStorage.setItem("userInfo", JSON.stringify(data))
+                        window.location.href = 'http://127.0.0.1:8080/index.html'
+                       }
+                    },
+                    error:function (err) {
+                        console.log(err)
+                    }
+                })
+            }
+
+        })
+    })
+    </script>
+</body>
+
+</html>

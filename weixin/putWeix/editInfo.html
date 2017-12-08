@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>微信 - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- logo -->
+        <div class="logo">
+            <a href="#">
+              <img src="images/logo.png" >
+              清控环境智慧水务
+            </a>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./reportInfo.html" >
+                        <i class="fa fa-bell"></i>
+                        上报信息管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header pull-left">
+                        <!-- <a href="javascript:;" class="navbar-brand">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </a> -->
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                               <img src="images/bg.png" alt="">
+                            </a>
+                        </li>
+                        <li class="role">
+                            <a href="javascript:;">
+                                管理员
+                                <i class="fa  fa-caret-down" style="color: #333;"></i>
+                            </a>
+                        </li>
+                        <div class="userInfo clearfix">
+                            <ul class="clearfix">
+                                <li><a href="#"><i class="fa fa-cog"></i>个人设置</a></li>
+                                <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i>退出</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 个人资料 -->
+            <div class="body user-profile">
+                <div class="profile">
+                    <div class="person">
+                        <h3>个人设置</h3>
+                        <ul>
+                            <li>姓名: <input type="text" required="required"></li>
+                            <li>邮箱: <input type="email" required="required"></li>
+                            <li style="text-indent:-2em;">联系电话: <input type="number" required="required"></li>
+                            <li>单位: <input type="text" required="required"></li>
+                            <li>部门: <input type="text" required="required"></li>
+                            <li>职务: <input type="text" required="required"></li>
+                            <li>角色: <select name="" id="">
+                                <option value="">管理员</option>
+                                <option value="">巡检员</option>
+                            </select></li>
+                        </ul>
+                    </div>  
+                   <div class="safe">
+                       <h3>安全设置</h3>
+                       <ul>
+                           <li>
+                               旧密码: <input type="text" required="required">
+                              
+                           </li>
+                           <li>
+                                新密码: <input type="text" required="required">
+                           </li>
+                           <li style="text-indent:-4em;">
+                               再次输入新密码: <input type="text" required="required">
+                               
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="sure">
+                       <button>取消</button>
+                       <button>保存</button>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./assets/echarts/echarts.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/reportInfo.js"></script>
+    <script src="assets/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
+   
+</body>
+
+</html>

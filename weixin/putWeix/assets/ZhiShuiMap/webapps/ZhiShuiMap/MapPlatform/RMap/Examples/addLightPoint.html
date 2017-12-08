@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>展示圆形扩散标记</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加点" onclick="addPoint()" />
+			<input type="button" value="移除高亮点" onclick="removeLightPoint()" />
+			<input type="button" value="移除所有点" onclick="removePoint()" />
+		</div>
+	</body>
+
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		
+		//添加点、移除
+		function addPoint(option) {
+			var pointList = getpointList();
+			var picUrl = "Images/icon_wechat.png";
+			for(var i = 0; i < pointList.length; i++) {
+				var sPoint = pointList[i];
+				rmap.addPoint(sPoint.lng, sPoint.lat, {
+					id: sPoint.id,
+					pic: picUrl,
+					onClick: onPointClick //定义点击时的回调函数
+				});
+			}
+			rmap.centerZoom(116.34979, 40.04442, 15); //地图定位
+		};
+		
+		//点位鼠标点击回调方法
+		function onPointClick(e) {
+			rmap.addLightPoint(e.lng, e.lat); //高亮点
+		};
+		
+		//移除高亮点
+		function removeLightPoint() {
+			rmap.removeLightPoint();
+		};
+		
+		//清空所有点
+		function removePoint() {
+			rmap.removePoint();
+			rmap.removeLightPoint();
+		};
+		
+		//获取100个随机点位数据
+		function getpointList() {
+			var pointList = [];
+			for(var i = 0; i < 1000; i++) {
+				var x = 116.33979 + (0.1 * Math.random());
+				var y = 40.03442 + (0.1 * Math.random());
+				pointList.push({
+					lng: x,
+					lat: y,
+					id: i
+				});
+			}
+			return pointList;
+		};
+	</script>
+
+</html>

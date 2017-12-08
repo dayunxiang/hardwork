@@ -490,7 +490,7 @@
                     normal: {
                         label: {
                             show: true,
-                            textStyle: { fontSize: "18" },
+                            textStyle: { fontSize: "0.18rem" },
                             formatter: function(val) { //让series 中的文字进行换行
                                 return val.name + ": " + val.value;
                             }
@@ -543,7 +543,7 @@
                     normal: {
                         label: {
                             show: true,
-                            textStyle: { fontSize: "18" },
+                            textStyle: { fontSize: ".18rem" },
                             formatter: function(val) { //让series 中的文字进行换行
                                 return val.name + ": " + val.value;
                             }
@@ -611,7 +611,8 @@
                     label: {
                         normal: {
                             show: true,
-                            position: 'insideRight'
+                            position: 'insideRight',
+                            textStyle: { fontSize: "0.18rem" },
                         }
                     },
                     data: [320, 302, 301, 334, 390]
@@ -738,7 +739,6 @@
         myChart.setOption(option);
     }
        //tab
-
         function tabcount(eleid, activeclass, subareatabcontent) {
             $(eleid + ' li').click(function() {
                 var index = $(this).index();

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>缓冲分析</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+
+		<div class="menuBar">
+			<input type="button" value="点缓冲" onclick="bufferPoint()" />
+			<input type="button" value="移除缓冲结果" onclick="removeBuffer()" />
+		</div>
+	</body>
+	<div id="infoWindow"></div>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+
+		//点缓冲
+		function bufferPoint() {
+			rmap.addPoint(116.43979, 40.13442);
+			rmap.bufferPoint(116.43979, 40.13442, 10000, {
+				callback: bufferResult,
+				isCenter: true,
+				color: '#FF0000'
+			});
+		};
+
+		function bufferResult(e) {
+			console.log(e);
+		}
+		
+		//清空地图
+		function removeBuffer() {
+			rmap.removeBuffer();
+		};
+	</script>
+
+</html>

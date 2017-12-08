@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>添加一组图片点位</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="添加一组点" onclick="addOPointList()" />
+			<input type="button" value="移除所有点" onclick="removeAll()" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+
+		//添加单点
+		function addOPointList() {
+			var jsonPoints = '[{"lng":116.34,"lat":39.13,"isOnLine":0},{"lng":115.34,"lat":38.13,"isOnLine":1}]';
+			var picUrl1 = "Images/icon_wechat.png"; //自定义图片地址
+			var picUrl0 = "Images/icon_wechat0.png"; //自定义图片地址
+			rmap.addPointList(jsonPoints, {
+				id: '1234',
+				pic: picUrl0,
+				attrPic: [{
+					"field": "isOnLine",
+					"value": 1,
+					"pic": picUrl1
+				}, {
+					"field": "isOnLine",
+					"value": 0,
+					"pic": picUrl0
+				}],
+				onClick: onPointClick,
+				onMouseOver: onMouseOver
+			});
+		};
+		//点位鼠标点击回调方法
+		function onPointClick(e) {
+			console.log(e);
+		}
+		//点位鼠标经过时回调方法
+		function onMouseOver(e) {
+			console.log(e);
+		}
+		//移除所有点
+		function removeAll() {
+			rmap.removePointList();
+		};
+	</script>
+
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>轨迹回放</title>
+		<meta charset="utf-8" />
+		<script src="../../mapapi/rmap.js"></script>
+		<style type="text/css">
+			body {padding: 0;margin: 0;height: 100%;}
+			.map {position: absolute;height: 100%;right: 0;left: 0;}
+			.menuBar {position: relative;top: 10px;margin-left: 50px;margin-right: 50px;padding: 5px;border-radius: 3px;z-index: 999;background-color: rgba(0,168,0,0.7);}
+			input[type=button] {font-size: 16px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="map" class="map"></div>
+		<div class="menuBar">
+			<input type="button" value="轨迹回放" onclick="addTrackPlay()" />
+			<input type="button" value="移除轨迹回放" onclick="removeTrackPlay()" />
+			<input type="text" id="dddd" />
+		</div>
+	</body>
+	<script>
+		//初始化地图
+		var rmap = new RMap.Map('map');
+		var trackList = getTrackList();
+
+		function addTrackPlay() {
+			rmap.addTrackPlay(trackList, {
+				isCenter: true,
+				isShowTime: true,
+				showTimeKey: "time", //不传值默认为“time”
+				top: 200,
+				left: 200,
+				isShowArrow: true,
+				trackPointPic: "Images/point_car1.png",
+				trackPointAnchor: [24, 16],//图标偏移，默认不传，偏移量为图标宽、高的一半（像素值），[x,y]:x大，往左偏移；y大，往上偏移
+				mouseMoveCallback: onMouseMove,
+				playCallback: onPlayCallback
+			});
+		};
+
+		function removeTrackPlay() {
+			rmap.removeTrackPlay();
+		};
+
+		function onMouseMove(e) {
+			if(e == null || e == undefined) {
+				rmap.hidePopWindow();
+			} else {
+				var userDiv = document.createElement('infoWindow');
+				userDiv.innerHTML = "编号：" + e.data.id;
+				userDiv.innerHTML += "<br>时间：" + e.data.time;
+				rmap.showPopWindow(e.lng, e.lat, userDiv, {
+					autoPan: false //显示气泡时是否确保当前气泡在地图范围，默认为true
+				});
+			}
+		};
+
+		function onPlayCallback(e) {
+			dddd.value = "编号：" + e.data.id;
+		};
+		
+		//获取轨迹点
+		function getTrackList() {
+			var pointList1 = [{
+				lng: 116.391844,
+				lat: 39.898457,
+				data: {
+					id: "point1",
+					time: "2016-7-15 11:00:05"
+				}
+			}, {
+				lng: 116.377947,
+				lat: 39.898595,
+				data: {
+					id: "point2",
+					time: "2016-7-15 11:00:10"
+				}
+			}, {
+				lng: 116.368001,
+				lat: 39.898341,
+				data: {
+					id: "point3",
+					time: "2016-7-15 11:00:15"
+				}
+			}, {
+				lng: 116.357144,
+				lat: 39.898063,
+				data: {
+					id: "point4",
+					time: "2016-7-15 11:00:20"
+				}
+			}, {
+				lng: 116.351934,
+				lat: 39.899095,
+				data: {
+					id: "point5",
+					time: "2016-7-15 11:00:25"
+				}
+			}, {
+				lng: 116.350670,
+				lat: 39.905871,
+				data: {
+					id: "point6",
+					time: "2016-7-15 11:00:30"
+				}
+			}, {
+				lng: 116.349800,
+				lat: 39.922329,
+				data: {
+					id: "point7",
+					time: "2016-7-15 11:00:35"
+				}
+			}, {
+				lng: 116.349671,
+				lat: 39.931017,
+				data: {
+					id: "point8",
+					time: "2016-7-15 11:00:40"
+				}
+			}, {
+				lng: 116.349225,
+				lat: 39.939104,
+				data: {
+					id: "point9",
+					time: "2016-7-15 11:00:45"
+				}
+			}, {
+				lng: 116.349910,
+				lat: 39.942233,
+				data: {
+					id: "point10",
+					time: "2016-7-15 11:00:50"
+				}
+			}, {
+				lng: 116.366892,
+				lat: 39.947263,
+				data: {
+					id: "point11",
+					time: "2016-7-15 11:00:55"
+				}
+			}, {
+				lng: 116.387537,
+				lat: 39.947568,
+				data: {
+					id: "point12",
+					time: "2016-7-15 11:01:00"
+				}
+			}, {
+				lng: 116.401988,
+				lat: 39.947764,
+				data: {
+					id: "point13",
+					time: "2016-7-15 11:01:05"
+				}
+			}, {
+				lng: 116.410824,
+				lat: 39.947929,
+				data: {
+					id: "point14",
+					time: "2016-7-15 11:01:10"
+				}
+			}, {
+				lng: 116.426740,
+				lat: 39.947558,
+				data: {
+					id: "point15",
+					time: "2016-7-15 11:01:15"
+				}
+			}, {
+				lng: 116.427338,
+				lat: 39.939700,
+				data: {
+					id: "point16",
+					time: "2016-7-15 11:01:20"
+				}
+			}, {
+				lng: 116.427919,
+				lat: 39.932404,
+				data: {
+					id: "point17",
+					time: "2016-7-15 11:01:25"
+				}
+			}, {
+				lng: 116.428377,
+				lat: 39.923109,
+				data: {
+					id: "point18",
+					time: "2016-7-15 11:01:30"
+				}
+			}, {
+				lng: 116.429583,
+				lat: 39.907094,
+				data: {
+					id: "point19",
+					time: "2016-7-15 11:01:35"
+				}
+			}, {
+				lng: 116.414040,
+				lat: 39.906858,
+				data: {
+					id: "point20",
+					time: "2016-7-15 11:01:40"
+				}
+			}, {
+				lng: 116.405321,
+				lat: 39.906622,
+				data: {
+					id: "point21",
+					time: "2016-7-15 11:01:45"
+				}
+			}, {
+				lng: 116.394954,
+				lat: 39.906324,
+				data: {
+					id: "point22",
+					time: "2016-7-15 11:01:50"
+				}
+			}, {
+				lng: 116.391264,
+				lat: 39.906308,
+				data: {
+					id: "point23",
+					time: "2016-7-15 11:01:55"
+				}
+			}, {
+				lng: 116.390748,
+				lat: 39.916611,
+				data: {
+					id: "point23",
+					time: "2016-7-15 11:01:55"
+				}
+			}];
+			trackList = {
+				trackId: "10001",
+				pointList: pointList1,
+				styleOption: {
+					width: 2,
+					color: "#FF0000"
+				}
+			};
+			return trackList;
+		}
+	</script>
+
+</html>

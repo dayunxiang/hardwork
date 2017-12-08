@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>微信 - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <link rel="stylesheet" href="assets/datePicker/bootstrap-datetimepicker.min.css">
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- logo -->
+        <div class="logo">
+            <a href="#">
+              <img src="images/logo.png" >
+              清控环境智慧水务
+            </a>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./reportInfo.html" class="active">
+                        <i class="fa fa-bell"></i>
+                        上报信息管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header pull-left">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                               <img src="images/bg.png" alt="">
+                            </a>
+                        </li>
+                        <li class="role">
+                            <a href="javascript:;">
+                                管理员
+                                <i class="fa  fa-caret-down" style="color: #333;"></i>
+                            </a>
+                        </li>
+                        <div class="userInfo clearfix">
+                            <ul class="clearfix">
+                                <li><a href="#"><i class="fa fa-cog"></i>个人设置</a></li>
+                                <li><a href="#" id="logout"><i class="fa fa-power-off" aria-hidden="true"></i>退出</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 个人资料 -->
+            <div class="body user-profile">
+                <div class="profile">
+                    <h3>上报信息</h3>
+                    <div class="tabBox">
+                        <div class="tabHeader">
+                            <ul>
+                                <li class="active">表格</li>
+                                <li>图表</li>
+                                <li>地图</li>
+                            </ul>
+                            <div></div>
+                        </div>
+                        <div class="tabContent">
+                            <div class="tabCon" style="display:block">
+                                <div class="serchForm clearfix col-xs-12 tubiaoSearch">
+                                    <ul class="col-xs-12">
+                                        <li class="col-xs-2">
+                                            <span>公司名称：</span>
+                                            <select name="" class="companyList">
+                                                
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>问题类型:</span>
+                                            <select name="" class="typeList">
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>上报人:</span>
+                                            <select name="" class='userList'>
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-4" id="time">
+                                            <span>上报时间:</span>
+                                            <input size="16" type="text" id="datetimeStart" readonly class="form_datetime" value="2017-08-1"> 至
+                                            <input size="16" type="text" id="datetimeEnd" readonly class="form_datetime">
+                                        </li>
+                                        <li class="col-xs-1 " id="biaogesearch">
+                                            <button>查询</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>问题类型</th>
+                                            <th>上报人</th>
+                                            <th>上报时间</th>
+                                            <th>位置坐标</th>
+                                            <th>描述</th>
+                                            <th>现场图片数量(张)</th>
+                                            <th>详情</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="j_tb">
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tabCon">
+                               <div class="serchForm clearfix col-xs-12 tubiaoSearch">
+                                    <ul class="col-xs-12">
+                                        <li class="col-xs-2">
+                                            <span>公司名称：</span>
+                                            <select name="" class="companyList">
+                                                
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>问题类型:</span>
+                                            <select name="" class="typeList" id="typeList1">
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>上报人:</span>
+                                            <select name="" class='userList'>
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-4" id="time">
+                                            <span>上报时间:</span>
+                                            <input size="16" type="text" id="datetimeStart1" readonly class="form_datetime" value="2017-08-1"> 至
+                                            <input size="16" type="text" id="datetimeEnd1" readonly class="form_datetime">
+                                        </li>
+                                        <li class="col-xs-1" id="tubiaosearch">
+                                            <button>查询</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" id="main" style="width: 80%;height:400px;"></div>
+                                </div>
+                            </div>
+                            <div class="tabCon">
+                               <div class="serchForm clearfix col-xsclass2 tubiaoSearch">
+                                    <ul class="col-xs-12">
+                                        <li class="col-xs-2">
+                                            <span>公司名称：</span>
+                                            <select name="" class="companyList">
+                                                
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>问题类型:</span>
+                                            <select name="" class="typeList" id="typeList2">
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-2">
+                                            <span>上报人:</span>
+                                            <select name="" class='userList'>
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li class="col-xs-4" id="time">
+                                            <span>上报时间:</span>
+                                            <input size="16" type="text" id="datetimeStart2" readonly class="form_datetime" value="2017-08-1"> 至
+                                            <input size="16" type="text" id="datetimeEnd2" readonly class="form_datetime">
+                                        </li>
+                                        <li class="col-xs-1" id="mapsearch">
+                                            <button>查询</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="mapBox"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="assets/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/datePicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/datePicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./assets/echarts/echarts.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/reportInfo.js"></script>
+   
+</body>
+
+</html>

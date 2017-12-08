@@ -1,0 +1,110 @@
+八月 03, 2017 3:44:15 下午 org.apache.catalina.core.AprLifecycleListener init
+信息: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.7.0_80\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Java\jdk1.7.0_80\bin;C:\Program Files\Java\jdk1.7.0_80\jre\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;.
+八月 03, 2017 3:44:15 下午 org.apache.tomcat.util.digester.SetPropertiesRule begin
+警告: [SetPropertiesRule]{Server/Service/Engine/Host/Context} Setting property 'debug' to '0' did not find a matching property.
+八月 03, 2017 3:44:15 下午 org.apache.tomcat.util.digester.SetPropertiesRule begin
+警告: [SetPropertiesRule]{Server/Service/Engine/Host/Context} Setting property 'debug' to '0' did not find a matching property.
+八月 03, 2017 3:44:16 下午 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8585
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 404 ms
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/6.0.45
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+信息: Deploying configuration descriptor host-manager.xml
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext resourcesStart
+严重: Error starting static Resources
+java.lang.IllegalArgumentException: Document base E:\ZhiShuiMap\webapps\host-manager does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:142)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4350)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4523)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:803)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:780)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:583)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:676)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:602)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:503)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1322)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:325)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:142)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1069)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:822)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1061)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:759)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Error in resourceStart()
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Error getConfigured
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Context [/host-manager] startup failed due to previous errors
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext stop
+信息: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager] has not been started
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.HostConfig deployDescriptor
+信息: Deploying configuration descriptor manager.xml
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext resourcesStart
+严重: Error starting static Resources
+java.lang.IllegalArgumentException: Document base E:\ZhiShuiMap\webapps\manager does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:142)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4350)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4523)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:803)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:780)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:583)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:676)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:602)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:503)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1322)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:325)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:142)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1069)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:822)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1061)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:759)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Error in resourceStart()
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Error getConfigured
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext start
+严重: Context [/manager] startup failed due to previous errors
+八月 03, 2017 3:44:16 下午 org.apache.catalina.core.StandardContext stop
+信息: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager] has not been started
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory ROOT
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory ZhiShuiMap
+八月 03, 2017 3:44:16 下午 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8585
+八月 03, 2017 3:44:16 下午 org.apache.jk.common.ChannelSocket init
+信息: JK: ajp13 listening on /0.0.0.0:8559
+八月 03, 2017 3:44:16 下午 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/13  config=null
+八月 03, 2017 3:44:16 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 439 ms
+八月 03, 2017 3:45:35 下午 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8585
+八月 03, 2017 3:45:36 下午 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+八月 03, 2017 3:45:36 下午 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8585

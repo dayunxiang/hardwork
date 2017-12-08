@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>微信 - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+   
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- logo -->
+        <div class="logo">
+            <a href="#">
+              <img src="images/logo.png" >
+              清控环境智慧水务
+            </a>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./reportInfo.html" class="active">
+                        <i class="fa fa-bell"></i>
+                        上报信息管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header pull-left">
+                        <!-- <a href="javascript:;" class="navbar-brand">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </a> -->
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                               <img src="images/bg.png" alt="">
+                            </a>
+                        </li>
+                        <li class="role">
+                            <a href="javascript:;">
+                                管理员
+                                <i class="fa  fa-caret-down" style="color: #333;"></i>
+                            </a>
+                        </li>
+                        <div class="userInfo clearfix">
+                            <ul class="clearfix">
+                                <li><a href="#"><i class="fa fa-cog"></i>个人设置</a></li>
+                                <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i>退出</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 个人资料 -->
+            <div class="body user-profile">
+                <div class="profile">
+                    <h3>上报信息详情</h3>
+                    <div class="infoDescribe col-sm-12">
+                        <ul class="col-sm-12">
+                            <li class="col-sm-3">
+                                <span>位置坐标:</span>
+                                <span id="location"></span>
+                            </li>
+                            <li class="col-sm-3">
+                                <span>问题类型:</span>
+                                <span id="type"></span>
+                            </li>
+                            <li class="col-sm-3">
+                                <span>时间:</span>
+                                <span id="reportTime"></span>
+                            </li>
+                            <li class="col-sm-3">
+                                <span>上报人:</span>
+                                <span id="reportUser"></span>
+                            </li>
+                        </ul>
+                        <p class="col-sm-12" style="text-indent: 3em;"><span>描述:</span><span id="describe"></span></p>
+                    </div>
+                    <div class="infoImg">
+                            <ul>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            <li class="col-sm-2"><img src="images/bg.png" alt=""></li>
+                            </ul>
+                         
+                    </div>
+                    <div class="infoMap col-sm-12" id="map">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./assets/echarts/echarts.min.js"></script>
+    <script src="./js/common.js"></script>
+    <!-- <script src="./js/reportInfo.js"></script> -->
+    <script src="assets/ZhiShuiMap/webapps/ZhiShuiMap/MapAPI/RMap/rmap.js"></script>
+    <script src="js/reportManage.js"></script>
+  
+</body>
+
+</html>
