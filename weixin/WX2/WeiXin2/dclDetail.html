@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+        <div class="dclContainer">
+            <ul class="title">
+                <li class="clearfix">
+                    <span>堵塞漫溢</span>
+                    <span>待处理</span>
+                </li>
+            </ul>
+            <ul class="info">
+                <li class="clearfix">
+                    <img src="img/ico-red-time@3x.png" alt="">
+                    <span>上报时间</span>
+                    <span>2017.06.26 12:30:30</span>
+                </li>
+                <li class="clearfix">
+                    <img src="img/ico-address-store@3x.png" alt="">
+                    <span>位置</span>
+                    <span>阜成门内大街68号</span>
+                </li>
+            </ul>
+            <div class="reportContent">
+                <span>上报内容</span>
+                <div class="audio">
+                    <img src="img/ico-mac@1x.png" alt="">
+                </div>
+                <div class="word">
+                    面向污水处理企业提供信息化建设规划咨询服务，基于行业发展方向、企业自身特点及整体发展战略，充分借鉴行业国内外先进技术方法与管理理念，帮助企业制定信息化发展规划，提高企业科技管理水平，增强企业核心竞争力。
+                </div>
+            </div>
+            <div class="photo">
+                <span>现场照片</span>
+                <div class="swiper-container" id="swiper-container1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./img/ico-mac@3x.png" alt="">
+                        </div>
+                         <div class="swiper-slide">
+                            <img src="./img/ico-mac@3x.png" alt="">
+                        </div>
+                         <div class="swiper-slide">
+                            <img src="./img/ico-mac@3x.png" alt="">
+                        </div>
+                         <div class="swiper-slide">
+                            <img src="./img/ico-mac@3x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="lib/zepto.min.js"></script> -->
+    <script src="lib/jquery.js"></script>
+    <script src="lib/swiper/idangerous.swiper.min.js"></script>
+    <script src="lib/jquery.nicescroll.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    var mySwiper = new Swiper('#swiper-container1', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    })
+    </script>
+</body>
+
+</html>
