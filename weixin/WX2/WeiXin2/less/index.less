@@ -38,6 +38,66 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*样式处理*/
 
 body {
@@ -73,6 +133,66 @@ img {
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -162,8 +282,6 @@ body::-webkit-scrollbar {
 
 
 
-
-
 .zs_layout {
     max-width: 750px;
     min-width: 320px;
@@ -179,7 +297,7 @@ body::-webkit-scrollbar {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 498;
+        z-index: 1100;
         width: 100vw;
         height: 100vh;
         background-color: rgba(0, 0, 0, .5);
@@ -266,17 +384,23 @@ body::-webkit-scrollbar {
         height: .96rem;
         background-color: #fff;
         width: 100%;
-        z-index: 99;
+        z-index: 999;
         &>li {
             float: left;
             width: 25%;
             height: .96rem;
-            padding: .12rem 0 .14rem 0;
+
             box-sizing: border-box;
             text-align: center;
-            &>img {
-                width: .7rem;
-                height: .7rem;
+            &>a {
+                padding: .12rem 0 .14rem 0;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                &>img {
+                    width: .7rem;
+                    height: .7rem;
+                }
             }
         }
     }
@@ -284,7 +408,14 @@ body::-webkit-scrollbar {
     /**任务**/
     .taskMain {
         .taskTab {
+            background-color: #fff;
             border-bottom: 1px solid #E9E9E9;
+            position: fixed;
+            top: 0rem;
+            left: 0;
+            z-index: 9;
+            height: .96rem;
+            width: 100%;
             &>li {
                 float: left;
                 height: .96rem;
@@ -310,8 +441,13 @@ body::-webkit-scrollbar {
             }
         }
         .option {
-            // height: .96rem;
-            //   line-height: .93rem;
+            background-color: #fff;
+            width: 100%;
+            position: fixed;
+            top: .98rem;
+            left: 0;
+            z-index: 9;
+
             box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
             &>li {
                 float: left;
@@ -341,42 +477,47 @@ body::-webkit-scrollbar {
             }
         }
         .swiper-container {
+            padding-top: 1.8rem;
+            z-index: 0;
             .swiper-wrapper {
                 .swiper-slide {
                     padding: .3rem;
                     &>ul {
                         &>li {
-                            padding: .1rem;
-                            background-color: #fff;
-                            height: 1.8rem;
-                            box-sizing: border-box;
-                            box-shadow: 0 6px 12px 0 rgba(74, 144, 226, 0.20);
-                            border-radius: 3px;
-                            margin-bottom: .3rem;
-                            img {
-                                float: left;
-                                width: 1.6rem;
-                                height: 1.6rem;
-                            }
-                            dl {
-                                float: left;
-                                padding-left: .4rem;
-                                dt {
-                                    font-family: PingFangSC-Regular;
-                                    font-size: .32rem;
-                                    color: #333333;
-                                    letter-spacing: 0;
-                                    line-height: .32rem;
-                                    margin-top: .14rem;
-                                    margin-bottom: .22rem;
+                            a {
+                                display: block;
+                                padding: .1rem;
+                                background-color: #fff;
+                                height: 1.8rem;
+                                box-sizing: border-box;
+                                box-shadow: 0 6px 12px 0 rgba(74, 144, 226, 0.20);
+                                border-radius: 3px;
+                                margin-bottom: .3rem;
+                                img {
+                                    float: left;
+                                    width: 1.6rem;
+                                    height: 1.6rem;
                                 }
-                                dd {
-                                    font-size: .28rem;
-                                    color: #999999;
-                                    letter-spacing: 0;
-                                    line-height: .28rem;
-                                    &:last-child {
+                                dl {
+                                    float: left;
+                                    padding-left: .4rem;
+                                    dt {
+                                        font-family: PingFangSC-Regular;
+                                        font-size: .32rem;
+                                        color: #333333;
+                                        letter-spacing: 0;
+                                        line-height: .32rem;
                                         margin-top: .14rem;
+                                        margin-bottom: .22rem;
+                                    }
+                                    dd {
+                                        font-size: .28rem;
+                                        color: #999999;
+                                        letter-spacing: 0;
+                                        line-height: .28rem;
+                                        &:last-child {
+                                            margin-top: .14rem;
+                                        }
                                     }
                                 }
                             }
@@ -399,7 +540,7 @@ body::-webkit-scrollbar {
         right: .1rem;
         border-radius: .04rem;
         background-color: #fff;
-        z-index: 499;
+        z-index: 4999;
         padding: .15rem;
         display: none;
         .optiontitle {
@@ -427,10 +568,10 @@ body::-webkit-scrollbar {
         }
     }
 
-    /*待处理详情*/
+    /*处理详情*/
     .dclContainer {
         .title {
-            padding: .3rem;
+            padding: .3rem .3rem 0 .3rem;
 
             &>li {
                 height: .88rem;
@@ -493,6 +634,7 @@ body::-webkit-scrollbar {
                 font-size: .3rem;
                 color: #333333;
                 letter-spacing: 0;
+                font-weight: 600;
             }
             .audio {
                 margin-top: .24rem;
@@ -502,9 +644,9 @@ body::-webkit-scrollbar {
                 box-shadow: 0 5px 10px 0 rgba(74, 144, 226, 0.20);
                 border-radius: 2px;
                 img {
-                    width: .28rem;
+                    width: .4rem;
                     height: .4rem;
-                    margin: .2rem 0 .2rem .32rem;
+                    margin: .2rem 0 .2rem .3rem;
                 }
             }
             .word {
@@ -543,6 +685,843 @@ body::-webkit-scrollbar {
                 font-size: .32rem;
                 color: #333333;
                 letter-spacing: 0;
+                font-weight: 600;
+                margin-bottom: .4rem;
+            }
+            .sccword {
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #333333;
+                }
+                &>textarea {
+                    outline: none;
+                    outline-style: none;
+                    width: 100%;
+                    height: 2.8rem;
+                    background: #F3F3F3;
+                    margin: .4rem 0;
+                    font-family: PingFangSC-Regular;
+                    font-size: .28rem;
+                    color: #95989A;
+                    line-height: .48rem;
+                    border: none;
+                    resize: none;
+                    padding: .2rem;
+                }
+            }
+            .sccphoto {
+                .top {
+                    &>span {
+                        font-family: PingFangSC-Regular;
+                        font-size: 15px;
+                        color: #333333;
+                        float: left;
+                        &:last-child {
+                            float: right;
+                            font-size: .28rem;
+                            color: #999999;
+                        }
+                    }
+                }
+                .swiper-container {
+                    margin: .4rem 0;
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            width: 1.48rem;
+                            height: 1.48rem;
+                            padding: .1rem;
+                            box-sizing: border-box;
+                            &>img {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &:first-child {
+                                border: 1px dashed #DDDDDD;
+                                ;
+                                padding: .2rem .33rem;
+                                &>img {
+                                    width: 1rem;
+                                    height: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .submit {
+            margin: 0 auto;
+            padding-bottom: 0.3rem;
+            text-align: center;
+            &>input {
+                width: 4rem;
+                height: .9rem;
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                line-height: .3rem;
+            }
+        }
+        .clInfo {
+            padding: .3rem;
+            .cltitle {
+                font-family: PingFangSC-Medium;
+                font-size: .32rem;
+                color: #333333;
+                letter-spacing: 0;
+                font-weight: 600;
+                margin-bottom: .4rem;
+            }
+            .clword {
+                &>span {
+                    font-family: PingFangSC-Medium;
+                    font-size: .3rem;
+                    color: #333333;
+                    font-weight: 600;
+                }
+                .clsword {
+                    margin-top: .2rem;
+                    font-family: PingFangSC-Light;
+                    font-size: .32rem;
+                    color: #333333;
+                    letter-spacing: 0;
+                    line-height: .5rem;
+                }
+            }
+            .clxcphoto {
+                margin-top: .8rem;
+                &>span {
+                    font-family: PingFangSC-Medium;
+                    font-size: .3rem;
+                    color: #333333;
+                    font-weight: 600;
+                }
+                .swiper-container {
+                    margin-top: .4rem;
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            img {
+                                width: 2rem;
+                                height: 1.6rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*topBar*/
+    .topbar {
+        width: 100%;
+        height: .9rem;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        line-height: .9rem;
+        background-color: #2D2B31;
+        color: #fff;
+        padding: 0 .22rem;
+        .return {
+            position: absolute;
+            top: 0;
+            left: .22rem;
+            height: .9rem;
+            line-height: .9rem;
+            color: #fff;
+            i {
+                font-size: .6rem;
+                line-height: .9rem;
+            }
+            span {
+                display: inline-block;
+                font-size: .34rem;
+                color: #FFFFFF;
+                line-height: .9rem;
+                height: .9rem;
+                margin-left: .1rem;
+            }
+        }
+        ul {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            li {
+                // float: left;
+                text-align: center;
+
+                a {
+                    display: block;
+                    color: #fff;
+                    span {
+                        margin-right: 0.1rem;
+                        margin-top: 0.2rem;
+                    }
+                    i {
+                        font-style: normal;
+                        font-size: 0.28rem;
+                        margin-top: 0.2rem;
+                    }
+                }
+                .Submit {
+                    text-align: right;
+                }
+                .return {}
+            }
+            .title {
+                text-align: center;
+                font-size: 0.36rem;
+            }
+        }
+    }
+
+    /*上报*/
+    .reoprtContainer {
+        position: relative;
+        #map {
+            height: 5.3rem;
+            width: 100%;
+        }
+        .fresh {
+            position: absolute;
+            top: 3.1rem;
+            right: .3rem;
+            width: .8rem;
+            height: .8rem;
+            z-index: 3999;
+            background: url('../img/map-fresh@3x.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .shoot {
+            position: absolute;
+            top: 4.2rem;
+            right: .3rem;
+            width: .8rem;
+            height: .8rem;
+            z-index: 3999;
+            background: url('../img/map-shoot@3x.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        &>ul {
+            padding: 0 .3rem .3rem .3rem;
+            &>li {
+                height: 1.2rem;
+                line-height: 1.2rem;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #666666;
+                    &:last-child {
+                        font-family: PingFangSC-Regular;
+                        color: #151515;
+                        &>span {
+                            font-style: normal;
+                            font-weight: normal;
+                            color: #333333;
+                            margin-right: .2rem;
+                        }
+                        i {
+                            color: #666666;
+                            font-size: .4rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            .reportdes {
+                height: auto;
+                margin-bottom: .4rem;
+                .top {
+                    font-family: PingFangSC-Regular;
+                    font-size: .32rem;
+                    color: #333333;
+                    span {
+                        &:last-child {
+                            font-size: .3rem;
+                            color: #666666;
+                        }
+                    }
+                }
+                .audioDes {
+                    line-height: initial;
+                    &>span {
+                        font-size: .28rem;
+                        color: #666666;
+                    }
+                    /*语音上报前*/
+                    .audiobOXbefore {
+                        margin-top: .2rem;
+                        border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        position: relative;
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            img {
+                                width: 1rem;
+                                height: 1rem;
+                                margin-bottom: .2rem;
+                            }
+                            p {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #1082FF;
+                            }
+                        }
+                    }
+                    /*语音中*/
+                    .audiobOXing {
+                        margin-top: .2rem;
+                        border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        position: relative;
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            img {
+                                width: 1rem;
+                                height: 1rem;
+                                margin-bottom: .2rem;
+                            }
+                            p {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #1082FF;
+                            }
+                        }
+                    }
+                    /*录制结束*/
+                    .audiobOXend {
+                        margin-top: .2rem;
+                        border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        position: relative;
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            img {
+                                width: 1rem;
+                                height: 1rem;
+                                margin-bottom: .2rem;
+                            }
+                            p {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #1082FF;
+                            }
+                        }
+                    }
+                    /*播放录制*/
+                    .audiobOXbf {
+                        margin-top: .2rem;
+                        border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        position: relative;
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            img {
+                                width: 1rem;
+                                height: 1rem;
+                                margin-bottom: .2rem;
+                            }
+                            p {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #1082FF;
+                            }
+                        }
+                    }
+                }
+                .wordDes {
+                    line-height: initial;
+                    margin-top: .4rem;
+                    &>span {
+                        font-size: .28rem;
+                        color: #666666;
+                    }
+                    &>textarea {
+                        outline: none;
+                        outline-style: none;
+                        width: 100%;
+                        height: 2.8rem;
+                        background: #F3F3F3;
+                        margin: .4rem 0;
+                        font-family: PingFangSC-Regular;
+                        font-size: .28rem;
+                        color: #95989A;
+                        line-height: .48rem;
+                        border: none;
+                        resize: none;
+                        padding: .2rem;
+                    }
+                }
+            }
+            .upphoto {
+                line-height: initial;
+                height: initial;
+                .top {
+                    &>span {
+                        font-family: PingFangSC-Regular;
+                        font-size: 15px;
+                        color: #333333;
+                        float: left;
+                        &:last-child {
+                            float: right;
+                            font-size: .28rem;
+                            color: #999999;
+                        }
+                    }
+                }
+                .swiper-container {
+                    margin: .4rem 0;
+
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            width: 1.48rem;
+                            height: 1.48rem;
+                            padding: .1rem;
+                            box-sizing: border-box;
+                            &>img {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &:first-child {
+                                border: 1px dashed #DDDDDD;
+                                ;
+                                padding: .2rem .33rem;
+                                &>img {
+                                    width: 1rem;
+                                    height: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .upreport {
+                text-align: center;
+                margin-bottom: 1rem;
+                input {
+                    width: 4rem;
+                    height: .9rem;
+                    background: #1082FF;
+                    box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                    border-radius: .9rem;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #FFFFFF;
+                    letter-spacing: 0;
+                    line-height: .3rem;
+                }
+            }
+        }
+    }
+
+    /*上报成功*/
+    .reportsuccessContainer {
+        box-sizing: border-box;
+        .reportsuccess {
+            width: 100%;
+            height: 6.54rem;
+
+            padding-top: 2.5rem;
+            box-sizing: border-box;
+            .reportsuccessCont {
+                text-align: center;
+                img {
+                    margin-bottom: 1rem;
+                    width: 5rem;
+                    height: 2rem;
+                }
+                p {
+                    font-family: PingFangSC-Regular;
+                    font-size: .4rem;
+                    color: #666666;
+                }
+            }
+        }
+        .ckDetail {
+            text-align: center;
+            margin-top: 2rem;
+            input {
+                width: 4rem;
+                height: .9rem;
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                line-height: .3rem;
+                text-align: center;
+            }
+        }
+    }
+
+    /*个人信息*/
+    .myInfoContainer {
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+        i {
+            position: absolute;
+            width: 100%;
+            height: 3.4rem;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: url('../img/mine-top-bg@3x.png') no-repeat left top;
+            background-size: 100% 100%;
+        }
+        .avator {
+            &>img {
+                margin-top: 2rem;
+                border-radius: 50%;
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #333333;
+                line-height: .44rem;
+                margin-top: .34rem;
+            }
+        }
+        .myInfocont {
+            padding: .3rem;
+            margin-top: .7rem;
+            text-align: left;
+            &>li {
+                height: 1.2rem;
+                width: 100%;
+                padding-left: 1rem;
+                line-height: 1.2rem;
+                &>img {
+                    float: left;
+                    width: .48rem;
+                    height: .48rem;
+                    margin-top: .35rem;
+                }
+                &>span {
+                    float: left;
+                    font-size: .32rem;
+                    color: #333333;
+                    margin-left: .4rem;
+                }
+            }
+        }
+    }
+
+    /*personInfoContainer*/
+    .personInfoContainer {
+        padding: .3rem;
+        &>dl {
+            &>dt {
+                font-family: PingFangSC-Medium;
+                font-size: .3rem;
+                color: #515253;
+                line-height: .28rem;
+                margin-bottom: .3rem;
+                font-weight: 700;
+            }
+            &>dd {
+                width: 100%;
+                input {
+                    color: #333;
+                    height: .88rem;
+                    width: 100%;
+                    border-radius: .88rem;
+                    padding: .1rem .3rem;
+                    box-sizing: border-box;
+                    margin-bottom: .3rem;
+                    border: 1px solid #DDDDDD;
+                }
+                .now {
+                    border: 1px solid #007FFF;
+                    box-shadow: 0 5px 10px 0 rgba(0, 127, 255, 0.30);
+                    font-size: .3rem;
+                    color: #1082FF;
+                    line-height: .28rem;
+                }
+            }
+        }
+        .toumeth {
+            &>dd {
+                &:last-child {
+                    input {
+                        width: 50%;
+                        float: left;
+                        &:last-child {
+                            font-size: .3rem;
+                            color: #838C8E;
+                            border: 1px solid #A5A5A5;
+                            width: 40%;
+                            float: right;
+                            background-color: #fff;
+                        }
+                    }
+                    .active {
+                        border: 1px solid #4A90E2 !important;
+                        color: #4A90E2 !important;
+                    }
+                }
+            }
+        }
+        .bcxgBtn {
+            width: 100%;
+            &>input {
+                background: #E1E1E1;
+                height: .9rem;
+                width: 100%;
+                color: #fff;
+                border-radius: .9rem;
+                text-align: center;
+                line-height: .9rem;
+                margin-top: .8rem;
+            }
+            .btnactive {
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+            }
+        }
+    }
+
+    /*二维码*/
+    .erweimaContainer {
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+        i {
+            position: absolute;
+            width: 100%;
+            height: 3.4rem;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            background: url('../img/mine-top-bg@3x.png') no-repeat left top;
+            background-size: 100% 100%;
+        }
+        .avator {
+            padding-top: 1.9rem;
+            &>img {
+
+                border-radius: 50%;
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #333333;
+                line-height: .44rem;
+                margin-top: .34rem;
+            }
+        }
+        .erweimacont {
+            padding: .3rem;
+            margin-top: .8rem;
+            text-align: center;
+            img {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: .32rem;
+                color: #333333;
+                line-height: .44rem;
+                margin-top: .3rem;
+            }
+        }
+    }
+
+    .countContainer {
+        .counttabbar {
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            text-align: center;
+            font-size: 0.36rem;
+            border-bottom: 1px solid #E9E9E9;
+            li {
+                float: left;
+                width: 50%;
+                height: 100%;
+                a {
+                    display: inline-block;
+                    color: #666;
+                    height: 100%;
+                    padding: 0 0.2rem;
+                }
+                .active {
+                    color: #1082ff;
+                    border-bottom: 3px solid #1082ff;
+                }
+                &:first-child {
+                    border-right: 1px solid #f1f1f1;
+                }
+            }
+        }
+
+        .zs_tabcont {
+            margin-top: 0;
+            background-color: #fff;
+            .tabcontent {
+                width: 100%;
+                background-color: #fff;
+                position: relative;
+            }
+            #zs_tabMap {
+                // height: calc(100vh-.96rem-1rem-.8rem);
+                .countoption {
+                    background-color: #fff;
+                    width: 100%;
+                    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
+                    &>li {
+                        float: left;
+                        padding: .08rem 0;
+                        width: 33.33%;
+                        text-align: center;
+                        font-family: PingFangSC-Regular;
+                        font-size: .28rem;
+                        color: #333333;
+                        position: relative;
+                        &>span {
+                            float: left;
+                            width: 100%;
+                            &:last-child {
+                                margin-top: .06rem;
+                            }
+                        }
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            right: .22rem;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    .active {
+                        color: #0074F3;
+                    }
+                }
+                #countMap {
+                    width: 100%;
+                    // height: 100%;
+                }
+                .cazResult {
+                    position: fixed;
+                    bottom: 1.3rem;
+                    left: 50%;
+                    z-index: 599;
+                    transform: translateX(-50%);
+                    box-sizing: border-box;
+                    input {
+                        background: #007FFF;
+                        box-shadow: 0 6px 12px 0 rgba(0, 124, 255, 0.50);
+                        border-radius: .8rem;
+                        width: 3.4rem;
+                        height: .8rem;
+
+                        font-family: PingFangSC-Regular;
+                        font-size: .26rem;
+                        color: #FFFFFF;
+                        letter-spacing: 0;
+                        text-align: center;
+                    }
+                }
+            }
+            #couttb {
+                .countoption {
+                    background-color: #fff;
+                    width: 100%;
+                    height: .9rem;
+                    line-height: .9rem;
+                    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
+                    &>li {
+                        float: left;
+                        width: 50%;
+                        height: .9rem;
+                        text-align: center;
+                        font-family: PingFangSC-Regular;
+                        font-size: .28rem;
+                        color: #333333;
+                        position: relative;
+                        &>span {
+                            float: left;
+                            width: 100%;
+                        }
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            right: 1rem;
+                            transform: translateY(-50%);
+                        }
+                    }
+                    .active {
+                        color: #0074F3;
+                    }
+                }
+                #countChart {
+                    width: 100%;
+                    height: 6rem;
+                }
+                .chartmonthInfo {
+                    padding: .3rem;
+                    &>li {
+                        height: .8rem;
+                        line-height: .8rem;
+                        i {
+                            float: left;
+                            width: .24rem;
+                            height: .24rem;
+                            margin-right: .24rem;
+                            margin-top: .3rem;
+                            border: 2px solid rgba(20, 170, 255, 1);
+                            border-radius: 50%;
+                            box-shadow: 0 3px 6px 0 rgba(20, 170, 255, .8);
+                        }
+                        span {
+                            font-family: PingFangSC-Regular;
+                            font-size: .3rem;
+                            color: #666666;
+                            letter-spacing: 0;
+                            &:last-child {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #333333;
+                                letter-spacing: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

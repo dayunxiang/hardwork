@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="lib/photoswipe/css/photoswipe.css">
+    <link rel="stylesheet" href="lib/photoswipe/css/default-skin/default-skin.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+        <!-- topBar -->
+       <!--  <div class="topbar">
+            <div class="return">
+                <i class="fa fa-angle-left fl-l"></i>
+                <span class="fl-l">返回</span>
+            </div>
+            <ul>
+                <li class="title" style="margin: 0 auto;">水务巡查系统</li>
+            </ul>
+        </div> -->
+        <!-- reoprtContainer -->
+        <div class="reoprtContainer">
+            <div id="map"></div>
+            <i class="fresh"></i>
+            <i class="shoot"></i>
+            <ul>
+                <li class="clearfix">
+                    <span class="fl-l">当前位置:</span>
+                    <span class="fl-l">阜成门大街68号</span>
+                </li>
+                <li class="clearfix">
+                    <span class="fl-l">问题类型:</span>
+                    <span class="fl-r">
+                        <span>堵塞漫溢</span>
+                        <i class=" fa fa-angle-right"></i>
+                    </span>
+                </li>
+                <li class="clearfix reportdes">
+                    <div class="top clearfix">
+                        <span class="fl-l">问题描述:</span>
+                        <span class="fl-l">（注：语音或文字）</span>
+                    </div>
+                    <div class="audioDes clearfix">
+                        <span>语音描述</span>
+                        <!-- 之前 -->
+                        <div class="audiobOXbefore clearfix">
+                            <div class="audioCont">
+                                <img src="img/ico-mac@3x.png" alt="">
+                                <p>点击按钮开始录音</p>
+                            </div>
+                        </div>
+                        <!-- 录制中 -->
+                        <div class="audiobOXing">
+                            <div class="audioCont">
+                                <img src="img/ico-mac@3x.png" alt="">
+                                <p>正在录制声音</p>
+                            </div>
+                        </div>
+                        <div class="audiobOXend">
+                            <div class="audioCont">
+                                <img src="img/ico-mac@3x.png" alt="">
+                                <p>重新录制</p>
+                            </div>
+                        </div>
+                        <!-- 播放录制 -->
+                        <div class="audiobOXbf">
+                            <div class="audioCont">
+                                <img src="img/ico-mac@3x.png" alt="">
+                                <p>重新录制</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wordDes">
+                        <span>文字描述</span>
+                        <textarea name="" id="" cols="30" rows="10">请详细描述现场情况，最少输入10字，最多输入 200字。
+                        </textarea>
+                    </div>
+                </li>
+                <!-- 上传照片 -->
+                <li class="upphoto clearfix">
+                    <div class="top clearfix">
+                        <span>上传照片</span>
+                        <span>最少上传一张，最多上传9张</span>
+                    </div>
+                    <div class="swiper-container" id="swiper-container2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/ico-photo@3x.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/ico-photo@3x.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/ico-photo@3x.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="upreport">
+                    <input type="button" id="reportsj" value="提交">
+                </li>
+            </ul>
+        </div>
+        <!-- footer -->
+        <ul class="footer clearfix">
+            <li><a href="./task.html"><img src="./img/menu/menu00n@3x.png" alt=""></a></li>
+            <li><a href="./report.html"><img src="./img/menu/menu01a@3x.png" alt=""></a></li>
+            <li><a href="./count.html"><img src="./img/menu/menu02n@3x.png" alt=""></a></li>
+            <li><a href="./myInfo.html"><img src="./img/menu/menu03n@3x.png" alt=""></a></li>
+        </ul>
+        <!-- 选项 -->
+        <div class="optionSearch clearfix">
+            <div class="optiontitle clearfix">
+                <img src="./img/menu/ico-close@3x.png" alt="" class="clearfix">
+            </div>
+            <ul class="optioncont clearfix">
+                <li>项目内容1</li>
+                <li>项目内容2</li>
+                <li>项目内容3</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容45</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 照片预览 -->
+    <!-- <input type="button" id="btn" value="dianji"> -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+            <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/RMap/rmap.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/swiper/idangerous.swiper.min.js"></script>
+    <script src="lib/jquery.nicescroll.min.js"></script>
+    <script src="lib/photoswipe/js/photoswipe.min.js"></script>
+    <script src="lib/photoswipe/js/photoswipe-ui-default.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/report.js"></script>
+    <script>
+    var mySwiper2 = new Swiper('#swiper-container2', {
+        slidesPerView: 4,
+        spaceBetween: 20,
+    })
+
+    function openPhotoSwipe() {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        // build items array
+        var items = [{
+                src: 'img/ico-address-store@3x.png',
+                w: 964,
+                h: 1024
+            },
+            {
+                src: 'img/ico-mac@2x.png',
+                w: 1024,
+                h: 683
+            }
+        ];
+        // define options (if needed)
+        var options = {
+            // history & focus options are disabled on CodePen        
+            history: false,
+            focus: false,
+            bgOpacity: 0.5,
+            arrowEl: false,
+            shareEl: false,
+            fullscreenEl: false,
+            download: false,
+            showAnimationDuration: 0,
+            hideAnimationDuration: 0
+        };
+
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+
+    $('.swiper-slide').on("click", function() {
+        openPhotoSwipe()
+    })
+
+    //点击按钮上报成功
+    $("#reportsj").on("click", function() {
+        window.location.href = 'reportsuccess.html'
+    })
+showSearchOption('.zs_layout .reoprtContainer>ul>li>span:last-child')
+  
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
-    <title></title>
+    <link rel="stylesheet" href="lib/photoswipe/css/photoswipe.css">
+    <link rel="stylesheet" href="lib/photoswipe/css/default-skin/default-skin.css">
     <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./lib/swiper.min.css">
     <link rel="stylesheet" href="./less/index.css">
@@ -15,6 +16,16 @@
     <div class="zs_layout ">
         <!-- 遮罩层 -->
         <div class="masker"></div>
+          <!-- topBar -->
+       <!--  <div class="topbar">
+            <div class="return">
+                <i class="fa fa-angle-left fl-l"></i>
+                <span class="fl-l">返回</span>
+            </div>
+            <ul>
+                <li class="title" style="margin: 0 auto;">水务巡查系统</li>
+            </ul>
+        </div> -->
         <div class="dclContainer">
             <ul class="title">
                 <li class="clearfix">
@@ -37,7 +48,7 @@
             <div class="reportContent">
                 <span>上报内容</span>
                 <div class="audio">
-                    <img src="img/ico-mac@1x.png" alt="">
+                    <img src="img/ico-audio@3x.png" alt="">
                 </div>
                 <div class="word">
                     面向污水处理企业提供信息化建设规划咨询服务，基于行业发展方向、企业自身特点及整体发展战略，充分借鉴行业国内外先进技术方法与管理理念，帮助企业制定信息化发展规划，提高企业科技管理水平，增强企业核心竞争力。
@@ -50,16 +61,64 @@
                         <div class="swiper-slide">
                             <img src="./img/ico-mac@3x.png" alt="">
                         </div>
-                         <div class="swiper-slide">
+                        <div class="swiper-slide">
                             <img src="./img/ico-mac@3x.png" alt="">
                         </div>
-                         <div class="swiper-slide">
+                        <div class="swiper-slide">
                             <img src="./img/ico-mac@3x.png" alt="">
                         </div>
-                         <div class="swiper-slide">
+                        <div class="swiper-slide">
                             <img src="./img/ico-mac@3x.png" alt="">
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 照片预览 -->
+    <!-- <input type="button" id="btn" value="dianji"> -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+            <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
                 </div>
             </div>
         </div>
@@ -68,11 +127,49 @@
     <script src="lib/jquery.js"></script>
     <script src="lib/swiper/idangerous.swiper.min.js"></script>
     <script src="lib/jquery.nicescroll.min.js"></script>
+    <script src="lib/photoswipe/js/photoswipe.min.js"></script>
+    <script src="lib/photoswipe/js/photoswipe-ui-default.min.js"></script>
     <script src="js/common.js"></script>
     <script>
     var mySwiper = new Swiper('#swiper-container1', {
         slidesPerView: 3,
         spaceBetween: 20,
+    })
+
+    function openPhotoSwipe() {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        // build items array
+        var items = [{
+                src: 'img/ico-address-store@3x.png',
+                w: 964,
+                h: 1024
+            },
+            {
+                src: 'img/ico-mac@2x.png',
+                w: 1024,
+                h: 683
+            }
+        ];
+        // define options (if needed)
+        var options = {
+            // history & focus options are disabled on CodePen        
+            history: false,
+            focus: false,
+            bgOpacity: 0.5,
+            arrowEl: false,
+            shareEl: false,
+            fullscreenEl: false,
+            download: false,
+            showAnimationDuration: 0,
+            hideAnimationDuration: 0
+        };
+
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+
+    $('.swiper-slide').on("click", function() {
+        openPhotoSwipe()
     })
     </script>
 </body>

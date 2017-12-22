@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+       <!--  <div class="topbar">
+            <div class="return">
+                <i class="fa fa-angle-left fl-l"></i>
+                <span class="fl-l">返回</span>
+            </div>
+            <ul>
+                <li class="title" style="margin: 0 auto;">水务巡查系统</li>
+            </ul>
+        </div> -->
+        <!-- main -->
+        <div class="countContainer">
+            <ul id="countTabChange" class="counttabbar" style="margin-bottom: 0;">
+                <li><a href="#" class="active">地图</a></li>
+                <li><a href="#">图表</a></li>
+            </ul>
+            <div class="zs_tabcont">
+                <div class="tabcontent" id="zs_tabMap">
+                    <ul class="countoption clearfix">
+                        <li class="clearfix active">
+                            <span>全部</span>
+                            <span>(100)</span>
+                            <i class="fa fa-caret-down"></i>
+                        </li>
+                        <li class="clearfix">
+                            <span>全部</span>
+                            <span>(100)</span>
+                            <i class="fa fa-caret-down"></i>
+                        </li>
+                        <li class="clearfix">
+                            <span>全部</span>
+                            <span>(100)</span>
+                            <i class="fa fa-caret-down"></i>
+                        </li>
+                    </ul>
+                    <div id="countMap"></div>
+                    <!-- 查找结果 -->
+                    <div class="cazResult">
+                        <input type="text" value="共找到210个结果" readonly="readonly" style="ime-mode:disabled" onfocus="this.blur();">
+                    </div>
+                </div>
+                <div class="tabcontent" id="couttb" style="display: none;">
+                    <ul class="countoption clearfix">
+                        <li class="clearfix active">
+                            <span>全部</span>
+                            <i class="fa fa-caret-down"></i>
+                        </li>
+                        <li class="clearfix">
+                            <span>全部</span>
+                            <i class="fa fa-caret-down"></i>
+                        </li>
+                    </ul>
+                    <div id="countChart"></div>
+                    <ul class="chartmonthInfo">
+                        <li class="clearfix">
+                            <i></i>
+                            <span class="fl-l">堵塞满溢</span>
+                            <span class="fl-r">20起</span>
+                        </li>
+                        <li class="clearfix">
+                            <i style=" border:2px solid rgba(81,226,193,1); box-shadow: 0 3px 6px 0  rgba(81,226,193,.8);"></i>
+                            <span class="fl-l">堵塞满溢</span>
+                            <span class="fl-r">20起</span>
+                        </li>
+                        <li class="clearfix">
+                            <i style=" border:2px solid rgba(81,226,193,1); box-shadow: 0 3px 6px 0  rgba(81,226,193,.8);"></i>
+                            <span class="fl-l">堵塞满溢</span>
+                            <span class="fl-r">20起</span>
+                        </li>
+                        <li class="clearfix">
+                            <i style=" border:2px solid rgba(81,226,193,1); box-shadow: 0 3px 6px 0  rgba(81,226,193,.8);"></i>
+                            <span class="fl-l">堵塞满溢</span>
+                            <span class="fl-r">20起</span>
+                        </li>
+                        <li class="clearfix">
+                            <i style=" border:2px solid rgba(81,226,193,1); box-shadow: 0 3px 6px 0  rgba(81,226,193,.8);"></i>
+                            <span class="fl-l">堵塞满溢</span>
+                            <span class="fl-r">20起</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <ul class="footer clearfix">
+            <li><a href="./task.html"><img src="./img/menu/menu00n@3x.png" alt=""></a></li>
+            <li><a href="./report.html"><img src="./img/menu/menu01n@3x.png" alt=""></a></li>
+            <li><a href="./count.html"><img src="./img/menu/menu02a@3x.png" alt=""></a></li>
+            <li><a href="./myInfo.html"><img src="./img/menu/menu03n@3x.png" alt=""></a></li>
+        </ul>
+        <!-- 选项 -->
+        <div class="optionSearch clearfix ">
+            <div class="optiontitle clearfix">
+                <img src="./img/menu/ico-close@3x.png" alt="" class="clearfix">
+            </div>
+            <ul class="optioncont clearfix">
+                <li>项目内容1</li>
+                <li>项目内容2</li>
+                <li>项目内容3</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容4</li>
+                <li>项目内容45</li>
+            </ul>
+        </div>
+    </div>
+    <script src="lib/jquery.js"></script>
+   
+    <script src="lib/RMap/rmap.js"></script>
+    <script src="lib/jquery.nicescroll.min.js"></script>
+    <script src="./lib/echarts.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/count.js"></script>
+ <script>
+ var top1 = $(".zs_layout .countContainer .counttabbar li").height()
+ var option = $(".countoption").height()
+ var footer = $(".footer").height()
+ var h = window.innerHeight - top1 - option -footer
+     $("#countMap").css("height",h+'px')
+  
+ </script>
+</body>
+
+</html>

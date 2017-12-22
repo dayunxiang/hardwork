@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>仓库进出货记录表</title>
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/jquery.paginationnew.js"></script>
+</head>
+<style>
+  body{
+    background: #DDEEF2;
+  }
+  section h3,.form-div{
+    border:1px solid #BBDDE5;
+    background: #F4FAFB;
+    padding:5px;
+  }
+  section table{
+    margin:0 auto;
+    width:100%;
+    border-top:1px solid #EEF8F9;
+    border-left:1px solid #EEF8F9;
+  }
+  section table th{
+    background: #BBDDE5;
+    border-right:1px solid #EEF8F9;
+    border-bottom:1px solid #EEF8F9;
+    line-height:35px;
+  }
+  section table tr{
+    background: #fff;
+  }
+  section table td{
+    border-right:1px solid #EEF8F9;
+    border-bottom:1px solid #EEF8F9;
+    line-height:35px;
+  }
+  tr:hover{
+    background-color:#F4FAFB;
+  }
+  .form-div{
+    margin-bottom:15px;
+  }
+  .form-div input[name='keyword']{
+    width:200px;
+  }
+</style>
+<body>
+<section>
+  <h3>仓库进出货记录表</h3>
+  <div class="form-div">
+    <input type="text" name="keyword" size="15" id="keyword">
+    <input type="submit" value=" 搜索 " class="button" id="btn">
+  </div>
+  <table cellspacing="0" cellpadding="0" border="0" id="tab">
+  </table>
+  <input type="hidden" id="count" value="{$count}">
+  <div class="box"></div>
+</section>
+<script>
+    $(function(){
+        $('.box').pagination({
+            jump:true,
+            coping:true,
+            totalData:$("#count").val(),
+            showData:3,
+            homePage:'首页',
+            endPage:'末页',
+            prevContent:'上页',
+            nextContent:'下页',
+            callback:function(api){
+                //这里可以直接写ajax获取数据，但是为了更好的初始化，最好把函数写在外面，方便调用
+               var index = api.getCurrent();
+               InitTable(index);
+            }
+        });
+        InitTable(1);
+        function InitTable(index){
+            $.ajax({
+                type: "POST",
+                url: 'addgoods.php',
+                data: {pageIndex: index, act: 'ajaxall', pageSize: 3, keyword: $('#keyword').val()},
+                //提交两个参数：pageIndex(页面索引)，pageSize(显示条数)
+                success: function (data) {
+                    var data = JSON.parse(data);
+                    console.log(data);
+                    var str = '<tr><th>编号</th><th>产品名称</th><th>规格</th><th>入库量</th><th>出库量</th><th>地址</th><th>客户</th><th>包邮</th><th>成本</th><th>毛利</th><th>管理员</th><th>结余</th><th>操作</th></tr>';
+                    $.each(data, function (index, obj) {
+                        str += '<tr>';
+                        str += '<td>' + obj.id + '</td>';
+                        str += '<td>' + obj.goods_name + '</td>';
+                        str += '<td>' + obj.attr_name + '</td>';
+                        str += '<td>' + obj.input_stock + '</td>';
+                        str += '<td id="tell">' + obj.out_stock + '</td>';
+                        str += '<td id="unit">' + obj.address + '</td>';
+                        str += '<td id="address">' + obj.client + '</td>';
+                        str += '<td id="count">' + obj.client + '</td>';
+                        str += '<td>' + obj.cost + '</td>';
+                        str += '<td>' + obj.profit + '</td>';
+                        str += '<td>' + obj.admin + '</td>';
+                        str += '<td>' + obj.admin + '</td>';
+                        str += '<td>' + obj.admin + '</td>';
+                        str += '</tr>';
+                    })
+                    $('#tab').html(str);
+                }
+            });
+        }
+        $('#btn').click(function(){
+            $.ajax({
+                type:'post',
+                url:'addgoods.php',
+                async: false,
+                data:{act:'countall',keyword:$('#keyword').val()},
+                success:function(count){
+                    $('#count').val(count);
+                    $('.box').pagination({
+                        jump:true,
+                        coping:true,
+                        totalData:$("#count").val(),
+                        showData:3,
+                        homePage:'首页',
+                        endPage:'末页',
+                        prevContent:'上页',
+                        nextContent:'下页'
+                    });
+                }
+            })
+            InitTable(1);
+        })
+    });
+</script>
+</body>
+</html>
