@@ -141,9 +141,36 @@
                             border: 1px solid #4495FF;
                             border-radius: 4px;
                             line-height: 32px;
+                            &>img {
+                                float: left;
+                                vertical-align: middle;
+                                margin:5px 0 0 5px;
+                            }
                             &>span {
+                                float: left;
                                 color: #4495FF;
                                 font-size: 12px;
+                                vertical-align: middle;
+
+                            }
+                        }
+                        &:last-child {
+                            float: right;
+                            position: relative;
+                            &>input {
+                                width: 240px;
+                                height: 32px;
+                                margin-top: 25px;
+                                border-radius: 32px;
+                                background: #F1F2F4;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                            }
+                            &>img {
+                                position: absolute;
+                                right: 15px;
+                                top: 32px;
+                                cursor:pointer;
                             }
                         }
                     }
@@ -225,6 +252,14 @@
                             position: absolute;
                             top: 10px;
                             left: 0;
+                            &>b {
+                                display: none;
+                                position: absolute;
+                                color: #5D6D98;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
                         }
                     }
                 }
@@ -302,6 +337,7 @@
 
 
 
+
 /*删除*/
 
 .deleteContainer {
@@ -335,6 +371,7 @@
                 transform: translateY(-50%);
                 width: .15rem;
                 height: .15rem;
+                cursor: pointer;
             }
         }
         .deletemain {
@@ -388,6 +425,7 @@
 
 
 
+
 /*编辑*/
 
 .editContainer {
@@ -421,6 +459,7 @@
                 transform: translateY(-50%);
                 width: .15rem;
                 height: .15rem;
+                cursor: pointer;
             }
         }
         .editmain {
@@ -484,6 +523,7 @@
 
 
 
+
 /*新建单位*/
 
 .newunitContainer {
@@ -517,6 +557,7 @@
                 transform: translateY(-50%);
                 width: .15rem;
                 height: .15rem;
+                cursor: pointer;
             }
         }
         .newunitmain {
@@ -563,4 +604,16 @@
             }
         }
     }
+}
+
+/*hover效果*/
+.hoverContainer {
+    padding: 7px 15px;
+    background-color: #333;
+    color:#fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size:12px;
+    text-align:center;
 }

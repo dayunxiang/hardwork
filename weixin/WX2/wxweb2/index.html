@@ -79,17 +79,22 @@
                             <div class="select"></div>
                         </li>
                         <li class="clearfix">
-                            <div class="new"> <span>新建</span> </div>
-                            <div class="del ">
+                            <div class="new"> <img src="img/ico-over copy 3.png" alt=""> <span>新建</span> </div>
+                            <div class="del clearfix">
+                            <img src="img/ico-over copy 3.png" alt="">
                                 <span>删除</span>
                             </div>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="搜索">
+                            <img src="img/Slice.png" alt="">
                         </li>
                     </ul>
                     <div class="usermanaContainer">
                         <table id="userTable">
                             <thead>
                                 <tr>
-                                    <th><i class="checkBox"></i><span>姓名</span></th>
+                                    <th><i class="checkBox"><b class="fa fa-check"></b></i><span>姓名</span></th>
                                     <th>微信号</th>
                                     <th>邮箱</th>
                                     <th>单位</th>
@@ -124,8 +129,8 @@
                 <p>删除后，数据将不可恢复，你确定要删除？</p>
             </div>
             <div class="deltefooter">
-                <input type="button" value="取消">
-                <input type="button" value="删除">
+                <input type="button" value="取消" class="cancleDel">
+                <input type="button" value="删除" class="sureDel">
             </div>
         </div>
     </div>
@@ -177,8 +182,8 @@
                 </li>
             </ul>
             <div class="editfooter">
-                <input type="button" value="取消">
-                <input type="button" value="删除">
+                <input type="button" value="取消" class="cancleEdit">
+                <input type="button" value="保存" class="sureEdit">
             </div>
         </div>
     </div>
@@ -198,10 +203,14 @@
                 </li>
             </ul>
             <div class="newunitfooter">
-                <input type="button" value="取消">
-                <input type="button" value="删除">
+                <input type="button" value="取消" class="cancleNew">
+                <input type="button" value="删除" class="sureNew">
             </div>
         </div>
+    </div>
+    <!-- hover 效果 -->
+    <div class="hoverContainer">
+        <span>编辑</span>
     </div>
     <script src="lib/jquery.min.js"></script>
     <script src="lib/YhhDataTable/js/jquery.paginate.js"></script>
