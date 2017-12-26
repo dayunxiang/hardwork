@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  div {
+    height: 500px;
+
+  }
+  .b {
+    position: relative;
+  }
+    .left {
+      width: 100px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .right {
+      width: 200px;
+      background-color: green;
+        position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .center {
+      margin-left: 100px; 
+      margin-right: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+ <div class="b">
+    <div class="left"></div>
+  <div class="center"></div>
+  <div class="right"></div>
+ </div>
+</body>
+</html>

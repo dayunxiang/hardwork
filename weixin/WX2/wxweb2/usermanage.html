@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.paginate.css">
-   <!--  <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.yhhDataTable.css"> -->
+    <!--  <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.yhhDataTable.css"> -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="lib/less.min.js"></script>
@@ -54,34 +54,78 @@
                 <h3>用户管理</h3>
                 <div class="userContainer">
                     <ul class="useroption clearfix">
-                        <li>
-                            <span>
+                        <li class="clearfix">
+                            <p>
                                城市
-                           </span>
-                            <div class="select"></div>
+                           </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix cityselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption cityselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
-                            <span>
+                        <li class="clearfix">
+                            <p>
                                公司名称
-                           </span>
-                            <div class="select"></div>
+                           </p>
+                              <div class="selectContainer">
+                                <div class="select clearfix companyselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption companyselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
-                            <span>
+                        <li class="clearfix">
+                            <p>
                                注册时间
-                           </span>
-                            <div class="select"></div>
+                           </p>
+                             <div class="selectContainer">
+                                <div class="select clearfix startDateselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption  startDateselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
-                            <span>
+                        <li class="clearfix">
+                            <p>
                                角色
-                           </span>
-                            <div class="select"></div>
+                           </p>
+                              <div class="selectContainer">
+                                <div class="select clearfix roleselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption roleselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="clearfix">
                             <div class="new"> <img src="img/ico-over copy 3.png" alt=""> <span>新建</span> </div>
                             <div class="del clearfix">
-                            <img src="img/ico-over copy 3.png" alt="">
+                                <img src="img/ico-over copy 3.png" alt="">
                                 <span>删除</span>
                             </div>
                         </li>
@@ -207,10 +251,6 @@
                 <input type="button" value="删除" class="sureNew">
             </div>
         </div>
-    </div>
-    <!-- hover 效果 -->
-    <div class="hoverContainer">
-        <span>编辑</span>
     </div>
     <script src="lib/jquery.min.js"></script>
     <script src="lib/YhhDataTable/js/jquery.paginate.js"></script>

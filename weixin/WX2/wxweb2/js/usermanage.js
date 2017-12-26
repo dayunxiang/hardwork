@@ -1,4 +1,5 @@
 $(function() {
+
     //初始化用户表格
     initUserTable()
     //动态设置表格页加载数量
@@ -19,6 +20,16 @@ $(function() {
 
     //全选和反选
     allORnot()
+
+    //模拟title
+    hovermn("#userTable")
+
+    //select
+    select(".cityselect",'.cityselectOption')
+    select(".companyselect",'.companyselectOption')
+    select(".startDateselect",'.startDateselectOption')
+    select(".roleselect",'.roleselectOption')
+
 })
 
 
@@ -50,7 +61,7 @@ function drawTable(data) {
         'tbodyRow': {
             'zebra': true,
             'write': function(d) {
-                return '<tr><td><i class="checkBox"><b class="fa fa-check"></b></i>' + d.name + '</td><td>' + d.wxnumber + '</td><td>' + d.email + '</td><td>' + d.unit + '</td><td>' + d.department + '</td><td>' + d.duty + '</td><td>' + d.role + '</td><td>' + d.subpart + '</td><td>' + d.phone + '</td><td>' + d.regisDate + '</td><td><img src="./img/ico-edit.png" alt="" title="编辑" class="userEdit" /><img src="./img/ico-over copy 3.png" alt="" title="删除"  class="userDel" /></td></tr>';
+                return '<tr><td><i class="checkBox"><b class="fa fa-check"></b></i>' + d.name + '</td><td>' + d.wxnumber + '</td><td>' + d.email + '</td><td>' + d.unit + '</td><td>' + d.department + '</td><td>' + d.duty + '</td><td>' + d.role + '</td><td>' + d.subpart + '</td><td>' + d.phone + '</td><td>' + d.regisDate + '</td><td><img src="./img/ico-edit.png" alt="" title="编辑" class="userEdit tooltip" /><img src="./img/ico-over copy 3.png" alt="" title="删除"  class="userDel tooltip" /></td></tr>';
             }
         },
         'tbodyData': {
@@ -88,16 +99,14 @@ function drawTable(data) {
     // console.log($(""))
     //chongzhiquanxuan
     $(".paginate-box>a").on("click", function() {
-        console.log(111)
-
+         $(".del").hide();
         $("#userTable thead .checkBox").removeAttr('checked')
         $("#userTable thead .checkBox b").css("display", 'none')
         num = 0;
         b = 0;
     })
     $(".paginate-num-btn-group").on("click", 'a', function() {
-        console.log(222)
-
+ $(".del").hide();
         $("#userTable thead .checkBox").removeAttr('checked')
         $("#userTable thead .checkBox b").css("display", 'none')
         num = 0;
@@ -156,17 +165,23 @@ $("#userTable").on("click", ".checkBox", function() {
 
 
 //全选和全部选功能
-var num = 0
-var b = 0
-
 function allORnot() {
+      var num = 0
+    var b = 0
     $("#userTable thead").on("click", ".checkBox", function() {
         if ($(this).attr('checked')) {
             $("#userTable tbody .checkBox").removeAttr("checked")
             $("#userTable tbody .checkBox b").css("display", 'none')
+             $(".del").hide();
         } else {
             $("#userTable tbody .checkBox").attr("checked", "checked")
             $("#userTable tbody .checkBox b").css("display", 'block')
+
+              $(".del").show();
+             //点击删除
+              $(".del").on("click",function () {
+                  alert("删除事件")
+              })
         }
     })
 
@@ -184,5 +199,17 @@ function allORnot() {
             $("#userTable thead .checkBox").removeAttr("checked")
             $("#userTable thead .checkBox b").css("display", 'none')
         }
+
+        //删除按钮的显示与隐藏
+        if(b>1) {
+             $(".del").show();
+             //点击删除
+              $(".del").on("click",function () {
+                  alert("删除事件")
+              })
+        }else {
+             $(".del").hide();
+        }
+       
     })
 }

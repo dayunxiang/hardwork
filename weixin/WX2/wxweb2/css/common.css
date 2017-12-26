@@ -61,3 +61,11 @@ img {
 .clearfix {
     *zoom: 1;
 }
+
+
+.fl-r {
+    float: right;
+}
+.fl-l {
+    float: left;
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/datePicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.paginate.css">
+    <!--  <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.yhhDataTable.css"> -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- 整个容器 -->
+    <div class="wrap">
+        <!-- 侧边栏 -->
+        <div class="sideBar sideBar-mini">
+            <div class="logo ">
+                <img src="img/logo.png" alt="">
+                <h2>巡检后台管理系统</h2>
+            </div>
+            <ul class="list">
+                <li>
+                    <img src="img/ico-user.png" alt="">
+                    <span>用户管理</span>
+                </li>
+                <li class="now">
+                    <img src="img/ico-upload.png" alt="">
+                    <span>警情管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-set.png" alt="">
+                    <span>设置</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-company.png" alt="">
+                    <span>单位管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-Statistics.png" alt="">
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 中间内容容器 -->
+        <div class="mainContainer">
+            <!-- 顶部top -->
+            <div class="topHeader">
+            </div>
+            <!-- content -->
+            <div class="content">
+                <h3>警情管理</h3>
+                <div class="jqContainer">
+                    <ul class="jqoption clearfix">
+                        <li class="clearfix">
+                            <p>
+                                问题类型
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix wtlxselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption wtlxselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                所属区域
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix ssqyselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption ssqyselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                所属时间段
+                            </p>
+                           
+                            <div class="start fl-l">
+                                <input type="text" value="" id="demo-1">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                            <span class="fl-l">至</span>
+                            <div class="end fl-l">
+                                <input type="text" value="" id="demo-2">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                任务状态
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix rwztselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption rwztselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="cx">
+                                <input type="button" value="查询">
+                            </div>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="搜索">
+                            <img src="img/Slice.png" alt="">
+                        </li>
+                    </ul>
+                    <div class="jqmanaContainer">
+                        <table id="jqTable">
+                            <thead>
+                                <tr>
+                                    <th>问题类型</th>
+                                    <th>上报人</th>
+                                    <th>所属区域</th>
+                                    <th>上报时间</th>
+                                    <th>坐标位置</th>
+                                    <th>音频描述</th>
+                                    <th>文字描述</th>
+                                    <th>警情现场照片</th>
+                                    <th>处理状态</th>
+                                    <th>处理负责人</th>
+                                    <th>处理现场照片</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 删除 -->
+    <div class="deleteContainer">
+        <div class="deleteContent">
+            <div class="title">
+                <span>
+                    提示
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <div class="deletemain">
+                <img src="img/yishui copy 6@3x.png" alt="">
+                <p>删除后，数据将不可恢复，你确定要删除？</p>
+            </div>
+            <div class="deltefooter">
+                <input type="button" value="取消" class="cancleDel">
+                <input type="button" value="删除" class="sureDel">
+            </div>
+        </div>
+    </div>
+    <!-- 编辑 -->
+    <div class="editContainer">
+        <div class="editContent">
+            <div class="title">
+                <span>
+                    编辑
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="editmain">
+                <li>
+                    <span>姓名（不可修改）</span>
+                    <input type="text" readonly="true" value="胡建">
+                </li>
+                <li>
+                    <span>微信号（不可修改）</span>
+                    <input type="text" value="胡建" readonly="true">
+                </li>
+                <li>
+                    <span>邮箱</span>
+                    <input type="text" value="胡建">
+                </li>
+                <li>
+                    <span>联系电话</span>
+                    <input type="text" value="胡建">
+                </li>
+                <li>
+                    <span>单位（不可修改）</span>
+                    <input type="text" value="胡建" readonly="true">
+                </li>
+                <li>
+                    <span>职务</span>
+                    <input type="text" value="胡建">
+                </li>
+                <li>
+                    <span>角色</span>
+                    <input type="text" value="胡建">
+                </li>
+                <li>
+                    <span>姓名（不可修改）</span>
+                    <input type="text" value="胡建">
+                </li>
+                <li>
+                    <span>所属分区</span>
+                    <input type="text" value="胡建">
+                </li>
+            </ul>
+            <div class="editfooter">
+                <input type="button" value="取消" class="cancleEdit">
+                <input type="button" value="保存" class="sureEdit">
+            </div>
+        </div>
+    </div>
+    <!-- 新建单位 -->
+    <div class="newunitContainer">
+        <div class="newunitContent">
+            <div class="title">
+                <span>
+                    新建单位
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="newunitmain">
+                <li>
+                    <span>单位名称</span>
+                    <input type="text" value="" placeholder="请输入单位名称">
+                </li>
+            </ul>
+            <div class="newunitfooter">
+                <input type="button" value="取消" class="cancleNew">
+                <input type="button" value="删除" class="sureNew">
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/YhhDataTable/js/jquery.paginate.js"></script>
+    <script src="lib/YhhDataTable/js/jquery.yhhDataTable.js"></script>
+    <script src="./lib/datePicker/js/foundation-datepicker.js"></script>
+    <script src="./lib/datePicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jqmanage.js"></script>
+</body>
+
+</html>
