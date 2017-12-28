@@ -1,0 +1,36 @@
+{
+	"total": 3,
+	"data": [
+		{
+			"TASKID": "gd001",
+			"WARNINGID": "20170815001",
+			"WARNINGNAME": "20170815001",
+			"WARNING_LOCATION": "地铁站口",
+			"ORDERTIME": "2017-08-15 11:40:21",
+			"FINISHTIME": "2017-08-15 13:40:21",
+			"WARNING_DESCRIPTION": "地铁站口出现积水，请及时处理",
+			"tp": 1,
+			"TASKSTATUS": "已完成"
+		}, {
+			"TASKID": "gd002",
+			"WARNINGID": "20170815002",
+			"WARNINGNAME": "20170815001",
+			"WARNING_LOCATION": "地铁站口",
+			"ORDERTIME": "2017-08-15 11:50:21",
+			"FINISHTIME": "--",
+			"WARNING_DESCRIPTION": "地铁站口出现积水，请及时处理",
+			"tp": 2,
+			"TASKSTATUS": "处理中"
+		}, {
+			"TASKID": "gd003",
+			"WARNINGID": "20170815003",
+			"WARNINGNAME": "20170815001",
+			"WARNING_LOCATION": "地铁站口",
+			"ORDERTIME": "2017-08-15 12:50:21",
+			"FINISHTIME": "--",
+			"WARNING_DESCRIPTION": "地铁站口出现积水，请及时处理",
+			"tp": 1,
+			"TASKSTATUS": "待处理"
+		}
+	]
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemSpotreformMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemSpotreform">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="SPOTNAME" jdbcType="NVARCHAR" property="spotname" />
+    <result column="REASON" jdbcType="NVARCHAR" property="reason" />
+    <result column="METHOD" jdbcType="NVARCHAR" property="method" />
+    <result column="COMPLETESTATUS" jdbcType="INTEGER" property="completestatus" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemSpotreform">
+    insert into DS_DSEM_SPOTREFORM (OBJECTID, SPOTNAME, REASON, 
+      METHOD, COMPLETESTATUS, DESCRIPTION, 
+      YEAR, COMPLETETIME)
+    values (#{objectid,jdbcType=INTEGER}, #{spotname,jdbcType=NVARCHAR}, #{reason,jdbcType=NVARCHAR}, 
+      #{method,jdbcType=NVARCHAR}, #{completestatus,jdbcType=INTEGER}, #{description,jdbcType=NVARCHAR}, 
+      #{year,jdbcType=NVARCHAR}, #{completetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemSpotreform">
+    insert into DS_DSEM_SPOTREFORM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="spotname != null">
+        SPOTNAME,
+      </if>
+      <if test="reason != null">
+        REASON,
+      </if>
+      <if test="method != null">
+        METHOD,
+      </if>
+      <if test="completestatus != null">
+        COMPLETESTATUS,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="spotname != null">
+        #{spotname,jdbcType=NVARCHAR},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=NVARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=NVARCHAR},
+      </if>
+      <if test="completestatus != null">
+        #{completestatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <!-- getSpotReformListByYear -->
+  <select id="getSpotReformListByYear"  resultType="map">
+  select OBJECTID,SPOTNAME,REASON,METHOD,COMPLETESTATUS,DESCRIPTION,YEAR,
+  CONVERT(VARCHAR(16),COMPLETETIME,20) as COMPLETETIME
+  FROM DS_DSEM_SPOTREFORM 
+  where YEAR =#{YEAR,jdbcType=INTEGER}
+  </select>
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(OBJECTID) is null then 0 else Max(OBJECTID) end
+    from DS_DSEM_SPOTREFORM
+  </select>  
+  <!-- updateSpotReformRecord --> 
+  <update id="updateSpotReformRecord">
+  	update DS_DSEM_SPOTREFORM set 
+  	SPOTNAME=#{SPOTNAME,jdbcType=NVARCHAR}
+  	,REASON=#{REASON,jdbcType=NVARCHAR}
+  	,METHOD=#{METHOD,jdbcType=NVARCHAR}
+  	,COMPLETESTATUS=#{COMPLETESTATUS,jdbcType=INTEGER}
+  	,DESCRIPTION=#{DESCRIPTION,jdbcType=NVARCHAR}
+  	,YEAR=#{YEAR,jdbcType=NVARCHAR}
+  	,COMPLETETIME=#{COMPLETETIME,jdbcType=TIMESTAMP}
+  	where OBJECTID=#{OBJECTID,jdbcType=INTEGER}
+  </update>   
+  <!-- deleteSpotReformRecord -->
+  <delete id="deleteSpotReformRecord" parameterType="java.lang.Integer">
+    delete from DS_DSEM_SPOTREFORM where OBJECTID = #{OBJECTID,jdbcType=INTEGER}
+  </delete>  
+</mapper>

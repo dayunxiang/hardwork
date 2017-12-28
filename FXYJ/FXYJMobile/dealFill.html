@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+		<link rel="stylesheet" href="lib/swiper.min.css">
+
+		<link rel="stylesheet" href="./less/index.css">
+		<!--<link rel="stylesheet/less" type="text/css" href="./less/index.less" />
+    <script src="lib/less.min.js"></script>-->
+	</head>
+
+	<body>
+		<div class="zs_layout ">
+			<div class="masker"></div>
+			<div class="title" id="cltbTitle">
+				<img src="img/ico-close@3x.png" alt="">
+				<h3>处理填报</h3>
+			</div>
+			<ul class="wctb cltb">
+				<li class="clearfix">
+					<span class="fl-l">积水面积(㎡) <i>*</i></span>
+					<input type="text" class="fl-r" placeholder="请输入积水面积">
+				</li>
+				<li class="clearfix">
+					<span class="fl-l">积水深度(cm)  <i>*</i></span>
+					<input type="text" class="fl-r" placeholder="请输入积水深度">
+				</li>
+				<li class="clearfix">
+					<div class="addtitle clearfix">
+						<p class="fl-l">上传照片</p>
+						<p class="fl-r">最少上传一张,最多上传九张</p>
+					</div>
+					<div class="addimg clearfix">
+						<div class="swiper-container" id="swiper-container3">
+							<div class="swiper-wrapper addpic-div">
+								<div class="swiper-slide addpic">
+									<img src="img/add-image@3x.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<input type="button " value="上报 " class="submit ">
+
+		</div>
+		<script src="lib/zepto.min.js "></script>
+		<script src="lib/swiper/swiper.min.js"></script>
+
+		<script src="js/common.js "></script>
+		<script src="js/dealFill.js "></script>
+		<script>
+		</script>
+	</body>
+
+</html>

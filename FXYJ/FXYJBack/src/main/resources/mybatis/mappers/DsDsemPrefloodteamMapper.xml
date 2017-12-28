@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPrefloodteamMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPrefloodteam">
+    <result column="PFTID" jdbcType="INTEGER" property="pftid" />
+    <result column="PFTNAME" jdbcType="NVARCHAR" property="pftname" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="CHARGEPERSON" jdbcType="NVARCHAR" property="chargeperson" />
+    <result column="PERSONSCOUNT" jdbcType="INTEGER" property="personscount" />
+    <result column="PERSONS" jdbcType="NVARCHAR" property="persons" />
+    <result column="FIRM" jdbcType="NVARCHAR" property="firm" />
+    <result column="CHARGEPERSONTEL" jdbcType="NVARCHAR" property="chargepersontel" />
+    <result column="EXAMINESTATUS" jdbcType="INTEGER" property="examinestatus" />
+    <result column="X" jdbcType="DOUBLE" property="x" />
+    <result column="Y" jdbcType="DOUBLE" property="y" />
+    <result column="PASSWORD" jdbcType="NVARCHAR" property="password" />
+    <result column="LASTCONNECTTIME" jdbcType="TIMESTAMP" property="lastconnecttime" />
+    <result column="CHARGEPERSONEMAIL" jdbcType="NVARCHAR" property="chargepersonemail" />
+  </resultMap>
+  
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(PFTID) is null then 0 else Max(PFTID) end
+    from DS_DSEM_PREFLOODTEAM
+  </select> 
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPrefloodteam">
+    insert into DS_DSEM_PREFLOODTEAM (PFTID, PFTNAME, DESCRIPTION, 
+      CHARGEPERSON, PERSONSCOUNT, PERSONS, 
+      FIRM, CHARGEPERSONTEL, EXAMINESTATUS, 
+      X, Y, PASSWORD, LASTCONNECTTIME, 
+      CHARGEPERSONEMAIL)
+    values (#{pftid,jdbcType=INTEGER}, #{pftname,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}, 
+      #{chargeperson,jdbcType=NVARCHAR}, #{personscount,jdbcType=INTEGER}, #{persons,jdbcType=NVARCHAR}, 
+      #{firm,jdbcType=NVARCHAR}, #{chargepersontel,jdbcType=NVARCHAR}, #{examinestatus,jdbcType=INTEGER}, 
+      #{x,jdbcType=DOUBLE}, #{y,jdbcType=DOUBLE}, #{password,jdbcType=NVARCHAR}, #{lastconnecttime,jdbcType=TIMESTAMP}, 
+      #{chargepersonemail,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPrefloodteam">
+    insert into DS_DSEM_PREFLOODTEAM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pftid != null">
+        PFTID,
+      </if>
+      <if test="pftname != null">
+        PFTNAME,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="chargeperson != null">
+        CHARGEPERSON,
+      </if>
+      <if test="personscount != null">
+        PERSONSCOUNT,
+      </if>
+      <if test="persons != null">
+        PERSONS,
+      </if>
+      <if test="firm != null">
+        FIRM,
+      </if>
+      <if test="chargepersontel != null">
+        CHARGEPERSONTEL,
+      </if>
+      <if test="examinestatus != null">
+        EXAMINESTATUS,
+      </if>
+      <if test="x != null">
+        X,
+      </if>
+      <if test="y != null">
+        Y,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="lastconnecttime != null">
+        LASTCONNECTTIME,
+      </if>
+      <if test="chargepersonemail != null">
+        CHARGEPERSONEMAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pftid != null">
+        #{pftid,jdbcType=INTEGER},
+      </if>
+      <if test="pftname != null">
+        #{pftname,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="chargeperson != null">
+        #{chargeperson,jdbcType=NVARCHAR},
+      </if>
+      <if test="personscount != null">
+        #{personscount,jdbcType=INTEGER},
+      </if>
+      <if test="persons != null">
+        #{persons,jdbcType=NVARCHAR},
+      </if>
+      <if test="firm != null">
+        #{firm,jdbcType=NVARCHAR},
+      </if>
+      <if test="chargepersontel != null">
+        #{chargepersontel,jdbcType=NVARCHAR},
+      </if>
+      <if test="examinestatus != null">
+        #{examinestatus,jdbcType=INTEGER},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=DOUBLE},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=DOUBLE},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=NVARCHAR},
+      </if>
+      <if test="lastconnecttime != null">
+        #{lastconnecttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargepersonemail != null">
+        #{chargepersonemail,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- updatePreFloodTeam -->
+  <update id="updatePreFloodTeam">
+  	update DS_DSEM_PREFLOODTEAM set 
+  	PFTNAME =  #{teamName,jdbcType=NVARCHAR}
+  	,DESCRIPTION = #{description,jdbcType=NVARCHAR}
+  	,CHARGEPERSON = #{manager,jdbcType=NVARCHAR}
+  	,PERSONSCOUNT = #{personsCount,jdbcType=INTEGER}
+  	,PERSONS = #{persons,jdbcType=NVARCHAR}
+  	,FIRM = #{firm,jdbcType=NVARCHAR}
+  	,PASSWORD = #{password,jdbcType=NVARCHAR}
+  	,CHARGEPERSONTEL = #{tel,jdbcType=NVARCHAR}
+  	,CHARGEPERSONEMAIL = #{email,jdbcType=NVARCHAR}
+  	where PFTID =  #{teamId,jdbcType=INTEGER}
+  </update>
+  <!-- delPreFloodTeam -->
+  <delete id="delPreFloodTeam" parameterType="java.lang.Integer">
+    delete from DS_DSEM_PREFLOODTEAM  where PFTID = #{teamId,jdbcType=INTEGER}
+  </delete>    
+</mapper>

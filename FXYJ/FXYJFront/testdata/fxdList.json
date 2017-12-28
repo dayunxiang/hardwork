@@ -1,0 +1,62 @@
+{
+	"total": 10,
+	"data": [
+		{
+			"PFTID": "fxd001",
+			"PFTNAME": "wjx",
+			"CHARGEPERSON": "吴金祥",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd002",
+			"PFTNAME": "yf",
+			"CHARGEPERSON": "杨峰",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd003",
+			"PFTNAME": "lj",
+			"CHARGEPERSON": "吕建",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd004",
+			"PFTNAME": "zrc",
+			"CHARGEPERSON": "张瑞才",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd005",
+			"PFTNAME": "wf",
+			"CHARGEPERSON": "王峰",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd006",
+			"PFTNAME": "hf",
+			"CHARGEPERSON": "韩非",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}, {
+			"PFTID": "fxd007",
+			"PFTNAME": "lcy",
+			"CHARGEPERSON": "刘朝阳",
+			"CHARGEPERSONTEL": "15955579326",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"PERSONS": "万杰，毛洪亮，金栋，武云虹，贾延河，孟康，王国祥，邵丽莉，蔡艳，陈玲"
+		}
+	]
+}

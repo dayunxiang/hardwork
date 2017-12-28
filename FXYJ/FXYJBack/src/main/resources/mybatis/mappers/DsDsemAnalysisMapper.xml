@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemAnalysisMapper">
+	<resultMap id="BaseResultMap" type="com.flood.entity.DsDsemAnalysis">
+		<result column="WARNINGID" jdbcType="INTEGER" property="warningid" />
+		<result column="SPOTID" jdbcType="INTEGER" property="spotid" />
+		<result column="OVERFLOW_STARTTIME" jdbcType="TIMESTAMP"
+			property="overflowStarttime" />
+		<result column="OVERFLOW_ENDTTIME" jdbcType="TIMESTAMP"
+			property="overflowEndttime" />
+		<result column="OVERFLOW_CONTINUETTIME" jdbcType="DOUBLE"
+			property="overflowContinuettime" />
+		<result column="OVERFLOW_NUM" jdbcType="DOUBLE" property="overflowNum" />
+		<result column="EFFECTAREA" jdbcType="DOUBLE" property="effectarea" />
+		<result column="WATERDEPTH" jdbcType="DOUBLE" property="waterdepth" />
+		<result column="REASON" jdbcType="NVARCHAR" property="reason" />
+		<result column="METHOD" jdbcType="NVARCHAR" property="method" />
+		<result column="WARNING_NAME" jdbcType="NVARCHAR" property="warningName" />
+		<result column="WARNING_SOURCE" jdbcType="NVARCHAR" property="warningSource" />
+		<result column="WARNING_SOURCEDES" jdbcType="NVARCHAR"
+			property="warningSourcedes" />
+		<result column="WARNING_UPLOADPERSON" jdbcType="NVARCHAR"
+			property="warningUploadperson" />
+		<result column="WARNING_TYPE" jdbcType="INTEGER" property="warningType" />
+		<result column="WARNING_UPLOADTIME" jdbcType="TIMESTAMP"
+			property="warningUploadtime" />
+		<result column="WARNING_DESCRIPTION" jdbcType="NVARCHAR"
+			property="warningDescription" />
+		<result column="WARNIING_HANDLEPERSON" jdbcType="NVARCHAR"
+			property="warniingHandleperson" />
+		<result column="WARNING_HANDLETIME" jdbcType="TIMESTAMP"
+			property="warningHandletime" />
+		<result column="WARNING_LEVEL" jdbcType="NVARCHAR" property="warningLevel" />
+		<result column="WARNING_ISCOMPLETE" jdbcType="INTEGER"
+			property="warningIscomplete" />
+		<result column="WARNING_COMPLETETIME" jdbcType="TIMESTAMP"
+			property="warningCompletetime" />
+		<result column="ISDELETE" jdbcType="INTEGER" property="isdelete" />
+		<result column="PFPID" jdbcType="INTEGER" property="pfpid" />
+		<result column="WARNING_LOCATION" jdbcType="VARCHAR" property="warningLocation" />
+		<result column="WARNING_UPLOADPERSONTEL" jdbcType="VARCHAR"
+			property="warningUploadpersontel" />
+		<result column="X" jdbcType="DOUBLE" property="x" />
+		<result column="Y" jdbcType="DOUBLE" property="y" />
+		<result column="FLOODLEVELID" jdbcType="INTEGER" property="floodlevelid" />
+		<result column="REPAIR_DETAIL" jdbcType="NVARCHAR" property="repairDetail" />
+		<result column="REPAIR_CHARGEPERSON" jdbcType="NVARCHAR"
+			property="repairChargeperson" />
+		<result column="REPAIR_EXAMINPERSON" jdbcType="NVARCHAR"
+			property="repairExaminperson" />
+		<result column="REPAIR_ENDDATE" jdbcType="TIMESTAMP" property="repairEnddate" />
+		<result column="REPAIR_STATUS" jdbcType="INTEGER" property="repairStatus" />
+	</resultMap>
+	<insert id="insert" parameterType="com.flood.entity.DsDsemAnalysis">
+		insert into DS_DSEM_ANALYSIS (WARNINGID, SPOTID, OVERFLOW_STARTTIME,
+		OVERFLOW_ENDTTIME, OVERFLOW_CONTINUETTIME,
+		OVERFLOW_NUM, EFFECTAREA, WATERDEPTH,
+		REASON, METHOD, WARNING_NAME,
+		WARNING_SOURCE, WARNING_SOURCEDES, WARNING_UPLOADPERSON,
+		WARNING_TYPE, WARNING_UPLOADTIME, WARNING_DESCRIPTION,
+		WARNIING_HANDLEPERSON, WARNING_HANDLETIME,
+		WARNING_LEVEL, WARNING_ISCOMPLETE, WARNING_COMPLETETIME,
+		ISDELETE, PFPID, WARNING_LOCATION,
+		WARNING_UPLOADPERSONTEL, X, Y,
+		FLOODLEVELID, REPAIR_DETAIL, REPAIR_CHARGEPERSON,
+		REPAIR_EXAMINPERSON, REPAIR_ENDDATE, REPAIR_STATUS
+		)
+		values (#{warningid,jdbcType=INTEGER}, #{spotid,jdbcType=INTEGER},
+		#{overflowStarttime,jdbcType=TIMESTAMP},
+		#{overflowEndttime,jdbcType=TIMESTAMP},
+		#{overflowContinuettime,jdbcType=DOUBLE},
+		#{overflowNum,jdbcType=DOUBLE}, #{effectarea,jdbcType=DOUBLE},
+		#{waterdepth,jdbcType=DOUBLE},
+		#{reason,jdbcType=NVARCHAR}, #{method,jdbcType=NVARCHAR}, #{warningName,jdbcType=NVARCHAR},
+		#{warningSource,jdbcType=NVARCHAR},
+		#{warningSourcedes,jdbcType=NVARCHAR},
+		#{warningUploadperson,jdbcType=NVARCHAR},
+		#{warningType,jdbcType=INTEGER},
+		#{warningUploadtime,jdbcType=TIMESTAMP},
+		#{warningDescription,jdbcType=NVARCHAR},
+		#{warniingHandleperson,jdbcType=NVARCHAR},
+		#{warningHandletime,jdbcType=TIMESTAMP},
+		#{warningLevel,jdbcType=NVARCHAR},
+		#{warningIscomplete,jdbcType=INTEGER},
+		#{warningCompletetime,jdbcType=TIMESTAMP},
+		#{isdelete,jdbcType=INTEGER}, #{pfpid,jdbcType=INTEGER},
+		#{warningLocation,jdbcType=VARCHAR},
+		#{warningUploadpersontel,jdbcType=VARCHAR}, #{x,jdbcType=DOUBLE},
+		#{y,jdbcType=DOUBLE},
+		#{floodlevelid,jdbcType=INTEGER}, #{repairDetail,jdbcType=NVARCHAR},
+		#{repairChargeperson,jdbcType=NVARCHAR},
+		#{repairExaminperson,jdbcType=NVARCHAR},
+		#{repairEnddate,jdbcType=TIMESTAMP}, #{repairStatus,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.flood.entity.DsDsemAnalysis">
+		insert into DS_DSEM_ANALYSIS
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="warningid != null">
+				WARNINGID,
+			</if>
+			<if test="spotid != null">
+				SPOTID,
+			</if>
+			<if test="overflowStarttime != null">
+				OVERFLOW_STARTTIME,
+			</if>
+			<if test="overflowEndttime != null">
+				OVERFLOW_ENDTTIME,
+			</if>
+			<if test="overflowContinuettime != null">
+				OVERFLOW_CONTINUETTIME,
+			</if>
+			<if test="overflowNum != null">
+				OVERFLOW_NUM,
+			</if>
+			<if test="effectarea != null">
+				EFFECTAREA,
+			</if>
+			<if test="waterdepth != null">
+				WATERDEPTH,
+			</if>
+			<if test="reason != null">
+				REASON,
+			</if>
+			<if test="method != null">
+				METHOD,
+			</if>
+			<if test="warningName != null">
+				WARNING_NAME,
+			</if>
+			<if test="warningSource != null">
+				WARNING_SOURCE,
+			</if>
+			<if test="warningSourcedes != null">
+				WARNING_SOURCEDES,
+			</if>
+			<if test="warningUploadperson != null">
+				WARNING_UPLOADPERSON,
+			</if>
+			<if test="warningType != null">
+				WARNING_TYPE,
+			</if>
+			<if test="warningUploadtime != null">
+				WARNING_UPLOADTIME,
+			</if>
+			<if test="warningDescription != null">
+				WARNING_DESCRIPTION,
+			</if>
+			<if test="warniingHandleperson != null">
+				WARNIING_HANDLEPERSON,
+			</if>
+			<if test="warningHandletime != null">
+				WARNING_HANDLETIME,
+			</if>
+			<if test="warningLevel != null">
+				WARNING_LEVEL,
+			</if>
+			<if test="warningIscomplete != null">
+				WARNING_ISCOMPLETE,
+			</if>
+			<if test="warningCompletetime != null">
+				WARNING_COMPLETETIME,
+			</if>
+			<if test="isdelete != null">
+				ISDELETE,
+			</if>
+			<if test="pfpid != null">
+				PFPID,
+			</if>
+			<if test="warningLocation != null">
+				WARNING_LOCATION,
+			</if>
+			<if test="warningUploadpersontel != null">
+				WARNING_UPLOADPERSONTEL,
+			</if>
+			<if test="x != null">
+				X,
+			</if>
+			<if test="y != null">
+				Y,
+			</if>
+			<if test="floodlevelid != null">
+				FLOODLEVELID,
+			</if>
+			<if test="repairDetail != null">
+				REPAIR_DETAIL,
+			</if>
+			<if test="repairChargeperson != null">
+				REPAIR_CHARGEPERSON,
+			</if>
+			<if test="repairExaminperson != null">
+				REPAIR_EXAMINPERSON,
+			</if>
+			<if test="repairEnddate != null">
+				REPAIR_ENDDATE,
+			</if>
+			<if test="repairStatus != null">
+				REPAIR_STATUS,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="warningid != null">
+				#{warningid,jdbcType=INTEGER},
+			</if>
+			<if test="spotid != null">
+				#{spotid,jdbcType=INTEGER},
+			</if>
+			<if test="overflowStarttime != null">
+				#{overflowStarttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="overflowEndttime != null">
+				#{overflowEndttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="overflowContinuettime != null">
+				#{overflowContinuettime,jdbcType=DOUBLE},
+			</if>
+			<if test="overflowNum != null">
+				#{overflowNum,jdbcType=DOUBLE},
+			</if>
+			<if test="effectarea != null">
+				#{effectarea,jdbcType=DOUBLE},
+			</if>
+			<if test="waterdepth != null">
+				#{waterdepth,jdbcType=DOUBLE},
+			</if>
+			<if test="reason != null">
+				#{reason,jdbcType=NVARCHAR},
+			</if>
+			<if test="method != null">
+				#{method,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningName != null">
+				#{warningName,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningSource != null">
+				#{warningSource,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningSourcedes != null">
+				#{warningSourcedes,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningUploadperson != null">
+				#{warningUploadperson,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningType != null">
+				#{warningType,jdbcType=INTEGER},
+			</if>
+			<if test="warningUploadtime != null">
+				#{warningUploadtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="warningDescription != null">
+				#{warningDescription,jdbcType=NVARCHAR},
+			</if>
+			<if test="warniingHandleperson != null">
+				#{warniingHandleperson,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningHandletime != null">
+				#{warningHandletime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="warningLevel != null">
+				#{warningLevel,jdbcType=NVARCHAR},
+			</if>
+			<if test="warningIscomplete != null">
+				#{warningIscomplete,jdbcType=INTEGER},
+			</if>
+			<if test="warningCompletetime != null">
+				#{warningCompletetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isdelete != null">
+				#{isdelete,jdbcType=INTEGER},
+			</if>
+			<if test="pfpid != null">
+				#{pfpid,jdbcType=INTEGER},
+			</if>
+			<if test="warningLocation != null">
+				#{warningLocation,jdbcType=VARCHAR},
+			</if>
+			<if test="warningUploadpersontel != null">
+				#{warningUploadpersontel,jdbcType=VARCHAR},
+			</if>
+			<if test="x != null">
+				#{x,jdbcType=DOUBLE},
+			</if>
+			<if test="y != null">
+				#{y,jdbcType=DOUBLE},
+			</if>
+			<if test="floodlevelid != null">
+				#{floodlevelid,jdbcType=INTEGER},
+			</if>
+			<if test="repairDetail != null">
+				#{repairDetail,jdbcType=NVARCHAR},
+			</if>
+			<if test="repairChargeperson != null">
+				#{repairChargeperson,jdbcType=NVARCHAR},
+			</if>
+			<if test="repairExaminperson != null">
+				#{repairExaminperson,jdbcType=NVARCHAR},
+			</if>
+			<if test="repairEnddate != null">
+				#{repairEnddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="repairStatus != null">
+				#{repairStatus,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<!-- 根据上报时间范围获取已经完成工单的警情点 -->
+	<select id="getCompleteWaringSpotByReportDate" resultType="java.util.HashMap">
+		select * from DS_DSEM_ANALYSIS left join DS_DSEM_FLOODLEVELRECORD on
+		DS_DSEM_ANALYSIS.FLOODLEVELID = DS_DSEM_FLOODLEVELRECORD.FLOODLEVELID
+		where 
+    <![CDATA[WARNING_UPLOADTIME>=#{st,jdbcType=TIMESTAMP}
+    and WARNING_UPLOADTIME<=#{et,jdbcType=TIMESTAMP}]]>
+		and (WARNING_ISCOMPLETE = 3 or WARNING_ISCOMPLETE = 4)
+		and ISDELETE = 0
+	</select>
+	<!-- getWaringSpotByReportDate2 -->
+	<select id="getWaringSpotByReportDate2" resultType="java.util.HashMap">
+		select
+		WARNINGID,SPOTID,OVERFLOW_STARTTIME,OVERFLOW_ENDTTIME,OVERFLOW_CONTINUETTIME,
+		OVERFLOW_NUM,EFFECTAREA,WATERDEPTH,REASON,METHOD,WARNING_NAME,WARNING_SOURCE,WARNING_SOURCEDES,
+		WARNING_UPLOADPERSON,WARNING_UPLOADPERSONTEL,WARNING_TYPE,WARNING_UPLOADTIME,WARNING_DESCRIPTION,
+		WARNIING_HANDLEPERSON,WARNING_HANDLETIME,WARNING_LEVEL,WARNING_ISCOMPLETE,WARNING_COMPLETETIME,
+		ISDELETE,PFPID,WARNING_LOCATION,X,Y,FLOODLEVELID,REPAIR_DETAIL,REPAIR_CHARGEPERSON,REPAIR_EXAMINPERSON,
+		REPAIR_ENDDATE,REPAIR_STATUS
+		FROM DS_DSEM_ANALYSIS
+		where 
+    <![CDATA[WARNING_UPLOADTIME>=#{st,jdbcType=TIMESTAMP}
+    and WARNING_UPLOADTIME<=#{et,jdbcType=TIMESTAMP}]]>
+		and ISDELETE = 0
+	</select>
+	
+
+	<!-- deleteWaringSpotByID -->
+	<update id="deleteWaringSpotByID">
+		update DS_DSEM_ANALYSIS set
+		ISDELETE = 1
+		where WARNINGID = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- getMaxId -->
+	<select id="getMaxId" resultType="java.lang.Integer">
+		select
+		case when Max(WARNINGID) is null then 0 else Max(WARNINGID) end
+		from DS_DSEM_ANALYSIS
+	</select>
+	<!-- getMaxWarningCode -->
+	<select id="getMaxWarningCode" resultType="java.lang.String">
+		SELECT max(cast (WARNING_NAME as varchar)) FROM DS_DSEM_ANALYSIS where
+		WARNING_NAME like #{nowDate}+'%'
+	</select>
+	<!-- addSimpleWarningSpot -->
+	<insert id="addSimpleWarningSpot">
+		insert into DS_DSEM_ANALYSIS (WARNINGID, SPOTID, WARNING_NAME,
+		WARNING_SOURCE,
+		WARNING_UPLOADPERSON, WARNING_UPLOADPERSONTEL, WARNING_UPLOADTIME,
+		WARNING_DESCRIPTION, WARNING_ISCOMPLETE, ISDELETE, WARNING_LOCATION,X,Y,FLOODLEVELID
+		)
+		values (#{WARNINGID,jdbcType=INTEGER}, -1, #{WARNINGNAME,jdbcType=NVARCHAR},
+		#{WARNINGSOURCE,jdbcType=INTEGER},
+		#{UPLOADPERSON,jdbcType=NVARCHAR}, #{UPLOADPERSONTEL,jdbcType=NVARCHAR},
+		#{UPLOADTIME,jdbcType=TIMESTAMP},
+		#{DESCRIPTION,jdbcType=NVARCHAR}, 1, 0, #{LOCATION,jdbcType=NVARCHAR}, #{X,jdbcType=DOUBLE},
+		#{Y,jdbcType=DOUBLE},
+		#{FloodLevelID,jdbcType=INTEGER}
+		)
+	</insert>
+	<!-- updateWarningSpotByID -->
+	<update id="updateWarningSpotByID">
+		update DS_DSEM_ANALYSIS set
+		WARNING_NAME=#{waringName,jdbcType=NVARCHAR}
+		WARNING_DESCRIPTION=#{warningDes,jdbcType=NVARCHAR}
+		WARNING_LOCATION=#{warningLocation,jdbcType=NVARCHAR}
+		WARNING_SOURCE=#{warningSource,jdbcType=NVARCHAR}
+		WARNING_UPLOADPERSON=#{warningReporter,jdbcType=NVARCHAR}
+		WARNING_UPLOADPERSONTEL=#{warningReporterTel,jdbcType=NVARCHAR}
+		WARNING_UPLOADTIME=#{warningTime,jdbcType=TIMESTAMP}
+		WARNING_LEVEL=#{warningLevel,jdbcType=NVARCHAR}
+		PFPID=#{warningPFPID,jdbcType=INTEGER}
+		WARNING_ISCOMPLETE=#{warningIsCompleted,jdbcType=INTEGER}
+		WARNING_COMPLETETIME=#{completedTime,jdbcType=TIMESTAMP}
+		where WARNINGID=#{id,jdbcType=INTEGER}
+	</update>
+	<!-- updateWarningSpotStatusByID -->
+	<update id="updateWarningSpotStatusByID">
+		update DS_DSEM_ANALYSIS set
+		WARNING_ISCOMPLETE=#{statusID,jdbcType=INTEGER}
+		WARNING_COMPLETETIME=#{nowDate,jdbcType=TIMESTAMP}
+		where WARNINGID=#{id,jdbcType=INTEGER}
+	</update>
+	<!-- getCompleteWaringSpotByFloodID -->
+	<select id="getCompleteWaringSpotByFloodID" resultType="java.util.HashMap">
+		select waringSpot.*,warningReporter.sumCount from (
+		select
+		analysis.*,levelrecord.CHANGETIME,levelrecord.FLOODID,levelrecord.ISSENDMESSAGE,levelrecord.PERSONID,levelrecord.WARNINGLEVEL
+		from DS_DSEM_ANALYSIS analysis left join DS_DSEM_FLOODLEVELRECORD
+		levelrecord on
+		analysis.FLOODLEVELID = levelrecord.FLOODLEVELID
+		where FLOODID = #{floodId,jdbcType=INTEGER}
+		and (WARNING_ISCOMPLETE = 3 or WARNING_ISCOMPLETE = 4)
+		and ISDELETE = 0 ) as waringSpot left join
+		(select COUNT(*) as sumCount, WARNINGID from DS_DSEM_WARNING_REPORTER group
+		by WARNINGID) as warningReporter
+		on waringSpot.WARNINGID = warningReporter.WARNINGID
+	</select>
+	<!-- updateWarningRepairInfoByID -->
+	<update id="updateWarningRepairInfoByID">
+		update DS_DSEM_ANALYSIS set
+		REPAIR_DETAIL = #{detail,jdbcType=NVARCHAR}
+		,REPAIR_CHARGEPERSON = #{chargePerson,jdbcType=NVARCHAR}
+		,REPAIR_EXAMINPERSON = #{exminPerson,jdbcType=NVARCHAR}
+		,REPAIR_ENDDATE = #{et,jdbcType=TIMESTAMP}
+		,REPAIR_STATUS = #{status,jdbcType=INTEGER}
+		where WARNINGID = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- updateWarningLocalInfoByID -->
+	<update id="updateWarningLocalInfoByID">
+		update DS_DSEM_ANALYSIS set
+		METHOD = #{method,jdbcType=NVARCHAR}
+		,WATERDEPTH = #{depth,jdbcType=DOUBLE}
+		,EFFECTAREA = #{area,jdbcType=DOUBLE}
+		where WARNINGID = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- updateWarningSpotIDByID -->
+	<update id="updateWarningSpotIDByID">
+		update DS_DSEM_ANALYSIS set
+		SPOTID = #{spotID,jdbcType=INTEGER}
+		where WARNINGID = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

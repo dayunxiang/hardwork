@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemMessagerecordMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemMessagerecord">
+    <result column="MESSAGEID" jdbcType="INTEGER" property="messageid" />
+    <result column="SENDTIME" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="PERSONID" jdbcType="INTEGER" property="personid" />
+    <result column="DETAIL" jdbcType="NVARCHAR" property="detail" />
+    <result column="FLOODLEVELID" jdbcType="INTEGER" property="floodlevelid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemMessagerecord">
+    insert into DS_DSEM_MESSAGERECORD (MESSAGEID, SENDTIME, PERSONID, 
+      DETAIL, FLOODLEVELID)
+    values (#{messageid,jdbcType=INTEGER}, #{sendtime,jdbcType=TIMESTAMP}, #{personid,jdbcType=INTEGER}, 
+      #{detail,jdbcType=NVARCHAR}, #{floodlevelid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemMessagerecord">
+    insert into DS_DSEM_MESSAGERECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        MESSAGEID,
+      </if>
+      <if test="sendtime != null">
+        SENDTIME,
+      </if>
+      <if test="personid != null">
+        PERSONID,
+      </if>
+      <if test="detail != null">
+        DETAIL,
+      </if>
+      <if test="floodlevelid != null">
+        FLOODLEVELID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        #{messageid,jdbcType=INTEGER},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="personid != null">
+        #{personid,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=NVARCHAR},
+      </if>
+      <if test="floodlevelid != null">
+        #{floodlevelid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

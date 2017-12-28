@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPumpGenMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPumpGen">
+    <result column="GENID" jdbcType="INTEGER" property="genid" />
+    <result column="GENSIZE" jdbcType="NVARCHAR" property="gensize" />
+    <result column="GENTYPE" jdbcType="NVARCHAR" property="gentype" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="DETAIL" jdbcType="NVARCHAR" property="detail" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+    <result column="PUMPID" jdbcType="INTEGER" property="pumpid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPumpGen">
+    insert into DS_DSEM_PUMP_GEN (GENID, GENSIZE, GENTYPE, 
+      STATUS, DETAIL, YEAR, 
+      COMPLETETIME, PUMPID)
+    values (#{genid,jdbcType=INTEGER}, #{gensize,jdbcType=NVARCHAR}, #{gentype,jdbcType=NVARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{detail,jdbcType=NVARCHAR}, #{year,jdbcType=NVARCHAR}, 
+      #{completetime,jdbcType=TIMESTAMP}, #{pumpid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPumpGen">
+    insert into DS_DSEM_PUMP_GEN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="genid != null">
+        GENID,
+      </if>
+      <if test="gensize != null">
+        GENSIZE,
+      </if>
+      <if test="gentype != null">
+        GENTYPE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="detail != null">
+        DETAIL,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+      <if test="pumpid != null">
+        PUMPID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="genid != null">
+        #{genid,jdbcType=INTEGER},
+      </if>
+      <if test="gensize != null">
+        #{gensize,jdbcType=NVARCHAR},
+      </if>
+      <if test="gentype != null">
+        #{gentype,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=NVARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pumpid != null">
+        #{pumpid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getPumpGenStatusCountByPumpID -->
+  <select id="getPumpGenStatusCountByPumpID" resultType="java.lang.Integer">
+    select 
+    	count(GENID)
+    from DS_DSEM_PUMP_GEN
+    where PUMPID = #{pumpID,jdbcType=INTEGER}
+    and STATUS != 1 
+    and YEAR = #{year,jdbcType=NVARCHAR}
+  </select>   
+</mapper>

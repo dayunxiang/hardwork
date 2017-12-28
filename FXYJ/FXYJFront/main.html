@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header clearfix">
+        <a href="" class="logo">
+				<img src="img/logo.png" alt="">
+			</a>
+        <h1>防汛应急系统-应急指挥</h1>
+        <img src="img/ico-menu.png" alt="" class=" opennav">
+        <div class="avator fl-r">
+            <img src="img/avater.jpg" alt="">
+        </div>
+        <!-- <i class="fa fa-cog" style="float: right; margin-right: 30px;"></i> -->
+        <img src="img/ico-set.png" alt="" style="float: right; margin-right: 30px; margin-top: 18px;">
+        <div class="headerWeather clearfix">
+            <img src="img/duoyun.png" alt="" class="fl-l">
+            <p class="fl-l">未启动预警</p>
+            <p class="fl-l">31℃~21℃</p>
+        </div>
+        <div class="nav">
+            <!-- <span>&times;</span> -->
+            <img src="img/btn-close.png" alt="">
+            <dl>
+                <dt>首页</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="" >
+                            <span >设置</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>防汛准备</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img src="img/layer-m-ico copy 2.png" alt="">
+                            <span >人员物资</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img src="img/layer-m-ico copy 2.png" alt="">
+                            <span >清淤整改</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="">
+                            <span >内涝风险分析</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>应急指挥</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="">
+                            <span >防汛预警</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="">
+                            <span >警情监控</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="">
+                            <span >警情总结</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>讯后评估</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="img/layer-m-ico copy 2.png" alt="">
+                            <span >汛情回顾</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img src="img/layer-m-ico copy 2.png" alt="">
+                            <span >易涝点</span>
+                        </a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- main -->
+    <div class="mainContainer">
+        <div id="map"></div>
+        <div class="operationPanal"></div>
+    </div>
+</body>
+<script src="./lib/RMap/rmap.js"></script>
+<script src="lib/jquery.nicescroll.min.js"></script>
+<script src="lib/echarts.min.js"></script>
+<script src="config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/main.js"></script>
+
+</script>
+
+</html>

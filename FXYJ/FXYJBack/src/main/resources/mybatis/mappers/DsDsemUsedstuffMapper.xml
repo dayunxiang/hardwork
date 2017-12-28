@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemUsedstuffMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemUsedstuff">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="PFSID" jdbcType="INTEGER" property="pfsid" />
+    <result column="COUNT" jdbcType="DOUBLE" property="count" />
+    <result column="USECOUNT" jdbcType="DOUBLE" property="usecount" />
+    <result column="RELATIONID" jdbcType="INTEGER" property="relationid" />
+  </resultMap>
+  <!-- getStuffUsedCountByID -->
+  <select id="getStuffUsedCountByID"  resultType="java.lang.Integer">
+    select case when sum(USECOUNT) is null then 0 else sum(USECOUNT) end from DS_DSEM_USEDSTUFF left join DS_DSEM_USEDTEAM 
+    on DS_DSEM_USEDSTUFF.RELATIONID = DS_DSEM_USEDTEAM.RELATIONID 
+    where PFTID = #{teamID,jdbcType=INTEGER}
+    and PFSID = #{stuffID,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemUsedstuff">
+    insert into DS_DSEM_USEDSTUFF (OBJECTID, PFSID, COUNT, 
+      USECOUNT, RELATIONID)
+    values (#{objectid,jdbcType=INTEGER}, #{pfsid,jdbcType=INTEGER}, #{count,jdbcType=DOUBLE}, 
+      #{usecount,jdbcType=DOUBLE}, #{relationid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemUsedstuff">
+    insert into DS_DSEM_USEDSTUFF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="pfsid != null">
+        PFSID,
+      </if>
+      <if test="count != null">
+        COUNT,
+      </if>
+      <if test="usecount != null">
+        USECOUNT,
+      </if>
+      <if test="relationid != null">
+        RELATIONID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="pfsid != null">
+        #{pfsid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=DOUBLE},
+      </if>
+      <if test="usecount != null">
+        #{usecount,jdbcType=DOUBLE},
+      </if>
+      <if test="relationid != null">
+        #{relationid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- delStuffByStuffID -->
+  <delete id="delStuffByStuffID" parameterType="java.lang.Integer">
+    delete from DS_DSEM_USEDSTUFF where PFSID = #{stuffID,jdbcType=INTEGER}
+  </delete>  
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(OBJECTID) is null then 0 else Max(OBJECTID) end
+    from DS_DSEM_USEDSTUFF
+  </select>    
+  <!-- delStuffByRelationID -->
+  <delete id="delStuffByRelationID" parameterType="java.lang.Integer">
+    delete from DS_DSEM_USEDSTUFF where RELATIONID = #{relationID,jdbcType=INTEGER}
+  </delete>  
+</mapper>

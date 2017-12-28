@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemUsedfileMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemUsedfile">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="TABLENAME" jdbcType="NVARCHAR" property="tablename" />
+    <result column="FEILDID" jdbcType="INTEGER" property="feildid" />
+    <result column="FILEID" jdbcType="INTEGER" property="fileid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemUsedfile">
+    insert into DS_DSEM_USEDFILE (OBJECTID, TABLENAME, FEILDID, 
+      FILEID)
+    values (#{objectid,jdbcType=INTEGER}, #{tablename,jdbcType=NVARCHAR}, #{feildid,jdbcType=INTEGER}, 
+      #{fileid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemUsedfile">
+    insert into DS_DSEM_USEDFILE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="tablename != null">
+        TABLENAME,
+      </if>
+      <if test="feildid != null">
+        FEILDID,
+      </if>
+      <if test="fileid != null">
+        FILEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="tablename != null">
+        #{tablename,jdbcType=NVARCHAR},
+      </if>
+      <if test="feildid != null">
+        #{feildid,jdbcType=INTEGER},
+      </if>
+      <if test="fileid != null">
+        #{fileid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getWorksheetDetailByWorksheetID -->
+  <select id="getWorksheetDetailByWorksheetID" resultType="java.util.HashMap">
+    select * from DS_DSEM_USEDFILE a 
+	inner join DS_DSEM_FILE b 
+	on a.FileID=b.FileID inner join DS_DSEM_USEDTEAM c 
+	on a.FEILDID=c.RELATIONID 
+	where a.TableName='DS_DSEM_USEDTEAM' and c.TASKID = #{taskId,jdbcType=INTEGER}
+  </select>   
+</mapper>

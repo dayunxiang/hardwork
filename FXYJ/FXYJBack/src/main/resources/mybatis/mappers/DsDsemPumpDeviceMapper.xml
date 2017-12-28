@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPumpDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPumpDevice">
+    <result column="DEVICEID" jdbcType="INTEGER" property="deviceid" />
+    <result column="DEVICENAME" jdbcType="NVARCHAR" property="devicename" />
+    <result column="DEVICESIZE" jdbcType="NVARCHAR" property="devicesize" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="PUMPID" jdbcType="INTEGER" property="pumpid" />
+    <result column="PUMPTYPE" jdbcType="INTEGER" property="pumptype" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+    <result column="DETAIL" jdbcType="NVARCHAR" property="detail" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPumpDevice">
+    insert into DS_DSEM_PUMP_DEVICE (DEVICEID, DEVICENAME, DEVICESIZE, 
+      COMPLETETIME, STATUS, DESCRIPTION, 
+      PUMPID, PUMPTYPE, YEAR, 
+      DETAIL)
+    values (#{deviceid,jdbcType=INTEGER}, #{devicename,jdbcType=NVARCHAR}, #{devicesize,jdbcType=NVARCHAR}, 
+      #{completetime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{description,jdbcType=NVARCHAR}, 
+      #{pumpid,jdbcType=INTEGER}, #{pumptype,jdbcType=INTEGER}, #{year,jdbcType=NVARCHAR}, 
+      #{detail,jdbcType=NVARCHAR})
+  </insert>
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(DEVICEID) is null then 0 else Max(DEVICEID) end
+    from DS_DSEM_PUMP_DEVICE
+  </select>  
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPumpDevice">
+    insert into DS_DSEM_PUMP_DEVICE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        DEVICEID,
+      </if>
+      <if test="devicename != null">
+        DEVICENAME,
+      </if>
+      <if test="devicesize != null">
+        DEVICESIZE,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="pumpid != null">
+        PUMPID,
+      </if>
+      <if test="pumptype != null">
+        PUMPTYPE,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="detail != null">
+        DETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="devicename != null">
+        #{devicename,jdbcType=NVARCHAR},
+      </if>
+      <if test="devicesize != null">
+        #{devicesize,jdbcType=NVARCHAR},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="pumpid != null">
+        #{pumpid,jdbcType=INTEGER},
+      </if>
+      <if test="pumptype != null">
+        #{pumptype,jdbcType=INTEGER},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- getPumpStatusCountByPumpID -->
+  <select id="getPumpStatusCountByPumpID" resultType="java.lang.Integer">
+    select 
+    	count(DEVICEID)
+    from DS_DSEM_PUMP_DEVICE
+    where PUMPID = #{pumpID,jdbcType=INTEGER}
+    and STATUS != 1 
+    and YEAR = #{year,jdbcType=NVARCHAR}
+  </select> 
+  <!-- getPumpDeviceListByYearAndPumpInfo -->
+  <select id="getPumpDeviceListByYearAndPumpInfo" resultType="java.util.HashMap">
+    select DEVICEID,DEVICENAME,DEVICESIZE,CONVERT(VARCHAR(16),COMPLETETIME,20) as COMPLETETIME,STATUS,DESCRIPTION,PUMPID,PUMPTYPE,YEAR,DETAIL 
+    FROM DS_DSEM_PUMP_DEVICE
+    where YEAR = #{year,jdbcType=NVARCHAR}
+    and PUMPTYPE = #{pumpType,jdbcType=INTEGER}
+    <if test="pumpID != null and pumpID != 0">
+        and PUMPID = #{pumpID,jdbcType=INTEGER}
+    </if>
+  </select>  
+  <!-- updatePumpDevice -->
+  <update id="updatePumpDevice">
+  	update DS_DSEM_PUMP_DEVICE set 
+  	DEVICENAME = #{name,jdbcType=NVARCHAR}
+  	,DEVICESIZE = #{size,jdbcType=NVARCHAR}
+  	,COMPLETETIME = #{completetime,jdbcType=TIMESTAMP}
+  	,STATUS = #{status,jdbcType=INTEGER}
+  	,DESCRIPTION = #{des,jdbcType=NVARCHAR}
+  	,PUMPID = #{pumpID,jdbcType=INTEGER}
+  	,PUMPTYPE = #{pumpType,jdbcType=INTEGER}
+  	,YEAR = #{year,jdbcType=NVARCHAR}
+  	,DETAIL = #{detail,jdbcType=NVARCHAR}
+  	where DEVICEID = #{deviceID,jdbcType=INTEGER}
+  </update>  
+  <!-- deletePumpDevice -->
+  <delete id="deletePumpDevice" parameterType="java.lang.Integer">
+    delete from DS_DSEM_PUMP_DEVICE where DEVICEID = #{deviceID,jdbcType=INTEGER}
+  </delete>  
+</mapper>

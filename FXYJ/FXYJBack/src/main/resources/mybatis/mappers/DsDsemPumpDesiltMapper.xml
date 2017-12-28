@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPumpDesiltMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPumpDesilt">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="PUMPID" jdbcType="INTEGER" property="pumpid" />
+    <result column="DETAIL" jdbcType="NVARCHAR" property="detail" />
+    <result column="WORKLOAD" jdbcType="DOUBLE" property="workload" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+    <result column="COMPLETESTATUS" jdbcType="INTEGER" property="completestatus" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPumpDesilt">
+    insert into DS_DSEM_PUMP_DESILT (OBJECTID, PUMPID, DETAIL, 
+      WORKLOAD, COMPLETETIME, COMPLETESTATUS, 
+      DESCRIPTION, YEAR)
+    values (#{objectid,jdbcType=INTEGER}, #{pumpid,jdbcType=INTEGER}, #{detail,jdbcType=NVARCHAR}, 
+      #{workload,jdbcType=DOUBLE}, #{completetime,jdbcType=TIMESTAMP}, #{completestatus,jdbcType=INTEGER}, 
+      #{description,jdbcType=NVARCHAR}, #{year,jdbcType=NVARCHAR})
+  </insert>
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(OBJECTID) is null then 0 else Max(OBJECTID) end
+    from DS_DSEM_PUMP_DESILT
+  </select> 
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPumpDesilt">
+    insert into DS_DSEM_PUMP_DESILT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="pumpid != null">
+        PUMPID,
+      </if>
+      <if test="detail != null">
+        DETAIL,
+      </if>
+      <if test="workload != null">
+        WORKLOAD,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+      <if test="completestatus != null">
+        COMPLETESTATUS,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="pumpid != null">
+        #{pumpid,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=NVARCHAR},
+      </if>
+      <if test="workload != null">
+        #{workload,jdbcType=DOUBLE},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completestatus != null">
+        #{completestatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <!-- GetPumpDesiltListByYear -->
+  <select id="getPumpDesiltListByYear" resultType="java.util.HashMap">
+  	select * from DS_DSEM_PUMP_DESILT left join DS_DSEM_PUMP on 
+     DS_DSEM_PUMP_DESILT.PUMPID = DS_DSEM_PUMP.PUMPID where 
+           YEAR = #{YEAR,jdbcType=INTEGER}
+  </select>
+  <!-- updatePumpDesiltRecord -->
+  <update id="updatePumpDesiltRecord">
+  	update DS_DSEM_PUMP_DESILT set
+  	PUMPID=#{PUMPID,jdbcType=INTEGER}
+  	,DETAIL=#{DETAIL,jdbcType=NVARCHAR}
+  	,WORKLOAD=#{WORKLOAD,jdbcType=DOUBLE}
+  	,COMPLETETIME=#{COMPLETETIME,jdbcType=TIMESTAMP}
+  	,COMPLETESTATUS=#{COMPLETESTATUS,jdbcType=INTEGER}
+  	,DESCRIPTION=#{DESCRIPTION,jdbcType=NVARCHAR}
+  	,YEAR=#{YEAR,jdbcType=NVARCHAR}
+  	where OBJECTID=#{OBJECTID,jdbcType=INTEGER}
+  </update>   
+  <!-- deletePumpDesiltRecord -->
+  <delete id="deletePumpDesiltRecord" parameterType="java.lang.Integer">
+    delete from DS_DSEM_PUMP_DESILT where OBJECTID = #{OBJECTID,jdbcType=INTEGER}
+  </delete>   
+</mapper>

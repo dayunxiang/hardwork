@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemWaterspotMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemWaterspot">
+    <result column="SPOTID" jdbcType="INTEGER" property="spotid" />
+    <result column="SPOTCODE" jdbcType="NVARCHAR" property="spotcode" />
+    <result column="SPOTNAME" jdbcType="NVARCHAR" property="spotname" />
+    <result column="SPOTDESCRIPTION" jdbcType="NVARCHAR" property="spotdescription" />
+    <result column="TYPEID" jdbcType="INTEGER" property="typeid" />
+    <result column="DISTRICT" jdbcType="INTEGER" property="district" />
+    <result column="LOCATION" jdbcType="NVARCHAR" property="location" />
+    <result column="X" jdbcType="DOUBLE" property="x" />
+    <result column="Y" jdbcType="DOUBLE" property="y" />
+    <result column="MANAGER" jdbcType="NVARCHAR" property="manager" />
+    <result column="ISDELETE" jdbcType="INTEGER" property="isdelete" />
+    <result column="FACTORID" jdbcType="INTEGER" property="factorid" />
+    <result column="FLOWRATE" jdbcType="DOUBLE" property="flowrate" />
+    <result column="WATERDEPTH" jdbcType="DOUBLE" property="waterdepth" />
+    <result column="OVERFLOW" jdbcType="DOUBLE" property="overflow" />
+    <result column="ATTACHID" jdbcType="INTEGER" property="attachid" />
+    <result column="MONITORID" jdbcType="INTEGER" property="monitorid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemWaterspot">
+    insert into DS_DSEM_WATERSPOT (SPOTID, SPOTCODE, SPOTNAME, 
+      SPOTDESCRIPTION, TYPEID, DISTRICT, 
+      LOCATION, X, Y, MANAGER, 
+      ISDELETE, FACTORID, FLOWRATE, 
+      WATERDEPTH, OVERFLOW, ATTACHID, 
+      MONITORID)
+    values (#{spotid,jdbcType=INTEGER}, #{spotcode,jdbcType=NVARCHAR}, #{spotname,jdbcType=NVARCHAR}, 
+      #{spotdescription,jdbcType=NVARCHAR}, #{typeid,jdbcType=INTEGER}, #{district,jdbcType=INTEGER}, 
+      #{location,jdbcType=NVARCHAR}, #{x,jdbcType=DOUBLE}, #{y,jdbcType=DOUBLE}, #{manager,jdbcType=NVARCHAR}, 
+      #{isdelete,jdbcType=INTEGER}, #{factorid,jdbcType=INTEGER}, #{flowrate,jdbcType=DOUBLE}, 
+      #{waterdepth,jdbcType=DOUBLE}, #{overflow,jdbcType=DOUBLE}, #{attachid,jdbcType=INTEGER}, 
+      #{monitorid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemWaterspot">
+    insert into DS_DSEM_WATERSPOT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="spotid != null">
+        SPOTID,
+      </if>
+      <if test="spotcode != null">
+        SPOTCODE,
+      </if>
+      <if test="spotname != null">
+        SPOTNAME,
+      </if>
+      <if test="spotdescription != null">
+        SPOTDESCRIPTION,
+      </if>
+      <if test="typeid != null">
+        TYPEID,
+      </if>
+      <if test="district != null">
+        DISTRICT,
+      </if>
+      <if test="location != null">
+        LOCATION,
+      </if>
+      <if test="x != null">
+        X,
+      </if>
+      <if test="y != null">
+        Y,
+      </if>
+      <if test="manager != null">
+        MANAGER,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+      <if test="factorid != null">
+        FACTORID,
+      </if>
+      <if test="flowrate != null">
+        FLOWRATE,
+      </if>
+      <if test="waterdepth != null">
+        WATERDEPTH,
+      </if>
+      <if test="overflow != null">
+        OVERFLOW,
+      </if>
+      <if test="attachid != null">
+        ATTACHID,
+      </if>
+      <if test="monitorid != null">
+        MONITORID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="spotid != null">
+        #{spotid,jdbcType=INTEGER},
+      </if>
+      <if test="spotcode != null">
+        #{spotcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="spotname != null">
+        #{spotname,jdbcType=NVARCHAR},
+      </if>
+      <if test="spotdescription != null">
+        #{spotdescription,jdbcType=NVARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=NVARCHAR},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=DOUBLE},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=DOUBLE},
+      </if>
+      <if test="manager != null">
+        #{manager,jdbcType=NVARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="factorid != null">
+        #{factorid,jdbcType=INTEGER},
+      </if>
+      <if test="flowrate != null">
+        #{flowrate,jdbcType=DOUBLE},
+      </if>
+      <if test="waterdepth != null">
+        #{waterdepth,jdbcType=DOUBLE},
+      </if>
+      <if test="overflow != null">
+        #{overflow,jdbcType=DOUBLE},
+      </if>
+      <if test="attachid != null">
+        #{attachid,jdbcType=INTEGER},
+      </if>
+      <if test="monitorid != null">
+        #{monitorid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getSpotList -->
+  <select id="getSpotList" resultType="java.util.HashMap">
+    select SPOTID,SPOTCODE,SPOTNAME,SPOTDESCRIPTION,TYPEID,DISTRICT,LOCATION,X,Y,MANAGER,
+    	   ISDELETE,FACTORID,FLOWRATE,WATERDEPTH,OVERFLOW,ATTACHID,MONITORID 
+    FROM DS_DSEM_WATERSPOT 
+    where ISDELETE = 0 
+    and TYPEID = #{type,jdbcType=INTEGER}
+  </select>   
+  <!-- getSpotListByYear -->
+  <select id="getSpotListByYear" resultType="java.util.HashMap">
+    select SPOTID,SPOTCODE,SPOTNAME,SPOTDESCRIPTION,TYPEID,DISTRICT,LOCATION,X,Y,MANAGER,
+    	ISDELETE,FACTORID,FLOWRATE,WATERDEPTH,OVERFLOW,ATTACHID,MONITORID 
+    FROM DS_DSEM_WATERSPOT
+    where ISDELETE = 0
+    and SPOTCODE like #{year}+'%'  
+  </select>   
+</mapper>

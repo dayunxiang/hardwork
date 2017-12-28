@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPumpMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPump">
+    <result column="PUMPID" jdbcType="INTEGER" property="pumpid" />
+    <result column="PUMPNAME" jdbcType="NVARCHAR" property="pumpname" />
+    <result column="SUPPLYLINE" jdbcType="NVARCHAR" property="supplyline" />
+    <result column="TRANSFORMER" jdbcType="NVARCHAR" property="transformer" />
+    <result column="PUMPAREA" jdbcType="DOUBLE" property="pumparea" />
+    <result column="SERVICEAREA" jdbcType="DOUBLE" property="servicearea" />
+    <result column="LIFTING_CAPACITY" jdbcType="DOUBLE" property="liftingCapacity" />
+    <result column="CATCHMENTAREA" jdbcType="DOUBLE" property="catchmentarea" />
+    <result column="SERVICEREGION" jdbcType="NVARCHAR" property="serviceregion" />
+    <result column="TYPE" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPump">
+    insert into DS_DSEM_PUMP (PUMPID, PUMPNAME, SUPPLYLINE, 
+      TRANSFORMER, PUMPAREA, SERVICEAREA, 
+      LIFTING_CAPACITY, CATCHMENTAREA, SERVICEREGION, 
+      TYPE)
+    values (#{pumpid,jdbcType=INTEGER}, #{pumpname,jdbcType=NVARCHAR}, #{supplyline,jdbcType=NVARCHAR}, 
+      #{transformer,jdbcType=NVARCHAR}, #{pumparea,jdbcType=DOUBLE}, #{servicearea,jdbcType=DOUBLE}, 
+      #{liftingCapacity,jdbcType=DOUBLE}, #{catchmentarea,jdbcType=DOUBLE}, #{serviceregion,jdbcType=NVARCHAR}, 
+      #{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPump">
+    insert into DS_DSEM_PUMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pumpid != null">
+        PUMPID,
+      </if>
+      <if test="pumpname != null">
+        PUMPNAME,
+      </if>
+      <if test="supplyline != null">
+        SUPPLYLINE,
+      </if>
+      <if test="transformer != null">
+        TRANSFORMER,
+      </if>
+      <if test="pumparea != null">
+        PUMPAREA,
+      </if>
+      <if test="servicearea != null">
+        SERVICEAREA,
+      </if>
+      <if test="liftingCapacity != null">
+        LIFTING_CAPACITY,
+      </if>
+      <if test="catchmentarea != null">
+        CATCHMENTAREA,
+      </if>
+      <if test="serviceregion != null">
+        SERVICEREGION,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pumpid != null">
+        #{pumpid,jdbcType=INTEGER},
+      </if>
+      <if test="pumpname != null">
+        #{pumpname,jdbcType=NVARCHAR},
+      </if>
+      <if test="supplyline != null">
+        #{supplyline,jdbcType=NVARCHAR},
+      </if>
+      <if test="transformer != null">
+        #{transformer,jdbcType=NVARCHAR},
+      </if>
+      <if test="pumparea != null">
+        #{pumparea,jdbcType=DOUBLE},
+      </if>
+      <if test="servicearea != null">
+        #{servicearea,jdbcType=DOUBLE},
+      </if>
+      <if test="liftingCapacity != null">
+        #{liftingCapacity,jdbcType=DOUBLE},
+      </if>
+      <if test="catchmentarea != null">
+        #{catchmentarea,jdbcType=DOUBLE},
+      </if>
+      <if test="serviceregion != null">
+        #{serviceregion,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- findDsDsemPumpList -->
+  <select id="findDsDsemPumpList" resultMap="BaseResultMap">
+    select 
+    	PUMPID,PUMPNAME,SUPPLYLINE,TRANSFORMER,PUMPAREA,SERVICEAREA,LIFTING_CAPACITY,CATCHMENTAREA,SERVICEREGION,TYPE 
+    from DS_DSEM_PUMP
+  </select>   
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemUsedteamMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemUsedteam">
+    <result column="RELATIONID" jdbcType="INTEGER" property="relationid" />
+    <result column="PFTID" jdbcType="INTEGER" property="pftid" />
+    <result column="TASKID" jdbcType="INTEGER" property="taskid" />
+    <result column="TIME" jdbcType="TIMESTAMP" property="time" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemUsedteam">
+    insert into DS_DSEM_USEDTEAM (RELATIONID, PFTID, TASKID, 
+      TIME, STATUS)
+    values (#{relationid,jdbcType=INTEGER}, #{pftid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
+      #{time,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemUsedteam">
+    insert into DS_DSEM_USEDTEAM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="relationid != null">
+        RELATIONID,
+      </if>
+      <if test="pftid != null">
+        PFTID,
+      </if>
+      <if test="taskid != null">
+        TASKID,
+      </if>
+      <if test="time != null">
+        TIME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="relationid != null">
+        #{relationid,jdbcType=INTEGER},
+      </if>
+      <if test="pftid != null">
+        #{pftid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getPreFloodTeamByWorksheetID -->
+  <select id="getPreFloodTeamByWorksheetID" resultType="java.util.HashMap">
+    select usedteam.*,floodteam.X,floodteam.Y from DS_DSEM_USEDTEAM usedteam left join DS_DSEM_PREFLOODTEAM floodteam 
+    on usedteam.PFTID = floodteam.PFTID
+    where usedteam.TASKID = #{taskId,jdbcType=INTEGER}
+  </select>  
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemFactorinfoMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemFactorinfo">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="FACTORTYPE" jdbcType="INTEGER" property="factortype" />
+    <result column="FACTORID" jdbcType="INTEGER" property="factorid" />
+    <result column="FACTORVALUE" jdbcType="NVARCHAR" property="factorvalue" />
+    <result column="FACTORNAME" jdbcType="NVARCHAR" property="factorname" />
+    <result column="SORTINDEX" jdbcType="INTEGER" property="sortindex" />
+    <result column="FACTORTYPE2" jdbcType="INTEGER" property="factortype2" />
+    <result column="TAG" jdbcType="NVARCHAR" property="tag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemFactorinfo">
+    insert into DS_DSEM_FACTORINFO (OBJECTID, FACTORTYPE, FACTORID, 
+      FACTORVALUE, FACTORNAME, SORTINDEX, 
+      FACTORTYPE2, TAG)
+    values (#{objectid,jdbcType=INTEGER}, #{factortype,jdbcType=INTEGER}, #{factorid,jdbcType=INTEGER}, 
+      #{factorvalue,jdbcType=NVARCHAR}, #{factorname,jdbcType=NVARCHAR}, #{sortindex,jdbcType=INTEGER}, 
+      #{factortype2,jdbcType=INTEGER}, #{tag,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemFactorinfo">
+    insert into DS_DSEM_FACTORINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="factortype != null">
+        FACTORTYPE,
+      </if>
+      <if test="factorid != null">
+        FACTORID,
+      </if>
+      <if test="factorvalue != null">
+        FACTORVALUE,
+      </if>
+      <if test="factorname != null">
+        FACTORNAME,
+      </if>
+      <if test="sortindex != null">
+        SORTINDEX,
+      </if>
+      <if test="factortype2 != null">
+        FACTORTYPE2,
+      </if>
+      <if test="tag != null">
+        TAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="factortype != null">
+        #{factortype,jdbcType=INTEGER},
+      </if>
+      <if test="factorid != null">
+        #{factorid,jdbcType=INTEGER},
+      </if>
+      <if test="factorvalue != null">
+        #{factorvalue,jdbcType=NVARCHAR},
+      </if>
+      <if test="factorname != null">
+        #{factorname,jdbcType=NVARCHAR},
+      </if>
+      <if test="sortindex != null">
+        #{sortindex,jdbcType=INTEGER},
+      </if>
+      <if test="factortype2 != null">
+        #{factortype2,jdbcType=INTEGER},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

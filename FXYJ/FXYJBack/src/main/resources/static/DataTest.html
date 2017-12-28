@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body>
+
+	</body>
+	<!-- eclipse -->
+	<script src="../fangxun/lib/jquery.min.js"></script>
+	<!-- HBuilder -->
+<!-- 	<script src="../lib/jquery.min.js"></script> -->
+	<script>
+		
+		var hostUrl = "http://localhost:8088/fangxun/";
+		
+		function getFloodNameList() {
+			$.ajax({
+				type: "post",
+				url: hostUrl+"getFloodNameList",
+				dataType: 'json',
+				success: function(result) {
+					console.log(result.data);
+				}
+			});
+		}
+		getFloodNameList();
+	</script>
+
+</html>

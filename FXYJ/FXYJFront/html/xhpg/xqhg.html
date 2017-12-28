@@ -1,0 +1,914 @@
+<link rel="stylesheet" href="lib/swiper-3.4.2/dist/css/swiper.css">
+<link rel="stylesheet" href="css/xhpg/xqhg.css">
+<script src="lib/less.min.js"></script>
+<div class="sideBarBrand clearfix">
+  <div class="left">
+    汛后评估
+  </div>
+  <div class="right">
+    <span><i class="fa fa-angle-down fl-r"></i></span>
+  </div>
+</div>
+<div class="xhpgsidebar">
+    <div class="xhpgtitle clearfix">
+        <h3 class="fl-l">警情总结</h3>
+        <span><i class="fa fa-angle-up fl-r"></i></span>
+    </div>
+    <ul class="xhpgcont">
+        <li id="openxqhg">汛情回顾</li>
+        <li id="openyld">易涝点</li>
+        <li id="openfjsjq">非积水警情</li>
+    </ul>
+    <!-- 讯后评估 -->
+    <div class="xqhgContainer">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">汛情回顾</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="xqhgContWrap">
+            <div class="xqhgCont">
+                <div class="chooseYear clearfix">
+                    <span>年份:</span>
+                    <div class="selectContainer">
+                        <div class="select clearfix">
+                            <span class="fl-l"></span>
+                            <i class="fa fa-caret-down fl-r"></i>
+                        </div>
+                        <ul class="selectOption clearfix">
+                            <li>50m</li>
+                            <li>100m</li>
+                            <li>150m</li>
+                            <li>200m</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="xqksyjs clearfix">
+                    <li class="clearfix">
+                        <span>汛期开始时间：</span>
+                        <span>2017年3月15日</span>
+                    </li>
+                    <li class="clearfix">
+                        <span>汛期结束时间</span>
+                        <span>2017年9月16日</span>
+                    </li>
+                </ul>
+                <div class="xqhgHistory">
+                    <div class="title clearfix">
+                        <h3>2017年汛期共发生14次汛情</h3>
+                        <p>《年度报告》</p>
+                    </div>
+                    <ul class="yjInfo clearfix">
+                        <li class="clearfix">
+                            <img src="img/Group 31.png" alt="">
+                            <div class="dont">
+                                <p><span>2</span>次</p>
+                                <p>红色预警</p>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img src="img/Group 32.png" alt="">
+                            <div class="dont">
+                                <p><span>2</span>次</p>
+                                <p>橙色预警</p>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img src="img/Group 35.png" alt="">
+                            <div class="dont">
+                                <p><span>2</span>次</p>
+                                <p>黄色预警</p>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img src="img/Group 36.png" alt="">
+                            <div class="dont">
+                                <p><span>2</span>次</p>
+                                <p>蓝色预警</p>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img src="img/Group 37.png" alt="">
+                            <div class="dont">
+                                <p><span>2</span>次</p>
+                                <p>准预警</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="timelc">
+                        <li class="clearfix first-child">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="info fl-l">
+                                2017年3月15日进入汛期
+                            </div>
+                        </li>
+                        <li class="clearfix other">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l">
+                                <i class="fa fa-caret-left"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other" id="chengse">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l" style="border-left-color: #F8E71C;">
+                                <i class="fa fa-caret-left" style="color: #F8E71C;"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other " id="hongse">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l" style="border-left-color: #FF0000;">
+                                <i class="fa fa-caret-left" style="color: #FF0000;"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l yellow">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l">
+                                <i class="fa fa-caret-left"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 易涝点 -->
+    <div class="xqhgyld">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">易涝点</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="yldscrollcontainer">
+            <ul class="shaixuan clearfix">
+                <li class="clearfix">
+                    <span class="fl-l">筛选条件</span>
+                    <a href="javascript:void(0)" class="fl-r opentjsxsz">设置</a>
+                </li>
+                <li>
+                    <ul>
+                        <li>
+                            <span>系统分类：</span>
+                            <span>I类</span>
+                        </li>
+                        <li>
+                            <span>系统分类：</span>
+                            <span>I类</span>
+                        </li>
+                        <li>
+                            <span>系统分类：</span>
+                            <span>I类</span>
+                        </li>
+                        <li>
+                            <span>系统分类：</span>
+                            <span>I类</span>
+                        </li>
+                        <li>
+                            <span>系统分类：</span>
+                            <span>I类</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="sxresult">
+                <h5>筛选结果共8个</h5>
+                <table>
+                    <tr>
+                        <th>易涝点名称</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td>金山路金山宝地地下停车场</td>
+                        <td>
+                            <a href="#" class="openyldDetail"><img src="img/ico-detail.png" alt=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>金山路金山宝地地下停车场</td>
+                        <td>
+                            <a href="#" class="openyldDetail"><img src="img/ico-detail.png" alt=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>金山路金山宝地地下停车场</td>
+                        <td>
+                            <a href="#" class="openyldDetail"><img src="img/ico-detail.png" alt=""></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 易涝点筛选设置 -->
+    <div class="shuaixuanset">
+        <div class="optionBox">
+            <div class="top">
+                <span>系统分类</span>
+                <img src="img/btn-panle-close-w.png" alt="">
+            </div>
+            <div class="cont clearfix">
+                <dl>
+                    <dt>
+                        <p>系统分类</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>I类</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>II类</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>III类</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>IV类</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>V类</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>警情次数</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>1次</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>2次</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>3次</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>4次</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>>4次</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>积水原因</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>地势低洼</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>路面阻塞</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>排水设施维修改造</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>标签</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>重点关注</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>顽固点</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>积水深度（cm）</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>0-10</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>10-20</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>20-30</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>积水面积（cm）</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>0-100</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>100-200</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>200-300</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>警情级别</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>红色预警</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>橙色预警</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>黄色预警</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>蓝色预警</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>区域分布</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>海淀区</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>朝阳区</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>东城区</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>西城区</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>大兴区</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>新增易涝点</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>2017年</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>2016年</span>
+                    </dd>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>2014年</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <p>整改效果评估</p>
+                    </dt>
+                    <dd class="clearfix">
+                        <i></i>
+                        <span>整改后再次出现警情</span>
+                    </dd>
+                </dl>
+            </div>
+            <ul>
+                <li>
+                    <input type="button" value="清空条件">
+                    <input type="button" value="确认">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 易涝点详情 -->
+    <div class="xqhgylddetail">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">太和广场</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="xqhgylddetailContainer">
+            <div class="xqhgylddetailcont">
+                <ul class="xqhgylddetailInfo clearfix">
+                    <li>
+                        <span>所属片区：</span>
+                        <span>太和广场片区</span>
+                    </li>
+                    <li>
+                        <span>系统评级：</span>
+                        <span>V类</span>
+                    </li>
+                    <li>
+                        <span>详细地址：</span>
+                        <span>海淀区知春路86号</span>
+                    </li>
+                    <li>
+                        <span>片区负责人：</span>
+                        <span>张三</span>
+                    </li>
+                    <li>
+                        <span>历史警情：</span>
+                        <span>9次</span>
+                    </li>
+                </ul>
+                <ul class="top clearfix">
+                    <li class="clearfix">
+                        <div class="title">标签</div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper clearfix">
+                                <div class="swiper-slide" style="width: 80px; margin-right: 20px;">
+                                    <div><span>蓝色预警</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div><span>地势低洼</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div><span>地势低洼</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div><span>地势低洼</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div><span>地势低洼</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="bottom">
+                    <div class="title">易涝点历史警情</div>
+                    <ul class="timelc">
+                        <li class="clearfix first-child">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="info fl-l">
+                                2017年3月15日进入汛期
+                            </div>
+                        </li>
+                        <li class="clearfix other">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l">
+                                <i class="fa fa-caret-left"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other" id="chengse">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l" style="border-left-color: #F8E71C;">
+                                <i class="fa fa-caret-left" style="color: #F8E71C;"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other " id="hongse">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l" style="border-left-color: #FF0000;">
+                                <i class="fa fa-caret-left" style="color: #FF0000;"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l yellow">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix other">
+                            <div class="date fl-l">
+                                <span>3月</span>
+                                <br/>15日
+                            </div>
+                            <div class="infocontainer fl-l">
+                                <i class="fa fa-caret-left"></i>
+                                <div class="xqing">
+                                    <i class="fa fa-caret-right"></i> 详情
+                                </div>
+                                <span>2017年1号汛情（故宫）</span>
+                                <ul class="clearfix">
+                                    <li class="clearfix">
+                                        <span class="fl-l">平均降雨量</span>
+                                        <span class="fl-l">33.2mm</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">5g</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">汛情点</span>
+                                        <span class="fl-l">4小时</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">时间</span>
+                                        <span class="fl-l">4月3日 10:16</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="fl-l">等级</span>
+                                        <span class="fl-l">蓝色预警</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 非积水警情 -->
+    <div class="xqhgfjsjq">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">非积水警情</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="xqhgfjsjqContainer">
+            <div class="xqhgfjsjqCont">
+                <div class="jqjbandbq">
+                    <dl class="clearfix">
+                        <dt>
+                            警情级别：
+                        </dt>
+                        <dd class="clearfix">
+                            <i></i>
+                            <span>红色预警 </span>
+                        </dd>
+                        <dd class="clearfix">
+                            <i></i>
+                            <span>橙色预警 </span>
+                        </dd>
+                        <dd class="clearfix">
+                            <i></i>
+                            <span>黄色预警</span>
+                        </dd>
+                        <dd class="clearfix">
+                            <i></i>
+                            <span>蓝色预警 </span>
+                        </dd>
+                    </dl>
+                    <ul class="bq clearfix">
+                        <li class="clearfix">
+                            <div class="title">标签</div>
+                            <div class="swiper-container" id="bq">
+                                <div class="swiper-wrapper clearfix">
+                                    <div class="swiper-slide" style="width: 80px; margin-right: 20px;">
+                                        <div><span>蓝色预警</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div><span>地势低洼</span> <img class="removebq" src="img/ico-label-del.png" alt=""></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/ico-label-add.png" class="add" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="button" value="查询">
+                </div>
+                <div class="sxresult">
+                    <h5>筛选结果共8个</h5>
+                    <table>
+                        <tr>
+                            <th>易涝点名称</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+                            <td>金山路金山宝地地下停车场</td>
+                            <td>
+                                <a href="#" class="openfjsjqDetail"><img src="img/ico-detail.png" alt=""></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 非积水警情详情 -->
+    <div class="xqhgfjsjqdetail">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">太和广场</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="xqhgfjsjqdetailContainer">
+            <div class="xqhgfjsjqdetailcont">
+                <div class="title">基本信息</div>
+                <ul class="xqhgfjsjqdetailInfo clearfix">
+                    <li>
+                        <span>警情编号:</span>
+                        <span>20170811001</span>
+                    </li>
+                    <li>
+                        <span>警情位置：</span>
+                        <span>金山西路18号</span>
+                    </li>
+                    <li>
+                        <span>警情描述：</span>
+                        <span>大树倒了</span>
+                    </li>
+                    <li>
+                        <span>现场处理措施：</span>
+                        <span>临时增加水泵抽排</span>
+                    </li>
+                    <li>
+                        <span>报警方式：</span>
+                        <span>APP上报</span>
+                    </li>
+                    <li>
+                        <span>建议整改方案：</span>
+                        <span>维修雨水篦子</span>
+                    </li>
+                    <li>
+                        <span>接警时间：</span>
+                        <span>2017-08-11 13:09</span>
+                    </li>
+                    <li>
+                        <span>防汛队及物资：</span>
+                        <span>孙洪喜队，抽水泵一台、出水管20米</span>
+                    </li>
+                    <li>
+                        <span>现场照片：</span>
+                        <span>共  2  张</span>
+                    </li>
+                    <li>
+                        <span>共  2  张</span>
+                        <span>2017-08-11 13:09</span>
+                    </li>
+                </ul>
+                <ul class="top clearfix">
+                    <li class="clearfix">
+                        <div class="title">现场照片</div>
+                        <div class="swiper-container" id="xczp">
+                            <div class="swiper-wrapper clearfix">
+                                <div class="swiper-slide">
+                                    <img class="removebq" src="img/ico-label-del.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="removebq" src="img/ico-label-del.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="removebq" src="img/ico-label-del.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="removebq" src="img/ico-label-del.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="removebq" src="img/ico-label-del.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 添加标签 -->
+    <div id="addbq">
+        <div class="adBox">
+            <div class="top">
+                <span>系统分类</span>
+                <img src="img/btn-panle-close-w.png" alt="">
+            </div>
+            <ul class="cont">
+                <li>
+                    <input type="text" placeholder="输入标签名称">
+                </li>
+                <li>
+                    <input type="button" value="取消" class="cancleAdd">
+                    <input type="button" value="确认" class="sureAdd" >
+                </li>
+            </ul>
+            .
+        </div>
+    </div>
+</div>
+<script src="lib/Swiper-3.4.2/dist/js/swiper.min.js"></script>
+<script src="js/xhpg/xqhg.js"></script>
+<script>
+$(document).ready(
+    function() {
+        setTimeout(function() {
+            setNiceScroll(".xqhgContWrap")
+            setNiceScroll(".yldscrollcontainer")
+            setNiceScroll(".xqhgylddetailContainer")
+            setNiceScroll(".xqhgfjsjqContainer")
+            setNiceScroll(".xqhgfjsjqdetailContainer")
+
+
+        }, 0)
+    }
+);
+</script>

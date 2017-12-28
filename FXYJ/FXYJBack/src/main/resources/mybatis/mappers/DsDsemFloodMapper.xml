@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemFloodMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemFlood">
+    <result column="FLOODID" jdbcType="INTEGER" property="floodid" />
+    <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="FLOODNAME" jdbcType="NVARCHAR" property="floodname" />
+    <result column="FLOODCODE" jdbcType="NVARCHAR" property="floodcode" />
+    <result column="PERSONID" jdbcType="INTEGER" property="personid" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemFlood">
+    insert into DS_DSEM_FLOOD (FLOODID, STARTTIME, ENDTIME, 
+      FLOODNAME, FLOODCODE, PERSONID, 
+      ISDELETED)
+    values (#{floodid,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{floodname,jdbcType=NVARCHAR}, #{floodcode,jdbcType=NVARCHAR}, #{personid,jdbcType=INTEGER}, 
+      #{isdeleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemFlood">
+    insert into DS_DSEM_FLOOD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="floodid != null">
+        FLOODID,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="floodname != null">
+        FLOODNAME,
+      </if>
+      <if test="floodcode != null">
+        FLOODCODE,
+      </if>
+      <if test="personid != null">
+        PERSONID,
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="floodid != null">
+        #{floodid,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="floodname != null">
+        #{floodname,jdbcType=NVARCHAR},
+      </if>
+      <if test="floodcode != null">
+        #{floodcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="personid != null">
+        #{personid,jdbcType=INTEGER},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getFloodInfoByID -->
+  <select id="getFloodInfoByID" resultMap="BaseResultMap">
+    select * from DS_DSEM_FLOOD where FLOODID = #{FloodID,jdbcType=INTEGER}
+  </select>  
+  <!-- getAllFlood -->
+  <select id="getAllFlood" resultType="java.util.HashMap">
+    select * FROM DS_DSEM_FLOOD 
+  </select> 
+
+  <!-- updateFloodInfo -->
+  <update id="updateFloodInfo">
+  	update DS_DSEM_FLOOD set 
+  	FLOODPERSON = #{floodPerson,jdbcType=NVARCHAR}
+  	,FLOODMANAGER = #{floodManager,jdbcType=NVARCHAR}
+  	,FLOODDATE = #{floodDate,jdbcType=TIMESTAMP}
+  	,FLOODWEATHERINFO = #{floodWeatherInfo,jdbcType=NVARCHAR}
+  	,FLOODSIMULATEINFO = #{floodSimulateInfo,jdbcType=NVARCHAR}
+  	where FLOODID =  #{floodID,jdbcType=INTEGER}
+  </update>   
+  <!-- getFloodByTime -->
+  <select id="getFloodByTime" resultType="java.util.HashMap">
+    select * 
+    FROM DS_DSEM_FLOOD 
+    where 
+    <![CDATA[ENDTIME>=#{st,jdbcType=TIMESTAMP}
+    and STARTTIME<=#{et,jdbcType=TIMESTAMP}]]> 
+  </select>    
+  
+  
+</mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.EmergencyCommandSearchMapper">
+  
+  <!-- 查询汛情名称列表,倒序 -->
+  <select id="getFloodNameList" resultType="java.util.HashMap">
+    select FLOODID as FLOODCODE,FLOODNAME FROM DS_DSEM_FLOOD t order by t.STARTTIME DESC
+  </select>
+  
+  <!-- 获取警情点列表,根据汛情编号条件 -->
+	<select id="getWaringSpotByFloodCode" resultType="java.util.HashMap">
+		SELECT WARNINGID as WARNING_CODE,
+			WARNING_NAME,
+			FLOODID as FLOODCODE,
+			s.FACTORNAME as WARNING_ISCOMPLETE,
+			CONVERT(varchar(100), WARNING_UPLOADTIME, 20) as WARNING_UPLOADTIME,
+			f.FACTORNAME as WARNING_SOURCE,
+			X,
+			Y,
+			WARNING_LOCATION,
+			WARNING_DESCRIPTION
+		from DS_DSEM_ANALYSIS t
+			left join
+			(SELECT FACTORID,FACTORNAME from DS_DSEM_FACTORINFO where FACTORTYPE=10 ) f on t.WARNING_SOURCE = f.FACTORID
+			left join
+			(SELECT FACTORID,FACTORNAME from DS_DSEM_FACTORINFO where FACTORTYPE=12 ) s on t.WARNING_ISCOMPLETE = s.FACTORID
+		where 
+			FLOODID=#{floodCode,jdbcType=NVARCHAR}
+			and ISDELETE = 0
+		order by WARNING_UPLOADTIME DESC
+	</select>
+  
+  <!-- 获取所有防汛队 -->
+  <select id="findAllPreFloodTeam" resultType="java.util.HashMap">
+      select PFTID,
+		 PFTNAME,
+		 CHARGEPERSON,
+		 CHARGEPERSONTEL,
+		 CHARGEPERSONEMAIL,
+		 PERSONSCOUNT,
+		 PERSONS
+  	  from DS_DSEM_PREFLOODTEAM
+  </select> 
+  
+  <!-- 根据防汛队ID获取相关工单 -->
+  <select id="getWorksheetByPreFloodTeamID" resultType="java.util.HashMap">
+    select	
+		 task.TASKID	--工单编号
+		,analy.WARNINGID	--警情点编号
+		,analy.WARNING_NAME	--警情点名称	
+		,analy.WARNING_LOCATION	--警情点位置
+		,CONVERT(varchar(100), task.ORDERTIME, 20) as ORDERTIME	--派单时间
+		,CONVERT(varchar(100), task.FINISHTIME, 20) as FINISHTIME	--完成时间
+		,analy.WARNING_DESCRIPTION	--工单内容
+		,factor.FACTORNAME as TASKSTATUS	--工单状态
+		,(select COUNT(*) from DS_DSEM_USEDFILE usefile where usefile.FEILDID=usedteam.RELATIONID) as PICTURECOUNT	--工单中的照片数量
+	from 
+		DS_DSEM_USEDTEAM usedteam	--防汛队出险信息表
+		inner join 
+		DS_DSEM_PREFLOODTEAM floodteam on usedteam.PFTID = floodteam.PFTID	--防汛队基本信息
+	    inner join 
+	    DS_DSEM_TASK task on task.TASKID=usedteam.TASKID	--工单信息表
+	    inner join 
+	    DS_DSEM_ANALYSIS analy on task.WARNINGID = analy.WARNINGID	--警情点信息
+	    left join 
+	    (select * from DS_DSEM_FACTORINFO where FACTORTYPE = '100') factor on factor.FACTORID = task.TASKSTATUS	--工单状态代码表
+	where 
+		floodteam.PFTID = #{PFTID,jdbcType=INTEGER}		--防汛队编码
+    	and analy.FLOODID = #{FLOODID,jdbcType=NVARCHAR}	--汛情编码
+  </select>   
+  
+    <!-- 获取警情工单中的图片地址，根据工单编号 -->
+  <select id="getWorksheetPictureByTaskId" resultType="java.util.HashMap">
+	select	
+		files.URL	--图片地址
+		,files.DESCRIPTION	--图片说明
+		,CONVERT(varchar(100), files.UPLOADDATE, 20) as UPLOADDATE	--上传时间
+		,files.SOURCE as PICTURETYPE	--图片分类，1：警情上报图片，2：警情处理图片
+	from 
+		DS_DSEM_USEDFILE usefile	--文件使用信息表
+		inner join 
+		DS_DSEM_FILE files on usefile.FileID=files.FileID	--文件存放信息表
+		inner join 
+		DS_DSEM_USEDTEAM useteam on usefile.FEILDID=useteam.RELATIONID	--防汛队出险信息表
+	where 
+		usefile.TableName='DS_DSEM_USEDTEAM'	
+		and useteam.TASKID = #{TASKID,jdbcType=INTEGER}	--任务编码
+		<if test="PICTURETYPE == 1 or PICTURETYPE == 2 ">
+	    and files.SOURCE = #{PICTURETYPE,jdbcType=INTEGER}	--图片分类，1：警情上报图片，2：警情处理图片，0：所有图片
+	    </if>
+	order by files.UPLOADDATE
+  </select>   
+  
+  
+  
+  
+  
+</mapper>

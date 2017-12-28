@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body>
+
+	</body>
+	
+<script src="../lib/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+	<script>
+		
+		var hostUrl = "http://localhost:8088/fangxun/";
+		
+		getFloodNameList();		//接口1，汛情列表
+		getWaringSpotByFloodCode();		//接口2，警情列表
+		getAllPreFloodTeam();	//接口3，防汛队列表
+		getWorksheetByPreFloodTeamID();	//接口4，防汛队工单列表
+		getWorksheetPictureByTaskId();	//接口5，工单中的图片地址列表
+		getFloodWarningStatus();	//接口6，获取当前预警状态
+		getWorksheetByTeamIDUseMobile();	//接口7，获取警情工单，根据防汛队编号，用于移动端
+		getWorksheetDetailByWaringId();		//接口8，获取警情工单详情，根据警情编号
+		getMethodList();		//接口9，现场处理措施列表
+		getWarningReasonList();		//接口10，积水原因列表
+		getRepairIdeaList();		//接口11，建议整改方案列表
+		addWarningSpotUseMobile();		//接口12，新建警情点，用于移动端
+		
+		//接口12，新建警情点，用于移动端
+		function addWarningSpotUseMobile(){
+			var jsonObj = {
+					"FLOODID":3		//所属汛情编号
+					,"WARNING_UPLOADTIME":"2013-06-25 16:00:57"		//警情上报时间
+					,"WARNING_SOURCE":3		//警情上报来源
+					,"WARNING_DESCRIPTION":"发大水了"		//警情描述
+					,"WARNING_LOCATION":"北京路和南京路交叉口"		//警情位置
+					,"X":120.30283		//经度
+					,"Y":39.542155		//纬度
+					,"WARNING_UPLOADPERSON":"张三"		//上报人
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "addWarningSpotUseMobile",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口12，新建警情点，用于移动端");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口11，建议整改方案列表
+		function getRepairIdeaList(){
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getRepairIdeaList",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口11，建议整改方案列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口10，积水原因列表
+		function getWarningReasonList(){
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWarningReasonList",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口10，积水原因列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口9，现场处理措施列表
+		function getMethodList(){
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getMethodList",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口9，现场处理措施列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口8，获取警情工单详情，根据警情编号
+		function getWorksheetDetailByWaringId(){
+			var jsonObj = {
+					"WARNINGID":"5"	//警情编码
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWorksheetDetailByWaringId",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口8，获取警情工单详情，根据警情编号");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口7，获取警情工单，根据防汛队编号，用于移动端
+		function getWorksheetByTeamIDUseMobile(){
+			var jsonObj = {
+					"FloodCode":"12"	//汛情编码
+					,"TeamId":"28"		//防汛队编码
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWorksheetByTeamIDUseMobile",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口7，获取警情工单，根据防汛队编号，用于移动端");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口6，获取当前预警状态
+		function getFloodWarningStatus(){
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getFloodWarningStatus",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口6，获取当前预警状态");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口5，工单中的图片地址列表
+		function getWorksheetPictureByTaskId(){
+			var jsonObj = {
+					"TASKID":"6"	//防汛队编码
+					,"PICTURETYPE":"1"	//图片分类，1：警情上报图片，2：警情处理图片，0：所有图片
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWorksheetPictureByTaskId",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口5，工单中的图片地址列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口4，防汛队工单列表
+		function getWorksheetByPreFloodTeamID(){
+			var jsonObj = {
+					"PFTID":"28",	//防汛队编码
+					"FLOODID":"12"	//汛情编码
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWorksheetByPreFloodTeamID",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口4，防汛队工单列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口3，防汛队列表
+		function getAllPreFloodTeam(){
+			$.ajax({
+				type: "post",
+				url: hostUrl+"getAllPreFloodTeam",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口3，防汛队列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口2，警情列表
+		function getWaringSpotByFloodCode(){
+			var jsonObj = {
+					"FloodCode":"3"
+			};
+			var jsonStr = json2str(jsonObj);
+			$.ajax({
+				type: "post",
+				url: hostUrl + "getWaringSpotByFloodCode",
+				data: jsonStr,
+				contentType:'application/json',
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口2，警情列表");
+					console.log(result);
+				}
+			});
+		}
+		
+		//接口1，汛情列表
+		function getFloodNameList() {
+			$.ajax({
+				type: "post",
+				url: hostUrl+"getFloodNameList",
+				dataType: 'json',
+				success: function(result) {
+					console.log("接口1，汛情列表");
+					console.log(result);
+				}
+			});
+		}
+		
+	</script>
+
+</html>

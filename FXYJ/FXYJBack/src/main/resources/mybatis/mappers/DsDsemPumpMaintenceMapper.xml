@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPumpMaintenceMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPumpMaintence">
+    <result column="DEVICEID" jdbcType="INTEGER" property="deviceid" />
+    <result column="DEVICENAME" jdbcType="NVARCHAR" property="devicename" />
+    <result column="PUMPID" jdbcType="INTEGER" property="pumpid" />
+    <result column="SIZE" jdbcType="NVARCHAR" property="size" />
+    <result column="DETAIL" jdbcType="NVARCHAR" property="detail" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+    <result column="COMPLETESTATUS" jdbcType="INTEGER" property="completestatus" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPumpMaintence">
+    insert into DS_DSEM_PUMP_MAINTENCE (DEVICEID, DEVICENAME, PUMPID, 
+      SIZE, DETAIL, COMPLETETIME, 
+      COMPLETESTATUS, DESCRIPTION, YEAR
+      )
+    values (#{deviceid,jdbcType=INTEGER}, #{devicename,jdbcType=NVARCHAR}, #{pumpid,jdbcType=INTEGER}, 
+      #{size,jdbcType=NVARCHAR}, #{detail,jdbcType=NVARCHAR}, #{completetime,jdbcType=TIMESTAMP}, 
+      #{completestatus,jdbcType=INTEGER}, #{description,jdbcType=NVARCHAR}, #{year,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPumpMaintence">
+    insert into DS_DSEM_PUMP_MAINTENCE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        DEVICEID,
+      </if>
+      <if test="devicename != null">
+        DEVICENAME,
+      </if>
+      <if test="pumpid != null">
+        PUMPID,
+      </if>
+      <if test="size != null">
+        SIZE,
+      </if>
+      <if test="detail != null">
+        DETAIL,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+      <if test="completestatus != null">
+        COMPLETESTATUS,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="devicename != null">
+        #{devicename,jdbcType=NVARCHAR},
+      </if>
+      <if test="pumpid != null">
+        #{pumpid,jdbcType=INTEGER},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=NVARCHAR},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=NVARCHAR},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completestatus != null">
+        #{completestatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

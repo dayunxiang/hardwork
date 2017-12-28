@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemWarningreasonMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemWarningreason">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="WARNINGID" jdbcType="INTEGER" property="warningid" />
+    <result column="REASONID" jdbcType="INTEGER" property="reasonid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemWarningreason">
+    insert into DS_DSEM_WARNINGREASON (OBJECTID, WARNINGID, REASONID
+      )
+    values (#{objectid,jdbcType=INTEGER}, #{warningid,jdbcType=INTEGER}, #{reasonid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemWarningreason">
+    insert into DS_DSEM_WARNINGREASON
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="warningid != null">
+        WARNINGID,
+      </if>
+      <if test="reasonid != null">
+        REASONID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="warningid != null">
+        #{warningid,jdbcType=INTEGER},
+      </if>
+      <if test="reasonid != null">
+        #{reasonid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <!-- getWarningReasonByID -->
+  <select id="getWarningReasonByID" resultType="java.util.HashMap">
+    select WARNINGREASON.OBJECTID,WARNINGID,REASONID,FACTORINFO.FACTORNAME FROM DS_DSEM_WARNINGREASON WARNINGREASON 
+    left join DS_DSEM_FACTORINFO FACTORINFO  
+    on WARNINGREASON.REASONID = FACTORINFO.FACTORID 
+    where WARNINGREASON.WARNINGID = #{id,jdbcType=INTEGER} 
+    and FACTORINFO.FACTORTYPE = 13
+  </select>  
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(OBJECTID) is null then 0 else Max(OBJECTID) end
+    from DS_DSEM_WARNINGREASON
+  </select>   
+</mapper>

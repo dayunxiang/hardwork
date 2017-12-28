@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPersontelMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPersontel">
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="TEL" jdbcType="DOUBLE" property="tel" />
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPersontel">
+    insert into DS_DSEM_PERSONTEL (NAME, TEL, OBJECTID
+      )
+    values (#{name,jdbcType=NVARCHAR}, #{tel,jdbcType=DOUBLE}, #{objectid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPersontel">
+    insert into DS_DSEM_PERSONTEL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=DOUBLE},
+      </if>
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

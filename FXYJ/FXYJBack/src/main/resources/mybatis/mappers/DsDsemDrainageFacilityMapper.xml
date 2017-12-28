@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemDrainageFacilityMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemDrainageFacility">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="ADDRESS" jdbcType="NVARCHAR" property="address" />
+    <result column="DEPARTMENT" jdbcType="NVARCHAR" property="department" />
+    <result column="MANAGER" jdbcType="NVARCHAR" property="manager" />
+    <result column="PROBLEM" jdbcType="NVARCHAR" property="problem" />
+    <result column="METHOD" jdbcType="NVARCHAR" property="method" />
+    <result column="COMPLETESTATUS" jdbcType="INTEGER" property="completestatus" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemDrainageFacility">
+    insert into DS_DSEM_DRAINAGE_FACILITY (OBJECTID, ADDRESS, DEPARTMENT, 
+      MANAGER, PROBLEM, METHOD, 
+      COMPLETESTATUS, DESCRIPTION, YEAR, 
+      COMPLETETIME)
+    values (#{objectid,jdbcType=INTEGER}, #{address,jdbcType=NVARCHAR}, #{department,jdbcType=NVARCHAR}, 
+      #{manager,jdbcType=NVARCHAR}, #{problem,jdbcType=NVARCHAR}, #{method,jdbcType=NVARCHAR}, 
+      #{completestatus,jdbcType=INTEGER}, #{description,jdbcType=NVARCHAR}, #{year,jdbcType=NVARCHAR}, 
+      #{completetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemDrainageFacility">
+    insert into DS_DSEM_DRAINAGE_FACILITY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="department != null">
+        DEPARTMENT,
+      </if>
+      <if test="manager != null">
+        MANAGER,
+      </if>
+      <if test="problem != null">
+        PROBLEM,
+      </if>
+      <if test="method != null">
+        METHOD,
+      </if>
+      <if test="completestatus != null">
+        COMPLETESTATUS,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=NVARCHAR},
+      </if>
+      <if test="manager != null">
+        #{manager,jdbcType=NVARCHAR},
+      </if>
+      <if test="problem != null">
+        #{problem,jdbcType=NVARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=NVARCHAR},
+      </if>
+      <if test="completestatus != null">
+        #{completestatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+    <!-- getFacilityListByYear -->
+  <select id="getFacilityListByYear"  resultType="map">
+  select OBJECTID,ADDRESS,DEPARTMENT,MANAGER,PROBLEM,METHOD,COMPLETESTATUS,DESCRIPTION,YEAR,
+  CONVERT(VARCHAR(16),COMPLETETIME,20) as COMPLETETIME
+            FROM DS_DSEM_DRAINAGE_FACILITY 
+            where YEAR = #{YEAR,jdbcType=INTEGER}
+  </select>
+  
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(OBJECTID) is null then 0 else Max(OBJECTID) end
+    from DS_DSEM_DRAINAGE_FACILITY
+  </select>
+  
+  <!-- updateFacilityRecord -->
+  <update id="updateFacilityRecord">
+  	update DS_DSEM_DRAINAGE_FACILITY set 
+  	ADDRESS=#{address,jdbcType=NVARCHAR}
+  	,DEPARTMENT=#{department,jdbcType=NVARCHAR}
+  	,MANAGER=#{manage,jdbcType=NVARCHAR}
+  	,PROBLEM=#{problem,jdbcType=NVARCHAR}
+  	,DESCRIPTION=#{des,jdbcType=NVARCHAR}
+  	,YEAR=#{year,jdbcType=NVARCHAR}
+  	,COMPLETETIME=#{time,jdbcType=TIMESTAMP}
+  	where OBJECTID=#{objectID,jdbcType=INTEGER}
+  </update>
+  <!-- deleteFacilityRecord -->
+  <delete id="deleteFacilityRecord" parameterType="java.lang.Integer">
+    delete from DS_DSEM_DRAINAGE_FACILITY where OBJECTID=#{objectID,jdbcType=INTEGER}
+  </delete>  
+</mapper>

@@ -1,0 +1,27 @@
+{
+	"total": 5,
+	"data": [
+		{
+			"FLOODCODE": "20130720105845",
+			"FLOODNAME": "2013年1号汛情"
+		}, {
+			"FLOODCODE": "20130717154415",
+			"FLOODNAME": "2013年2号汛情"
+		}, {
+			"FLOODCODE": "20130710143914",
+			"FLOODNAME": "2013年3号汛情"
+		}, {
+			"FLOODCODE": "20130705084918",
+			"FLOODNAME": "2013年4号汛情"
+		}, {
+			"FLOODCODE": "20130702171936",
+			"FLOODNAME": "2013年5号汛情"
+		}, {
+			"FLOODCODE": "20130627140108",
+			"FLOODNAME": "2013年6号汛情"
+		}, {
+			"FLOODCODE": "20130625205840",
+			"FLOODNAME": "2013年7号汛情"
+		}
+	]
+}

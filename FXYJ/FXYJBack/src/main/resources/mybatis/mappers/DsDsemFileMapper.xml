@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemFileMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemFile">
+    <result column="FILEID" jdbcType="INTEGER" property="fileid" />
+    <result column="FILENAME" jdbcType="NVARCHAR" property="filename" />
+    <result column="URL" jdbcType="NVARCHAR" property="url" />
+    <result column="TYPE" jdbcType="NVARCHAR" property="type" />
+    <result column="EXPRIEDATE" jdbcType="TIMESTAMP" property="expriedate" />
+    <result column="UPLOADDATE" jdbcType="TIMESTAMP" property="uploaddate" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="REFID" jdbcType="INTEGER" property="refid" />
+    <result column="FILETYPENAME" jdbcType="NVARCHAR" property="filetypename" />
+    <result column="SOURCE" jdbcType="INTEGER" property="source" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="EXAMINEPERSON" jdbcType="NVARCHAR" property="examineperson" />
+    <result column="EXAMINEDETAIL" jdbcType="NVARCHAR" property="examinedetail" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemFile">
+    insert into DS_DSEM_FILE (FILEID, FILENAME, URL, 
+      TYPE, EXPRIEDATE, UPLOADDATE, 
+      DESCRIPTION, REFID, FILETYPENAME, 
+      SOURCE, STATUS, EXAMINEPERSON, 
+      EXAMINEDETAIL)
+    values (#{fileid,jdbcType=INTEGER}, #{filename,jdbcType=NVARCHAR}, #{url,jdbcType=NVARCHAR}, 
+      #{type,jdbcType=NVARCHAR}, #{expriedate,jdbcType=TIMESTAMP}, #{uploaddate,jdbcType=TIMESTAMP}, 
+      #{description,jdbcType=VARCHAR}, #{refid,jdbcType=INTEGER}, #{filetypename,jdbcType=NVARCHAR}, 
+      #{source,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{examineperson,jdbcType=NVARCHAR}, 
+      #{examinedetail,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemFile">
+    insert into DS_DSEM_FILE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        FILEID,
+      </if>
+      <if test="filename != null">
+        FILENAME,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="expriedate != null">
+        EXPRIEDATE,
+      </if>
+      <if test="uploaddate != null">
+        UPLOADDATE,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="refid != null">
+        REFID,
+      </if>
+      <if test="filetypename != null">
+        FILETYPENAME,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="examineperson != null">
+        EXAMINEPERSON,
+      </if>
+      <if test="examinedetail != null">
+        EXAMINEDETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        #{fileid,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=NVARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=NVARCHAR},
+      </if>
+      <if test="expriedate != null">
+        #{expriedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploaddate != null">
+        #{uploaddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="refid != null">
+        #{refid,jdbcType=INTEGER},
+      </if>
+      <if test="filetypename != null">
+        #{filetypename,jdbcType=NVARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="examineperson != null">
+        #{examineperson,jdbcType=NVARCHAR},
+      </if>
+      <if test="examinedetail != null">
+        #{examinedetail,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- getFilesByRefIDandUploadTime -->
+  <select id="getFilesByRefIDandUploadTime" resultType="java.util.HashMap">
+   select FILEID,FILENAME,URL,TYPE,EXPRIEDATE,UPLOADDATE,DESCRIPTION,REFID,
+   FILETYPENAME,SOURCE,STATUS,EXAMINEPERSON,EXAMINEDETAIL 
+   FROM DS_DSEM_FILE 
+   where REFID = #{refID,jdbcType=INTEGER}
+   <![CDATA[and UPLOADDATE>=#{st,jdbcType=TIMESTAMP}
+    and UPLOADDATE<#{et,jdbcType=TIMESTAMP}]]> 
+  </select>  
+</mapper>

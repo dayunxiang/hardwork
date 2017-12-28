@@ -1,0 +1,409 @@
+<link rel="stylesheet" href="lib/datePicker/css/foundation-datepicker.min.css">
+<link rel="stylesheet" href="lib/swiper-3.4.2/dist/css/swiper.css">
+<link rel="stylesheet" href="css/yjzh/jqjk.css">
+<link rel="stylesheet" href="css/yjzh/jqjk1.css">
+<script src="lib/less.min.js"></script>
+<div class="sideBarBrand clearfix">
+    <div class="left">
+        警情监控
+    </div>
+    <div class="right">
+        <span><i class="fa fa-angle-down fl-r"></i></span>
+    </div>
+</div>
+<div class="sideBar">
+    <div class="tilte clearfix">
+        <h3 class="fl-l">警情监控</h3>
+        <span><i class="fa fa-angle-up fl-r"></i></span>
+    </div>
+    <!--tabel切换警情点、防讯队、图层数据-->
+    <ul class="tabBar clearfix">
+        <li class="active">警情点</li>
+        <li>防汛队</li>
+        <li>图层数据</li>
+    </ul>
+    <!--tabel切换警情点、防讯队、图层数据-->
+    <ul class="tabContContainer">
+        <!--警情点-->
+        <li class="tabcontent">
+            <div class="jingqingTop clearfix">
+                <span>选择汛情:</span>
+                <div class="select clearfix">
+                    <span class="fl-l"></span>
+                    <i class="fa fa-caret-down fl-r"></i>
+                </div>
+                <ul class="selectOption clearfix">
+                </ul>
+                <ul class="jingqingInfo clearfix">
+                    <li class="jingqingInfo-All">共<span>10</span>个警情点</li>
+                    <li class="jingqingInfo-DCL"><img src="img/label-r.png" alt="">待处理<span>3</span>个</li>
+                    <li class="jingqingInfo-YPD"><img src="img/label-o.png" alt="">已派单<span>3</span>个</li>
+                    <li class="jingqingInfo-CLZ"><img src="img/label-y.png" alt="">处理中<span>3</span>个</li>
+                    <li class="jingqingInfo-YCL"><img src="img/label-b.png" alt="">处理完<span>3</span>个</li>
+                    <li class="jingqingInfo-New"><img src="img/ico-add.png" alt="">新建警情点</li>
+                </ul>
+            </div>
+            <div class="jingqingBottom">
+            </div>
+        </li>
+        <!--防讯队-->
+        <li class="tabcontent" style="display: none;">
+            <div class="original">
+                <div class="fangxunduibottom">
+                    <table></table>
+                </div>
+            </div>
+        </li>
+        <!--图层数据-->
+        <li class="tabcontent" style="display: none;">
+            <ul>
+                <li>
+                    <div class="title">
+                        在线监测
+                    </div>
+                    <ul>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix gdyw">
+                                <img src="img/layer-m-ico copy.png" alt="">
+                                <span>管道液位</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/layer-m-ico copy 2.png" alt="">
+                                <span>管道流量</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/layer-m-ico.png" alt="">
+                                <span>涵洞液位</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/layer-m-ico copy 4.png" alt="">
+                                <span>降雨量</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="title">
+                        监控信息
+                    </div>
+                    <ul>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/Oval 2.png" alt="">
+                                <span>泵站</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix vediojk">
+                                <img src="img/layer-m-ico copy 5.png" alt="">
+                                <span>视频监控点</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="title">
+                        其他图层
+                    </div>
+                    <ul>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/Oval 2.png" alt="">
+                                <span>定点定片区域</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/Oval 2 Copy.png" alt="">
+                                <span>防汛物资</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/Oval 2 Copy 2.png" alt="">
+                                <span>管网图</span>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="#" class="clearfix">
+                                <img src="img/Oval 2 Copy 3.png" alt="">
+                                <span>易涝点</span>
+                            </a>
+                        </li>
+                        <li class="clearfix bufangd">
+                            <a href="#" class="clearfix">
+                                <img src="img/layer-m-ico copy 7.png" alt="">
+                                <span>布防点</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="list-detail-content">
+            </div>
+        </li>
+    </ul>
+    <!--周边分析面板-->
+    <div class="zbfx">
+    </div>
+    <!--工单详情面板-->
+    <div class="gdxq">
+        <div class="title clearfix">
+            <h3 class="fl-l">工单详情</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <ul class="gdxqbotom">
+            <li class="clearfix">
+                <span>警情编号：</span>
+                <span>20170811001</span>
+            </li>
+            <li class="clearfix">
+                <span>发生位置：</span>
+                <span>太和广场</span>
+            </li>
+            <li class="clearfix">
+                <span>工单状态：</span>
+                <span>处理完</span>
+            </li>
+            <li class="clearfix">
+                <span>&nbsp;防汛队：</span>
+                <span>队伍1、队伍2</span>
+            </li>
+            <li class="clearfix">
+                <span>&nbsp;审核人：</span>
+                <span>朱霞</span>
+            </li>
+            <li class="clearfix">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;备注：</span>
+                <span>无</span>
+            </li>
+            <li class="clearfix">
+                <span>派单时间：</span>
+                <span>2017.08.11 16:33</span>
+            </li>
+            <li class="clearfix">
+                <span>完成时间：</span>
+                <span>2017.08.11 13:33</li>
+            <li class="clearfix">
+                <span>处理情况：</span>
+                <span>清理雨水篦子</span>
+            </li>
+        </ul>
+    </div>
+    <!--警情处理面板-->
+    <div class="jqcl">
+        <div class="title clearfix">
+            <h3 class="fl-l">警情处理</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <ul class="jqclmiddle">
+            <li class="clearfix">
+                <span class="fl-l">所属片区负责人：</span>
+                <span class="fl-l pqfzr" style="color: #4A90E2;">孙洪喜</span>
+                <a href="#" class="pfgd">
+                    <img src="img/ico-detail copy.png" title="派单" alt="">
+                </a>
+            </li>
+        </ul>
+        <div class="jqclbotom">
+            <div class="jqclbotomtitle">附近防汛队</div>
+            <table>
+            </table>
+            <!--<input type="button" value="多人派单">-->
+        </div>
+    </div>
+    <!--派发工单面板-->
+    <div class="jqclpd">
+        <div class="pdBox">
+            <div class="title clearfix">
+                <h3 class="fl-l">派发工单</h3>
+                <img src="img/btn-close.png" class="closeBtn" alt="">
+            </div>
+            <div class="pdcont clearfix">
+                <ul class="clearfix">
+                    <li class="clearfix">
+                        <span>警情点编号</span>
+                        <span class="jqdbh">20170811001</span>
+                    </li>
+                    <li class="clearfix">
+                        <span>警情点位置</span>
+                        <span class="jqdwz">太和广场</span>
+                    </li>
+                    <li class="clearfix">
+                        <span>防汛队</span>
+                        <span class="fxd">shx、yy</span>
+                    </li>
+                    <li class="clearfix">
+                        <span>定点定片负责人</span>
+                        <span class="dddpfzr">孙洪喜</span>
+                    </li>
+                    <li class="shr clearfix">
+                        <span class="fl-l">审核人:</span>
+                        <input type="text" class="fl-l shr">
+                    </li>
+                    <li class="bz clearfix">
+                        <span class="fl-l">备注:</span>
+                        <textarea name="" id="" class="fl-l bz"></textarea>
+                    </li>
+                </ul>
+                <div class="buttons">
+                    <input type="button" value="取消" class="cancel">
+                    <input type="button" value="确认" class="confirm">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--警情录入-->
+    <div class="jqlr">
+        <div class="title clearfix">
+            <p class="fl-l">警情录入</p>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="jqlrcontainer">
+            <ul class="jqlrcont">
+                <li class="clearfix">
+                    <input class="fl-r sbr" type="text" value="管理员">
+                    <span class="fl-r">上报人:</span>
+                </li>
+                <li class="clearfix">
+                    <input class="fl-r sbrPhone" type="text" value="15987635498">
+                    <span class="fl-r">上报人电话:</span>
+                </li>
+                <li class="clearfix">
+                    <input class="fl-r jqLocation" type="text" value="太和广场">
+                    <span class="fl-r">发生位置:</span>
+                </li>
+                <li class="clearfix">
+                    <input class="fl-r bjType" type="text" value="电话报警">
+                    <span class="fl-r">报警方式:</span>
+                </li>
+                <li class="clearfix">
+                    <textarea class="fl-r jqms">路面积水10cm</textarea>
+                    <span class="fl-r">警情描述:</span>
+                </li>
+                <li class="clearfix">
+                    <img width="100px" class="previewPic" src="img/weather-bg@3x.jpg" alt="">
+                </li>
+                <li class="clearfix">
+                    <span class="fl-l">上传照片:</span>
+                    <a href="javascript:;" class="fl-l">选择照片
+                        <input class="uploadPicture" type="file" accept="image/*">
+                    </a>
+                </li>
+            </ul>
+            <div class="jqlrbottom">
+                <input type="button" value="取消" id="cancleqx">
+                <input type="button" value="提交" id="tijiao">
+            </div>
+            <div class="success">
+                <img src="img/ico-success.png" alt="">
+                <p>警情点提交成功</p>
+                <input type="button" value="关闭" id="guanbilr">
+            </div>
+        </div>
+    </div>
+    <!--防讯队详情-->
+    <div class="fxdDetail">
+        <div class="detailtitle clearfix">
+            <h3 class="fl-l">防汛队</h3>
+            <img src="img/btn-close.png" alt="">
+        </div>
+        <div class="detailContainer">
+            <div class="detailContent">
+                <div class="baseInfo">
+                    <div class="title">基本信息</div>
+                    <ul class="content clearfix fxdxq">
+                        <li class="clearfix">
+                            <span>防汛队名称:</span>
+                            <span class="fxdmc">shx</span>
+                        </li>
+                        <li class="clearfix">
+                            <span>负责人姓名:</span>
+                            <span class="fzrxm">孙洪喜</span>
+                        </li>
+                        <li class="clearfix">
+                            <span>负责人电话:</span>
+                            <span class="fzrdh">13579246810</span>
+                        </li>
+                        <li class="clearfix">
+                            <span>负责人邮箱:</span>
+                            <span class="fzryx">shx@df.com</span>
+                        </li>
+                        <!--<li class="clearfix">
+                                <span>当前状态:</span>
+                                <span class="dqzt">shx</span>
+                            </li>-->
+                        <li class="clearfix">
+                            <span>防汛队人数:</span>
+                            <span class="rs">shx</span>
+                        </li>
+                        <li class="clearfix">
+                            <span>人员名单:</span>
+                            <span class="rymd">shx</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="infoList">
+                    <li>
+                        <div class="title">工单列表</div>
+                        <table class="fxd-gdList-table">
+                        </table>
+                    </li>
+                    <li class="hide">
+                        <div class="title">现有物资列表</div>
+                        <table class="fxd-xywzList-table">
+                        </table>
+                    </li>
+                    <li class="hide">
+                        <div class="title">物资领用记录</div>
+                        <table class="fxd-wzlyjlList-table">
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 照片预览 -->
+    <div class="photoyl">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/avater.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="img/avater.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="img/avater.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>
+<!-- 上报框 -->
+<ul class="alertBox "></ul>
+<script src="lib/datePicker/js/foundation-datepicker.js "></script>
+<script src="lib/datePicker/js/locales/foundation-datepicker.zh-CN.js "></script>
+<script src="lib/Swiper-3.4.2/dist/js/swiper.min.js"></script>
+<script src="js/yjzh/jqjk.js "></script>
+<script src="js/yjzh/jqjk_tcsj.js "></script>
+<script>
+$(document).ready(
+    function() {
+        setTimeout(function() {
+            setNiceScroll(".tabcontent ")
+            setNiceScroll(".subcontent ")
+            setNiceScroll(".detailContainer ")
+            setNiceScroll(".yeweicontent ")
+            setNiceScroll(".yeweidetailCont ")
+            setNiceScroll(".videoCont ")
+            setNiceScroll(".bufangCont ")
+            setNiceScroll(".zbfx ")
+            setNiceScroll(".jqcl")
+        }, 0)
+    }
+);
+</script>

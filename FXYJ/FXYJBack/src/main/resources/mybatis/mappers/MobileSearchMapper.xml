@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.MobileSearchMapper">
+  
+	  <!-- 获取当前预警状态 -->
+	  <select id="getFloodWarningStatus" resultType="java.util.HashMap">
+		select top 1		
+			flood.FLOODID as FLOODCODE		--汛情编号
+			,flood.FLOODNAME				--汛情名称
+			,standards.LEVELNAME as FLOODLEVEL	--级别颜色码
+			,standards.LEVELCOLOR as FLOODCOLOR	--预警级别
+		from 
+			DS_DSEM_FLOOD flood		--汛情表
+			left join 
+			DS_DSEM_FLOODLEVELRECORD record on record.FLOODID = flood.FLOODID	--预警记录表
+			left join
+			DS_DSEM_FLOODSTANDARD standards on standards.WARNINGLEVEL = record.WARNINGLEVEL		--预警标准表
+		where
+			record.WARNINGSTATUS = 1	--预警状态
+		order by 
+			record.CHANGETIME DESC		
+	  </select>     
+	  
+	  <!-- 获取无预警的状态信息 -->
+	  <select id="getNoFloodWarning" resultType="java.util.HashMap">
+		select 
+			-1  as FLOODCODE		--汛情编号
+			,'-' as FLOODNAME		--汛情名称
+			,standards.LEVELNAME as FLOODLEVEL	--预警级别
+			,standards.LEVELCOLOR as FLOODCOLOR	--级别颜色码
+		from 
+			DS_DSEM_FLOODSTANDARD standards		--预警标准表
+		where
+			standards.WARNINGLEVEL = 0		--无预警
+	  </select>  
+
+	<!-- 获取警情工单，根据防汛队编号，用于移动端 -->
+	<select id="getWorksheetByTeamIDUseMobile" resultType="java.util.HashMap">
+		select	
+			 analy.WARNINGID	--警情点编号
+			,analy.WARNING_NAME	--警情点名称	
+			,analy.FLOODID		--所属汛情编号
+			,analy.WARNING_ISCOMPLETE	--警情处理状态编码  
+			,(select factor.FACTORNAME 
+			from DS_DSEM_FACTORINFO factor 
+			where FACTORTYPE = '10' and factor.FACTORID = analy.WARNING_SOURCE
+			) as WARNING_SOURCE	--警情上报来源
+			,analy.X	--经度
+			,analy.Y	--纬度
+			,analy.WARNING_LOCATION		--警情位置
+			,analy.WARNING_DESCRIPTION	--警情描述
+			,CONVERT(varchar(100), analy.WARNING_UPLOADTIME, 20) as WARNING_UPLOADTIME	--警情上报时间
+			,CONVERT(varchar(100), task.PROCESSINGTIME, 20) as PROCESSINGTIME	--处理时间
+			,CONVERT(varchar(100), task.FINISHTIME, 20) as FINISHTIME	--完成时间
+		from 
+			DS_DSEM_USEDTEAM usedteam	--防汛队出险信息表
+		    inner join 
+		    DS_DSEM_TASK task on task.TASKID=usedteam.TASKID	--工单信息表
+		    inner join 
+		    DS_DSEM_ANALYSIS analy on task.WARNINGID = analy.WARNINGID	--警情点信息
+		where 
+			analy.FLOODID = #{floodCode,jdbcType=NVARCHAR}	--汛情编码
+			and usedteam.PFTID = #{teamId,jdbcType=NVARCHAR}	--防汛队编码
+			and analy.WARNING_ISCOMPLETE in (2,3,4)		--不查询未派单的警情
+	</select>
+
+	<!-- 获取警情工单详情，根据警情编号 -->
+	<select id="getWorksheetDetailByWaringId" resultType="java.util.HashMap">
+		select	
+			analy.WARNING_ISCOMPLETE	--警情处理状态,1：待处理，2：已派单，3：处理中，4：已完成
+			,CONVERT(varchar(100), analy.WARNING_UPLOADTIME, 20) as WARNING_UPLOADTIME	--上报时间
+			,analy.WARNINGID		--警情编号
+			,analy.WARNING_NAME		--警情名称
+			,analy.WARNING_DESCRIPTION	--警情描述
+			,analy.WARNING_LOCATION		--警情位置
+			,analy.WARNING_UPLOADPERSON	--上报人
+			,CONVERT(varchar(100), task.ORDERTIME, 20) as ORDERTIME	--下发时间
+			,task.ORDERPERSON		--下发人
+			,CONVERT(varchar(100), analy.WARNING_HANDLETIME, 20) as HANDLETIME	--处理时间
+			,analy.EFFECTAREA		--积水面积
+			,analy.WATERDEPTH		--积水深度
+			,analy.WARNIING_HANDLEPERSON		--处理人
+			,CONVERT(varchar(100), analy.WARNING_COMPLETETIME, 20) as COMPLETETIME	--完成时间
+			,analy.METHOD			--现场处理措施
+			,analy.REPAIR_DETAIL	--建议整改方案
+		from 
+			DS_DSEM_ANALYSIS analy		--警情点信息
+			inner join 
+		    DS_DSEM_TASK task on task.WARNINGID = analy.WARNINGID	--工单信息表
+		where 
+			analy.WARNINGID = #{WARNINGID,jdbcType=NVARCHAR}		--警情编号
+	</select>
+
+	<!-- 获取警情工单详情，根据警情编号 -->
+	<select id="getWaringReasonByWaringId" resultType="java.util.HashMap">
+		select 
+			factor.FACTORNAME	--积水原因
+		from 
+			DS_DSEM_WARNINGREASON reason	--警情点积水原因表
+			inner join 
+			DS_DSEM_ANALYSIS analy on reason.WARNINGID = analy.WARNINGID	--警情表
+			left join
+			(select * from DS_DSEM_FACTORINFO factor where FACTORTYPE = '13' ) factor on factor.FACTORID = reason.REASONID		--要素表
+		where 
+			analy.WARNINGID = #{WARNINGID,jdbcType=NVARCHAR}		--警情编号
+	</select>
+
+	<!-- 现场处理措施列表 -->
+	<select id="getMethodList" resultType="java.util.HashMap">
+		select 
+			factor.FACTORNAME as NAME		--要素名称
+		from 
+			DS_DSEM_FACTORINFO factor		----要素表
+		where 
+			FACTORTYPE = '103' --现场处理措施类别码
+	</select>
+
+	<!-- 积水原因列表 -->
+	<select id="getWarningReasonList" resultType="java.util.HashMap">
+		select 
+			factor.FACTORNAME as NAME		--要素名称
+		from 
+			DS_DSEM_FACTORINFO factor		----要素表
+		where 
+			FACTORTYPE = '13' --积水原因类别码
+	</select>
+
+	<!-- 建议整改方案列表 -->
+	<select id="getRepairIdeaList" resultType="java.util.HashMap">
+		select 
+			factor.FACTORNAME as NAME		--要素名称
+		from 
+			DS_DSEM_FACTORINFO factor		----要素表
+		where 
+			FACTORTYPE = '104' --建议整改方案类别码
+	</select>
+
+	<!-- 新建警情点，用于移动端 -->
+	<insert id="addWarningSpotUseMobile" parameterType="java.util.Map">  
+         INSERT INTO 	DS_DSEM_ANALYSIS  
+         (
+         WARNINGID,		--警情编号
+         WARNING_NAME,	--警情名称
+         WARNING_ISCOMPLETE,	--警情处理状态
+         ISDELETE,		--删除标记
+         <foreach collection="params.keys" item="key" separator="," >  
+            ${key}  
+         </foreach>  
+         )
+         values   
+         (
+         (select MAX(WARNINGID)+1 from DS_DSEM_ANALYSIS where FLOODID=#{FLOODID,jdbcType=NVARCHAR}),
+         '第'+CONVERT(varchar(100), (select MAX(WARNINGID)+1 from DS_DSEM_ANALYSIS where FLOODID=#{FLOODID,jdbcType=NVARCHAR}))+'处警情',
+         1,
+         0,
+         <foreach collection="params.keys"  item="key" separator=",">  
+            #{params[${key}]}  
+         </foreach>  
+         )
+    </insert>
+
+
+	
+</mapper>

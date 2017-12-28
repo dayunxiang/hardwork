@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/swiper.min.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <!--<link rel="stylesheet/less" type="text/css" href="./less/index.less" />
+    <script src="lib/less.min.js"></script>-->
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 地图 -->
+        <div id="map"></div>
+        <!-- 导航条 上报 图层 我的任务 -->
+        <ul class="navBar">
+            <li><a href="javascript:;" id="report"><img src="img/map-ico00@3x.png" alt=""></a></li>
+            <li><a href="javascript:;" id="tckz"><img src="img/map-ico01@3x.png" alt=""></a></li>
+            <li><a href="javascript:;" id="myTask"><img src="img/map-ico02@3x.png" alt=""></a></li>
+        </ul>
+        <!-- 管道流量 -->
+        <div class="gdll">
+            <h4>管道流量</h4>
+            <ul class="clearfix">
+                <li class="clearfix">
+                    <p>位置</p>
+                    <p>润江家园</p>
+                </li>
+                <li class="clearfix">
+                    <p>流量</p>
+                    <p>0.79m³/s</p>
+                </li>
+                <li class="clearfix">
+                    <p>流速</p>
+                    <p>0.31m/s</p>
+                </li>
+                <li class="clearfix">
+                    <p>液位</p>
+                    <p>2.12m</p>
+                </li>
+            </ul>
+        </div>
+        <!-- 降雨量 -->
+        <div class="jyl">
+            <h4>降雨量</h4>
+            <ul class="clearfix">
+                <li class="clearfix">
+                    <p>位置</p>
+                    <p>丹徒泵站</p>
+                </li>
+                <li class="clearfix">
+                    <p>累计降雨量</p>
+                    <p>10mm</p>
+                </li>
+            </ul>
+        </div>
+        <!-- 警情点 -->
+        <div class="jqd">
+            <div class="top clearfix">
+                <h4 class="fl-l">警情点</h4>
+                <span class="fl-r">已完成</span>
+            </div>
+            <ul class="clearfix">
+                <li class="clearfix">
+                    <p>警情编号</p>
+                    <p class="jqbh"></p>
+                </li>
+                <li class="clearfix">
+                    <p>发生位置</p>
+                    <p class="fswz"></p>
+                </li>
+                <li class="clearfix">
+                    <p>警情描述</p>
+                    <p class="jqms"></p>
+                </li>
+                <li class="clearfix">
+                    <p>接警时间</p>
+                    <p class="jjsj"></p>
+                </li>
+            </ul>
+        </div>
+        <!-- 预警信息弹框 -->
+        <div class="yjInfo">
+            <h3>预警消息</h3>
+            <p>市防汛办2017年10月31日14时启动了防汛应急黄色预警。截止到目前已启动了5小时，城区平均降雨量已累积达到10厘米。共出现了15次警情，均已得到妥善解决。</p>
+            <input type="button" value="知道了">
+        </div>
+        <!-- 预警标志 -->
+        <div class="yjFlag">
+            <i style="background: #FFA300;"></i>
+            <span>黄色预警</span>
+        </div>
+        <!-- 图层控制 -->
+        <div class="tckz">
+            <h3>图层控制</h3>
+            <ul>
+                <li>
+                    <img src="./img/layer-m-ico00@3x.png" alt="">
+                    <span>警情点</span>
+                    <div class="toogle">
+                        <i></i>
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/layer-m-ico01@3x.png" alt="">
+                    <span>管道液位</span>
+                    <div class="toogle">
+                        <i></i>
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/layer-m-ico02@3x.png" alt="">
+                    <span>管道流量</span>
+                    <div class="toogle">
+                        <i></i>
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/layer-m-ico03@3x.png" alt="">
+                    <span>涵洞液位</span>
+                    <div class="toogle">
+                        <i></i>
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/layer-m-ico04@3x.png" alt="">
+                    <span>降雨量</span>
+                    <div class="toogle">
+                        <i></i>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 上报 -->
+        <div class="report">
+            <div class="reporttitle">警情上报</div>
+            <ul class="reportcont">
+                <li>
+                    <span>位置</span>
+                    <span>宿州十一中学</span>
+                </li>
+                <li>
+                    <span>描述</span>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </li>
+                <li class="clearfix" id="checBox">
+                    <i></i>
+                    <span class="fl-l">自动派发给自己解决</span>
+                </li>
+                <!--<li class="clearfix" id="checBox">
+                    <input class="uploadPicture" type="file" accept="image/*">
+                </li>-->
+                <li class="clearfix">
+                    <div class="swiper-container" id="swiper-container4">
+                        <div class="swiper-wrapper addpic-div">
+                            <div class="swiper-slide addpic">
+                                <img src="img/add-image@3x.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <input type="button" class="submit" value="上报" style="margin:0.3rem .3rem 0 .3rem">
+        </div>
+        <!-- 重新定位 -->
+        <div class="cxdw">
+            <img src="img/point@3x.png" alt="">
+        </div>
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+    </div>
+<!--    <script src="lib/zepto.min.js"></script>-->
+    <script src="lib/RMap/rmap.js"></script>
+    <script src="lib/swiper/swiper.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

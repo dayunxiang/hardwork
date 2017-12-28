@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="css/fxzb/nlfxfx.css">
+<script src="lib/less.min.js"></script>
+<div class="sideBarBrand clearfix">
+  <div class="left">
+    内涝风险分析
+  </div>
+  <div class="right">
+    <span><i class="fa fa-angle-down fl-r"></i></span>
+  </div>
+</div>
+<div class="nlfxfxSideBar">
+    <div class="nlfxfxtitle clearfix">
+        <h3 class="fl-l">内涝风险分析</h3>
+        <span><i class="fa fa-angle-up fl-r"></i></span>
+    </div>
+    <ul class="nlfxfxtabBar clearfix">
+        <li class="now">模型分析</li>
+        <li>综合分析</li>
+    </ul>
+    <ul class="nlfxfxtabContContainer">
+        <li class="nlfxfxtabcontent">
+            <div class="nlfxfxtop clearfix">
+                <div class="chooseYear clearfix fl-l">
+                    <span>存放地点：</span>
+                    <div class="selectContainer">
+                        <div class="select clearfix nlfxselect">
+                            <span class="fl-l"></span>
+                            <i class="fa fa-caret-down fl-r"></i>
+                        </div>
+                        <ul class="selectOption nlfxselectOption clearfix">
+                            <li>50m</li>
+                            <li>100m</li>
+                            <li>150m</li>
+                            <li>200m</li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="img/ico-add.png" alt="">
+            </div>
+            <div class="audio"></div>
+            <table>
+                <tr>
+                    <th>水深（m）</th>
+                    <th>淹没覆盖范围（m³）</th>
+                    <th>水深（m）</th>
+                </tr>
+                <tr>
+                    <td>>0.5</td>
+                    <td>0</td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td>>0.5</td>
+                    <td>0</td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td>>0.5</td>
+                    <td>0</td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td>>0.5</td>
+                    <td>0</td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+            </table>
+            <div class="nlfxfxhzt">
+                <span>淹没覆盖面积统计</span>
+                <div id="hzt"></div>
+            </div>
+        </li>
+        <li class="nlfxfxtabcontent" style="display: none;">
+            <ul class="nlfxfxcont">
+                <li>内涝风险区域分布</li>
+                <li>历史警情分布</li>
+                <li>布防点分布</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="lib/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/fxzb/nlfxfx.js"></script>
+<script>
+$(document).ready(
+    function() {
+        setTimeout(function() {
+            setNiceScroll(".nlfxfxtabContContainer")
+
+        }, 0)
+    }
+);
+inithzt()
+//环形图
+function inithzt() {
+    hzt = echarts.init(document.getElementById('hzt'));
+    option = {
+        color: ['#B23332', '#F6CE49', '#43966A', '#5BBDBF'],
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data: ['>0.5', '0.3-0.5', '0.1-0.3', '<0.1']
+        },
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data: [
+                { value: 335, name: '>0.5' },
+                { value: 310, name: '0.3-0.5' },
+                { value: 234, name: '0.1-0.3' },
+                { value: 135, name: '<0.1' }
+            ]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    hzt.setOption(option);
+}
+</script>

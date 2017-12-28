@@ -1,0 +1,222 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    box-sizing: border-box;
+    line-height: initial;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none
+}
+
+th {
+    text-align: inherit;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none
+}
+
+input,
+button {
+    outline-style: none;
+    outline: none;
+    border: none;
+    line-height: initial;
+}
+
+img {
+    vertical-align: initial;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.fl-r {
+    float: right;
+}
+
+.fl-l {
+    float: left;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+
+
+
+
+/* 功能面板标题 -- start */
+
+.mainContainer .sideBarBrand {
+    position: absolute;
+    top: 86px;
+    left: 0;
+    width: 290px;
+    height: 48px;
+    margin-left: 10px;
+    background-color: #fff;
+    transition: all 1s;
+    z-index: 9996;
+    box-shadow: 0 2px 6px 0 rgba(0, 2, 0, .2);
+}
+
+.mainContainer .sideBarBrand .left {
+    float: left;
+   
+    height: 100%;
+    font-size: 20px;
+    color: #325BA7;
+    line-height: 48px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBarBrand .right {
+    float: right;
+    width: 48px;
+    height: 100%;
+    background: #2959AD;
+    position: relative;
+}
+
+.mainContainer .sideBarBrand .right>span {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #8D96BA;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.mainContainer .sideBarBrand .right>span i {
+    width: 30px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #8D96BA;
+}
+
+
+
+
+
+/* 功能面板标题 -- end */
+
+
+/* popBox */
+
+.popBox {
+    /*padding: 10px 38px 15px 15px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 9999;
+    top: 200px;
+    left: 466px;*/
+}
+
+.popBox i {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    z-index: 9996;
+    font-size: 30px;
+}
+
+.popBox img {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    cursor: pointer;
+}
+
+.popBox ul li span:first-child {
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #8D96BA;
+    line-height: 22px;
+}
+
+.popBox ul li span:last-child {
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #494F6B;
+    line-height: 22px;
+    margin-left: 5px;
+}
+
+.popBox ul li:last-child {
+    text-align: right;
+}
+
+.popBox ul li a {
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #325BA7;
+    line-height: 12px;
+}
+
+.popBox ul li a:last-child {
+    /*margin-right: -20px;*/
+    margin-left: 10px;
+}
+.yellow {
+    color: #F8E71C;
+}
+.red {
+    color: #FF0000;
+}

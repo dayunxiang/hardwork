@@ -1,0 +1,42 @@
+{
+	"total": 10,
+	"data": [
+		{
+			"PFTID": "1",
+			"PFTNAME": "防汛抢险车一队",
+			"CHARGEPERSON": "田青",
+			"CHARGEPERSONTEL": "13705283561",
+			"CHARGEPERSONEMAIL": "--",
+			"PERSONSCOUNT": 6,
+			"UNCOMPLETE": 2,
+			"PERSONS": "徐百鸣、高福祥、辅助人员3名"
+		}, {
+			"PFTID": "4",
+			"PFTNAME": "积水处理应急一队",
+			"CHARGEPERSON": "张家星",
+			"CHARGEPERSONTEL": "13705286873",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 5,
+			"UNCOMPLETE": 2,
+			"PERSONS": "陈志斌、王瑾、仲玲、姚亚磊"
+		}, {
+			"PFTID": "7",
+			"PFTNAME": "应急发电机车队",
+			"CHARGEPERSON": "尹富华",
+			"CHARGEPERSONTEL": "13705283872",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 8,
+			"UNCOMPLETE": 2,
+			"PERSONS": "丰雷、季剑、辅助人员5名"
+		}, {
+			"PFTID": "8",
+			"PFTNAME": "积水处理应急二队",
+			"CHARGEPERSON": "张瑞才",
+			"CHARGEPERSONTEL": "13805289393",
+			"CHARGEPERSONEMAIL": "wjx@163.com",
+			"PERSONSCOUNT": 10,
+			"UNCOMPLETE": 2,
+			"PERSONS": "唐顺平、陈志梅、陈林"
+		}
+	]
+}

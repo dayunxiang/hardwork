@@ -1,0 +1,16 @@
+{
+	"total": 1,
+	"data": [
+		{
+			"WARNING_ISCOMPLETE": 2,
+			"WARNING_UPLOADTIME": "2017-8-15 13:55:52",
+			"WARNINGID": "20170815008",
+			"WARNING_NAME": "第8处警情",
+			"WARNING_DESCRIPTION": "积水20cm",
+			"WARNING_LOCATION": "西单地铁站口",
+			"WARNING_UPLOADPERSON": "李永迪",
+			"ORDERTIME": "2017-8-15 14:15:52",
+			"ORDERPERSON": "管理员"
+		}
+	]
+}

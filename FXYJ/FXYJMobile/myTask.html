@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <!--<link rel="stylesheet/less" type="text/css" href="./less/index.less" />
+    <script src="lib/less.min.js"></script>-->
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+        <!-- 标题 -->
+        <div class="title" id="myTaskTitle">
+            <img src="img/ico-close@3x.png" alt="">
+            <h3>我的任务</h3>
+        </div>
+        <!-- tab切换 -->
+        <div class="tabcontainer" id="tabcontainer">
+            <ul class="tabBar clearfix" id="pagenavi">
+                <li><a href="#" class="active">全部<i></i></a></li>
+                <li><a href="#">待处理</a></li>
+                <li><a href="#">处理中</a></li>
+                <li><a href="#">已完成</a></li>
+            </ul>
+            <!-- 切换内容 -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide all">
+                    </div>
+                    <div class="swiper-slide dcl">
+                    </div>
+                    <div class="swiper-slide clz">
+                    </div>
+                    <div class="swiper-slide ycl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/zepto.min.js"></script>
+    <script src="lib/swiper/idangerous.swiper.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/myTask.js"></script>
+</body>
+
+</html>

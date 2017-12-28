@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemSummaryMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemSummary">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SUMMARYCODE" jdbcType="NVARCHAR" property="summarycode" />
+    <result column="SUMMARYYEAR" jdbcType="INTEGER" property="summaryyear" />
+    <result column="SUMMARYNAME" jdbcType="NVARCHAR" property="summaryname" />
+    <result column="SUMMARYTYPE" jdbcType="INTEGER" property="summarytype" />
+    <result column="SUBMITCOMPANY" jdbcType="INTEGER" property="submitcompany" />
+    <result column="SUBMITDATE" jdbcType="TIMESTAMP" property="submitdate" />
+    <result column="SHORTCOMINGS" jdbcType="NVARCHAR" property="shortcomings" />
+    <result column="SOLUTION" jdbcType="NVARCHAR" property="solution" />
+    <result column="EXPERIENCE" jdbcType="NVARCHAR" property="experience" />
+    <result column="ATTACHID" jdbcType="INTEGER" property="attachid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemSummary">
+    insert into DS_DSEM_SUMMARY (ID, SUMMARYCODE, SUMMARYYEAR, 
+      SUMMARYNAME, SUMMARYTYPE, SUBMITCOMPANY, 
+      SUBMITDATE, SHORTCOMINGS, SOLUTION, 
+      EXPERIENCE, ATTACHID)
+    values (#{id,jdbcType=INTEGER}, #{summarycode,jdbcType=NVARCHAR}, #{summaryyear,jdbcType=INTEGER}, 
+      #{summaryname,jdbcType=NVARCHAR}, #{summarytype,jdbcType=INTEGER}, #{submitcompany,jdbcType=INTEGER}, 
+      #{submitdate,jdbcType=TIMESTAMP}, #{shortcomings,jdbcType=NVARCHAR}, #{solution,jdbcType=NVARCHAR}, 
+      #{experience,jdbcType=NVARCHAR}, #{attachid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemSummary">
+    insert into DS_DSEM_SUMMARY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="summarycode != null">
+        SUMMARYCODE,
+      </if>
+      <if test="summaryyear != null">
+        SUMMARYYEAR,
+      </if>
+      <if test="summaryname != null">
+        SUMMARYNAME,
+      </if>
+      <if test="summarytype != null">
+        SUMMARYTYPE,
+      </if>
+      <if test="submitcompany != null">
+        SUBMITCOMPANY,
+      </if>
+      <if test="submitdate != null">
+        SUBMITDATE,
+      </if>
+      <if test="shortcomings != null">
+        SHORTCOMINGS,
+      </if>
+      <if test="solution != null">
+        SOLUTION,
+      </if>
+      <if test="experience != null">
+        EXPERIENCE,
+      </if>
+      <if test="attachid != null">
+        ATTACHID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="summarycode != null">
+        #{summarycode,jdbcType=NVARCHAR},
+      </if>
+      <if test="summaryyear != null">
+        #{summaryyear,jdbcType=INTEGER},
+      </if>
+      <if test="summaryname != null">
+        #{summaryname,jdbcType=NVARCHAR},
+      </if>
+      <if test="summarytype != null">
+        #{summarytype,jdbcType=INTEGER},
+      </if>
+      <if test="submitcompany != null">
+        #{submitcompany,jdbcType=INTEGER},
+      </if>
+      <if test="submitdate != null">
+        #{submitdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shortcomings != null">
+        #{shortcomings,jdbcType=NVARCHAR},
+      </if>
+      <if test="solution != null">
+        #{solution,jdbcType=NVARCHAR},
+      </if>
+      <if test="experience != null">
+        #{experience,jdbcType=NVARCHAR},
+      </if>
+      <if test="attachid != null">
+        #{attachid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

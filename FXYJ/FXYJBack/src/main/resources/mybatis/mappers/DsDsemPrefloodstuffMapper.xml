@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPrefloodstuffMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPrefloodstuff">
+    <result column="PFSID" jdbcType="INTEGER" property="pfsid" />
+    <result column="PFSNAME" jdbcType="NVARCHAR" property="pfsname" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+    <result column="UNIT" jdbcType="NVARCHAR" property="unit" />
+    <result column="GROSSCOUNT" jdbcType="DOUBLE" property="grosscount" />
+    <result column="USEDCOUNT" jdbcType="DOUBLE" property="usedcount" />
+    <result column="CANPROVIDEDCOUNT" jdbcType="DOUBLE" property="canprovidedcount" />
+    <result column="WAREHOUSE" jdbcType="NVARCHAR" property="warehouse" />
+    <result column="TYPE" jdbcType="SMALLINT" property="type" />
+    <result column="EXAMINE" jdbcType="NVARCHAR" property="examine" />
+    <result column="INPUTCOMPANY" jdbcType="NVARCHAR" property="inputcompany" />
+    <result column="INPUTDATE" jdbcType="TIMESTAMP" property="inputdate" />
+    <result column="PFTID" jdbcType="INTEGER" property="pftid" />
+    <result column="PFSSIZE" jdbcType="NVARCHAR" property="pfssize" />
+    <result column="PFSSTATUS" jdbcType="NVARCHAR" property="pfsstatus" />
+    <result column="USEUPCOUNT" jdbcType="DOUBLE" property="useupcount" />
+    <result column="CREATTIME" jdbcType="NVARCHAR" property="creattime" />
+    <result column="REASON" jdbcType="NVARCHAR" property="reason" />
+  </resultMap>
+  <!-- findAllPreFloodTeam -->
+  <select id="findAllPreFloodStuff" resultType="java.util.HashMap">
+    select 
+    	PFSID,PFSNAME,DESCRIPTION,UNIT,GROSSCOUNT,USEDCOUNT,CANPROVIDEDCOUNT,WAREHOUSE,TYPE,EXAMINE,
+    	INPUTCOMPANY,INPUTDATE,PFTID,PFSSIZE,PFSSTATUS,USEUPCOUNT,CREATTIME,REASON
+    from DS_DSEM_PREFLOODSTUFF
+  </select> 
+  <!-- updateStuffUseCount -->
+  <update id="updateStuffUseCount" parameterType="java.lang.Integer">
+    update DS_DSEM_PREFLOODSTUFF
+    set USEDCOUNT = case when (select sum(STUFFCOUNT) from DS_DSEM_TEAMSTUFF where PFSID = #{stuffId,jdbcType=INTEGER}) != null 
+    	then (select sum(STUFFCOUNT) from DS_DSEM_TEAMSTUFF where PFSID = #{stuffId,jdbcType=INTEGER}) else 0 end
+    where PFSID = #{stuffId,jdbcType=INTEGER}
+  </update>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPrefloodstuff">
+    insert into DS_DSEM_PREFLOODSTUFF (PFSID, PFSNAME, DESCRIPTION, 
+      UNIT, GROSSCOUNT, USEDCOUNT, 
+      CANPROVIDEDCOUNT, WAREHOUSE, TYPE, 
+      EXAMINE, INPUTCOMPANY, INPUTDATE, 
+      PFTID, PFSSIZE, PFSSTATUS, 
+      USEUPCOUNT, CREATTIME, REASON
+      )
+    values (#{pfsid,jdbcType=INTEGER}, #{pfsname,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}, 
+      #{unit,jdbcType=NVARCHAR}, #{grosscount,jdbcType=DOUBLE}, #{usedcount,jdbcType=DOUBLE}, 
+      #{canprovidedcount,jdbcType=DOUBLE}, #{warehouse,jdbcType=NVARCHAR}, #{type,jdbcType=SMALLINT}, 
+      #{examine,jdbcType=NVARCHAR}, #{inputcompany,jdbcType=NVARCHAR}, #{inputdate,jdbcType=TIMESTAMP}, 
+      #{pftid,jdbcType=INTEGER}, #{pfssize,jdbcType=NVARCHAR}, #{pfsstatus,jdbcType=NVARCHAR}, 
+      #{useupcount,jdbcType=DOUBLE}, #{creattime,jdbcType=NVARCHAR}, #{reason,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <!-- getMaxId -->
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select 
+    	case when Max(PFSID) is null then 0 else Max(PFSID) end
+    from DS_DSEM_PREFLOODSTUFF
+  </select> 
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPrefloodstuff">
+    insert into DS_DSEM_PREFLOODSTUFF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pfsid != null">
+        PFSID,
+      </if>
+      <if test="pfsname != null">
+        PFSNAME,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="unit != null">
+        UNIT,
+      </if>
+      <if test="grosscount != null">
+        GROSSCOUNT,
+      </if>
+      <if test="usedcount != null">
+        USEDCOUNT,
+      </if>
+      <if test="canprovidedcount != null">
+        CANPROVIDEDCOUNT,
+      </if>
+      <if test="warehouse != null">
+        WAREHOUSE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="examine != null">
+        EXAMINE,
+      </if>
+      <if test="inputcompany != null">
+        INPUTCOMPANY,
+      </if>
+      <if test="inputdate != null">
+        INPUTDATE,
+      </if>
+      <if test="pftid != null">
+        PFTID,
+      </if>
+      <if test="pfssize != null">
+        PFSSIZE,
+      </if>
+      <if test="pfsstatus != null">
+        PFSSTATUS,
+      </if>
+      <if test="useupcount != null">
+        USEUPCOUNT,
+      </if>
+      <if test="creattime != null">
+        CREATTIME,
+      </if>
+      <if test="reason != null">
+        REASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pfsid != null">
+        #{pfsid,jdbcType=INTEGER},
+      </if>
+      <if test="pfsname != null">
+        #{pfsname,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=NVARCHAR},
+      </if>
+      <if test="grosscount != null">
+        #{grosscount,jdbcType=DOUBLE},
+      </if>
+      <if test="usedcount != null">
+        #{usedcount,jdbcType=DOUBLE},
+      </if>
+      <if test="canprovidedcount != null">
+        #{canprovidedcount,jdbcType=DOUBLE},
+      </if>
+      <if test="warehouse != null">
+        #{warehouse,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="examine != null">
+        #{examine,jdbcType=NVARCHAR},
+      </if>
+      <if test="inputcompany != null">
+        #{inputcompany,jdbcType=NVARCHAR},
+      </if>
+      <if test="inputdate != null">
+        #{inputdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pftid != null">
+        #{pftid,jdbcType=INTEGER},
+      </if>
+      <if test="pfssize != null">
+        #{pfssize,jdbcType=NVARCHAR},
+      </if>
+      <if test="pfsstatus != null">
+        #{pfsstatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="useupcount != null">
+        #{useupcount,jdbcType=DOUBLE},
+      </if>
+      <if test="creattime != null">
+        #{creattime,jdbcType=NVARCHAR},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- updateStuff -->
+  <update id="updateStuff">
+  	update DS_DSEM_PREFLOODSTUFF set 
+  	PFSNAME = #{name,jdbcType=NVARCHAR}
+  	,GROSSCOUNT = #{count,jdbcType=DOUBLE}
+  	,USEDCOUNT = #{usedCount,jdbcType=DOUBLE}
+  	,WAREHOUSE = #{warehouse,jdbcType=NVARCHAR}
+  	,DESCRIPTION = #{des,jdbcType=NVARCHAR}
+  	,UNIT = #{unit,jdbcType=NVARCHAR}
+  	,PFSSTATUS = #{status,jdbcType=NVARCHAR}
+  	where PFSID = #{stuffID,jdbcType=INTEGER}
+  </update>
+  <!-- deleteStuff -->
+  <delete id="deleteStuff" parameterType="java.lang.Integer">
+    delete from DS_DSEM_PREFLOODSTUFF where PFSID = #{stuffID,jdbcType=INTEGER}
+  </delete>  
+</mapper>

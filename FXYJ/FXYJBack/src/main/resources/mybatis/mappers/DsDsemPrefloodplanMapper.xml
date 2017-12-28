@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemPrefloodplanMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemPrefloodplan">
+    <result column="PFPID" jdbcType="INTEGER" property="pfpid" />
+    <result column="PFPNAME" jdbcType="VARCHAR" property="pfpname" />
+    <result column="UPLOADDATE" jdbcType="TIMESTAMP" property="uploaddate" />
+    <result column="PLANNOTE" jdbcType="VARCHAR" property="plannote" />
+    <result column="PFPTYPE" jdbcType="INTEGER" property="pfptype" />
+    <result column="EXPRIEDDATE" jdbcType="TIMESTAMP" property="exprieddate" />
+    <result column="PFPLEVEL" jdbcType="NVARCHAR" property="pfplevel" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemPrefloodplan">
+    insert into DS_DSEM_PREFLOODPLAN (PFPID, PFPNAME, UPLOADDATE, 
+      PLANNOTE, PFPTYPE, EXPRIEDDATE, 
+      PFPLEVEL, URL)
+    values (#{pfpid,jdbcType=INTEGER}, #{pfpname,jdbcType=VARCHAR}, #{uploaddate,jdbcType=TIMESTAMP}, 
+      #{plannote,jdbcType=VARCHAR}, #{pfptype,jdbcType=INTEGER}, #{exprieddate,jdbcType=TIMESTAMP}, 
+      #{pfplevel,jdbcType=NVARCHAR}, #{url,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemPrefloodplan">
+    insert into DS_DSEM_PREFLOODPLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pfpid != null">
+        PFPID,
+      </if>
+      <if test="pfpname != null">
+        PFPNAME,
+      </if>
+      <if test="uploaddate != null">
+        UPLOADDATE,
+      </if>
+      <if test="plannote != null">
+        PLANNOTE,
+      </if>
+      <if test="pfptype != null">
+        PFPTYPE,
+      </if>
+      <if test="exprieddate != null">
+        EXPRIEDDATE,
+      </if>
+      <if test="pfplevel != null">
+        PFPLEVEL,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pfpid != null">
+        #{pfpid,jdbcType=INTEGER},
+      </if>
+      <if test="pfpname != null">
+        #{pfpname,jdbcType=VARCHAR},
+      </if>
+      <if test="uploaddate != null">
+        #{uploaddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plannote != null">
+        #{plannote,jdbcType=VARCHAR},
+      </if>
+      <if test="pfptype != null">
+        #{pfptype,jdbcType=INTEGER},
+      </if>
+      <if test="exprieddate != null">
+        #{exprieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfplevel != null">
+        #{pfplevel,jdbcType=NVARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- getAllPreFloodPlan -->
+  <select id="getAllPreFloodPlan" resultType="java.util.HashMap">
+    select PFPID,PFPNAME,UPLOADDATE,PLANNOTE,PFPTYPE,EXPRIEDDATE,PFPLEVEL,URL FROM DS_DSEM_PREFLOODPLAN 
+  </select>   
+  <!-- delPreFloodPlan -->
+  <delete id="delPreFloodPlan" parameterType="java.lang.Integer">
+    delete from DS_DSEM_PREFLOODPLAN
+    where PFPID = #{planID,jdbcType=INTEGER}
+  </delete>   
+</mapper>

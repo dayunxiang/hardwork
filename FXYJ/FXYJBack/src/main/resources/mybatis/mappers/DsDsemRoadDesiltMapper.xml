@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemRoadDesiltMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemRoadDesilt">
+    <result column="OBJECTID" jdbcType="INTEGER" property="objectid" />
+    <result column="NAME" jdbcType="NVARCHAR" property="name" />
+    <result column="ROADNAME" jdbcType="NVARCHAR" property="roadname" />
+    <result column="RADIUS" jdbcType="DOUBLE" property="radius" />
+    <result column="LENGTH" jdbcType="DOUBLE" property="length" />
+    <result column="COMPLETETIME" jdbcType="TIMESTAMP" property="completetime" />
+    <result column="COMPLETESTATUS" jdbcType="INTEGER" property="completestatus" />
+    <result column="YEAR" jdbcType="NVARCHAR" property="year" />
+    <result column="DESCRIPTION" jdbcType="NVARCHAR" property="description" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemRoadDesilt">
+    insert into DS_DSEM_ROAD_DESILT (OBJECTID, NAME, ROADNAME, 
+      RADIUS, LENGTH, COMPLETETIME, 
+      COMPLETESTATUS, YEAR, DESCRIPTION
+      )
+    values (#{objectid,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, #{roadname,jdbcType=NVARCHAR}, 
+      #{radius,jdbcType=DOUBLE}, #{length,jdbcType=DOUBLE}, #{completetime,jdbcType=TIMESTAMP}, 
+      #{completestatus,jdbcType=INTEGER}, #{year,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemRoadDesilt">
+    insert into DS_DSEM_ROAD_DESILT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        OBJECTID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="roadname != null">
+        ROADNAME,
+      </if>
+      <if test="radius != null">
+        RADIUS,
+      </if>
+      <if test="length != null">
+        LENGTH,
+      </if>
+      <if test="completetime != null">
+        COMPLETETIME,
+      </if>
+      <if test="completestatus != null">
+        COMPLETESTATUS,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="roadname != null">
+        #{roadname,jdbcType=NVARCHAR},
+      </if>
+      <if test="radius != null">
+        #{radius,jdbcType=DOUBLE},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="completetime != null">
+        #{completetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completestatus != null">
+        #{completestatus,jdbcType=INTEGER},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- getRoadDesiltList -->
+  <select id="getRoadDesiltList" resultType="java.util.HashMap">
+  	select OBJECTID,NAME,ROADNAME,RADIUS,LENGTH,COMPLETETIME,COMPLETESTATUS,YEAR,DESCRIPTION 
+  	FROM DS_DSEM_ROAD_DESILT 
+    where YEAR = #{year,jdbcType=NVARCHAR}
+  </select>  
+</mapper>

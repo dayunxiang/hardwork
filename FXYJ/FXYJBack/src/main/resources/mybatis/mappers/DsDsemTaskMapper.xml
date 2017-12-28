@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemTaskMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemTask">
+    <result column="TASKID" jdbcType="INTEGER" property="taskid" />
+    <result column="TASKSTATUS" jdbcType="INTEGER" property="taskstatus" />
+    <result column="WARNINGID" jdbcType="INTEGER" property="warningid" />
+    <result column="ORDERPERSON" jdbcType="NVARCHAR" property="orderperson" />
+    <result column="WORKPERSON" jdbcType="NVARCHAR" property="workperson" />
+    <result column="CHECKPERSON" jdbcType="NVARCHAR" property="checkperson" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="FINISHTIME" jdbcType="TIMESTAMP" property="finishtime" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemTask">
+    insert into DS_DSEM_TASK (TASKID, TASKSTATUS, WARNINGID, 
+      ORDERPERSON, WORKPERSON, CHECKPERSON, 
+      ORDERTIME, FINISHTIME, CHECKTIME
+      )
+    values (#{taskid,jdbcType=INTEGER}, #{taskstatus,jdbcType=INTEGER}, #{warningid,jdbcType=INTEGER}, 
+      #{orderperson,jdbcType=NVARCHAR}, #{workperson,jdbcType=NVARCHAR}, #{checkperson,jdbcType=NVARCHAR}, 
+      #{ordertime,jdbcType=TIMESTAMP}, #{finishtime,jdbcType=TIMESTAMP}, #{checktime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemTask">
+    insert into DS_DSEM_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        TASKID,
+      </if>
+      <if test="taskstatus != null">
+        TASKSTATUS,
+      </if>
+      <if test="warningid != null">
+        WARNINGID,
+      </if>
+      <if test="orderperson != null">
+        ORDERPERSON,
+      </if>
+      <if test="workperson != null">
+        WORKPERSON,
+      </if>
+      <if test="checkperson != null">
+        CHECKPERSON,
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME,
+      </if>
+      <if test="finishtime != null">
+        FINISHTIME,
+      </if>
+      <if test="checktime != null">
+        CHECKTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="taskstatus != null">
+        #{taskstatus,jdbcType=INTEGER},
+      </if>
+      <if test="warningid != null">
+        #{warningid,jdbcType=INTEGER},
+      </if>
+      <if test="orderperson != null">
+        #{orderperson,jdbcType=NVARCHAR},
+      </if>
+      <if test="workperson != null">
+        #{workperson,jdbcType=NVARCHAR},
+      </if>
+      <if test="checkperson != null">
+        #{checkperson,jdbcType=NVARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null">
+        #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <!-- deleteWorksheetByWarningID -->
+  <delete id="deleteWorksheetByWarningID" parameterType="java.lang.Integer">
+    delete from DS_DSEM_TASK
+    where WARNINGID = #{id,jdbcType=INTEGER}
+  </delete>  
+  <!-- getWorksheetByWarningID -->
+  <select id="getWorksheetByWarningID" resultType="java.util.HashMap">
+    select task.*,analysis.X,analysis.Y,analysis.WARNING_NAME 
+    FROM DS_DSEM_TASK as task left join DS_DSEM_ANALYSIS analysis on task.WARNINGID = analysis.WARNINGID
+    where task.WARNINGID = #{warningID,jdbcType=NVARCHAR}
+  </select>   
+  <!-- getWorksheetByOrderTime -->
+  <select id="getWorksheetByOrderTime" resultType="java.util.HashMap">
+    select task.*,analysis.X,analysis.Y,analysis.WARNING_NAME 
+    FROM DS_DSEM_TASK as task left join DS_DSEM_ANALYSIS analysis on task.WARNINGID = analysis.WARNINGID
+    where 
+    <![CDATA[ORDERTIME>=#{st,jdbcType=TIMESTAMP}
+    and ORDERTIME<=#{et,jdbcType=TIMESTAMP}]]> 
+  </select>   
+  <!-- deleteWorksheetByID -->
+  <delete id="deleteWorksheetByID" parameterType="java.lang.Integer">
+    delete from DS_DSEM_TASK
+    where TASKID = #{taskId,jdbcType=INTEGER}
+  </delete>  
+  <!-- updateWorksheetStatusByID -->
+  <update id="updateWorksheetStatusByID">
+  	update DS_DSEM_TASK set 
+  	TASKSTATUS=#{statusID,jdbcType=INTEGER}
+  	CHECKTIME=#{checkTime,jdbcType=TIMESTAMP}
+  	where TASKID=#{taskId,jdbcType=INTEGER}
+  </update>   
+  
+
+</mapper>

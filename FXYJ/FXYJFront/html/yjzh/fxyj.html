@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>防汛预警</title>
+    <link rel="stylesheet" href="../../lib/Swiper-3.4.2/dist/css/swiper.css">
+    <link rel="stylesheet" href="../../lib/Swiper-3.4.2/dist/css/animate.min.css">
+    <link rel="stylesheet" href="../../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-treeview/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/yjzh/fxyj.css">
+    <script src="../../lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header clearfix">
+        <a href="" class="logo">
+        <img src="../../img/logo.png" alt="">
+        </a>
+        <h1>防汛应急系统-应急指挥</h1>
+        <img src="../../img/ico-menu.png" alt="" class=" opennav">
+        <div class="avator fl-r">
+            <img src="../../img/avater.jpg" alt="">
+        </div>
+        <img src="../../img/ico-set.png" alt="" style="float: right; margin-right: 30px; margin-top: 18px;">
+        <div class="headerWeather clearfix">
+            <img src="../../img/duoyun.png" alt="" class="fl-l">
+            <p class="fl-l">未启动预警</p>
+            <p class="fl-l">31℃~21℃</p>
+        </div>
+        <div class="nav">
+            <img src="../../img/btn-close.png" alt="">
+            <dl>
+                <dt>首页</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="" >
+                            <span >设置</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>防汛准备</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >人员物资</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >清淤整改</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >内涝风险分析</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>应急指挥</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >防汛预警</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >警情监控</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >警情总结</span>
+                        </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>讯后评估</dt>
+                <dd style="margin-top: 30px;">
+                    <a href="#" class="clearfix">
+                            <img  src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >汛情回顾</span>
+                        </a>
+                </dd>
+                <dd>
+                    <a href="#" class="clearfix">
+                            <img src="../../img/layer-m-ico copy 2.png" alt="">
+                            <span >易涝点</span>
+                        </a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fxyjmain">
+        <!-- nav -->
+        <div class="fxyjnav clearfix">
+            <h2>防汛预警</h2>
+            <ul class="clearfix" id="contrast">
+                <li class="now">预警发布</li>
+                <li>实时降雨量</li>
+                <li>预案列表</li>
+                <li>防汛预案流程图</li>
+                <li>防汛部署</li>
+                <li class="load">天气预报</li>
+            </ul>
+        </div>
+        <div class="fxyjCont">
+            <div class="swiper-container" id="swiper-container4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide yjfb">
+                        <ul class="currentyj clearfix">
+                            <li class="clearfix">
+                                <span>当前预警级别:</span>
+                                <span>无预警</span>
+                            </li>
+                            <li>
+                                <input type="button" value="结束预警">
+                            </li>
+                        </ul>
+                        <ul class="tzyjjb clearfix">
+                            <li class="clearfix">
+                                <span>启动或调整为:</span>
+                                <div class="select clearfix">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption clearfix">
+                                    <li>准预警</li>
+                                    <li>蓝色预警</li>
+                                    <li>黄色预警</li>
+                                    <li>橙色预警</li>
+                                    <li>红色预警</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="button" value="确认">
+                                <input type="button" value="防汛部署">
+                            </li>
+                        </ul>
+                        <ul class="jyIfoList">
+                            <li class="clearfix">
+                                <img src="../../img/Group 31.png" alt="">
+                                <span>未来3小时内降雨量将达到【100mm】以上，或雨量计实测小时雨量达【70mm】以上【红色预警】</span>
+                                <img src="../../img/ico-selected.png" alt="" class="fl-r">
+                            </li>
+                            <li class="clearfix">
+                                <img src="../../img/Group 32.png" alt="">
+                                <span>未来3小时内降雨量将达到【50mm】以上，或雨量计实测小时雨量达【50mm】以上，【70mm】以下【橙色预警】</span>
+                                <img src="../../img/ico-selected.png" alt="" class="fl-r">
+                            </li>
+                            <li class="clearfix">
+                                <img src="../../img/Group 35.png" alt="">
+                                <span>未来6小时内降雨量将达到【50mm】以上，或雨量计实测小时雨量达【30mm】以上，【50mm】以下【黄色预警】</span>
+                                <img src="../../img/ico-selected.png" alt="" class="fl-r">
+                            </li>
+                            <li class="clearfix">
+                                <img src="../../img/Group 36.png" alt="">
+                                <span>未来12小时内降雨量将达到【50mm】以上，或雨量计实测小时雨量达【20mm】以上，【20mm】以下【蓝色预警】</span>
+                                <img src="../../img/ico-selected.png" alt="" class="fl-r">
+                            </li>
+                            <li class="clearfix">
+                                <img src="../../img/Group 37.png" alt="">
+                                <span>准预警</span>
+                                <img src="../../img/ico-selected.png" alt="" class="fl-r">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide ssjyl">
+                        <div id="ssjyl" style="width: 100%;height: 100%;"></div>
+                    </div>
+                    <div class="swiper-slide yalb">
+                        <div class="yalbContainer">
+                            <div class="yalbtop clearfix">
+                                <h3>预案列表</h3>
+                                <a href="javascript:;">上传预案
+                            <input type="file" value="">
+                          </a>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th style="width: 60%;">预案名称</th>
+                                    <th style="width: 20%;">备注</th>
+                                    <th style="width: 20%;">操作</th>
+                                </tr>
+                                <tr>
+                                    <td>2014年防汛预案.doc</td>
+                                    <td>2014-06-01</td>
+                                    <td>
+                                        <a href="#"><img src="../../img/ico-down.png" alt=""></a>
+                                        <a href="#"><img src="../../img/ico-del.png" alt=""></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2014年防汛预案.doc</td>
+                                    <td>2014-06-01</td>
+                                    <td>
+                                        <a href="#"><img src="../../img/ico-down.png" alt=""></a>
+                                        <a href="#"><img src="../../img/ico-del.png" alt=""></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2014年防汛预案.doc</td>
+                                    <td>2014-06-01</td>
+                                    <td>
+                                        <a href="#"><img src="../../img/ico-down.png" alt=""></a>
+                                        <a href="#"><img src="../../img/ico-del.png" alt=""></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2014年防汛预案.doc</td>
+                                    <td>2014-06-01</td>
+                                    <td>
+                                        <a href="#"><img src="../../img/ico-down.png" alt=""></a>
+                                        <a href="#"><img src="../../img/ico-del.png" alt=""></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        15
+                    </div>
+                    <div class="swiper-slide fxbscontainer">
+                        <div class="fxbs">
+                            <h3>防汛部署</h3>
+                            <ul>
+                                <li>
+                                    <div class="title">发送通知</div>
+                                    <div class="content clearfix">
+                                        <div class="left">
+                                            <div class="ttil">短信接收人</div>
+                                            <div class="bcont tree">
+                                                <div class="treeview-checkable1" id="treeview-checkable"></div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="ttil">通知内容</div>
+                                            <div class="bcont dxcont">
+                                                <p>2017年8月11日下午13时55分，我市启动防汛黄色预警，请各工作人员按一下要去安排工作：</p>
+                                                <p>1、所有雨水泵站对溢流水体水位实时监控，满足溢流条件采取溢流方式，无法溢流则所有雨水泵站运行功率开至50%，泵站进水格栅前安排专人清理打捞漂浮物及垃圾；</p>
+                                                <p>
+                                                    2、人员上路巡查管网雨水收集口，防止堵塞现象发生；
+                                                </p>
+                                                <p>3、所有应急队伍集结24小时待命；</p>
+                                                <p>
+                                                    4、相关人员按两级预案要求执行相关工作；
+                                                </p>
+                                                <p>
+                                                    5、各布防点负责人抓紧到位，按预案处理相关工作。
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <input type="button" value="取消">
+                                        <input type="button" value="短信发送">
+                                        <input type="button" value="微信发送">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                    布防点部署
+                                    <div class="addbfx">
+                                      <img src="../../img/ico-label-add.png" alt="">
+                                      <span>新增布防点</span>
+                                    </div>
+                                    </div>
+                                    <div class="content clearfix">
+                                        <div class="left">
+                                        <p>黄山涵洞</p>
+                                            <div class="ttil">选择防汛队</div>
+                                            <div class="bcont tree">
+                                                <div class="treeview-checkable2" id="treeview-checkable"></div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <div class="ttil">专项预案</div>
+                                            <div class="bcont dxcont">
+                                                <p>一、泵站所负责珍珠桥地埋泵站安全运行及维护，确保泵站设备的完好。</p>
+                                                <p>二、在遇强降雨时必须安排专人值班，并将应急救援设施放置于道路边待命。</p>
+                                                <p>三、在大雨时泵站自动开机，如监控集水井液位仍然不降低，必须通知抢险人员携带抽排设备到现场待命。</p>
+                                                <p>四、在暴雨时路面有5厘米积水，必须通知抢险人员架设防汛排涝应急设备抽排积水。</p>
+                                                <p>五、在暴雨时路面有15厘米积水，必须与110联系通知交警部门对道路进行封闭，同时向处领导汇报。</p>
+                                                <p>六、如发生线路停电，立即启动发电机对泵站供电，确保该处泵站正常运行。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <input type="button" value="确认">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../lib/Swiper-3.4.2/dist/js/swiper.js"></script>
+    <script src="../../lib/jquery.nicescroll.min.js"></script>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/yjzh/fxyj.js"></script>
+    <script>
+    $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".fxbs")
+                setNiceScroll(".tree")
+                setNiceScroll(".dxcont")
+
+            }, 0)
+
+
+        }
+    );
+    </script>
+</body>
+
+</html>

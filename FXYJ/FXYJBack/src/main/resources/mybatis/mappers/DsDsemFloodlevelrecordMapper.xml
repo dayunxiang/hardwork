@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flood.dao.DsDsemFloodlevelrecordMapper">
+  <resultMap id="BaseResultMap" type="com.flood.entity.DsDsemFloodlevelrecord">
+    <result column="FLOODLEVELID" jdbcType="INTEGER" property="floodlevelid" />
+    <result column="CHANGETIME" jdbcType="TIMESTAMP" property="changetime" />
+    <result column="FLOODID" jdbcType="INTEGER" property="floodid" />
+    <result column="WARNINGLEVEL" jdbcType="INTEGER" property="warninglevel" />
+    <result column="ISSENDMESSAGE" jdbcType="INTEGER" property="issendmessage" />
+    <result column="PERSONID" jdbcType="INTEGER" property="personid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.flood.entity.DsDsemFloodlevelrecord">
+    insert into DS_DSEM_FLOODLEVELRECORD (FLOODLEVELID, CHANGETIME, FLOODID, 
+      WARNINGLEVEL, ISSENDMESSAGE, PERSONID
+      )
+    values (#{floodlevelid,jdbcType=INTEGER}, #{changetime,jdbcType=TIMESTAMP}, #{floodid,jdbcType=INTEGER}, 
+      #{warninglevel,jdbcType=INTEGER}, #{issendmessage,jdbcType=INTEGER}, #{personid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flood.entity.DsDsemFloodlevelrecord">
+    insert into DS_DSEM_FLOODLEVELRECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="floodlevelid != null">
+        FLOODLEVELID,
+      </if>
+      <if test="changetime != null">
+        CHANGETIME,
+      </if>
+      <if test="floodid != null">
+        FLOODID,
+      </if>
+      <if test="warninglevel != null">
+        WARNINGLEVEL,
+      </if>
+      <if test="issendmessage != null">
+        ISSENDMESSAGE,
+      </if>
+      <if test="personid != null">
+        PERSONID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="floodlevelid != null">
+        #{floodlevelid,jdbcType=INTEGER},
+      </if>
+      <if test="changetime != null">
+        #{changetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="floodid != null">
+        #{floodid,jdbcType=INTEGER},
+      </if>
+      <if test="warninglevel != null">
+        #{warninglevel,jdbcType=INTEGER},
+      </if>
+      <if test="issendmessage != null">
+        #{issendmessage,jdbcType=INTEGER},
+      </if>
+      <if test="personid != null">
+        #{personid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
