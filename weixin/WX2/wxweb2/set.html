@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- 整个容器 -->
+    <div class="wrap">
+        <!-- 侧边栏 -->
+        <div class="sideBar sideBar-mini">
+            <div class="logo ">
+                <img src="img/logo.png" alt="">
+                <h2>巡检后台管理系统</h2>
+            </div>
+            <ul class="list">
+                <li>
+                    <img src="img/ico-user.png" alt="">
+                    <span>用户管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-upload.png" alt="">
+                    <span>警情管理</span>
+                </li>
+                <li class="now">
+                    <img src="img/ico-set.png" alt="">
+                    <span>设置</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-company.png" alt="">
+                    <span>单位管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-Statistics.png" alt="">
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 中间内容容器 -->
+        <div class="mainContainer">
+            <!-- 顶部top -->
+            <div class="topHeader">
+            </div>
+            <!-- content -->
+            <div class="content">
+                <h3>设置</h3>
+                <div class="setContainer">
+                    <ul class="setoption">
+                        <li class="now">分区设置</li>
+                        <li>警情类型设置</li>
+                        <li>任务分配设置</li>
+                    </ul>
+                    <div class="setmanaContainer">
+                        <div class="settabsubcontent">
+                            <div class="areaList">
+                                <div class="addList">
+                                    <span>
+                                        分区列表
+                                    </span>
+                                    <img src="./img/ico-add.png" alt="">
+                                </div>
+                                <div class="areaSubListContainer">
+                                    <ul class="areaSubListContent">
+                                        <li>
+                                            <span>河道上游</span>
+                                            <span>孙晓青</span>
+                                            <img src="img/ico-edit.png" alt="" class="editLstInfo">
+                                        </li>
+                                        <li>
+                                            <span>河道上游</span>
+                                            <span>孙晓青</span>
+                                            <img src="img/ico-edit.png" alt="" class="editLstInfo">
+                                        </li>
+                                        <li>
+                                            <span>河道上游</span>
+                                            <span>孙晓青</span>
+                                            <img src="img/ico-edit.png" alt="" class="editLstInfo">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="areaMap"></div>
+                        </div>
+                        <div class="settabsubcontent" style="display: none;">
+                            <div class="newJqlx">
+                                <span>共10个问题类型</span>
+                                <input type="button" value="新建类型">
+                            </div>
+                            <div class="jqlxSetContainer">
+                                <dl class="jqlxSetContent">
+                                    <dt>
+                                        <span>问题类型</span>
+                                        <span>操作</span>
+                                    </dt>
+                                    <dd>
+                                        <span>问题类型</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         <img src="./img/ico-over copy 3.png" alt="">
+                                     </a>
+                                    </dd>
+                                    <dd>
+                                        <span>问题类型</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         <img src="./img/ico-over copy 3.png" alt="">
+                                     </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="settabsubcontent" style="display: none;">
+                            <div class="newRwfp">
+                                 <span>共10个任务分区</span>
+                                <input type="button" value="新建分区">
+                            </div>
+                              <div class="rwfqSetContainer">
+                                <dl class="rwfqSetContent">
+                                    <dt>
+                                        <span>任务分区</span>
+                                        <span>分配状态</span>
+                                        <span style="padding-left: 30px;">人员</span>
+                                        <span>操作</span>
+                                    </dt>
+                                    <dd>
+                                        <span>河道上游</span>
+                                        <span>手动推送</span>
+                                        <span>孙晓青、张骞、吴生</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         
+                                     </a>
+                                    </dd>
+                                     <dd>
+                                        <span>河道上游</span>
+                                        <span>手动推送</span>
+                                        <span>孙晓青、张骞、吴生</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         
+                                     </a>
+                                    </dd>
+                                     <dd>
+                                        <span>河道上游</span>
+                                        <span>手动推送</span>
+                                        <span>孙晓青、张骞、吴生</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         
+                                     </a>
+                                    </dd>
+                                     <dd>
+                                        <span>河道上游</span>
+                                        <span>手动推送</span>
+                                        <span>孙晓青、张骞、吴生</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         
+                                     </a>
+                                    </dd>
+                                     <dd>
+                                        <span>河道上游</span>
+                                        <span>手动推送</span>
+                                        <span>孙晓青、张骞、吴生</span>
+                                        <a href="javascript:;">
+                                         <img src="./img/ico-edit.png" alt="">
+                                         
+                                     </a>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/RMap/rmap.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="./lib/jquery.nicescroll.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/set.js"></script>
+    <script>
+    $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".areaSubListContainer")
+                setNiceScroll(".jqlxSetContainer")
+
+            }, 0)
+        }
+    );
+    </script>
+</body>
+
+</html>

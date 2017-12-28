@@ -40,7 +40,7 @@ function height() {
     });
      //用户表格
     $(".usermanaContainer").css({
-        'height': (h - 64 - 60 - 24 - 30 - 60 - 20 - 50) + "px"
+        'height': (h - 64 - 60 - 24 - 30 - 60 - 20 - 50-15) + "px"
     });
     //警情管理
      $(".jqContainer").css({
@@ -48,8 +48,9 @@ function height() {
     });
      //警情表格
      $(".jqmanaContainer").css({
-        'height': (h - 64 - 60 - 24 - 30 - 60 - 20 - 50) + "px"
+        'height': (h - 64-24-30-70-10-120) + "px"
     });
+     
      //待处理警情
      $(".jqdclContainer").css({
         'height': (h - 64 - 60 - 24 - 30) + "px",
@@ -62,6 +63,38 @@ function height() {
         'height': (h - 64 - 60 - 24 - 30-70-340-20) + "px",
     });
 
+     //设置
+     $(".setContainer").css({
+        'height': (h - 64 - 60 - 24 - 30) + "px",
+    });
+     $(".settabsubcontent").css({
+        'height': (h - 64 - 60 - 24 - 30-88) + "px",
+    });
+     $(".areaList").css({
+        'height': (h - 64 - 60 - 24 - 30-88) + "px",
+    });
+     $(".areaSubListContainer").css({
+        'height': (h - 64 - 60 - 24 - 30-88-55-9-5) + "px",
+    });
+     //设置地图 区域划分
+     $("#areaMap").css({
+        'height': (h - 64 - 60 - 24 - 30-88) + "px",
+    });
+     //警情类型设置
+     $(".jqlxSetContainer").css({
+        'height': (h - 64 - 60 - 24 - 30-88-72-9-5) + "px",
+    });
+     //任务分区设置
+     $(".rwfqSetContainer").css({
+        'height': (h - 64 - 60 - 24 - 30-88-72-9-5) + "px",
+    });
+     //单位管理
+     $(".unitContainer").css({
+        'height': (h - 64 - 60 - 24 - 30) + "px",
+    });
+     $(".unitmanaContainer").css({
+        'height': (h - 64-24-30-70-10-120) + "px"
+    });
     // 删除容器
     $(".deleteContainer").css({
         'height': h + "px",
@@ -74,6 +107,17 @@ function height() {
     });
     //新建单位容器
     $(".newunitContainer").css({
+        'height': h + "px",
+        'width': w + 'px'
+    });
+
+    //分配任务
+    $(".taskContainer").css({
+        'height': h + "px",
+        'width': w + 'px'
+    });
+    //结束任务
+    $(".taskEndContainer").css({
         'height': h + "px",
         'width': w + 'px'
     });
@@ -192,4 +236,23 @@ function setNiceScroll(containerClass1) {
         cursorminheight: 32,
         // disableoutline: true,
     }).resize();
+}
+//init滚动条
+function initBar() {
+            setNiceScroll(".areaSubListContainer")
+                setNiceScroll(".jqlxSetContainer")
+                setNiceScroll(".rwfqSetContainer")
+
+    
+}
+//
+//tab
+function tabcount(eleid, activeclass, subareatabcontent) {
+    $(eleid + ' li').click(function() {
+        var index = $(this).index();
+        $(this).addClass(activeclass);
+        $(this).siblings('li').removeClass(activeclass)
+        $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
+initBar()
+    })
 }

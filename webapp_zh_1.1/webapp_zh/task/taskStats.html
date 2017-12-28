@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>巡查养护统计</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/datepicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/taskStats.css">
+</head>
+
+<body>
+    <!-- header -->
+<!--     <div class="header">
+        <h1>巡查养护管理系统</h1>
+    </div> -->
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="bodyBox">
+                <ul class="form-group form-inline toolBox clearfix">
+                    <li>
+                        <label for="timeTypeSel">查看时间:</label>
+                        <select class="form-control timeTypeSel">
+                            <option value="1">最近1个月</option>
+                            <option value="2">最近3个月</option>
+                            <option value="3">最近半年</option>
+                            <option value="4">最近1年</option>
+                            <option value="5">自定义</option>
+                        </select>                    
+                    </li>
+                    <li class="timeSel dateBox">
+                        <label for="startDate">开始时间:</label>
+                        <input type="text" value="" id="startDate">           
+                    </li>                    
+                    <li class="timeSel dateBox1">
+                        <label for="endDate">结束时间:</label>
+                        <input type="text" value="" id="endDate">             
+                    </li>
+                    <li>
+                        <label for="osiTypeSel">巡检模块:</label>
+                        <select class="form-control osiTypeSel">
+                        <!-- 获取 -->
+                        </select>
+                    </li>                
+                    <li>
+                        <label for="regionSel">执行区域:</label>
+                        <select class="form-control regionSel">
+                        <!-- 获取 -->
+                        </select>
+                    </li>                    
+                    <li id="executorSpan">
+                        <label for="executorSel">执行人:</label>
+                        <select class="form-control executorSel">
+                        <!-- 获取 -->
+                        </select>
+                    </li>
+                    <li>
+
+                        <button id="searchBtn" class="btn btn-warning" onclick="taskStatistics()">查询</button>
+                    </li>
+                   
+                    <li style="width: 100%; margin-top: 15px;">
+                     <label for="executorSel">根据统计类型查看:</label>
+                        <input type="radio" name="radiogroup1" value="byRegion" checked="checked">按区域统计</label>
+                        <input type="radio" name="radiogroup1" value="byExecutor">按执行人统计</label>
+                        <input type="radio" name="radiogroup1" value="byTime">按时间统计</label>
+                    </li>
+                   
+                </ul>
+            
+                <div class="table-cons">
+                    <table class="table taskPanel-table table-hover" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;" id="statisticTh">区域</th>
+                                <th>完成任务数</th>
+                                <th>按时完成数</th>
+                                <th>按时完成率</th>
+                                <th>一次审核通过率</th>
+                                <th>关闭任务数</th>
+                                <th>记录数</th>
+                                <th>报修数</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTable">
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../node_modules/datepicker/js/foundation-datepicker.js"></script>
+    <script src="../node_modules/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+
+    <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".swiper-container")
+            }, 0)
+        }
+    );
+
+        // 来源页面
+        var source = getQueryString('from');
+        // 巡检任务类型集合
+        var taskManageCfgList = [];
+        // 模块id
+        var modularId = '';
+
+        function init() {
+
+            // ------------- 获取巡检模块集合 -----------------
+            findTaskManageCfgList();
+            
+            // 如果来源为taskPanel，则选中传递来的模块
+            if (source=='taskPanel') {
+                // 模块id
+                modularId = getQueryString('modularId');
+                // 选中对应的模板
+                if (taskManageCfgList.length>0) {
+                    $(".osiTypeSel").find("option[value="+modularId+"]").attr("selected",true); 
+                }
+            }else {
+                // 否则默认选中第一个
+                if (taskManageCfgList.length>0) {
+                    modularId = taskManageCfgList[0].renwuleixingid;
+                }
+            }
+            if (modularId=='') {
+                alert('暂无要统计的巡检模块！');
+                return;
+            }
+            // 根据模块id获取区域
+            findRegionByModularId(modularId);
+            findExecutorByModularId(modularId);
+            // 统计巡检数据
+            taskStatistics();
+        }
+
+        /**
+         * 获取巡检的任务数据集合
+         * @return {[type]} [description]
+         */
+        function findTaskManageCfgList() {
+            JQueryUtil.sendAsyncRCP(pathUrl +'/configManage/taskCfg/findTaskManageCfgList',{
+                // 空参
+            },
+            function success(result){
+                if (result.resCode==1&&result.data!='') {
+                    taskManageCfgList = JSON.parse(result.data);
+                    if (taskManageCfgList.length>0) {
+                        var html = '';
+                        for(var i=0;i<taskManageCfgList.length;i++) {
+                            var taskObj = taskManageCfgList[i];
+                            html+= '<option value="'+taskObj.renwuleixingid+'">'+taskObj.renwuname+'</option>';
+                        }
+                        $('.osiTypeSel').html('').append(html);
+                    }
+                }else{
+                    alert(result.msg);
+                }
+            }, function error(error) {
+                console.log(error);
+            });
+        }
+
+        /**
+         * 根据巡检模块id获取其绑定的区域集合
+         * @param  {[type]} modularId [description]
+         * @return {[type]}           [description]
+         */
+        function findRegionByModularId(modularId) {
+            JQueryUtil.sendAsyncRCP(pathUrl +'/communal/findTaskSpaceByModularId',{
+                businessId: modularId
+            },
+            function success(result){
+                if (result.resCode==1&&result.data!='') {
+                    var html='';
+                    var regionList = JSON.parse(result.data);
+                    if (regionList.length>0) {
+                        for(var i=0;i<regionList.length;i++) {
+                            var regionObj = regionList[i];
+                            html+= '<option value="'+regionObj.value+'">'+regionObj.text+'</option>';
+                        }
+                        $('.regionSel').html('').append(html);
+                    }else{
+                        $('.regionSel').html('').append('<option value="-1">---请选择---</option>');
+                    }
+                }else{
+                    alert(result.msg);
+                }
+            }, function error(error) {
+                console.log(error);
+            });
+        };     
+        /**
+         * 根据模块获取执行人
+         * @param  {[type]} modularId [description]
+         * @return {[type]}           [description]
+         */
+        function findExecutorByModularId(modularId) {
+            JQueryUtil.sendAsyncRCP(pathUrl +'/communal/findExecutorListByBusinessId',{
+                businessId: modularId
+            },
+            function success(result){
+                $('.executorSel').html('');
+                if (result.resCode==1&&result.data!='') {
+                    var html='';
+                    var executorList = JSON.parse(result.data);
+                    if (executorList.length>0) {
+                        for(var i=0;i<executorList.length;i++) {
+                            var executorObj = executorList[i];
+                            html+= '<option value="'+executorObj.value+'">'+executorObj.text+'</option>';
+                        }
+                        $('.executorSel').html('').append(html);
+                    }else {
+                        $('.executorSel').append('<option value="-1">---请选择---</option>');
+                    }
+                }else{
+                    alert(result.msg);
+                }
+            }, function error(error) {
+                console.log(error);
+            });
+        };
+
+        /**
+         * 巡检数据统计
+         * @return {[type]} [description]
+         */
+        function taskStatistics() {
+            var value = $(".osiTypeSel").val();
+            var timeType = $('.timeTypeSel').val();
+            var regions = $('.regionSel').val();
+            var executors = $('.executorSel').val();
+            var checked = $("input[name='radiogroup1']:checked").val();
+            if (value!='') {
+                // 参数
+                var paramObj = {
+                    businessId: value,
+                    timeType: timeType,
+                    regionIds: regions,
+                    executorIds: executors,
+                    statisticType: checked
+                }
+                // 如果选择了自定义日期
+                if(timeType=='5') {
+                    var wrStartDate = $('#startDate').val();
+                    var wrEndDate = $('#endDate').val();
+                    if (!wrStartDate || !wrEndDate) {
+                        alert('请选择日期');
+                        return;
+                    }
+                    paramObj.startDate = wrStartDate;
+                    paramObj.endDate = wrEndDate;
+                }
+                JQueryUtil.sendRCP(pathUrl +'/onSiteInspectionManage/taskStatisticsByBusinessId/1/10000',
+                    paramObj,
+                function success(result){
+                    if (result.resCode==1&&result.data!='') {
+                        var html = '';
+                        var resutlList = JSON.parse(result.data);
+                        if (resutlList.length>0) {
+                            for(var i=0;i<resutlList.length;i++) {
+                                var resultObj = resutlList[i];
+                                html+= '<tr>';
+                                // 按统计类型获取对应的文本
+                                if (checked=='byRegion') {
+                                    html+= '<td>'+getRegionNameById(resultObj.regional)+'</td>';
+                                }else if (checked=='byExecutor') {
+                                    html+= '<td>'+getUserNameById(resultObj.executor)+'</td>';
+                                }else{
+                                    html+= '<td>'+resultObj.closedate+'</td>';
+                                }
+                                html+= '<td>'+null2Zero(resultObj.allCompleteNum)+'</td>';
+                                html+= '<td>'+null2Zero(resultObj.completeOnTime)+'</td>';
+                                html+= '<td>'+roundingTwo(resultObj.onTimeRate)+'</td>';
+                                html+= '<td>'+roundingTwo(resultObj.onceRate)+'</td>';
+                                html+= '<td>'+null2Zero(resultObj.closedNum)+'</td>';
+                                html+= '<td>'+null2Zero(resultObj.completeObjNum)+'</td>';
+                                html+= '<td>'+null2Zero(resultObj.allRepairNum)+'</td>';
+                                html+= '</tr>';
+                            }
+                        }
+                        $('#orderTable').html('').append(html);
+                    }else{
+                        alert(result.msg);
+                    }
+                }, function error(error) {
+                    console.log(error.msg);
+                });
+            } 
+        }
+
+
+        $(function() {
+            // --------------------- 时间控件初始化 --------------------- 
+            var nowDate = new Date();
+            $('#startDate').val(formatTime(nowDate.getTime(), false));
+            $('#endDate').val(formatTime(nowDate.getTime(), false));
+            $('#startDate').fdatepicker({
+                format: 'yyyy-mm-dd'
+            });
+            $('#endDate').fdatepicker({
+                format: 'yyyy-mm-dd'
+            });
+
+            // --------------------- 数据初始化 --------------------- 
+            init();            
+
+            // 日期选择框change事件
+            $(".timeTypeSel").change(function(){
+                var dateType = $(this)[0].value;
+                if (dateType=='5') {
+                   $('.timeSel').show();
+                }else{
+                   $('.timeSel').hide();
+                }
+            });
+            // 任务模块切换事件
+            $(".osiTypeSel").change(function(){
+                var modularId = $(this)[0].value;
+                findRegionByModularId(modularId);
+                findExecutorByModularId(modularId);
+            });
+            // 统计类型的切换事件
+            $(":radio").change(function() { 
+                var value = $(this).val();
+                var text = '';
+                if (value=='byRegion') {
+                    text = '区域';
+                }else if (value=='byExecutor') {
+                    text = '执行人';
+                }else {
+                    text = '时间';
+                }
+                $('#statisticTh').html('').html(text);
+            }); 
+
+        })
+    </script>
+
+</body>
+
+</html>

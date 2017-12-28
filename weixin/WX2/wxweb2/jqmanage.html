@@ -6,8 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./lib/datePicker/css/foundation-datepicker.min.css">
-    <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.paginate.css">
-    <!--  <link rel="stylesheet" href="./lib/YhhDataTable/css/jquery.yhhDataTable.css"> -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="lib/less.min.js"></script>
@@ -126,10 +124,10 @@
                                 <input type="button" value="查询">
                             </div>
                         </li>
-                        <li>
+                       <!--  <li>
                             <input type="text" placeholder="搜索">
                             <img src="img/Slice.png" alt="">
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="jqmanaContainer">
                         <table id="jqTable">
@@ -250,9 +248,62 @@
             </div>
         </div>
     </div>
+     <!-- 分配任务 -->
+    <div class="taskFpContainer">
+        <div class="taskContent">
+            <div class="title">
+                <span>
+                    分配任务
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="taskmain">
+                <li>
+                    <span>选择负责人</span>
+                   <div class="selectContainer">
+                                <div class="select clearfix fzrselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption fzrselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                </li>
+            </ul>
+            <div class="taskfooter">
+                <input type="button" value="取消" class="cancleFpTask">
+                <input type="button" value="删除" class="sureFpTask">
+            </div>
+        </div>
+    </div>
+    <!-- 结束任务 -->
+    <div class="taskEndContainer">
+         <div class="taskEndContent">
+            <div class="title">
+                <span>
+                    分配任务
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="taskEndmain">
+                <li>
+                    <span>结束任务原因</span>
+                    <textarea name="" id="area" cols="30" rows="10" ></textarea>
+                    <span id="count">0/200</span>
+                </li>
+            </ul>
+            <div class="taskEndfooter">
+                <input type="button" value="取消" class="cancleEndTask">
+                <input type="button" value="保存" class="sureEndTask">
+            </div>
+        </div>
+    </div>
     <script src="lib/jquery.min.js"></script>
-    <script src="lib/YhhDataTable/js/jquery.paginate.js"></script>
-    <script src="lib/YhhDataTable/js/jquery.yhhDataTable.js"></script>
+    <script  src="./lib/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
     <script src="./lib/datePicker/js/foundation-datepicker.js"></script>
     <script src="./lib/datePicker/js/locales/foundation-datepicker.zh-CN.js"></script>
     <script src="js/common.js"></script>

@@ -1,0 +1,198 @@
+
+
+
+.btnBox {
+	margin: 20px auto;
+}
+.btnBox span {
+	margin: 0px 10px;
+	text-align: center;
+}
+.toolBox {
+	position: relative;
+}
+.dateBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+.dateBox1{
+	position: absolute;
+	top: 0;
+	left: 200px;
+	z-index: 9999;
+}
+.dateBox2 {
+	top: 0;
+	left: 400px;
+}
+.dateBox3 {
+	top: 0;
+	left: 600px;
+}
+.btn1 {
+	display: none;
+}
+#cmtype,#cmsource,#examine,#resultSel option {
+	font-size: 13px;
+}
+#complateDiv {
+	display: none;
+}
+
+
+/*修改*/
+
+.bodyBox {
+	padding: 30px;
+	padding-top: 10px;
+}
+.bodyBox h5 {
+    height: 50px;
+    line-height: 50px;
+    font-size:20px;
+    color: #333;
+    padding-left: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.12);
+}
+.inforow {
+	margin-top: 10px;
+	  box-shadow: 0 3px 6px 0 rgba(0,0,0,.12);
+}
+.rowleft {
+	padding: 10px;
+	box-sizing: border-box;
+	border-right: 1px solid #f5f5f5;
+}
+.rowleft li,
+.rowright li {
+	width: 100%;
+	margin-bottom:10px;
+}
+.rowleft li input,
+.rowright li input {
+
+	height: 40px;
+	border-radius: 40px;
+	border: none;
+	outline: none;
+	outline-style: none;
+	border: 1px solid #ddd;
+	padding:0 10px;
+}
+.rowleft li label,
+.rowright li label {
+		height: 40px;
+		line-height: 40px;
+		text-align:center;
+}
+.rowleft li select,
+.rowright li select {
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	outline: none;
+	outline-style: none;
+	border: 1px solid #ddd;
+	padding:0 10px;
+	border-radius: 30px;
+
+}
+.rowleft li textarea {
+	height: 80px;
+	border: none;
+	outline: none;
+	outline-style: none;
+	border: 1px solid #ddd;
+	border-radius:10px;
+	resize:none;
+	padding:5px;
+	padding-left:0;
+}
+.col-md-12,
+.col-md-11 {
+	padding-left:0;
+}
+.rowright h6,
+.rowleft h6 {
+	font-size: 20px;
+    color: #325BA7;
+    margin-bottom:15px;
+}
+.rowright {
+		padding: 10px;
+	box-sizing: border-box;
+
+}
+.jbbtn {
+	margin-bottom:10px;
+}
+
+.rowright .btn {
+	display:block;
+	outline:none;
+	outline-style:none;
+}
+
+
+.sprow {
+	box-shadow:0 3px 6px 0 rgba(0,0,0,.12);
+	padding: 10px;
+	margin-top:10px;
+	min-height:260px;
+}
+
+.sprow select{
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	outline: none;
+	outline-style: none;
+	border: 1px solid #ddd;
+	padding:0 10px;
+	border-radius: 30px;
+}
+
+.sprow textarea{
+		height: 80px;
+	border: none;
+	outline: none;
+	outline-style: none;
+	border: 1px solid #ddd;
+	border-radius:10px;
+	resize:none;
+	padding:5px;
+}
+.btnClass {
+		// width: 100%;
+	text-align: center;
+	margin: 40px auto;
+}
+
+
+// #backBtn {
+// 	    color: #fff;
+//     background-color: #31b0d5;
+//     border-color: #269abc;
+// }
+
+.btnClass button {
+	margin-right: 20px;
+}
+.jbbtn,
+.cbbtn {
+	position: relative;
+}
+.jbbtn i,
+.cbbtn i{
+	position: absolute;
+	top: 2px;
+	right: -14px;
+	font-size:28px;
+}
+
+.sprow li {
+	margin-bottom: 10px;
+}
+

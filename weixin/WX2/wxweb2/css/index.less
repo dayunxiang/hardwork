@@ -97,18 +97,19 @@
             border-bottom: 1px solid #EBEBEB;
             box-sizing: border-box;
         }
+        /*主体*/
         .content {
             box-sizing: border-box;
             background-color: #F8F8F8;
             font-size: 15px;
             padding: 30px;
             padding-left: 40px;
-
             h3 {
                 color: #383D40;
                 font-weight: 700;
                 margin-bottom: 30px;
             }
+            /*面包屑导航*/
             .crumbNav {
 
                 margin-bottom: 30px;
@@ -119,6 +120,7 @@
                     letter-spacing: 0;
                 }
             }
+            /*用户管理主体*/
             .userContainer {
                 background-color: #fff;
                 box-sizing: border-box;
@@ -232,6 +234,27 @@
                     }
                 }
                 .usermanaContainer {
+                    position: relative;
+                    #userTable_filter {
+                        position: absolute;
+                        top: -80px;
+                        right: 25px;
+                        input {
+                            width: 240px;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
                     #userTable {
                         width: 100%;
                         border-collapse: collapse;
@@ -319,8 +342,67 @@
                             }
                         }
                     }
+                    #userTable_info {
+                        float: left;
+                        margin-top: 15px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                    #userTable_paginate {
+                        float: right;
+                        margin-top: 15px;
+                        height: 35px; // border: 1px solid #E6EAEE;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: .AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
                 }
             }
+            /*警情管理主体*/
             .jqContainer {
                 background-color: #fff;
                 box-sizing: border-box;
@@ -350,7 +432,7 @@
                             font-size: 12px;
                             color: #383D40;
                             &>input {
-                                width: 154px;
+                                width: 117PX;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 border-radius: 5px;
@@ -358,6 +440,7 @@
                                 box-sizing: border-box;
                                 font-size: 12px;
                                 color: #383D40;
+                                cursor: pointer;
                             }
                             &>i {
                                 position: absolute;
@@ -430,28 +513,30 @@
                                 cursor: pointer;
                             }
                         }
-                        &:last-child {
-                            float: right;
-                            position: relative;
-                            &>input {
-                                width: 240px;
-                                height: 32px;
-                                margin-top: 25px;
-                                border-radius: 32px;
-                                background: #F1F2F4;
-                                padding: 0 10px;
-                                box-sizing: border-box;
-                            }
-                            &>img {
-                                position: absolute;
-                                right: 15px;
-                                top: 32px;
-                                cursor: pointer;
-                            }
-                        }
                     }
                 }
                 .jqmanaContainer {
+                    position: relative;
+                    #jqTable_filter {
+                        position: absolute;
+                        top: -80px;
+                        right: 25px;
+                        input {
+                            width: 240px;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
                     #jqTable {
                         width: 100%;
                         border-collapse: collapse;
@@ -536,11 +621,70 @@
                             }
                         }
                     }
+                    #jqTable_info {
+                        float: left;
+                        margin-top: 15px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                    #jqTable_paginate {
+                        float: right;
+                        margin-top: 15px;
+                        height: 35px; // border: 1px solid #E6EAEE;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: .AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
                 }
             }
+            /*警情处理详情*/
             .jqdclContainer {
                 background-color: #fff;
-                box-sizing: border-box; // padding: 10px;
+                box-sizing: border-box;
                 .jqdcloption {
                     height: 70px;
                     border-bottom: 1px solid #F3F6FC;
@@ -663,7 +807,6 @@
                             &>div {
                                 width: 100%;
                                 height: 150px;
-                                line-height: 150px;
                                 text-align: center;
                                 &:before {
                                     content: '';
@@ -690,15 +833,557 @@
                                     height: 100px;
                                     position: relative;
                                     margin-top: 25px;
-                                    cursor:pointer;
+                                    cursor: pointer;
+                                }
+                                &>p {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    letter-spacing: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                .detailmap {
+                    padding: 0 20px;
+                }
+            }
+            /*设置*/
+            .setContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .setoption {
+                    height: 88px;
+                    background: #4495FF;
+                    border-radius: 2px 2px 0 0;
+                    &>li {
+                        float: left;
+                        height: 88px;
+                        line-height: 88px;
+                        text-align: center;
+                        width: 140px;
+                        color: #fff;
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        letter-spacing: 0;
+                        cursor: pointer;
+                        &:first-child {
+                            margin-left: 20px;
+                        }
+                    }
+                    .now {
+                        background-color: rgba(255, 255, 255, .2);
+                    }
+                }
+                .setmanaContainer {
+                    .settabsubcontent {
+                        background-color: #fff;
+                        position: relative;
+                        /*区域列表*/
+                        .areaList {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 270px;
+                            background-color: #fff;
+                            box-shadow: 0 4px 8px 0 rgba(68, 149, 255, 0.12);
+                            .addList {
+                                height: 55px;
+                                width: 100%;
+                                line-height: 55px;
+                                padding: 0 20px;
+                                box-sizing: border-box;
+                                box-shadow: 0 1px 0 0 #F2F6FD;
+
+                                &>span {
+                                    float: left;
+                                }
+                                &>img {
+                                    float: right;
+                                    margin-top: 15px;
+                                    cursor: pointer;
+                                }
+                            }
+                            .areaSubListContainer {
+                                .areaSubListContent {
+                                    &>li {
+                                        height: 48px;
+                                        width: 100%;
+                                        line-height: 48px;
+                                        box-sizing: border-box;
+                                        box-shadow: 0 1px 0 0 #F2F6FD;
+                                        padding: 0 20px;
+                                        cursor: pointer;
+                                        &>span {
+                                            float: left;
+                                            &:first-child {
+                                                margin-right: 50px;
+                                            }
+                                        }
+                                        &>img {
+                                            float: right;
+                                            margin-top: 15px;
+                                        }
+                                        &:hover {
+                                            cursor: pointer;
+
+                                            background: rgba(68, 149, 255, 0.20);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #areaMap {
+                            margin-left: 270px;
+                        }
+                        /*警情类型设置*/
+                        .newJqlx {
+                            height: 72px;
+                            width: 100%;
+                            line-height: 72px;
+                            padding: 0 20px;
+                            box-sizing: border-box;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #666666;
+                                letter-spacing: 0;
+                                float: left;
+                            }
+                            &>input {
+                                float: right;
+                                padding: 10px 20px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #2793FF;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                background-color: #fff;
+                                border: 1px solid #4495FF;
+                                border-radius: 4px;
+                                margin-top: 20px;
+                            }
+                        }
+                        .jqlxSetContainer {
+                            .jqlxSetContent {
+                                &>dt {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 70px 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #7C8FA6;
+                                        letter-spacing: 0;
+                                        &:last-child {
+                                            float: right;
+                                        }
+                                    }
+                                }
+                                &>dd {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 50px 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #333333;
+                                        letter-spacing: 0;
+                                    }
+                                    &>a {
+                                        float: right;
+                                        &>img {
+                                            &:last-child {
+                                                margin-left: 20px;
+                                            }
+                                        }
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+
+                                        background: rgba(68, 149, 255, 0.20);
+                                    }
+                                }
+                            }
+                        }
+                        /*任务分配设置*/
+                        .newRwfp {
+                            height: 72px;
+                            width: 100%;
+                            line-height: 72px;
+                            padding: 0 20px;
+                            box-sizing: border-box;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #666666;
+                                letter-spacing: 0;
+                                float: left;
+                            }
+                            &>input {
+                                float: right;
+                                padding: 10px 20px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #2793FF;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                background-color: #fff;
+                                border: 1px solid #4495FF;
+                                border-radius: 4px;
+                                margin-top: 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        .rwfqSetContainer {
+                            .rwfqSetContent {
+                                &>dt {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        width: 25%;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #7C8FA6;
+                                        letter-spacing: 0;
+                                        box-sizing: border-box;
+                                        &:last-child {
+                                            text-align: right;
+                                            padding-right: 30px;
+                                            box-sizing: border-box;
+                                        }
+                                    }
+                                }
+                                &>dd {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        width: 25%;
+
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #333333;
+                                        letter-spacing: 0;
+                                    }
+                                    &>a {
+                                        float: right;
+                                        &>img {
+                                            &:last-child {
+                                                padding-right: 35px;
+                                            }
+                                        }
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+
+                                        background: rgba(68, 149, 255, 0.20);
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            .detailmap {
-                padding:0 20px;
+            /*单位管理*/
+            .unitContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 10px;
+                .unitoption {
+                    margin-bottom: 10px;
+                    height: 70px;
+                    &>li {
+                        float: left;
+                        margin-right: 20px;
+                        &>p {
+                            color: #383D40;
+                            font-size: 12px;
+                            line-height: 26px;
+                        }
+                        &>span {
+                            margin: 0 5px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #383D40;
+                            letter-spacing: 0;
+                            line-height: 32px;
+                        }
+                        .start,
+                        .end {
+                            position: relative;
+                            font-size: 12px;
+                            color: #383D40;
+                            &>input {
+                                width: 117PX;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                border-radius: 5px;
+                                padding: 5px;
+                                box-sizing: border-box;
+                                font-size: 12px;
+                                color: #383D40;
+                                cursor: pointer;
+                            }
+                            &>i {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                color: #8D96BA;
+                            }
+                        }
+
+                        .selectContainer {
+                            position: relative;
+                            float: left;
+                            .select {
+                                float: left;
+                                width: 117px;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                ;
+                                border-radius: 5px;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                line-height: 32px;
+                                span {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    ;
+                                }
+                                i {
+                                    color: #8D96BA;
+                                    ;
+                                    margin-top: 8px;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .selectOption {
+                                position: absolute;
+                                top: 40px;
+                                left: 0px;
+                                width: 117px;
+                                border: 1px solid #D7DCE4;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                display: none;
+                                box-sizing: border-box;
+                                z-index: 999;
+                                &>li {
+                                    width: 100%;
+                                    cursor: pointer;
+                                    font-size: 12px;
+                                    padding: 10px 10px;
+                                    color: #5A6388;
+                                    box-sizing: border-box;
+                                }
+                            }
+                        }
+                        .cx {
+                            margin-top: 25px;
+                            margin-right: 10px;
+                            float: left;
+                            font-size: 12px;
+                            input {
+                                height: 32px;
+                                width: 60px;
+                                border-radius: 5px;
+                                line-height: 32px;
+                                background-color: #2793FF;
+                                color: #fff;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .unitmanaContainer {
+                    position: relative;
+                    #unitTable_filter {
+                        position: absolute;
+                        top: -80px;
+                        right: 25px;
+                        input {
+                            width: 240px;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
+                    #unitTable {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        empty-cells: show;
+                        text-align: center;
+                        font-size: 12px;
+                        thead {
+
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #7F8FA4;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                font-weight: 100;
+                                th {
+                                    font-weight: 100;
+                                    height: 40px;
+                                    box-sizing: border-box;
+
+                                    line-height: 40px;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #333333;
+                                letter-spacing: 0;
+                                line-height: 13px;
+                                td {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    box-sizing: border-box;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                    &>img {
+                                        margin-right: 20px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                &:hover {
+                                    background-color: #F7FAFE;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .checkBox {
+                            width: 16px;
+                            height: 16px;
+                            border: 1px solid #D7DCE4;
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            &>b {
+                                display: none;
+                                position: absolute;
+                                color: #5D6D98;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                    #unitTable_info {
+                        float: left;
+                        margin-top: 15px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                    #unitTable_paginate {
+                        float: right;
+                        margin-top: 15px;
+                        height: 35px; // border: 1px solid #E6EAEE;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: .AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -755,6 +1440,26 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -862,6 +1567,26 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1017,6 +1742,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*新建单位*/
 
 .newunitContainer {
@@ -1118,6 +1863,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*hover效果*/
 
 #tooltip {
@@ -1129,4 +1894,254 @@
     font-size: 12px;
     text-align: center;
     display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*分配任务*/
+
+.taskFpContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1999;
+    display: none;
+    .taskContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .taskmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                .selectContainer {
+                    position: relative;
+                    margin-top: 10px;
+                    .select {
+                        width: 100%;
+                        height: 32px;
+                        border: 1px solid #D7DCE4;
+                        ;
+                        border-radius: 5px;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        line-height: 32px;
+                        span {
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #383D40;
+                            ;
+                        }
+                        i {
+                            color: #8D96BA;
+                            ;
+                            margin-top: 8px;
+                            box-sizing: border-box;
+                        }
+                    }
+                    .selectOption {
+                        position: absolute;
+                        top: 40px;
+                        left: 0px;
+                        width: 100%;
+                        border: 1px solid #D7DCE4;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        display: none;
+                        box-sizing: border-box;
+                        z-index: 999;
+                        &>li {
+                            width: 100%;
+                            cursor: pointer;
+                            font-size: 12px;
+                            padding: 10px 10px;
+                            color: #5A6388;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+            }
+        }
+        .taskfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*结束任务*/
+
+.taskEndContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1999;
+    font-size: .12rem;
+    display: none;
+    .taskEndContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .taskEndmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                    &:last-child {
+                        float: right;
+                    }
+                }
+                &>textarea {
+                    width: 100%;
+                    height: 1rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    resize: none;
+                    margin: 10px 0;
+                    outline: none;
+                    outline-style: none;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    font-family: PingFangSC-Regular;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: #383D40;
+                }
+            }
+        }
+        .taskEndfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
 }

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新建投诉工单</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/datepicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/createComplaint.css">
+</head>
+
+<body>
+    <!-- header -->
+<!--     <div class="header">
+        <h1>投诉管理系统</h1>
+    </div> -->
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="bodyBox">
+                <h5>投诉信息</h5>
+                <div class="row inforow">
+                    <ul class="col-md-6 rowleft">
+                        <h6>接办信息</h6>
+                        <li class="row">
+                            <label class="control-label col-md-2" for="input01">接办单位:</label>
+                            <input type="text" id="acceptunit" placeholder="接办单位" class="input-xlarge col-md-6">
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2" for="input01">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接办人:</label>
+                            <input type="text" id="acceptperson" placeholder="接办人" class="input-xlarge col-md-6">
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2" for="input01">接办时间:</label>
+                            <input type="text" id="accepttime" placeholder="接办时间" class="timeInput col-md-6">
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2" for="input01">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区域:</label>
+                            <input type="text" id="region" placeholder="区域" class="input-xlarge col-md-6">
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2">投诉内容:</label>
+                            <div class="textarea col-md-12 col-md-offset-2">
+                                <textarea type="" id="petition" class="col-md-6"> </textarea>
+                            </div>
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2">投诉类型:</label>
+                            <select class="input-xlarge col-md-2" id="cmtype">
+                                <option value="服务投诉">服务投诉</option>
+                                <option value="环保投诉">环保投诉</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </li>
+                        <li class="row">
+                            <label class="control-label col-md-2">投诉来源:</label>
+                            <select class="input-xlarge col-md-2" id="cmsource">
+                                <option value="上访投诉">上访投诉</option>
+                                <option value="电话投诉">电话投诉</option>
+                                <option value="信件投诉">信件投诉</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <div class="col-md-6 rowright">
+                        <h6>办理信息</h6>
+                        <ul>
+                            <li class="row">
+                                <label class="control-label col-md-2">办理人:</label>
+                                <input type="text" id="handlingperson" placeholder="办理人" class="input-xlarge col-md-6">
+                            </li>
+                            <li class="row">
+                                <label class="control-label col-md-2">办理时间:</label>
+                                <input type="text" id="handlingtime" placeholder="办理时间" class="timeInput col-md-6">
+                            </li>
+                            <li class="row resultSelDiv">
+                                <label class="control-label col-md-2">处理结果：</label>
+                                <select class="input-xlarge col-md-2" id="resultSel">
+                                    <option value="-1">请选择</option>
+                                    <option value="true">已解决</option>
+                                    <option value="false">未解决</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <a class="jbbtn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: inline-block;font-size: 20px; color: #325BA7;"><i class="fa fa-caret-right"></i>交办信息</a>
+                        <br>
+                        <ul class="rowjb collapse" id="collapseExample">
+                            <li class="row">
+                                <label class="control-label col-md-2" for="input01">交办单位</label>
+                                <input type="text" id="assignedunit" placeholder="交办单位" class="input-xlarge col-md-6">
+                            </li>
+                            <li class="row">
+                                <label class="control-label col-md-2" for="input01">交办人</label>
+                                <input type="text" id="assignedperson" placeholder="交办人" class="input-xlarge col-md-6">
+                            </li>
+                        </ul>
+                        <a class="cbbtn" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" style="display: inline-block;font-size: 20px; color: #325BA7;">承办信息<i class="fa fa-caret-right"></i></a>
+                        <ul class="rowcb collapse" id="collapseExample1">
+                            <li class="row">
+                                <label class="control-label col-md-2" for="input01">承办单位</label>
+                                <input type="text" id="undertakeunit" placeholder="承办单位" class="input-xlarge col-md-6">
+                            </li>
+                            <li class="row">
+                                <label class="control-label col-md-2" for="input01">承办人</label>
+                                <input type="text" id="undertakeperson" placeholder="承办人" class="input-xlarge col-md-6">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row sprow approvalDiv" style="min-height: 200px;">
+                    <ul class="col-md-12">
+                        <li class="col-md-12 approvalBtnDiv">
+                            <label class="control-label col-md-1">审批结果：</label>
+                            <select class="input-xlarge col-md-1" id="examine">
+                                <option value="true">通过</option>
+                                <option value="false">不通过</option>
+                            </select>
+                        </li>
+                        <li class="col-md-12 approvalContent">
+                            <label class="control-label col-md-2">审批意见:</label>
+                            <div class="textarea col-md-11 col-md-offset-1">
+                                <textarea class="col-md-10 " type="" id="approvalopinion" class=""> </textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 btnClass clearfix">
+                <!--     <a id="createBtn" class="btn" href="javascript:void(0)" onclick="createComplaintOrder()">创建</a>
+                    <a id="updateBtn" class="btn" href="javascript:void(0)" onclick="updateComplaintOrder()">更新</a>
+                    <a id="handleBtn" class="btn" href="javascript:void(0)" onclick="handleComplaintOrder()">办理</a>
+                    <a id="submitBtn" class="btn" href="javascript:void(0)" onclick="submitComplaintOrder()">提交</a>
+                    <a id="examineBtn" class="btn" href="javascript:void(0)" onclick="examineComplaintOrder()">审核</a>
+                    <a id="backBtn" class="" href="complaintInfor.html" style="padding:6px 12px;">返回</a> -->
+                     <button id="createBtn" class="btn btn-info btn1" href="javascript:void(0)" onclick="createComplaintOrder()">创建</button>
+                    <button id="updateBtn" class="btn btn-info btn1" href="javascript:void(0)" onclick="updateComplaintOrder()">更新</button>
+                    <button id="handleBtn" class="btn btn-info btn1" href="javascript:void(0)" onclick="handleComplaintOrder()">办理</button>
+                    <button id="submitBtn" class="btn btn-info btn1" href="javascript:void(0)" onclick="submitComplaintOrder()">提交</button>
+                    <button id="examineBtn" class="btn btn-info btn1" href="javascript:void(0)" onclick="examineComplaintOrder()">审核</button>
+                    <button id="backBtn" class="btn btn-info " href="complaintInfor.html" style="padding:6px 12px;">返回</button>
+                </div>
+            </div>
+        </div>
+        <script src="../lib/RMap/rmap.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../node_modules/bootstrap/js/bootstrap-select.min.js"></script>
+        <script src="../node_modules/datepicker/js/foundation-datepicker.min.js"></script>
+        <script src="../node_modules/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+        <!-- 滚动条 -->
+        <script src="../lib/jquery.nicescroll.min.js"></script>
+        <!-- common.js -->
+        <script src="../js/common.js"></script>
+        <!-- 获取项目路径的公共方法 -->
+        <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+        <script type="text/javascript" src="../js/basePath.js"></script>
+        <script type="text/javascript" src="../js/dataUtils.js"></script>
+        <script type="text/javascript">
+        $("#backBtn").on("click", function() {
+            window.location.href = 'complaintInfor.html'
+        })
+        $(document).ready(
+            function() {
+                setTimeout(function() {
+                    setNiceScroll(".swiper-container")
+                }, 0)
+            }
+        );
+        // 进来页面的类型：新建（create）？编辑（edit）？详情（detail）？处理（handle）？审核（examine）？
+        var type = getQueryString('type');
+        var userId = '0';
+        var userName = getUserNameById(userId);
+        // 投诉工单对象
+        var cmObj = null;
+        // 投诉工单的id
+        var cmId = '';
+        if (type == 'edit' || type == 'detail' || type == 'handle' || type == 'examine') {
+            cmId = getQueryString('cmId');
+        }
+        // 默认办理人为当前登录人
+        $('#handlingperson').val(userName);
+
+        fillPageDom();
+        // 填充投诉管理的数据
+        function fillPageDom() {
+            if (type == 'edit' || type == 'detail' || type == 'handle' || type == 'examine') {
+                var cmCache = localStorage.getItem(cmId + '_cache');
+                cmObj = JSON.parse(cmCache);
+                // 页面元素填充
+                $('#acceptunit').val(cmObj.acceptunit);
+                $('#acceptperson').val(cmObj.acceptperson);
+                if (cmObj.petition) {
+                    $('#petition').val(cmObj.petition);
+                }
+                if (cmObj.accepttime) {
+                    $('#accepttime').val(formatTime(cmObj.accepttime.time, true));
+                }
+                if (cmObj.region) {
+                    $('#region').val(cmObj.region);
+                }
+                if (cmObj.handlingperson) {
+                    $('#handlingperson').val(cmObj.handlingperson);
+                }
+                if (cmObj.acceptperson) {
+                    $('#acceptperson').val(cmObj.acceptperson);
+                }
+                if (cmObj.handlingtime) {
+                    $('#handlingtime').val(formatTime(cmObj.handlingtime.time, true));
+                }
+                if (cmObj.assignedunit) {
+                    $('#assignedunit').val(cmObj.assignedunit);
+                }
+                if (cmObj.assignedperson) {
+                    $('#assignedperson').val(cmObj.assignedperson);
+                }
+                if (cmObj.undertakeunit) {
+                    $('#undertakeunit').val(cmObj.undertakeunit);
+                }
+                if (cmObj.undertakeperson) {
+                    $('#undertakeperson').val(cmObj.undertakeperson);
+                }
+                $("#cmtype").find("option[value=" + cmObj.cmtype + "]").attr("selected", true);
+                $("#cmsource").find("option[value=" + cmObj.cmsource + "]").attr("selected", true);
+                // 办理状态
+                if (cmObj.cmstate) {
+                    var res = '';
+                    if (cmObj.cmstate=='-1') {
+                        res = 'false';
+                    }
+                    if (cmObj.cmstate=='1') {
+                        res = 'true';
+                    }
+                    $("#resultSel").find("option[value=" + res + "]").attr("selected", true);
+                }
+                // 审核不通过
+                if (cmObj.orderstate=='3') {
+                    $("#examine").find("option[value=false]").attr("selected", true);
+                }
+                // 审核通过
+                if (cmObj.orderstate=='4') {
+                    $("#examine").find("option[value=true]").attr("selected", true);
+                }
+                // 审核意见
+                if (cmObj.approvalopinion!=''&&cmObj.approvalopinion!=null) {
+                    $('#approvalopinion').val(cmObj.approvalopinion);
+                }else {
+                    $('#approvalopinion').val('无');
+                }
+
+            }
+        }
+        /**
+         * 创建投诉工单
+         * @return {[type]} [description]
+         */
+        function createComplaintOrder() {
+            var acceptunit = $('#acceptunit').val().trim();
+            var acceptperson = $('#acceptperson').val().trim();
+            var region = $('#region').val().trim();
+            var petition = $('#petition').val().trim();
+            var cmtype = $('#cmtype').val();
+            var cmsource = $('#cmsource').val();
+            var handlingperson = $('#handlingperson').val().trim();
+            var assignedunit = $('#assignedunit').val().trim();
+            var assignedperson = $('#assignedperson').val().trim();
+            var undertakeunit = $('#undertakeunit').val().trim();
+            var undertakeperson = $('#undertakeperson').val().trim();
+            var approvalopinion = $('#approvalopinion').val().trim();
+            if (acceptperson == '') {
+                alert('接办人不得为空！');
+                return;
+            }
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/createComplaintOrder', {
+                    acceptUnit: acceptunit,
+                    acceptPerson: acceptperson,
+                    petition: petition,
+                    cmSource: cmsource,
+                    region: region,
+                    cmType: cmtype,
+                    handlingPerson: handlingperson,
+                    assignedUnit: assignedunit,
+                    assignedPerson: assignedperson,
+                    undertakeUnit: undertakeunit,
+                    undertakePerson: undertakeperson
+                },
+                function success(result) {
+                    if (result.resCode == 1 && result.data != '') {
+                        alert('创建成功！');
+                        // 显示编辑按钮
+                        $('#createBtn').hide();
+                        cmId = result.data;
+                        $('#updateBtn').show();
+                        findComplaintOrderById();
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error.msg);
+                });
+
+        }
+        /**
+         * [updateComplaintOrder 更新投诉工单]
+         * @return {[type]} [description]
+         */
+        function updateComplaintOrder() {
+            var acceptunit = $('#acceptunit').val().trim();
+            var acceptperson = $('#acceptperson').val().trim();
+            var region = $('#region').val().trim();
+            var petition = $('#petition').val().trim();
+            var cmtype = $('#cmtype').val();
+            var cmsource = $('#cmsource').val();
+            var handlingperson = $('#handlingperson').val().trim();
+            var assignedunit = $('#assignedunit').val().trim();
+            var assignedperson = $('#assignedperson').val().trim();
+            var undertakeunit = $('#undertakeunit').val().trim();
+            var undertakeperson = $('#undertakeperson').val().trim();
+            var approvalopinion = $('#approvalopinion').val().trim();
+            if (acceptperson == '') {
+                alert('接办人不得为空！');
+                return;
+            }
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/updateComplaintOrder', {
+                    cmId: cmId,
+                    acceptUnit: acceptunit,
+                    acceptPerson: acceptperson,
+                    petition: petition,
+                    cmSource: cmsource,
+                    region: region,
+                    cmType: cmtype,
+                    handlingPerson: handlingperson,
+                    assignedUnit: assignedunit,
+                    assignedPerson: assignedperson,
+                    undertakeUnit: undertakeunit,
+                    undertakePerson: undertakeperson
+                },
+                function success(result) {
+                    if (result.resCode == 1 && result.data != '') {
+                        findComplaintOrderById();
+                        alert('更新成功！');
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error.msg);
+                });
+
+        }
+
+        /**
+         * 办理投诉
+         * @return {[type]} [description]
+         */
+        function handleComplaintOrder() {
+            var handlingPerson = $('#handlingperson').val();
+            if (handlingPerson == '') {
+                alert('办理人不得为空！');
+                return;
+            }
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/handleComplaint', {
+                    cmId: cmId,
+                    handlingPerson: handlingPerson
+                },
+                function success(result) {
+                    if (result.resCode == 1) {
+                        findComplaintOrderById();
+                        alert('操作成功！');
+                        // 隐藏办理按钮
+                        $('#handleBtn').hide();
+                        // 显示提交按钮
+                        $('#submitBtn').show();
+                        $('.resultSelDiv').show();
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error.msg);
+                });
+        }
+
+        /**
+         * 提交
+         * @return {[type]} [description]
+         */
+        function submitComplaintOrder() {
+            var assignedUnit = $('#assignedunit').val();
+            var assignedPerson = $('#assignedperson').val();
+            var undertakeUnit = $('#undertakeunit').val();
+            var undertakePerson = $('#undertakeperson').val();
+            var resultSel = $('#resultSel').val();
+            if (resultSel == '-1') {
+                alert('请选择处理结果！');
+                return;
+            }
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/submitComplaint', {
+                    cmId: cmId,
+                    user: userName,
+                    complete: resultSel,
+                    assignedUnit: assignedUnit,
+                    assignedPerson: assignedPerson,
+                    undertakeUnit: undertakeUnit,
+                    undertakePerson: undertakePerson
+                },
+                function success(result) {
+                    if (result.resCode == 1) {
+                        alert('提交成功！');
+                        window.location.href = "complaintInfor.html";
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error.msg);
+                });
+        }
+
+        /**
+         * 审批
+         * @return {[type]} [description]
+         */
+        function examineComplaintOrder() {
+            var examine = $('#examine').val();
+            var remark = $('#approvalopinion').val().trim();
+            if (examine == 'false' && remark == '') {
+                alert('请填写审批不通过的原因！');
+                return;
+            }
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/examineComplaint', {
+                    cmId: cmId,
+                    user: userName,
+                    examine: examine,
+                    remark: remark
+                },
+                function success(result) {
+                    if (result.resCode == 1) {
+                        alert('审批成功！');
+                        window.location.href = "complaintInfor.html";
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error);
+                });
+        }
+        /**
+         * 获取对象数据
+         * @return {[type]} [description]
+         */
+        function findComplaintOrderById() {
+            JQueryUtil.sendRCP(pathUrl + '/complaintManage/findComplaintOrderById', {
+                    cmId: cmId
+                },
+                function success(result) {
+                    if (result.resCode == 1 && result.data != '') {
+                        var cmResult = JSON.parse(result.data);
+                        cmObj = cmResult;
+                        // 更新缓存
+                        localStorage.removeItem(cmId + '_cache');
+                        localStorage.setItem(cmId + '_cache', result.data);
+
+                        fillPageDom();
+                    } else {
+                        alert(result.msg);
+                    }
+                },
+                function error(error) {
+                    console.log(error);
+                });
+        }
+
+
+        $(function() {
+            $('.handlingTimeDiv').hide();
+            $('.approvalDiv').hide();
+            $('.resultSelDiv').hide();
+            // ------------------ 页面模式判断 -----------------
+            // 新建（create）
+            if (type == 'create') {
+                $('.titleLabel').html('接办投诉');
+                $('#acceptperson').val(userName);
+                $('#createBtn').show();
+                $('.acceptTimeDiv').hide();
+            } else if (type == 'edit') {
+                // 编辑（edit）
+                $('input').attr("readOnly", false);
+                $('.titleLabel').html('编辑投诉信息');
+                $('#updateBtn').show();
+            } else if (type == 'detail') {
+                // 详情（detail）
+                $('input').attr("readOnly", true);
+                $('textarea').attr("readOnly", true);
+                $('select').attr("disabled", 'disabled');
+                $('.titleLabel').html('投诉详情信息');
+                // 审核通过或者不通过显示审核信息
+                if (cmObj.orderstate=='3'||cmObj.orderstate=='4') {
+                    $('.approvalDiv').show();
+                }
+            } else if (type == 'handle') {
+                // 处理（handle）
+                $('.titleLabel').html('办理投诉');
+
+                $('#acceptunit').attr("readOnly", true);
+                $('#acceptperson').attr("readOnly", true);
+                $('#accepttime').attr("readOnly", true);
+                $('#region').attr("readOnly", true);
+                $('#petition').attr("readOnly", true);
+                $('#cmtype').attr("disabled", 'disabled');
+                $('#cmsource').attr("disabled", 'disabled');
+
+                // debugger
+                $('.handlingTimeDiv').show();
+                // $('#handleBtn').show();
+                if (cmObj.orderstate == '1') {
+                    $('.resultSelDiv').show();
+                    $('#submitBtn').show();
+                }
+                // 新建或者审核不通过后可进行处理操作
+                if (cmObj.orderstate == '0' || cmObj.orderstate == '3') {
+                    $('#handleBtn').show();
+                }
+                // 显示审核不通过信息
+                if (cmObj.orderstate == '3') {
+                    // 审核选择和文本框不可操作
+                    $('.approvalDiv').show();
+                    $('#examine').attr("disabled", 'disabled');
+                    $('#approvalopinion').attr("readOnly", true);
+                }
+
+            } else {
+                // 审核（examine）
+                $('.titleLabel').html('审核投诉信息');
+                $('.approvalDiv').show();
+                $('.handlingTimeDiv').show();
+                $('#examineBtn').show();
+                $('.resultSelDiv').show();
+
+            }
+            // 时间文本不可写
+            $('.timeInput').attr("readOnly", true);
+
+
+        })
+        $(".jbbtn").on("click",function () {
+             console.log($(".jbbtn").attr('aria-expanded'))
+            if($(this).attr('aria-expanded') == 'true') {
+                $(this).find('i').addClass("fa fa-caret-right").removeClass('fa-caret-down')
+            }else if($(this).attr('aria-expanded') == 'false') {
+                $(this).find('i').addClass("fa-caret-down").removeClass('fa-caret-right')
+
+            }
+        })
+           $(".cbbtn").on("click",function () {
+             console.log($(".jbbtn").attr('aria-expanded'))
+            if($(this).attr('aria-expanded') == 'true') {
+                $(this).find('i').addClass("fa fa-caret-right").removeClass('fa-caret-down')
+            }else if($(this).attr('aria-expanded') == 'false') {
+                $(this).find('i').addClass("fa-caret-down").removeClass('fa-caret-right')
+
+            }
+        })
+       
+        </script>
+</body>
+
+</html>

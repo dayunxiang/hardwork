@@ -3,6 +3,8 @@ $(function () {
  initMap()
 //打开照片预览
 openphotoyl() 
+//select
+select('.fzrselect','.fzrselectOption')
 
 })
 
@@ -55,4 +57,5 @@ function openphotoyl() {
         openPhotoSwipe()
     })
 }
+
 

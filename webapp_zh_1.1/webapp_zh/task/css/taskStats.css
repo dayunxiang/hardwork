@@ -1,0 +1,63 @@
+
+
+
+
+
+.table-cons .table {
+  text-align:center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.12);
+
+}
+.table-cons thead  {
+  background-color: #325BA7;
+  color: #fff;
+  text-align:center;
+ 
+}
+.table-cons .table>thead>tr {
+  border:none;
+}
+.table-cons .table>thead>tr>th {
+   padding:10px;
+  text-align:center;
+  border-right: 1px solid #fff;
+
+}
+.table-cons .table>thead>tr>th:last-child {
+  border-right: none;
+}
+.table-cons .table>tbody>tr>td {
+  border:1px solid #EEE;
+}
+
+.bodyBox {
+  padding: 30px;
+}
+
+.toolBox {
+  width: 100%;
+  box-shadow:0 3px 6px 0 rgba(0,0,0,.12);
+  padding: 10px 15px;
+}
+.toolBox li {
+  float: left;
+  margin-right: 20px;
+}
+.table-condensed thead {
+  background-color: #fff;
+    color: #333;
+}
+.timeSel input {
+  outline-style: none;
+  outline: none;
+
+    height: 34px;
+    padding: 6px ;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

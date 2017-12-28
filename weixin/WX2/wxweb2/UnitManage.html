@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/datePicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- 整个容器 -->
+    <div class="wrap">
+        <!-- 侧边栏 -->
+        <div class="sideBar sideBar-mini">
+            <div class="logo ">
+                <img src="img/logo.png" alt="">
+                <h2>巡检后台管理系统</h2>
+            </div>
+            <ul class="list">
+                <li>
+                    <img src="img/ico-user.png" alt="">
+                    <span>用户管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-upload.png" alt="">
+                    <span>警情管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-set.png" alt="">
+                    <span>设置</span>
+                </li>
+                <li class="now">
+                    <img src="img/ico-company.png" alt="">
+                    <span>单位管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-Statistics.png" alt="">
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 中间内容容器 -->
+        <div class="mainContainer">
+            <!-- 顶部top -->
+            <div class="topHeader">
+            </div>
+            <!-- content -->
+            <div class="content">
+                <h3>警情管理</h3>
+                <div class="unitContainer">
+                    <ul class="unitoption clearfix">
+                        <li class="clearfix">
+                            <p>
+                                城市
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix unitCityselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption unitCityselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                单位名称
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix unitNameselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption unitNameselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                选择注册时间范围
+                            </p>
+                            <div class="start fl-l">
+                                <input type="text" value="" id="startTime">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                            <span class="fl-l">至</span>
+                            <div class="end fl-l">
+                                <input type="text" value="" id="endTime">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="cx">
+                                <input type="button" value="查询">
+                            </div>
+                        </li>
+                        <!--  <li>
+                            <input type="text" placeholder="搜索">
+                            <img src="img/Slice.png" alt="">
+                        </li> -->
+                    </ul>
+                    <div class="unitmanaContainer">
+                        <table id="unitTable">
+                            <thead>
+                                <tr>
+                                   
+                                     <th><i class="checkBox"><b class="fa fa-check"></b></i><span>单位名称</span></th>
+                                    <th>所在省</th>
+                                    <th>管理员</th>
+                                    <th>微信号</th>
+                                    <th>手机号</th>
+                                    <th>邮箱</th>
+                                    <th>注册时间</th>
+                                    <th>注册人数（人）</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="./lib/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+    <script src="./lib/datePicker/js/foundation-datepicker.js"></script>
+    <script src="./lib/datePicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/UnitManage.js"></script>
+</body>
+
+</html>

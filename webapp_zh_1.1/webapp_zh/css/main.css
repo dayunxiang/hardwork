@@ -1,0 +1,1113 @@
+html,
+body {
+    position: relative;
+    height: 100%; // min-height: 6.16rem;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: .14rem;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    /*height: 10px;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*background-color: #325BA7;*/
+    z-index: 9999
+}
+
+.swiper-container {
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide {
+    font-size: .18rem;
+    background: #fff;
+    position: relative;
+}
+/*.header h1 {
+    float: left;
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 66px;
+    margin-left: 20px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 清淤整改 */
+
+.swiper-container .swiper-slide .qingyucard,
+.swiper-container .swiper-slide .zhihuicard,
+.swiper-container .swiper-slide .yilaocard,
+.swiper-container .swiper-slide .zhenggaicard,
+.swiper-container .swiper-slide .fengxiancard {
+    width: 3.6rem;
+    position: absolute;
+    top: 1.56rem;
+    left: 0.3rem;
+    z-index: 10000;
+}
+
+.swiper-container .swiper-slide .qingyucard .title,
+.swiper-container .swiper-slide .zhihuicard .title,
+.swiper-container .swiper-slide .yilaocard .title,
+.swiper-container .swiper-slide .zhenggaicard .title,
+.swiper-container .swiper-slide .fengxiancard .title {
+    width: 100%;
+    font-size: .20rem;
+    color: #FFFFFF;
+    padding: .4rem 0;
+    text-align: center;
+    background: #325BA7;
+}
+
+.swiper-container .swiper-slide .qingyucard .main,
+.swiper-container .swiper-slide .zhihuicard .main,
+.swiper-container .swiper-slide .yilaocard .main,
+.swiper-container .swiper-slide .zhenggaicard .main,
+.swiper-container .swiper-slide .fengxiancard .main {
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+    padding: .15rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption {
+    width: 100%;
+    padding: .15rem 0 .3rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption>span {
+    font-size: .12rem;
+    float: left;
+    color: #8D96BA;
+    line-height: .22rem;
+    margin-top: .12rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select {
+    float: left;
+    border: 1px solid #5A6388;
+    width: 60%;
+    margin-left: .15rem;
+    padding: .09rem .20rem;
+    border-radius: .50rem;
+    position: relative;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select>i {
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .select>span {
+    font-size: .12rem;
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .selectOption {
+    position: absolute;
+    top: 2rem;
+    left: .7rem;
+    width: 60%;
+    border: 1px solid #5A6388;
+    background-color: #fff;
+    border-radius: .1rem;
+    display: none;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .timeOption .selectOption li {
+    width: 100%;
+    cursor: pointer;
+    font-size: .12rem;
+    padding: .10rem .10rem;
+    color: #5A6388;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent {
+    width: 100%;
+    padding: .20rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul {
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li span {
+    font-size: .12rem;
+    color: #8D96BA;
+    float: left;
+    width: 100%;
+    margin: 0.05rem 0;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .countcontent ul>li span:last-child {
+    color: #5A6388;
+    font-size: .22rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom {
+    width: 100%;
+    padding-top: .15rem;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom>li {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .qingyucard .main .bottom>li span {
+    font-size: .15rem;
+    color: #5A6388;
+    margin-left: .10rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 指挥调度图 */
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption {
+    padding: 0.08rem 0 .3rem 0;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li {
+    width: 40%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li:last-child {
+    width: 60%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li span {
+    font-size: .12rem;
+    float: left;
+    width: 100%;
+    color: #8D96BA;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .timeOption>ul>li span:last-child {
+    font-size: .22rem;
+    color: #FE6036;
+    margin-top: .10rem;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent,
+.swiper-container .swiper-slide .yilaocard .main .countcontent,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent {
+    padding: .20rem 0 .15rem 0;
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li>span,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li>span {
+    float: left;
+    width: 100%;
+    font-size: .12rem;
+    color: #8D96BA;
+    margin-top: .10rem;
+}
+
+.swiper-container .swiper-slide .zhihuicard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .yilaocard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .zhenggaicard .main .countcontent>ul>li>span:last-child,
+.swiper-container .swiper-slide .fengxiancard .main .countcontent>ul>li>span:last-child {
+    font-size: .22rem;
+    color: #5A6388;
+    margin-top: .10rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 易涝分布图 */
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption {
+    width: 100%;
+    padding: .15rem 0 .3rem 0;
+    border-bottom: 1px solid rgba(50, 91, 167, 0.1);
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul {
+    // width: 100%;
+    // height: 100%;
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul li,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul li {
+    // width: 100%;
+}
+
+.swiper-container .swiper-slide .yilaocard .main .timeOption ul li p,
+.swiper-container .swiper-slide .zhenggaicard .main .timeOption ul li p {
+    font-size: .12rem;
+    color: #8D96BA;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 人员物资统计 */
+
+
+/* 汛情/警情统计 */
+
+.swiper-container .swiper-slide .wuzitongji,
+.swiper-container .swiper-slide .xunjingqingtongji,
+.swiper-container .swiper-slide .xitongjianjie {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.swiper-container .swiper-slide .wuzitongji .title,
+.swiper-container .swiper-slide .xunjingqingtongji .title,
+.swiper-container .swiper-slide .xitongjianjie .title {
+    font-size: .2rem;
+    color: #4A4A4A;
+    width: 100%;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main,
+.swiper-container .swiper-slide .xunjingqingtongji .main,
+.swiper-container .swiper-slide .xitongjianjie .main {
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .main {
+    background-color: transparent;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing {
+    width: 50%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid rgba(50, 91, 167, .1);
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren .title,
+.swiper-container .swiper-slide .wuzitongji .main .fxwu .title,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing .title,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing .title {
+    font-size: .26rem;
+    color: #325BA7;
+    margin-top: .4rem;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxren #fxren,
+.swiper-container .swiper-slide .wuzitongji .main .fxwu #fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .xunqing #xunqing,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing #jingqing {
+    padding: .3rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jingqing {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.swiper-container .swiper-slide .wuzitongji .main .fxwu #fxwu,
+.swiper-container .swiper-slide .xunjingqingtongji .main .jignqing #jignqing {
+    padding: .3rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+.swiper-container .swiper-slide .xitongjianjie .intro {
+    float: left;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .intromain {
+    background-color: #fff;
+    margin-top: .1rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather {
+    float: left;
+    margin-left: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain {
+    margin-top: .1rem;
+    background-color: #6AB3E6;
+    padding: .3rem;
+    box-sizing: border-box;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo {}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul {}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul li {
+    margin-top: .1rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherInfo ul li span {
+    font-size: .2rem;
+    color: #FFFFFF;
+    line-height: .2rem;
+    margin-right: .2rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab {
+    margin-top: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar {
+    height: .4rem;
+    border-radius: .4rem;
+    background-color: #356EBA;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar li {
+    width: 50%;
+    float: left;
+    height: .4rem;
+    border-radius: .4rem;
+    text-align: center;
+    line-height: .4rem;
+    color: #9DB9DE;
+    font-size: .2rem;
+    cursor: pointer;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeBar>li.active {
+    background-color: #fff;
+    color: #325BA7;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent {
+    // padding-top: 28px;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent li {
+    margin-top: .4rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li span:first-child {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    float: left;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li span:last-child {
+    font-size: .5rem;
+    float: left;
+    color: #FFFFFF;
+    margin-top: .2rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li div {
+    float: left;
+    display: inline-block;
+    margin-right: .3rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li i {
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: .15rem;
+    vertical-align: middle;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child li img {
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:first-child .kqzl {
+    height: .35rem;
+    line-height: .35rem;
+    width: 1.6rem;
+    background-color: #41C978;
+    color: #fff;
+    border-radius: .35rem;
+    font-size: .15rem;
+    text-align: center;
+}
+
+.swiper-container .swiper-slide .xitongjianjie .weather .weathermain .weatherBab .changeContent .changeContentSub:last-child {
+    font-size: .15rem;
+    color: #FFFFFF
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 防汛应急页面 */
+
+.mainContainer {
+    background-color: red;
+    padding-top: 66px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mainContainer .alertBox {
+    position: absolute;
+    top: 86px;
+    right: 10px;
+    width: 220px;
+    height: 50px;
+    background-color: #EB4E37;
+    z-index: 9999;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.mainContainer .alertBox button {
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.20);
+    cursor: pointer;
+}
+
+.mainContainer .alertBox button span {
+    color: #fff;
+    font-size: 16px;
+}
+
+.mainContainer .alertBox p {
+    font-size: 12px;
+    color: #FFF;
+    letter-spacing: 0;
+    line-height: 12px;
+    margin-top: 10px;
+}
+
+.mainContainer #map {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBarBrand {
+    position: absolute;
+    top: 86px;
+    left: 0;
+    width: 290px;
+    height: 48px;
+    margin-left: 10px;
+    background-color: #fff;
+    z-index: 10000;
+}
+
+.mainContainer .sideBarBrand .left {
+    float: left;
+    width: 70%;
+    height: 100%;
+    font-size: 20px;
+    color: #325BA7;
+    line-height: 48px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBarBrand .right {
+    float: right;
+    width: 30%;
+    height: 100%;
+    background: #2959AD;
+    position: relative;
+}
+
+.mainContainer .sideBarBrand .right>span {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #8D96BA;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.mainContainer .sideBarBrand .right>span i {
+    width: 30px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 25px;
+    color: #8D96BA;
+}
+
+.mainContainer .sideBar {
+    position: absolute;
+    top: 66px;
+    left: 0;
+    width: 300px;
+    z-index: 10000;
+    background-color: #EBEEF1;
+    box-sizing: border-box;
+    display: none;
+    box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.20);
+}
+
+.mainContainer .sideBar .tilte {
+    font-size: 20px;
+    color: #325BA7;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+}
+
+.mainContainer .sideBar .tilte>span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #8D96BA;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.mainContainer .sideBar .tilte span i {
+    width: 30px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.mainContainer .sideBar .tabBar {
+    width: 100%;
+    border-bottom: 1px solid #EDEFF2;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    background-color: #fff; // display: none;
+}
+
+.mainContainer .sideBar .tabBar li {
+    float: left;
+    width: 33.33%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #8D96BA;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabBar li.active {
+    font-size: 13px;
+    color: #325BA7;
+    border-bottom: 3px solid #325BA7;
+}
+
+.mainContainer .sideBar .tabContContainer {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff; // display: none;
+}
+
+
+
+
+
+
+
+/* 警情点 */
+
+.mainContainer .sideBar .tabContContainer .tabcontent {
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.20);
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop>span,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear>span,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo>span {
+    font-size: 12px;
+    color: #5A6388;
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .select,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .select,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .select {
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    width: 198px;
+    border: 1px solid #5A6388;
+    border-radius: 40px;
+    padding: 0 10px;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .select>i,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .select>i,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .select>i {
+    color: #5A6388;
+    margin-top: 13px;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .selectOption {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    width: 198px;
+    border: 1px solid #5A6388;
+    background-color: #fff;
+    border-radius: 10px;
+    display: none;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .selectOption li,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .selectOption li,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .selectOption li {
+    width: 198px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 10px 10px;
+    color: #5A6388;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .jingqingInfo {
+    margin-top: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .jingqingInfo li {
+    float: left;
+    width: 49%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    background-color: pink;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #4D4E7E;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .jingqingInfo li:first-child {
+    width: 74%;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingTop .jingqingInfo li>span {
+    font-size: 20px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table {
+    width: 100%;
+    border: 0;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table th {
+    background: #395CA2;
+    font-weight: normal;
+    line-height: 42px;
+    font-size: 12px;
+    color: #FFF;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table tr,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table tr,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table tr,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table tr {
+    color: #5A6388;
+    line-height: 37px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table tr:nth-child(odd),
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table tr:nth-child(odd),
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table tr:nth-child(odd),
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table tr:nth-child(odd){
+    background: #F3F5FA;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table tr:hover,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table tr:hover,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table tr:hover,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table tr:hover{
+    background: #F3F5FA;
+    color: #5A6388;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table td,
+.mainContainer .sideBar .tabContContainer .tabcontent .jingqingBottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table td,
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table td,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table th,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table td,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList table  th {
+    border: 1px solid #EEE;
+}
+
+
+
+
+
+
+
+/* 防汛队 */
+
+.mainContainer .sideBar .tabContContainer .tabcontent .chakan,
+.mainContainer .sideBar .tabContContainer .tabcontent .total {
+    padding: 20px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .chakan a {
+    font-size: 13px;
+    color: #325BA7;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .fangxunduibottom table a,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .fangxunduibottom table a {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/* 实时状态 */
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.20);
+    display: none;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subtitle {
+    border: 1px solid rgba(235, 238, 241, 1);
+    background-color: red;
+    position: relative;
+
+    font-size: 20px;
+    color: #325BA7;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subtitle i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: normal;
+    color: #8C95BD;
+    cursor: pointer;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent {}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption {
+    border-bottom: 1px solid #EBEEF1;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .choose {
+    padding: 20px 0 10px 20px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .choose li {
+    width: 50%;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .choose li i {
+    position: relative;
+    float: left;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #5A6388;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .choose li b {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4A90E2;
+    display: none;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .choose li span {
+    float: left;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .select,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .select {
+    height: 32px;
+    line-height: 32px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo {
+    position: relative;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .select>i,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .select>i {
+    margin-top: 9px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectYear .selectOption,
+.mainContainer .sideBar .tabContContainer .tabcontent .shistatus .subcontent .searchOption .selectInfo .selectOption {
+    position: absolute;
+    top: 31px;
+    left: 61px;
+    width: 198px;
+    border: 1px solid #5A6388;
+    background-color: #fff;
+    border-radius: 10px;
+    display: none;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail {
+    background-color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    z-index: 10000;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+    display:none;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailtitle {
+    border-bottom: 1px solid rgba(235, 238, 241, 1);
+    position: relative;
+    font-size: 20px;
+    color: #325BA7;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailtitle i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: normal;
+    color: #8C95BD;
+    cursor: pointer;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent {
+    padding: 15px 20px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo {
+    border-bottom: 1px solid #EBEEF1;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .title,
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList .title {
+    font-size: 15px;
+    color: #5A6388;
+    margin-bottom: 22px;
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .content {
+}
+
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .content li {
+    width: 20%;
+    float: left;
+    margin-bottom:20px;
+}
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .content li:last-child {
+    width: 70%;
+}
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .content li span {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    line-height:14px;
+    color: #5A6388;
+}
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .baseInfo .content li span:first-child {
+    color: #AFB7DA;
+    float: left;
+    margin-bottom:10px;
+}
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList {
+    padding-top: 20px;
+}
+.mainContainer .sideBar .tabContContainer .tabcontent .detail .detailContent .infoList li {
+    margin-bottom: 20px;
+}
+/* 图层数据 */
