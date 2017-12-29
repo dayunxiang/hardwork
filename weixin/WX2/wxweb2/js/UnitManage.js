@@ -1,4 +1,5 @@
 $(function() {
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
     //动态设置表格页加载数量
     page = Math.floor($(".unitmanaContainer").height() / 41) - 1;
@@ -23,6 +24,9 @@ $(function() {
     initunitTable()
     //全选和全部选功能
     allORnot()
+     $("#unitTable_wrapper").css({
+        'min-height': (h - 64-24-30-70-10-120-60) + "px"
+    });
 })
 //初始化用户表格
 function initunitTable() {
@@ -31,7 +35,7 @@ function initunitTable() {
         "bLengthChange": false,
         "iDisplayLength": page, //默认显示的记录数  
         "bAutoWidth": false, //是否自适应宽度  
-        "bScrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变  
+        "bScrollCollapse": false, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变  
         "oLanguage": {
             "sLengthMenu": "每页显示 _MENU_ 条记录",
             "sZeroRecords": "对不起，查询不到任何相关数据",

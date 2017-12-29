@@ -1,4 +1,6 @@
 $(function() {
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    
     //select
     select(".wtlxselect", '.wtlxselectOption')
     select(".ssqyselect", '.ssqyselectOption')
@@ -14,6 +16,9 @@ $(function() {
 
     //初始化用户表格
     initjqTable()
+      $("#jqTable_wrapper").css({
+        'min-height': (h - 64-24-30-70-10-120-60) + "px"
+    });
     //模拟title
     hovermn("#jqTable")
 

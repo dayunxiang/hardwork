@@ -1,4 +1,5 @@
 $(function() {
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
 
     //动态设置表格页加载数量
@@ -9,6 +10,9 @@ $(function() {
     })
     //初始化用户表格
     initUserTable()
+     $("#userTable_wrapper").css({
+        'min-height': (h - 64-24-30-70-10-120-60) + "px"
+    });
     //打开编辑
     openuserEdit()
     //取消或者关闭编辑
