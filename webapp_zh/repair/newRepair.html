@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>维修管理</title>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/datepicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/newRepair.css">
+    <link rel="stylesheet" href="../node_modules/page/pager.css">
+</head>
+
+<body>
+    <div class="topBanner">
+    </div>
+    <div class="mainWrap">
+        <ul class="sideBar sideBar-mini">
+        </ul>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="contentMain">
+                    <div class="bodyBox newBox">
+                        <div class="newTop">
+                            添加维修工单
+                        </div>
+                        <div class="newMain">
+                            <div class="newForm ">
+                                <ul style="overflow: hidden;">
+                                    <li>
+                                        <span>工单编号:</span>
+                                        <input type="text" placeholder="工单编号">
+                                    </li>
+                                    <li>
+                                        <span>报修时间:</span>
+                                        <input type="text" id="bxTime" placeholder="默认当前时间" style="cursor: pointer;">
+                                    </li>
+                                    <li>
+                                        <span>上报人员:</span>
+                                        <input type="text" placeholder="上报人员姓名">
+                                    </li>
+                                    <li>
+                                        <span>联系方式:</span>
+                                        <input type="text" placeholder="请输入联系方式">
+                                    </li>
+                                    <li>
+                                        <span>设备类型:</span>
+                                       <!--  <div class="selectContainer clearfix">
+                                            <div class="select sblxSelect clearfix">
+                                                <span class="fl-l"></span>
+                                                <i class="fl-r fa fa-caret-down"></i>
+                                            </div>
+                                            <ul class="selectOption sblxSelectOption" style="padding-left: 0; padding-right:0; ">
+                                                <li value="111">1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                            </ul>
+                                        </div> -->
+                                        <select class="form-control timeTypeSel">
+                                <option value="1">最近1个月</option>
+                                <option value="2">最近3个月</option>
+                                <option value="3">最近半年</option>
+                                <option value="4">最近1年</option>
+                                <option value="5">自定义</option>
+                            </select>
+                                    </li>
+                                    <li>
+                                        <span>资产编号:</span>
+                                        <input type="text" placeholder="请输入资产编号">
+                                        <div style="width: 50px;height: 30px; background-color: #00A1EF; position: relative; margin-top: 12px; margin-left: 13px;border-radius: 5px; float: left; cursor: pointer;">
+                                            <img src="../img/fault_icon11.png" alt="" style="width: 20px;height: 20px; position: absolute;top: 5px;left: 15px;">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>故障地点:</span>
+                                        <input type="text" placeholder="XY坐标">
+                                        <div style="width: 50px;height: 30px; background-color: #00A1EF; position: relative; margin-top: 12px; margin-left: 13px;border-radius: 5px; text-align: center;line-height: 30px; padding-left: 0; padding-right: 0; font-size: 12px;color: #fff; float: left; cursor: pointer;">定位
+                                        </div>
+                                    </li>
+                                    <li style="height: 90px; width: 100%;">
+                                        <span>地点描述:</span>
+                                        <textarea name="" id="" placeholder="请输入地点描述"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>故障类别:</span>
+                                       <!--  <div class="selectContainer " style="padding-left: 0; padding-right:0; ">
+                                            <div class="select gzlbSelect clearfix">
+                                                <span class="fl-l"></span>
+                                                <i class="fl-r fa fa-caret-down"></i>
+                                            </div>
+                                            <ul class="selectOption gzlbSelectOption " style="padding-left: 0; padding-right:0; ">
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>5</li>
+                                                <li>5</li>
+                                            </ul>
+                                        </div> -->
+                                        <select class="form-control timeTypeSel">
+                                <option value="1">最近1个月</option>
+                                <option value="2">最近3个月</option>
+                                <option value="3">最近半年</option>
+                                <option value="4">最近1年</option>
+                                <option value="5">自定义</option>
+                            </select>
+                                    </li>
+                                    <li>
+                                        <span>故障属性:</span>
+                                       <!--  <div class="selectContainer" style="padding-left: 0; padding-right:0; ">
+                                            <div class="select gzsxSelect clearfix">
+                                                <span class="fl-l"></span>
+                                                <i class="fl-r fa fa-caret-down"></i>
+                                            </div>
+                                            <ul class="selectOption gzsxSelectOption " style="padding-left: 0; padding-right:0; ">
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                            </ul>
+                                        </div> -->
+                                        <select class="form-control timeTypeSel">
+                                <option value="1">最近1个月</option>
+                                <option value="2">最近3个月</option>
+                                <option value="3">最近半年</option>
+                                <option value="4">最近1年</option>
+                                <option value="5">自定义</option>
+                            </select>
+                                    </li>
+                                    <li style="height: 90px; width: 100%;">
+                                        <span>故障描述:</span>
+                                        <textarea name="" id="" placeholder="请输入故障描述"></textarea>
+                                    </li>
+                                </ul>
+                                <div class="newbutton">
+                                    <button class="btn btn-primary">创建</button>
+                                    <button class="btn btn-primary">返回</button>
+                                </div>
+                            </div>
+                            <div class="newMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../node_modules/datepicker/js/foundation-datepicker.js"></script>
+    <script src="../node_modules/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <!-- 分页 -->
+    <script src="../node_modules/page/pager.js"></script>
+    <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <script src="../js/nav.js"></script>
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script>
+    $(function() {
+        setNiceScroll(".newForm")
+        select(".sblxSelect", ".sblxSelectOption")
+        select(".gzsxSelect", ".gzsxSelectOption")
+        select(".gzlbSelect", ".gzlbSelectOption")
+        $('#bxTime').fdatepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+
+
+        $(".sblxSelectOption li").each(function(index, item) {
+            $(item).on('click', function() {
+                if ($(item).attr("selected") == 'selected') {
+                    console.log($(this).attr("value"))
+                    console.log($('.sblxSelect').text())
+                    console.log(11)
+                }
+            })
+
+        })
+    })
+    </script>
+</body>
+
+</html>

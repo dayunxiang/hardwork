@@ -1,0 +1,154 @@
+	 .areaManage {
+	     padding: 30px;
+	     padding-top: 10px;
+	     box-sizing: border-box;
+	 }
+
+	 .breadcrumb {
+	     padding: 0 30px;
+	     box-sizing: border-box;
+	     margin-bottom: 0;
+	     list-style: none;
+	     background-color: #fff;
+	     border-radius: 0;
+	     height: 60px;
+	     line-height: 60px;
+	     box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
+	 }
+
+	 .breadcrumb li {
+	     font-size: 18px;
+	     color: #333;
+	 }
+
+	 .taskPanel-body {
+	     box-sizing: border-box;
+	     margin-top: 10px;
+	     padding: 15px;
+	     background: #fff;
+	     box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
+	 }
+
+	 .taskPanel-body .task-condition {
+	     font-size: 14px;
+	     color: #727171;
+	     border-bottom: 1px solid #d0d1d3;
+	     padding: 10px 0;
+	 }
+
+	 .taskPanel-body .task-condition h4 {
+	     margin: 0;
+	     font-size: 15px;
+	     text-align: center;
+	 }
+
+	 .asset-list .col-md-4 {
+	     position: relative;
+	 }
+
+	 .asset-list .col-md-4:not(:last-child):after {
+	     content: '';
+	     position: absolute;
+	     font-size: 16px;
+	     right: -7px;
+	     top: 50%;
+	     color: #aaa;
+	     width: 16px;
+	     height: 22px; // background: url("~assets/img/right.png") no-repeat center center;
+	 }
+
+	 .asset-list-group-a {
+	     height: 100%;
+	     position: relative;
+	     overflow-y: auto;
+	     margin: 0;
+	 }
+
+	 .asset-list-group-a li {
+	     padding: 0 8px;
+	     height: 40px;
+	     line-height: 40px;
+	     width: 100%;
+	     text-align: left;
+	     font-size: 13px;
+	     position: relative;
+	     display: block;
+	     color: #666;
+	     border: 0;
+	     border-bottom: 1px solid #eee;
+	     border-radius: 0;
+	     margin: 0;
+	     cursor: pointer;
+	 }
+
+	 .asset-list-group-a li:hover,
+	 .asset-list-group-a li.active,
+	 .asset-list-group-a li:active {
+	     color: #fff;
+	     background: #00a1ef;
+	     border-color: #00a1ef;
+	 }
+
+	 .asset-list-group-a li span {
+	     display: inline-block;
+	     margin-left: 8px;
+	     font-size: 13px;
+	 }
+
+	 .add-list-btn {
+	     background: #00a1ef !important;
+	     width: 30px;
+	     outline: none !important;
+	     box-shadow: none !important;
+	     padding: 2px 0;
+	     margin-left: 6px;
+	 }
+
+	 .add-list-btn img {
+	     width: 14px;
+	     height: 16px;
+	     vertical-align: -3px;
+	 }
+
+	 .modal-footer .btn-primary {
+	     background: #00a1ef !important;
+	     color: #fff !important;
+	     margin-right: 18px;
+	 }
+
+	 .modal-footer .btn {
+	     width: 115px;
+	 }
+
+
+
+	 .csedit .fican,
+	 .csedit .thcan,
+	 .csedit .thican {
+	 	border-right: 1px solid #f5f5f5;
+	 }
+
+	 .csedit .fican .top,
+	 .csedit .thcan .top,
+	 .csedit .thican .top {
+	     height: 50px;
+	     line-height: 50px;
+	     padding: 0 20px;
+
+	 }
+
+	 .csedit .fican .top li,
+	 .csedit .thcan .top li,
+	 .csedit .thican .top li {
+	     height: 50px;
+	     line-height: 50px;
+	 }
+
+	 .csedit .fican .top li h5,
+	 .csedit .thcan .top li h5,
+	 .csedit .thican .top li h5 {
+	     height: 50px;
+	     line-height: 50px;
+	     font-size: 15px;
+	     position: relative;
+	 }

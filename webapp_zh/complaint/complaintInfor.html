@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>投诉数据列表</title>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/datepicker/css/foundation-datepicker.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/page/pager.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/complaintInfor.css">
+</head>
+
+<body>
+  <div class="topBanner">
+        
+    </div>
+    <div class="mainWrap">
+     <ul class="sideBar sideBar-mini">
+        </ul>
+         <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <div class="contentMain">
+             <div class="bodyBox">
+                <ul class="form-group form-inline toolBox clearfix">
+                    <li>
+                        <label for="startDate">投诉时间:</label>
+                        <input type="text" value="" id="startDate" style="height: 34px; padding:0 5px;">
+                        <label for="endDate">~</label>
+                        <input type="text" value="" id="endDate" style="height: 34px; padding:0 5px;">
+                    </li>
+                    <li>
+                        <label for="acceptUnit">接办单位:</label>
+                        <select class="form-control acceptUnit">
+                            <!-- 获取 -->
+                        </select>
+                    </li>
+                    <li>
+                        <label for="acceptPerson">接办人:</label>
+                        <select class="form-control acceptPerson">
+                            <!-- 获取 -->
+                        </select>
+                    </li>
+                    <!--                     <li>
+                        <label for="orderDate">接办情况</label>
+                        <select class="form-control orderStateSel">
+                            <option value="-1">全部</option>
+                            <option value="0">接办</option>
+                            <option value="1">处理中</option>
+                            <option value="2">待审核</option>
+                            <option value="3">审批不通过</option>
+                            <option value="4">完成</option>
+                        </select>
+                    </li> -->
+                    <li>
+                        <button id="searchBtn" class="btn btn-warning" onclick="findComplaintOrderList('initQuery')">查询</button>
+                    </li>
+                    <li>
+                        <a href="createComplaint.html?type=create">
+                            <button id="searchBtn" class="btn btn-primary">新增</button>
+                        </a>
+                    </li>
+                    <li style="width: 100%; margin-top: 15px;">
+                        <label>投诉状态:</label>
+                        <input type="radio" name="radiogroup1" value="" checked="checked">全部</label>
+                        <input type="radio" name="radiogroup1" value="1">已解决</label>
+                        <input type="radio" name="radiogroup1" value="0">处理中</label>
+                        <input type="radio" name="radiogroup1" value="-1">未解决</label>
+                    </li>
+                    <!--                     <li>
+                        <button id="newBtn" class="btn btn-primary" onclick="operationWorkOrder('add','')">新建工单</button>
+                    </li> -->
+                    <br>
+                </ul>
+                <div class="table-cons">
+                    <ul class="complaintTool">
+                    </ul>
+                    <table class="table taskPanel-table table-hover" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th width="11%">投诉编号</th>
+                                <th width="12%">接办单位</th>
+                                <th width="10%">接办人</th>
+                                <th width="13%">接办时间</th>
+                                <th width="10%">投诉类型</th>
+                                <th width="10%">投诉来源</th>
+                                <th width="15%">投诉内容</th>
+                                <th width="7%">投诉状态</th>
+                                <th width="12%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTable">
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- 分页 -->
+                <div style="text-align: right;">
+                    <ul class="pagination" id="page1">
+                    </ul>
+                    <div class="pageJump">
+                        <span>总共：<span id="totalSpan"></span>条，</span>
+                        <span>20条/页</span>&nbsp;&nbsp;&nbsp;
+                        <span>跳转到</span>
+                        <input type="text" style="width: 55px;" />
+                        <span>页</span>
+                        <button type="button" class="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        </div>
+    </div>
+    </div>
+   
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../node_modules/datepicker/js/foundation-datepicker.js"></script>
+    <script src="../node_modules/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <!-- 分页 -->
+    <script src="../node_modules/page/pager.js"></script>
+      <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <script src="../js/nav.js"></script>
+    
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script type="text/javascript">
+     $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".swiper-container")
+            }, 0)
+        }
+    );
+    // 数据集合
+    var complaintOrderList = [];
+    // 分页插件参数
+    var paramObj = {
+        pageNum: 1,
+        pageSize: 20,
+        pages: 1,
+        total: 0
+    };
+
+    function init() {
+        findScreenSourceData();
+    }
+
+    /**
+     * 获取筛选数据源
+     * @return {[type]} [description]
+     */
+    function findScreenSourceData() {
+        JQueryUtil.sendRCP(pathUrl + '/complaintManage/findScreenSourceData', {
+
+            },
+            function success(result) {
+                if (result.resCode == 1 && result.data != '') {
+                    var resList = JSON.parse(result.data);
+                    // 接办单位
+                    var acceptUnitList = JSON.parse(resList.acceptUnitList);
+                    if (acceptUnitList && acceptUnitList.length > 0) {
+                        var html = '';
+                        html += '<option value="-1">---全部---</option>';
+                        for (var i = 0; i < acceptUnitList.length; i++) {
+                            var acceptUnit = acceptUnitList[i];
+                            if (acceptUnit.acceptunit!='') {
+                                html += '<option value="' + acceptUnit.acceptunit + '">' + acceptUnit.acceptunit + '</option>';
+                            }
+                        }
+                        $('.acceptUnit').html('').append(html);
+                    }
+                    // 接办人
+                    var acceptPersonList = JSON.parse(resList.acceptPersonList);
+                    if (acceptPersonList && acceptPersonList.length > 0) {
+                        var html = '';
+                        html += '<option value="-1">---全部---</option>';
+                        for (var i = 0; i < acceptPersonList.length; i++) {
+                            var acceptPerson = acceptPersonList[i];
+                            html += '<option value="' + acceptPerson.acceptperson + '">' + acceptPerson.acceptperson + '</option>';
+                        }
+                        $('.acceptPerson').html('').append(html);
+                    }
+                    // ----- 判断分页缓存信息是否存在，存在的话还原上次的分页信息
+                    var pageCacheJson = localStorage.getItem('cmPageCache');
+                    if (pageCacheJson!=''&&pageCacheJson!=null&&pageCacheJson!='null') {
+                        findComplaintOrderList('junmpQuery');
+                    }else{
+                        // 查询工单
+                        findComplaintOrderList('initQuery');
+                    }                    
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error);
+            });
+    }
+
+    /**
+     * 获取投诉工单集合
+     * @return {[type]} [description]
+     */
+    function findComplaintOrderList(from) {
+        $('#orderTable').html('');
+        var setarDate = $('#startDate').val();
+        var endDate = $('#endDate').val();
+        var acceptUnit = $('.acceptUnit').val();
+        var acceptPerson = $('.acceptPerson').val();
+        // var acceptState = $('.orderStateSel').val();
+        var cmState = $("input[name='radiogroup1']:checked").val();
+        var obj = {
+            startDate: setarDate,
+            endDate: endDate,
+            acceptUnit: acceptUnit,
+            acceptPerson: acceptPerson,
+            acceptState: '',// 暂时废弃该条件
+            cmState: cmState            
+        }
+        if (from=='initQuery'||from=='radioQuery') {
+            paramObj.pageNum = 1;
+            // 将分页缓存参数去除
+            localStorage.removeItem('cmPageCache');
+        }
+        // ------------- 如果是从详情页返回，则还原上次的查询条件 ----------------
+        if (from=='junmpQuery') {
+            var pageCacheJson = localStorage.getItem('cmPageCache');
+            var pageCacheObj = JSON.parse(pageCacheJson);
+            var startDate = pageCacheObj.startDate;
+            var endDate = pageCacheObj.endDate;
+            var acceptUnit = pageCacheObj.acceptUnit;
+            var acceptPerson = pageCacheObj.acceptPerson;
+            var cmState = pageCacheObj.cmState;
+            // --------------------------------------
+            obj.startDate = startDate;
+            obj.endDate = endDate;
+            obj.acceptUnit = acceptUnit;
+            obj.acceptPerson = acceptPerson;
+            obj.cmState = cmState;
+            // 还原上次的分页页码
+            paramObj.pageNum = pageCacheObj.beforePageNum;
+
+            //-----------还原上次的查询条件----------------------
+            $('#startDate').val(startDate);
+            $('#endDate').val(endDate);
+            $(".acceptUnit").find("option[value='"+acceptUnit+"']").attr("selected",true);
+            $(".acceptPerson").find("option[value='"+acceptPerson+"']").attr("selected",true);
+            $("input[name='radiogroup1'][value='"+cmState+"']").attr("checked",true);
+        }        
+        JQueryUtil.sendRCP(pathUrl + '/complaintManage/findComplaintOrderList/' + 
+            paramObj.pageNum + '/' + paramObj.pageSize, 
+            obj,
+        function success(result) {
+            if (result.resCode == 1) {
+                if (result.data != '') {
+                    var resList = JSON.parse(result.data);
+                    // 分页
+                    paramObj.pages = resList.pages;
+                    paramObj.pageNum = resList.pageNum;
+                    $('#totalSpan').html(resList.total);
+                    // 数据
+                    complaintOrderList = resList.list;
+                    if (complaintOrderList && complaintOrderList.length > 0) {
+                        var html = '';
+                        for (var i = 0; i < complaintOrderList.length; i++) {
+                            var complaint = complaintOrderList[i];
+                            var cmId = complaint.cmid;
+                            var cmState = complaint.orderstate;
+                            html += '<tr>';
+                            html += '<td>' + complaint.cmnumint + '</td>';
+                            html += '<td>' + complaint.acceptunit + '</td>';
+                            html += '<td>' + complaint.acceptperson + '</td>';
+                            html += '<td>' + formatTime(complaint.accepttime.time, true) + '</td>';
+                            html += '<td>' + complaint.cmtype + '</td>';
+                            html += '<td>' + complaint.cmsource + '</td>';
+                            html += '<td>' + complaint.petition + '</td>';
+                            html += '<td>' + getCmstateTextById(complaint.cmstate) + '</td>';
+                            // 根据投诉工单状态控制操作
+                            html += '<td>';
+                            html += '<a href="javascript:void(0)" title="详情" onclick="locationPage(1,\'' + cmId + '\')">详情</a>&nbsp;';
+                            // 接办状态
+                            if (cmState == '0') {
+                                html += '<a href="javascript:void(0)" title="编辑" onclick="locationPage(2,\'' + cmId + '\')">编辑</a>&nbsp;';
+                                html += '<a href="javascript:void(0)" title="处理" onclick="locationPage(3,\'' + cmId + '\')">处理</a>&nbsp;';
+                            }
+                            // 处理中
+                            if (cmState == '1') {
+                                html += '<a href="javascript:void(0)" title="处理" onclick="locationPage(3,\'' + cmId + '\')">处理</a>&nbsp;';
+                            }
+                            // 待审核
+                            if (cmState == '2') {
+                                html += '<a href="javascript:void(0)" title="审核" onclick="locationPage(4,\'' + cmId + '\')">审核</a>&nbsp;';
+                            }
+                            // 审核不通过
+                            if (cmState == '3') {
+                                html += '<a href="javascript:void(0)" title="处理" onclick="locationPage(3,\'' + cmId + '\')">处理</a>&nbsp;';
+                            }
+                            // 审核完成后，只能查看详情                             
+                            if (cmState == '4') {}
+                            html += '</td>';
+                            // html += '<td></td>';
+                            html += '</tr>';
+                        }
+                        // 分页插件
+                        Page({
+                            num: paramObj.pages, //页码数
+                            startnum: paramObj.pageNum, //指定页码
+                            elem: $('#page1'), //指定的元素
+                            callback: function(n) { //回调函数
+                                // n为点击的页码
+                                paramObj.pageNum = n;
+                                findComplaintOrderList('query');
+                            }
+                        });
+                    }
+                }
+                $('#orderTable').html('').append(html);
+            } else {
+                alert(result.msg);
+            }
+        },
+        function error(error) {
+            console.log(error);
+        });
+    }
+    /**
+     * 页面跳转功能
+     * @param  {[type]} from  1：详情，2：编辑，3：处理，4：审核
+     * @param  {[type]} cmObj [description]
+     * @return {[type]}       [description]
+     */
+    function locationPage(from, cmId) {
+        var typeJson = '';
+        if (from == '1') {
+            typeJson = 'detail';
+        } else if (from == '2') {
+            typeJson = 'edit';
+        } else if (from == '3') {
+            typeJson = 'handle';
+        } else {
+            typeJson = 'examine';
+        }
+        for (var i = 0; i < complaintOrderList.length; i++) {
+            var complaint = complaintOrderList[i];
+            if (cmId == complaint.cmid) {
+                localStorage.removeItem(cmId + '_cache');
+                localStorage.setItem(cmId + '_cache', JSON.stringify(complaint));
+            }
+        }
+        cachePageData(); //缓存分页数据
+        window.location.href = 'createComplaint.html?type=' + typeJson + '&cmId=' + cmId;
+    }
+    /**
+     * 获取工单状态的文字
+     * @param  {[type]} cmstate [description]
+     * @return {[type]}         [description]
+     */
+    function getCmstateTextById(cmstate) {
+        if (cmstate == '-1') {
+            return '未解决';
+        }
+        if (cmstate == '0') {
+            return '解决中';
+        }
+        if (cmstate == '1') {
+            return '已解决';
+        }
+        if (cmstate == '' || cmstate == null) {
+            return '未处理';
+        }
+    }
+    /**
+     * 缓存当前分页数据
+     * @return {[type]} [description]
+     */
+    function cachePageData() {
+        // 把当前查询条件进行缓存，待返回来时还原查询条件
+        var wrStartDate = $('#startDate').val();
+        var wrEndDate = $('#endDate').val();
+        var acceptUnit = $('.acceptUnit').val();
+        var acceptPerson = $('.acceptPerson').val();
+        var cmState = $("input[name='radiogroup1']:checked").val();
+        var currentPageNum = paramObj.pageNum; // 当前页码
+        var jumpCacheObj = {
+            startDate: wrStartDate,
+            endDate: wrEndDate,
+            acceptUnit: acceptUnit,
+            acceptPerson: acceptPerson,
+            cmState: cmState,
+            beforePageNum: currentPageNum
+        }
+        var jumpCacheJson = JSON.stringify(jumpCacheObj);
+        localStorage.setItem('cmPageCache', jumpCacheJson);
+    }    
+
+
+    $(function() {
+
+        // --------------------- 时间控件初始化 --------------------- 
+        var nowDate = new Date();
+        // 开始时间设置为当前日期的一个星期之前
+        var lastMonthTime = (nowDate.getTime()) - 604800000;
+        $('#startDate').val(formatTime(lastMonthTime, false));
+        $('#endDate').val(formatTime(nowDate.getTime(), false));
+        $('#startDate').fdatepicker({
+            format: 'yyyy-mm-dd'
+        });
+        $('#endDate').fdatepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+        // -------------- init -------------------
+        init();
+
+        // 统计类型的切换事件
+        $(":radio").change(function() {
+            findComplaintOrderList('radioQuery');
+        });
+
+    })
+    </script>
+</body>
+
+</html>

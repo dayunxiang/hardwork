@@ -95,6 +95,16 @@ function height() {
      $(".unitmanaContainer").css({
         'height': (h - 64-24-30-70-10-120) + "px"
     });
+     //单位详情
+     $('.unitDetailContainer').css({
+        'height': (h - 64 - 60 - 24 - 30) + "px",
+    });
+     $(".unitDetailmanaContainer").css({
+        'height': (h - 64-24-30-70-10-120) + "px"
+    });
+     $(".unitTableContainer").css({
+        'height': (h - 64-24-30-70-10-120-150-56) + "px"
+    });
     // 删除容器
     $(".deleteContainer").css({
         'height': h + "px",
@@ -144,14 +154,11 @@ function changeSideBarMini() {
             $('.sideBar').removeClass('sideBar-mini');
             $(".mainContainer").css("padding-left", '250px')
 
-
         }
     }).on("mouseout", function() {
         if (!$('.sideBar').hasClass('sideBar-mini')) {
             $('.sideBar').addClass('sideBar-mini');
             $(".mainContainer").css("padding-left", '64px')
-
-
         } else {
             $('.sideBar').removeClass('sideBar-mini');
             $(".mainContainer").css("padding-left", '250px')
@@ -177,7 +184,7 @@ function hovermn(ele) {
                 "left": (e.pageX + x) + "px"
             }).show(); //设置x坐标和y坐标，并且显示
     })
-    $(ele).on("mouseout", ".tooltip", function() {
+    $(ele).on("mouseout", ".tooltip", function(e) {
         this.title = this.myTitle;
         $("#tooltip").remove(); //移除 
     })
@@ -256,4 +263,42 @@ function tabcount(eleid, activeclass, subareatabcontent) {
         $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
 initBar()
     })
+}
+
+
+
+//打开编辑
+function openuserEdit() {
+    $("#userTable tbody").on("click", ".userEdit", function() {
+        $(".editContainer").show()
+    })
+}
+
+//取消或者关闭编辑
+function closeuserEdit() {
+    $(".editContainer .editContent .title>img").on("click", function() {
+        $(".editContainer").hide()
+    })
+    $(".cancleEdit").on("click", function() {
+        $(".editContainer").hide()
+    })
+
+}
+
+//打开用户删除
+function openUserDel() {
+    $("#userTable tbody").on("click", ".userDel", function() {
+        $(".deleteContainer").show()
+    })
+}
+
+//取消或者 关闭 删除
+function closeUserDel() {
+    $('.deleteContainer .deleteContent .title>img').on("click", function() {
+        $(".deleteContainer").hide()
+    })
+    $(".cancleDel").on("click", function() {
+        $(".deleteContainer").hide()
+    })
+
 }

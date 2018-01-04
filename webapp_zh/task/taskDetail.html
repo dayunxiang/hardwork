@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>巡查养护详情</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/taskDetail.css">
+</head>
+
+<body>
+    <div class="topBanner">
+    </div>
+    <div class="mainWrap">
+        <ul class="sideBar sideBar-mini">
+        </ul>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="bodyBox contentMain">
+                    <div class="shaow">
+                        <ul class="clearfix boul clearfix">
+                            <li style="float: left;">
+                                <a href="javascript:history.back(-1)">
+                                    << 返回列表页</a>
+                            </li>
+                            <li id="wfBtnBox" class="clearfix">
+                                <!-- <button class="btn btn-primary">3333</button> -->
+                            </li>
+                            <li class="clearfix">
+                                <button class="btn btn-primary" onclick="operaRecordClickFunction()">任务进程</button>
+                            </li>
+                            <li class="mr10 clearfix"><span>工作流所在节点：</span><span id="taskDefinitionKey"></span></li>
+                            <li class="clearfix">
+                                <!-- 如果是超级管理员，则有操作人员下拉框 -->
+                                <select id="operationSel" class="" style="display: none;">
+                                    <!-- <option>11</option> -->
+                                </select>
+                            </li>
+                        </ul>
+                        <ul class="form-group form-inline toolBox clearfix ">
+                            <li class="clearfix">
+                                <span>工单编号：</span><span id="orderNum"></span>
+                            </li>
+                            <li class="clearfix">
+                                <span> 巡检区域：</span><span id="region"></span>
+                            </li>
+                            <li class="clearfix">
+                                <span>执行时间：</span><span id="executDate"></span>
+                            </li>
+                            <li class="clearfix">
+                                <span>执行人：</span><span id="executor"></span>
+                            </li>
+                            <li class="clearfix">
+                                <span>工单状态：</span><span id="orderState"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 标签页 -->
+                    <div>
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active" id="osiRecordTag"><a href="#workRecord" data-toggle="tab">
+                            工作记录</a></li>
+                            <li id="workMapTag"><a href="#workMap" data-toggle="tab" onclick="workMapTagClick()">工作地图</a></li>
+                            <li id="repairTag"><a href="#faultRecord" data-toggle="tab">报修记录</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <!-- 工作记录 -->
+                            <div class="tab-pane fade in active" id="workRecord">
+                            </div>
+                            <div class="tab-pane fade" id="workMap">
+                                <!-- 工作地图，如果有对象，将点全画上 -->
+                                <div id="map" style="width: 100%;height: 600px;"></div>
+                            </div>
+                            <div class="tab-pane fade" id="faultRecord">
+                                <!-- 报修记录 -->
+                                <table class="table taskPanel-table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>工单编号</th>
+                                            <th>上报时间</th>
+                                            <th>上报地点</th>
+                                            <th>设备编号</th>
+                                            <th>故障类型</th>
+                                            <th>故障属性</th>
+                                            <th>故障描述</th>
+                                            <th>工单状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="repairTBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 蒙版 -->
+            <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="formModalLabel">
+                        <!-- 模态框标题 -->
+                    </h4>
+                        </div>
+                        <div class="modal-body" id="formModalBody">
+                            <!-- 在这里添加一些文本 -->
+                        </div>
+                        <div class="modal-footer">
+                            <button id="_btn" type="button" class="btn btn-primary"></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://192.168.200.30:7003/mapapi/rmap.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <script src="../js/nav.js"></script>
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script type="text/javascript">
+    $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".swiper-container")
+                setNiceScroll(".modal-dialog")
+            }, 0)
+        }
+    );
+
+    // 工单id
+    var modularId = getQueryString('modularId');
+    var orderId = getQueryString('orderId');
+    var workOrder = JSON.parse(localStorage.getItem(orderId + '_orderjson'));
+    // 流程实例id
+    var piId = workOrder.processinstanceid;
+    // 涉及到工作流的全局参数
+    var workFlowObj = {
+        taskId: '', // 任务id
+        operationUser: '', // 拥有可执行权限的用户
+        userObjMap: [], // 用户信息集合
+        taskDefinitionKey: '', //工作流所在节点key
+        doUserIdStr: '', // 执行用户id的字符串
+        assignUserIdStr: '', // 指派改派用户id字符串
+        currentNodeConfig: [] // 当前节点的配置数据
+    };
+    // 工作记录集合
+    var workRecordList = [];
+    // 当前登录用户的信息
+    var onLineUser = {
+        isAdmin: true,
+        userId: '0'
+    }
+    // 权限按钮集合
+    var existingBtns = [];
+    // 维修工单集合
+    var repairList = [];
+
+    function init() {
+
+    }
+
+    // ------------- 工作对象和工作流数据 -------------------------
+
+    var findObjectListAndWfInforCallBack = function(res) {
+        if (res.resCode == 1) {
+            var dataList = JSON.parse(res.data);
+            // 用户信息集合
+            workFlowObj.userObjMap = JSON.parse(dataList.userIdInfMap);
+            // 工作流数据
+            if (dataList.taskList != '') {
+                // 根据对应的用户控制按钮和下拉框
+                wfControlByTaskAndUserRole(dataList.taskList);
+            } else {
+                $('#taskDefinitionKey').html('工作流结束');
+            }
+            // 业务逻辑，工单下的对象等等
+            if (dataList.objectList != '') {
+                workRecordList = JSON.parse(dataList.objectList);
+                workRecordDomSetting();
+            }
+            // 获取故障上报的维修工单数据
+            findRepairDataByOsiOrderId();
+        } else {
+            alert(res.msg);
+            return;
+        }
+    };
+    findObjectListAndWfInforByOrderId(modularId, orderId, piId, onLineUser.userId, '', findObjectListAndWfInforCallBack);
+
+    /**
+     * 填充工作记录的dom
+     * @return {[type]} [description]
+     */
+    function workRecordDomSetting() {
+        $('#workRecord').html('')
+        for (var i = 0; i < workRecordList.length; i++) {
+            var recordHtml = '';
+            var record = workRecordList[i];
+            // 工作记录：已巡检的数据，不包括报修
+            if (record.objstate == '1') {
+                recordHtml += '<div class="recordBody clearfix">';
+                recordHtml += '<div class="recordLeft">';
+                recordHtml += '<ul>';
+                recordHtml += '<li> <span>设备ID：</span> <span>' + (record.objectid ? record.objectid : '无') + '</span></li>';
+                // recordHtml+= '<span>执行人：'+getUserNameById(record.executor)+'</span></br>';
+                recordHtml += '<li><span>详细时间：</span><span>' + formatTime(record.reportdate.time, true) + '</span></li>';
+                if (record.x && record.y) {
+                    recordHtml += '<li><span>巡检位置：</span><a onclick="viewLocation(\'' + record.x + '\',\'' + record.y + '\',\'' + record.remarks + '\',\'osi\')">查看</a></li>';
+                } else {
+                    recordHtml += '<li><span>巡检位置：</span><span>无</span></li>';
+                }
+                recordHtml += '<li ><span>巡检记录：</span><span>' + record.remarks + '</span></li>';
+
+                // ----------------拼接个性化字段---------------------
+                var radioHtml = ''; // 单选按钮dom元素
+                var osirecord = record.osirecord;
+                var osiRecordArray = [];
+                if (osirecord != null && osirecord != '') {
+                    osiRecordArray = osirecord.split(',');
+                }
+                if (osiRecordArray.length > 0) {
+                    radioHtml += '<ul class="clearfix btin">'
+                    for (var j = 0; j < osiRecordArray.length; j++) {
+                        var indiv = osiRecordArray[j];
+                        // 包含|表示类型为填写
+                        if (indiv.indexOf('|') > -1) {
+                            var fieldObj = indiv.split('|');
+                            var fidldName = findIndivFieldNameById(modularId, fieldObj[0]);
+                            recordHtml += '<li> <span>' + fidldName + '</span>：<span>' + (fieldObj[1] != '' ? fieldObj[1] : '空') + '</span></li>';
+                        } else {
+                            var fidldName = findIndivFieldNameById(modularId, indiv);
+                            // 填写类型为radio
+                            radioHtml += '<li> <button class="btn btn-info inline">' + fidldName + '</button></li>';
+                        }
+                    }
+                    radioHtml += '</ul>'
+                }
+
+                recordHtml += '<li><span>记录内容：</span><span>' + radioHtml + '</span></li>'; // 填充radio元素
+
+                recordHtml += '</ul>';
+                recordHtml += '</div>';
+                // ------------------------ 巡检图片轮播 --------------------
+                // debugger
+                // record.imgList = '22222222222';
+                if ((i == 0 || i == 2 || i == 4) && record.imgList) {
+                    // var imgObjList = JSON.parse(record.imgList);
+                    var imgObjList = [];
+                    imgObjList.length = 3;
+                    if (imgObjList && imgObjList.length > 0) {
+                        recordHtml += '<div class="recordRight">';
+                        recordHtml += '<div id="myCarouse' + (i) + '" class="carousel slide identifier">';
+                        recordHtml += '<div class="carousel-inner">';
+                        // 拼接图片
+                        for (var t = 0; t < imgObjList.length; t++) {
+                            var imgObj = imgObjList[t];
+                            // TODO 待修改
+                            // var imgPath = pathUrl + imgObj.filePath;
+                            if (t == 0) {
+                                recordHtml += '<div class="item active">';
+                            } else {
+                                recordHtml += '<div class="item">';
+                            }
+                            recordHtml += '<img src="http://www.runoob.com/wp-content/uploads/2014/07/slide' + (t + 1) + '.png" alt="First slide">';
+                            recordHtml += '<div class="carousel-caption">第' + (t + 1) + '张</div>';
+                            recordHtml += '</div>';
+                        }
+                        recordHtml += '</div>';
+                        recordHtml += '';
+                        // <!-- 轮播（Carousel）导航 -->
+                        recordHtml += '<a class="carousel-control left" href="#myCarouse' + (i) + '" data-slide="prev">&lsaquo;</a>';
+                        recordHtml += '<a class="carousel-control right" href="#myCarouse' + (i) + '" data-slide="next">&rsaquo;</a>';
+                        recordHtml += '</div>';
+                        recordHtml += '</div>';
+                    }
+                }
+            }
+            $('#workRecord').append(recordHtml);
+        }
+    };
+
+    /**
+     * 工作地图标签点击事件
+     * 备注：因为地图加载时，地图的map的div还是处于隐藏的状态，
+     * 所以在此设置延时，等待地图div出现后再加载地图
+     * @return {[type]} [description]
+     */
+    function workMapTagClick() {
+        setTimeout(function() {
+            // --------------- 初始化地图 -------------------
+            rmap = new RMap.Map('map', { type: ["GGSL_OL"] });
+            //加载管网地图
+            rmap.addLayer("zhuhaimap", {
+                opacity: 0.9,
+                isCenter: true
+            });
+
+            // ----------------巡检记录点和维修点分别画点--------------------
+            if (workRecordList && workRecordList.length > 0) {
+                for (var i = 0; i < workRecordList.length; i++) {
+                    var recordObj = workRecordList[i];
+                    if (recordObj.objstate == '1' && recordObj.x && recordObj.y) {
+                        rmap.addPoint(recordObj.x, recordObj.y, {
+                            anchor: [14, 31],
+                            tooltip: recordObj.remarks,
+                            pic: '../img/osi.png',
+                            onClick: null,
+                            onMouseOver: null
+                        });
+                        rmap.centerZoom(recordObj.x, recordObj.y, 13);
+                    }
+                }
+            }
+            // 维修
+            if (repairList && repairList.length > 0) {
+                for (var i = 0; i < repairList.length; i++) {
+                    var repairObj = repairList[i];
+                    if (repairObj.x && repairObj.y) {
+                        rmap.addPoint(repairObj.x, repairObj.y, {
+                            anchor: [14, 31],
+                            tooltip: repairObj.faultaddress,
+                            pic: '../img/repair.png',
+                            onClick: null,
+                            onMouseOver: null
+                        });
+                    }
+                }
+            }
+        }, 180)
+    }
+
+    /**
+     * 通过巡检工单id去获取该工单的维修工单数据 
+     * @return {[type]} [description]
+     */
+    function findRepairDataByOsiOrderId() {
+        JQueryUtil.sendRCP(pathUrl + '/onSiteInspectionManage/findRepairDataByOsiOrderId', {
+                businessId: modularId,
+                orderId: orderId
+            },
+            function success(result) {
+                if (result.resCode == 1 && result.data != '') {
+                    repairList = JSON.parse(result.data);
+                    // debugger
+                    // 拼接dom元素
+                    var html = '';
+                    for (var i = 0; i < repairList.length; i++) {
+                        var repairObj = repairList[i];
+                        html += '<tr>';
+                        html += '<td>' + repairObj.ordernumint + '</td>';
+                        html += '<td>' + formatTime(repairObj.createorderdate != null ? repairObj.createorderdate.time : 0) + '</td>';
+                        if (repairObj.x && repairObj.y) {
+                            html += '<td><a onclick="viewLocation(\'' + repairObj.x + '\',\'' + repairObj.y + '\',\'' + repairObj.faultdes + '\',\'repair\')" title="查看位置">查看</a></td>';
+
+                        } else {
+                            html += '<td><span>无</span></td>';
+                        }
+                        html += '<td>' + repairObj.objectid + '</td>';
+                        html += '<td>' + getFaultInfoNameById(repairObj.faulttype) + '</td>';
+                        html += '<td>' + getFaultInfoNameById(repairObj.faultattribute) + '</td>';
+                        html += '<td>' + repairObj.faultdes + '</td>';
+                        html += '<td>' + statusNum(repairObj.status)[2] + '</td>';
+                        html += '<td><a onclick="viewRepairDetail(\'' + repairObj.id + '\')" title="详情"><i class="fa fa-file-text-o"></i></a></td>';
+                        html += '</tr>';
+                    }
+                    $('#repairTBody').html('').append(html);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error);
+            });
+    };
+
+    /**
+     * 查看位置
+     * @param  {[type]} x    [description]
+     * @param  {[type]} y    [description]
+     * @param  {[type]} from [description]
+     * @return {[type]}      [description]
+     */
+    function viewLocation(x, y, des, from) {
+
+        var popHtml = '';
+        if (from == 'osi') {
+            $('#osiRecordTag').removeClass('active');
+            $('#workRecord').removeClass('active in');
+            popHtml += '<span>巡检记录：</span><br>';
+        } else {
+            $('#repairTag').removeClass('active');
+            $('#faultRecord').removeClass('active in');
+            popHtml += '<span>故障描述：</span><br>';
+        }
+        popHtml += '<span>' + des + '</span>';
+        // 工作地图标签页为选中状态
+        $('#workMapTag').addClass('active in');
+        $('#workMap').addClass('active in');
+
+        workMapTagClick();
+
+        setTimeout(function() {
+            rmap.hidePopWindow();
+            rmap.showPopWindow(x, y, popHtml, {
+                isCenter: true,
+                isHighLight: true,
+                autoPan: false
+            });
+        }, 250);
+
+
+    }
+
+    /**
+     * 查看维修详情
+     * @param  {[type]} repairId [description]
+     * @return {[type]}          [description]
+     */
+    function viewRepairDetail(repairId) {
+        cacheRepairOrderData(repairId);
+        window.location.href = '../repair/repairDetail.html?orderId=' + repairId;
+    }
+
+    /**
+     * 缓存维修工单数据
+     * @param  {[type]} orderId [description]
+     * @return {[type]}         [description]
+     */
+    function cacheRepairOrderData(orderId) {
+        // 标识key
+        var cacheKey = orderId + '_orderjson';
+        localStorage.removeItem(cacheKey);
+        for (var i = 0; i < repairList.length; i++) {
+            var repairOrder = repairList[i];
+            if (repairOrder.id == orderId) {
+                var orderJson = JSON.stringify(repairOrder);
+                localStorage.setItem(cacheKey, orderJson);
+            }
+        }
+    }
+
+    /**
+     * 根据当前登录用户控制按钮和下拉框
+     * @param  {[type]} wfInfor [description]
+     * @return {[type]}         [description]
+     */
+    function wfControlByTaskAndUserRole(wfInfor) {
+        debugger
+        // 先将按钮数组清空
+        existingBtns = [];
+        // 然后将工作流按钮dom元素清空
+        $('#wfBtnBox').html('');
+        if (wfInfor != null && wfInfor != '') {
+            // 信息的赋值
+            var taskList = JSON.parse(wfInfor);
+            // 工作流所在的节点文本
+            workFlowObj.taskDefinitionKey = taskList.taskDefinitionKey;
+            $('#taskDefinitionKey').html(getWorkFlowStatusName(taskList.taskDefinitionKey));
+            workFlowObj.taskId = taskList.taskId;
+            // 当前节点的配置数据
+            workFlowObj.currentNodeConfig = JSON.parse(taskList.wfTaskConfigData);
+            // 具有执行权限的人员集合
+            var taskUsers = JSON.parse(taskList.users);
+            // 如果为超级管理员
+            if (onLineUser.isAdmin) {
+                //  显示左侧操作人员的下拉框
+                $('#operationSel').show();
+                //  将所有操作用户填充到下拉框，并监听事件
+                fillOperationSelectData(taskUsers);
+            }
+            // 如果为普通用户，则返回的工作流只有一条数据
+            else {
+                // 传入自己的id
+                controlBtnByWorkFlowAndJurisdiction(onLineUser.userId);
+            }
+        } else {
+            // 工作流结束，返回空值
+            workFlowObj.taskDefinitionKey = '';
+            // 将下拉框隐藏
+            $('#operationSel').hide();
+        }
+        // 获取当前工单的最新的状态
+        findWorkOrderById();
+    };
+    /**
+     * 获取工单信息
+     * @return {[type]} [description]
+     */
+    function findWorkOrderById() {
+        JQueryUtil.sendRCP(pathUrl + '/communal/findWorkOrderById', {
+                orderId: orderId
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    if (result.data != '') {
+                        // 获取工单最新状态
+                        var state = JSON.parse(result.data).status;
+                        // 工单状态
+                        $('#orderState').html(statusNum(state)[2]);
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    /**
+     * 设置多个可操作人员的下拉框
+     * @param  {[type]} taskUsers [description]
+     * @return {[type]}           [description]
+     */
+    function fillOperationSelectData(taskUsers) {
+        var html = '<option value="-1">---请选择---</option>';
+        if (taskUsers != null) {
+            // 如果是超级管理员，他可以选中有对应权限的人操作对应的工作流程；如果他是工作流中的操作人员，可以选中自己执行某些操作
+            // 填充工作流对应的有响应权限的人
+            for (var item = 0, length = taskUsers.length; item < length; item++) {
+                var userid = taskUsers[item].userId;
+                var label = getUserNameByUserId(userid);
+                html += '<option value="' + userid + '">' + label + '</option>';;
+            }
+            $('#operationSel').html('').append(html);
+        }
+    };
+    /**
+     * 根据用户id和所在的节点进行按钮的控制
+     * （如果为超级管理员，可选择操作用户；如果为普通用户，则使用自己的id）
+     * @param  {[type]} userId 用户id
+     * @return {[type]}        [description]
+     */
+    function controlBtnByWorkFlowAndJurisdiction(userId) {
+        existingBtns = [];
+        var btnHtml = '';
+        if (userId == "" || userId == '-1') {
+            $('#wfBtnBox').html('');
+            return;
+        }
+        var taskDefinitionKey = workFlowObj.taskDefinitionKey;
+        // 然后遍历工作流节点配置数据，根据其当前节点的权限，创建对应的按钮
+        var groupIds = getGroupIdByUserId(userId).split(',');
+        var configList = workFlowObj.currentNodeConfig;
+        if (configList && configList.length > 0 && groupIds && groupIds.length > 0) {
+            for (var i = 0; i < groupIds.length; i++) {
+                var groupId = groupIds[i];
+                for (var j = 0; j < configList.length; j++) {
+                    var config = configList[j];
+                    var roles = config.roles.split(',');
+                    if (roles && roles.length > 0) {
+                        for (var p = 0; p < roles.length; p++) {
+                            var role = roles[p];
+                            if (groupId == role && !btnIsContain(config)) {
+                                /**
+                                 * 过滤掉接单，转单，执行，申请延期和提交工作流按钮
+                                 */
+                                // if ("executing"==taskDefinitionKey || ("implementAndReassignment"==taskDefinitionKey && '转单'==config.doshowname) || ("implementAndReassignment"==taskDefinitionKey && 'implement'==config.doid)) {
+                                //     continue;
+                                // }
+                                /**
+                                 * 如果是各个审批节点，则做特殊处理，只生成一个按钮（将两个按钮赋值给existingBtns数组）
+                                 */
+                                if ("doNeedApprove" == taskDefinitionKey) { // 工单提交审批
+                                    btnHtml += '<button class="btn btn-primary" onclick="eventJump(\'' + config.id + '\')">工单审批</button>';
+                                    existingBtns = configList;
+                                    $('#wfBtnBox').html('').append(btnHtml);
+                                    return;
+                                } else if ("acceptApprove" == taskDefinitionKey) { // 工单验收审批
+                                    btnHtml += '<button class="btn btn-primary" onclick="eventJump(\'' + config.id + '\')">工单验收</button>';
+                                    existingBtns = configList;
+                                    $('#wfBtnBox').html('').append(btnHtml);
+                                    return;
+                                } else if ("delayApprove" == taskDefinitionKey) { // 工单延期审批
+                                    btnHtml += '<button class="btn btn-primary" onclick="eventJump(\'' + config.id + '\')">延期审批</button>';
+                                    existingBtns = configList;
+                                    $('#wfBtnBox').html('').append(btnHtml);
+                                    return;
+                                } else {
+                                    btnHtml += '<button class="btn btn-primary" onclick="eventJump(\'' + config.id + '\')">' + config.doshowname + '</button>';
+                                    existingBtns.push(config);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            $('#wfBtnBox').html('').append(btnHtml);
+        }
+    };
+    /**
+     * 事件跳转
+     * @param  {[type]} configId [description]
+     * @return {[type]}          [description]
+     */
+    function eventJump(configId) {
+        var wfConfig = null;
+        if (existingBtns && existingBtns.length > 0) {
+            for (var i = 0; i < existingBtns.length; i++) {
+                if (existingBtns[i].id == configId) {
+                    wfConfig = existingBtns[i];
+                    break;
+                }
+            }
+        }
+        if (wfConfig == null) {
+            alert('获取该权限数据失败！');
+            return;
+        }
+        // 指派
+        if ("assigned" == wfConfig.nodeid && "zhipai" == wfConfig.doid) {
+            return zhipBtnEvent(wfConfig);
+        }
+        // 改派
+        if ("implementAndReassignment" == wfConfig.nodeid && "reassignment" == wfConfig.doid) {
+            return gaipBtnEvent(wfConfig);
+        }
+        // 忽略（关闭工单）
+        if ("implementAndReassignment" == wfConfig.nodeid && "ignore" == wfConfig.doid) {
+            return ignoreBtnEvent(wfConfig);
+        }
+        // 执行
+        if ("implementAndReassignment" == wfConfig.nodeid && "implement" == wfConfig.doid) {
+            return zhixBtnEvent(wfConfig);
+        }
+        // 挂单
+        if ("executing" == wfConfig.nodeid && "hangUp" == wfConfig.doid) {
+            return guadBtnEvent(wfConfig);
+        }
+        // 退单
+        if ("executing" == wfConfig.nodeid && "back" == wfConfig.doid) {
+            return tuidBtnEvent(wfConfig);
+        }
+        // 提交
+        if ("executing" == wfConfig.nodeid && "submit" == wfConfig.doid) {
+            return gongdtjBtnEvent(wfConfig);
+        }
+        // 延期
+        if ("executing" == wfConfig.nodeid && "delay" == wfConfig.doid) {
+            return shenqyqBtnEvent(wfConfig);
+        }
+        // 延期审批（审批类事件，需将两个按钮数据传递到方法中）
+        if ("delayApprove" == wfConfig.nodeid) {
+            return yanqspBtnEvent(existingBtns);
+        }
+        // 工单审批（审批类事件，需将两个按钮数据传递到方法中）
+        if ("doNeedApprove" == wfConfig.nodeid) {
+            return gongdspBtnEvent(existingBtns);
+        }
+        // 验收审批（审批类事件，需将两个按钮数据传递到方法中）
+        if ("acceptApprove" == wfConfig.nodeid) {
+            return gongdysBtnEvent(existingBtns);
+        }
+
+    }
+    /**
+     * 判断按钮是否已经存在：是返回true，否返回false
+     * @param  {[type]} btnObj [description]
+     * @return {[type]}        [description]
+     */
+    function btnIsContain(btnObj) {
+        if (existingBtns != null && existingBtns.length > 0) {
+            for (var i = 0; i < existingBtns.length; i++) {
+                if (btnObj.doshowname == existingBtns[i].doshowname) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    };
+
+    // ------------------------------ 以下为工作流操作事件 -----------------------------
+
+    // 指派按钮事件
+    function zhipBtnEvent(params) {
+        var title = '任务指派';
+        var btnText = params.doshowname; // 显示配置里面的名称
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //获取方式
+            +
+            '<div class="form-group">' +
+            '<label for="doUserSelect" class="col-sm-4 control-label">选择执行人：</label>' +
+            '<div class="col-sm-7">' +
+            '<select class="form-control" id="doUserSelect">'
+            //异步进行数据填充
+            +
+            '</select>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+
+        formModalPublicSetting(params, title, content, btnText, zhipBtnClickFunction);
+        // 然后给执行人下拉框配置数据
+        fillDoUserSelectData(params);
+    };
+    //
+    function zhipBtnClickFunction(param) {
+        var p = param.data.obj;
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        // 选择的用户id
+        var doUserId = $('#doUserSelect').children('option:selected').val();
+        // 执行工作流，进行指派
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfZhiPai', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前登录人id
+                operationUserId: operationUserId, // 操作人id
+                doUserId: doUserId, // 被指派的执行人id
+                taskCfgId: p.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 给执行人下拉框配置数据
+    function fillDoUserSelectData(params) {
+        var doUserSelect = document.getElementById("doUserSelect");
+        JQueryUtil.sendAsyncRCP(pathUrl + '/onSiteInspectionManage/findDouserListInAssigned', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                piKey: 'implementAndReassignment',
+                actionKey: 'implement',
+                nextRoles: params.nextroles, // 下一组执行人
+                taskCfgId: params.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    var dataList = JSON.parse(result.data);
+                    for (var item = 0, length = dataList.length; item < length; item++) {
+                        var userId = dataList[item].userId;
+                        if (userId != '') {
+                            var label = getUserNameByUserId(userId);
+                            doUserSelect.add(new Option(label, userId));
+                        }
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 工单指派审批
+    function gongdzpspBtnEvent() {
+        // 使用蒙版
+        var title = '工单指派审批';
+        var btnText = '审批';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //选择审批通过或者不通过
+            +
+            '<div id="dt" class="form-group">' +
+            '<label for="optionsRadios1" class="col-sm-4 control-label">请审批：</label>' +
+            '<div class="radio">' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdzpspRadios" id="optionsRadios1" value="pass" checked> 审核通过</label>' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdzpspRadios" id="optionsRadios2" value="notpass"> 审核不通过</label>' +
+            '</div>' +
+            '</div>'
+            // 审核不通过的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">原因：</label>' +
+            '<div class="col-sm-7">' +
+            '<textarea class="form-control" rows="2" placeholder="请简写审核不通过的原因" id="notPassReason"></textarea>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting('', title, content, btnText, gongdzpspBtnClickFunction);
+        // 默认不显示
+        $('#notPassReasonBox').hide();
+        // 为单选按钮添加点击监听事件
+        $('input:radio[name="gdzpspRadios"]').off('click').on('click', function(e) {
+            var chkRadio = $(this).val();
+            // 如果点击不通过，则显示填写不通过原因的文本框
+            if ('notpass' == chkRadio) {
+                // 审核不通过
+                $('#notPassReasonBox').show();
+            } else {
+                // 审核通过
+                $('#notPassReasonBox').hide();
+            }
+        });
+    };
+    // 工单指派审批
+    function gongdzpspBtnClickFunction(param) {
+        var methodName = '';
+        var val = $('input:radio[name="gdzpspRadios"]:checked').val();
+        // 审批通过
+        if ('pass' == val) {
+            methodName = 'executeTaskOfZhiPaiShenPiTrue';
+        }
+        // 审批不通过
+        if ('notpass' == val) {
+            methodName = 'executeTaskOfZhiPaiShenPiFalse';
+        }
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/bookoffotmsManage/findIndividualityFieldList', {
+                // 参数
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                notPassReason: $('#notPassReason').val().trim()
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 执行
+    function zhixBtnEvent(param) {
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人（可以选择自己）
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfZhiXing', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人（执行节点）
+                doUserId: '', // 执行人id
+                taskCfgId: param.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 改派
+    function gaipBtnEvent(params) {
+        var title = '任务改派';
+        var btnText = params.doshowname;
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //获取方式
+            +
+            '<div class="form-group">' +
+            '<label for="doUserSelect" class="col-sm-4 control-label">选择执行人：</label>' +
+            '<div class="col-sm-7">' +
+            '<select class="form-control" id="doUserSelect">'
+            //异步进行数据填充
+            +
+            '</select>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(params, title, content, btnText, gaipBtnClickFunction);
+        fillDoUserSelectData(params);
+    };
+    // 改派
+    function gaipBtnClickFunction(param) {
+        var p = param.data.obj;
+        // 选择的用户id
+        var selectedId = $('#doUserSelect').children('option:selected').val();
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfGaiPai', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                doUserId: selectedId, // 执行人id
+                taskCfgId: p.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 忽略（关闭工单）
+    function ignoreBtnEvent(params) {
+        var title = '关闭工单';
+        var btnText = params.doshowname;
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            // 不同意延期的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">关闭原因：</label>' +
+            '<div class="col-sm-7">' +
+            '<textarea class="form-control" rows="2" placeholder="请简写关闭工单的原因" id="closeReason"></textarea>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(params, title, content, btnText, ignoreBtnEventFunction);
+    };
+    /**
+     * [ignoreBtnEventFunction 关闭工单方法]
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    function ignoreBtnEventFunction(param) {
+        var p = param.data.obj;
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfHuLve', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                closeReason: $('#closeReason').val().trim(),
+                taskCfgId: p.id
+
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 挂单
+    function guadBtnEvent(params) {
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfGuaDan', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                doUserId: '', // 执行人id
+                reason: '', // 原因
+                operationUserId: operationUserId, // 操作人id
+                taskCfgId: params.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 退单
+    function tuidBtnEvent(params) {
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfTuiDan', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                doUserId: '', // 执行人id
+                reason: '', // 原因
+                operationUserId: operationUserId, // 操作人id
+                taskCfgId: params.id
+
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 申请延期
+    function shenqyqBtnEvent(params) {
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfShenQingYanQi', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                doUserId: '', // 执行人id
+                reason: '', // 原因
+                taskCfgId: params.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 工单提交按钮事件
+    function gongdtjBtnEvent(params) {
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/executeTaskOfTiJiao', {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                doUserId: '', // 执行人id
+                taskCfgId: params.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    // 延期审批
+    function yanqspBtnEvent(params) {
+        // 使用蒙版
+        var title = '申请延期审批';
+        var btnText = '审批';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //选择审批通过或者不通过
+            +
+            '<div id="dt" class="form-group">' +
+            '<label for="optionsRadios1" class="col-sm-4 control-label">请审批：</label>' +
+            '<div class="radio">' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="sqyqspRadios" id="optionsRadios1" value="pass" checked> 同意延期</label>' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="sqyqspRadios" id="optionsRadios2" value="notpass"> 不同意延期</label>' +
+            '</div>' +
+            '</div>'
+            // 不同意延期的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">原因：</label>' +
+            '<div class="col-sm-7">' +
+            '<textarea class="form-control" rows="2" placeholder="请简写不同意延期的原因" id="notPassReason"></textarea>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(params, title, content, btnText, yanqspBtnClickFunction);
+        // 默认不显示
+        $('#notPassReasonBox').hide();
+        // 为单选按钮添加点击监听事件
+        $('input:radio[name="sqyqspRadios"]').off('click').on('click', function(e) {
+            var chkRadio = $(this).val();
+            // 如果点击不通过，则显示填写不通过原因的文本框
+            if ('notpass' == chkRadio) {
+                // 审核不通过
+                $('#notPassReasonBox').show();
+            } else {
+                // 审核通过
+                $('#notPassReasonBox').hide();
+            }
+        });
+    };
+
+    function yanqspBtnClickFunction(param) {
+        var configList = param.data.obj;
+        var passFlag = '';
+        var methodName = '';
+        var val = $('input:radio[name="sqyqspRadios"]:checked').val();
+        // 审批通过
+        if ('pass' == val) {
+            methodName = 'executeTaskOfShenQingYanQiTrue';
+            passFlag = 'true';
+        }
+        // 审批不通过
+        if ('notpass' == val) {
+            methodName = 'executeTaskOfShenQingYanQiFalse';
+            passFlag = 'false';
+        }
+        // 获取审批通过或不通过对应的配置对象
+        var obj = getNextRolesFromConfigListByFlag(configList, passFlag);
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/' + methodName, {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                notPassReason: $('#notPassReason').val().trim(),
+                doUserId: '', // 执行人id
+                taskCfgId: obj.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+
+    function gongdspBtnEvent(params) {
+        // 使用蒙版
+        var title = '工单审批';
+        var btnText = '审批';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //选择审批通过或者不通过
+            +
+            '<div id="dt" class="form-group">' +
+            '<label for="optionsRadios1" class="col-sm-4 control-label">请审批：</label>' +
+            '<div class="radio">' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdspRadios" id="optionsRadios1" value="pass" checked> 审核通过</label>' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdspRadios" id="optionsRadios2" value="notpass"> 审核不通过</label>' +
+            '</div>' +
+            '</div>'
+            // 审核不通过的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">原因：</label>' +
+            '<div class="col-sm-7">' +
+            '<textarea class="form-control" rows="2" placeholder="请简写审核不通过的原因" id="notPassReason"></textarea>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(params, title, content, btnText, gongdspBtnClickFunction);
+        // 默认不显示
+        $('#notPassReasonBox').hide();
+        // 为单选按钮添加点击监听事件
+        $('input:radio[name="gdspRadios"]').off('click').on('click', function(e) {
+            var chkRadio = $(this).val();
+            // 如果点击不通过，则显示填写不通过原因的文本框
+            if ('notpass' == chkRadio) {
+                // 审核不通过
+                $('#notPassReasonBox').show();
+            } else {
+                // 审核通过
+                $('#notPassReasonBox').hide();
+            }
+        });
+    };
+    // 工单审批的点击事件
+    function gongdspBtnClickFunction(param) {
+        var configList = param.data.obj;
+        var passFlag = '';
+        var methodName = '';
+        var val = $('input:radio[name="gdspRadios"]:checked').val();
+        // 审批通过
+        if ('pass' == val) {
+            methodName = 'executeTaskOfShenPiTrue';
+            passFlag = 'true';
+        }
+        // 审批不通过
+        if ('notpass' == val) {
+            methodName = 'executeTaskOfShenPiFalse';
+            passFlag = 'false';
+        }
+        // 获取审批通过或不通过对应的配置对象
+        var obj = getNextRolesFromConfigListByFlag(configList, passFlag);
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/' + methodName, {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                notPassReason: $('#notPassReason').val().trim(),
+                doUserId: '', // 执行人id
+                taskCfgId: obj.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+
+    function gongdysBtnEvent(params) {
+        // 使用蒙版
+        var title = '工单验收审核';
+        var btnText = '确认';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            //选择审批通过或者不通过
+            +
+            '<div id="dt" class="form-group">' +
+            '<label for="optionsRadios1" class="col-sm-4 control-label">请验收：</label>' +
+            '<div class="radio">' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdysRadios" id="optionsRadios1" value="pass" checked> 验收通过</label>' +
+            '<label style="margin-left: 15px;">' +
+            '<input type="radio" name="gdysRadios" id="optionsRadios2" value="notpass"> 验收不通过</label>' +
+            '</div>' +
+            '</div>'
+            // 审核不通过的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">原因：</label>' +
+            '<div class="col-sm-7">' +
+            '<textarea class="form-control" rows="2" placeholder="请简写验收不通过的原因" id="notPassReason"></textarea>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(params, title, content, btnText, gongdysBtnClickFunction);
+        // 默认不显示
+        $('#notPassReasonBox').hide();
+        // 为单选按钮添加点击监听事件
+        $('input:radio[name="gdysRadios"]').off('click').on('click', function(e) {
+            var chkRadio = $(this).val();
+            // 如果点击不通过，则显示填写不通过原因的文本框
+            if ('notpass' == chkRadio) {
+                // 审核不通过
+                $('#notPassReasonBox').show();
+            } else {
+                // 审核通过
+                $('#notPassReasonBox').hide();
+            }
+        });
+    };
+    // 验收
+    function gongdysBtnClickFunction(param) {
+        var configList = param.data.obj;
+        var passFlag = '';
+        var methodName = '';
+        var val = $('input:radio[name="gdysRadios"]:checked').val();
+        // 审批通过
+        if ('pass' == val) {
+            methodName = 'executeTaskOfYanShouTrue';
+            passFlag = 'true';
+        }
+        // 审批不通过
+        if ('notpass' == val) {
+            methodName = 'executeTaskOfYanShouFalse';
+            passFlag = 'false';
+        }
+        // 获取审批通过或不通过对应的配置对象
+        var obj = getNextRolesFromConfigListByFlag(configList, passFlag);
+        // 左侧操作人员id
+        var operationUserId = '';
+        if (onLineUser.isAdmin) {
+            // 如果是超级管理员，则操作人为左侧下拉框选中的人
+            operationUserId = $('#operationSel').val();
+        } else {
+            // 否则就是自己操作的
+            operationUserId = onLineUser.userId;
+        }
+        JQueryUtil.sendAsyncRCP(pathUrl + '/workFlow/' + methodName, {
+                // 参数
+                businessId: modularId,
+                orderId: workOrder.id,
+                processInstanceId: workOrder.processinstanceid,
+                taskId: workFlowObj.taskId,
+                userId: onLineUser.userId, // 当前用户id
+                operationUserId: operationUserId, // 操作人id
+                notPassReason: $('#notPassReason').val().trim(),
+                doUserId: '', // 执行人id
+                taskCfgId: obj.id
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 执行后，重新刷新工作流按钮
+                    wfControlByTaskAndUserRole(result.data);
+                } else {
+                    alert(result.msg);
+                }
+                // 关闭蒙版
+                $('#formModal').modal('hide');
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    /**
+     * 根据true或者false标识，从配置list中获取对应的对象
+     * @param  {[type]} list [description]
+     * @param  {[type]} flag [description]
+     * @return {[type]}      [description]
+     */
+    function getNextRolesFromConfigListByFlag(list, flag) {
+        if (list != null && list.length > 0) {
+            for (var obj in list) {
+                if (list[obj].doid == flag) {
+                    return list[obj];
+                }
+            }
+        }
+    };
+    // ------------------------------ 以上为工作流操作事件 -----------------------------
+
+    /**
+     * 获取人员的真实姓名
+     * @param key：用户id
+     */
+    function getUserNameByUserId(key) {
+        if (workFlowObj.userObjMap != null) {
+            var userData = workFlowObj.userObjMap;
+            for (var obj in userData) {
+                if (key == obj) {
+                    var o = JSON.parse(userData[key]);
+                    return o.user_real_name;
+                }
+            }
+        }
+    };
+    /**
+     * 操作记录按钮点击事件
+     * @return {[type]} [description]
+     */
+    function operaRecordClickFunction() {
+        initBar()
+        // 使用蒙版
+        var title = '操作记录';
+        var btnText = '退出';
+        var content = '';
+
+        JQueryUtil.sendRCP(pathUrl + '/communal/findOperationRecordByOrderId', {
+                orderId: orderId
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    // 获取数据
+                    var dataList = JSON.parse(result.data);
+                    var html = '';
+                    for (var item = 0, size = dataList.length; item < size; item++) {
+                        html = '<span>' + (item + 1) + '.' + dataList[item].opContent + '</span><br/><br/>';
+                        content += html;
+                    }
+                    formModalPublicSetting('', title, content, btnText, operationRecordBtnClickFunction);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+
+
+    };
+
+    function operationRecordBtnClickFunction() {
+        $('#formModal').modal('hide');
+    }
+    /**
+     * 获取工作流的名称
+     * @param  {[type]} key [description]
+     * @return {[type]}     [description]
+     */
+    function getWorkFlowStatusName(key) {
+        if ('assigned' == key) {
+            return '工单指派';
+        }
+        if ('assignNeedApprove' == key) {
+            return '工单指派审批';
+        }
+        if ('implementAndReassignment' == key) {
+            return '工单执行/工单改派';
+        }
+        if ('executing' == key) {
+            return '工单执行中';
+        }
+        if ('doNeedApprove' == key) {
+            return '工单审批';
+        }
+        if ('acceptApprove' == key) {
+            return '工单验收';
+        }
+        if ('delayApprove' == key) {
+            return '延期审批';
+        }
+        if ('' == key) {
+            // 如果是普通用户，判断当前工单状态是否结束
+            if (!onLineUser.isAdmin) {
+                if (workOrder.status != '9') {
+                    return '【注：当前用户没有当前节点的操作任务】';
+                }
+            }
+            return '工作流结束';
+        }
+    };
+    /**
+     * 通过userId获取所在的组id（可能在多个组）
+     * @return {[type]} [description]
+     */
+    function getGroupIdByUserId(userId) {
+        var userGroups = "";
+        var userInforMap = workFlowObj.userObjMap;
+        if (userInforMap != null) {
+            for (var userKey in userInforMap) {
+                if (userId == userKey) {
+                    var userObj = JSON.parse(userInforMap[userKey]);
+                    var r = userObj.roles.split('|');
+                    if (r != null && r.length > 0) {
+                        for (var i = 0; i < r.length; i++) {
+                            var str = r[i];
+                            userGroups += str.substring(0, str.indexOf(',')) + ',';
+                        }
+                        return userGroups.substring(0, (userGroups.length - 2));
+                    }
+                }
+            }
+        }
+    }
+    /**
+     * 动态控制模态框的公共方法
+     * @param _data：要传递的数据
+     * @param _title：显示的标头
+     * @param _btnText：按钮显示的文本
+     * @param _clickEvent：调用的事件
+     */
+    function formModalPublicSetting(_data, _title, _content, _btnText,
+        _clickEvent) {
+        //设置标题
+        $('#formModalLabel').text(_title);
+        //追加主体内容
+        if (_title == '操作记录') {
+            $('#formModalBody').addClass('modal-body-style');
+        } else {
+            $('#formModalBody').removeClass('modal-body-style');
+        }
+        if (_content != null) {
+            $('#formModalBody').empty().append(_content);
+        } else {
+            $('#formModalBody').empty().append('');
+        }
+        //设置事件按钮的文字
+        $("#_btn").text(_btnText);
+        //为按钮绑定事件,并传参
+        $('#_btn').off('click').on('click', {
+            obj: _data
+        }, _clickEvent);
+        $('#formModal').modal('show');
+    }
+
+
+    $(function() {
+
+        // --------------- 初始化地图 -------------------
+        // rmap = new RMap.Map('map');
+        // rmap.centerZoom(116.390985, 39.906358, 12);
+        // rmap = new RMap.Map('map',{type:["GGSL_OL"]});
+        //         //加载管网地图
+        // rmap.addLayer("zhuhaimap", {
+        //     opacity: 0.9,
+        //     isCenter:true
+        // });
+        // //地图居中缩放
+        // rmap.centerZoom(113.531192, 22.236664, 13);
+
+
+        // --------------- 拼接页面元素 -------------------
+        // 工单编号
+        $('#orderNum').html(workOrder.ordernumint);
+        // 区域名称
+        var regionName = getRegionNameById(workOrder.regional);
+        $('#region').html(regionName);
+        // 开始结束时间
+        var startDate = formatTime(workOrder.startdate.time, false);
+        var endDate = formatTime(workOrder.enddate.time, false);
+        $('#executDate').html(startDate + ' ~ ' + endDate);
+        // 执行人
+        if (workOrder.executor) {
+            $('#executor').html(getUserNameById(workOrder.executor));
+        } else {
+            $('#executor').html('无');
+        }
+        // 工单状态
+        $('#orderState').html(statusNum(workOrder.status)[2]);
+
+        init();
+
+        /**
+         * 工作流人员选择框的改变事件
+         * operationSelChange
+         * @param  {[type]} )
+         * @return {[type]}     [description]
+         */
+        $("#operationSel").change(function() {
+            var userId = $(this).val();
+            controlBtnByWorkFlowAndJurisdiction(userId);
+        });
+
+        // 所有的轮播都不自动播放
+        $('.identifier').carousel({
+            interval: false
+        })
+
+    })
+    </script>
+</body>
+
+</html>

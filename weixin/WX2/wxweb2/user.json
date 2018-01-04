@@ -2,7 +2,8 @@
     
        "data": [
        {
-           "name": "胡坚",
+          "id":"1",
+           "name": "胡坚1",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -11,10 +12,14 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"6",
+           "dealNum":"4"
        },
          {
-           "name": "胡坚",
+          "id":"2",
+
+           "name": "胡坚2",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -23,10 +28,14 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"7",
+           "dealNum":"2"
        },
          {
-           "name": "胡坚",
+          "id":"3",
+
+           "name": "胡坚3",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -35,10 +44,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"5",
+           "dealNum":"4"
        },
         {
-           "name": "胡坚",
+          "id":"4",
+           "name": "胡坚4",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -47,10 +59,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"5",
+           "name": "胡坚5",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -59,10 +74,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"6",
+           "name": "胡坚6",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -71,10 +89,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"19",
+           "dealNum":"26"
        },
         {
-           "name": "胡坚",
+          "id":"7",
+           "name": "胡坚7",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -83,10 +104,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"8",
+           "name": "胡坚8",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -95,10 +119,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"9",
+           "name": "胡坚9",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -107,10 +134,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"29",
+           "dealNum":"61"
        },
         {
-           "name": "胡坚",
+          "id":"10",
+           "name": "胡坚10",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -119,10 +149,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"11",
+           "name": "胡坚11",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -131,10 +164,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"12",
+           "name": "胡坚12",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -143,10 +179,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"13",
+           "name": "胡坚13",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -155,10 +194,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"14",
+           "name": "胡坚14",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -167,10 +209,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"15",
+           "name": "胡坚15",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -179,10 +224,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"16",
+           "name": "胡坚16",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -191,10 +239,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"17",
+           "name": "胡坚17",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -203,10 +254,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"18",
+           "name": "胡坚18",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -215,10 +269,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"19",
+           "name": "胡坚19",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -227,10 +284,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"20",
+           "name": "胡坚20",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -239,10 +299,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"21",
+           "name": "胡坚21",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -251,10 +314,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"22",
+           "name": "胡坚22",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -263,10 +329,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"23",
+           "name": "胡坚23",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -275,10 +344,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"24",
+           "name": "胡坚24",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -287,10 +359,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"25",
+           "name": "胡坚25",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -299,10 +374,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"26",
+           "name": "胡坚26",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -311,10 +389,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"27",
+           "name": "胡坚27",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -323,10 +404,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"28",
+           "name": "胡坚28",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -335,10 +419,13 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        },
         {
-           "name": "胡坚",
+          "id":"29",
+           "name": "胡坚29",
            "wxnumber": "hujian199",
            "email": "hujian199@163.com",
            "unit": "宿州市水务局",
@@ -347,7 +434,9 @@
            "role": "队长",
            "subpart": "河道上游 ",
            "phone": "15801542599",
-           "regisDate": "2017.06.15  10:21"
+           "regisDate": "2017.06.15  10:21",
+           "reportNum":"9",
+           "dealNum":"6"
        }         
 
       

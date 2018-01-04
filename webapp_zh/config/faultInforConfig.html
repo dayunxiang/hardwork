@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>故障信息配置</title>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/faultInforConfig.css">
+</head>
+
+<body>
+    <div class="topBanner">
+    </div>
+    <div class="mainWrap">
+     <ul class="sideBar sideBar-mini">
+        </ul>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            <div class="contentMain">
+                 <div class="areaManage rightCons padding-md">
+                    <!-- 面包屑导航 -->
+                    <ul class="breadcrumb">
+                        <li>参数设置</li>
+                    </ul>
+                    <div class="taskPanel-body padding-md csedit">
+                        <div class="container-fulid asset-list">
+                            <div class="row">
+                                <div class="col-md-4 fican clearfix">
+                                    <ul class="clearfix top">
+                                        <li class="custom pull-left">
+                                            <h5>参数类型：</h5>
+                                        </li>
+                                        <li class="pull-right ">
+                                            <button class="btn add-list-btn" title="添加" onclick="addNewInfor('first')">
+                                                <img src="../img/con_add.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="编辑" onclick="editCfgInfor('first')">
+                                                <img src="../img/edit.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="删除" onclick="deleteCfgInfor('first')">
+                                                <img src="../img/dels.png" alt="">
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-group asset-list-group-a firstBox">
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 thcan clearfix">
+                                    <ul class="clearfix top">
+                                        <li class="custom pull-left">
+                                            <h5>参数分组：</h5></li>
+                                        <li class="pull-right " v-if="showObj.second">
+                                            <button class="btn add-list-btn" title="添加" onclick="addNewInfor('second')">
+                                                <img src="../img/con_add.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="编辑" onclick="editCfgInfor('second')">
+                                                <img src="../img/edit.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="删除" onclick="deleteCfgInfor('second')">
+                                                <img src="../img/dels.png" alt="">
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-group asset-list-group-a secondBox">
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 thican clearfix">
+                                    <ul class="clearfix top">
+                                        <li class="custom pull-left">
+                                            <h5>参数：</h5></li>
+                                        <li class="pull-right " v-if="showObj.third">
+                                            <button class="btn add-list-btn" title="添加" onclick="addNewInfor('third')">
+                                                <img src="../img/con_add.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="编辑" onclick="editCfgInfor('third')">
+                                                <img src="../img/edit.png" alt="">
+                                            </button>
+                                            <button class="btn add-list-btn" title="删除" onclick="deleteCfgInfor('third')">
+                                                <img src="../img/dels.png" alt="">
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-group asset-list-group-a thirdBox">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 蒙版 -->
+                    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="formModalLabel">
+                            <!-- 模态框标题 -->
+                        </h4>
+                                </div>
+                                <div class="modal-body" id="formModalBody">
+                                    <!-- 在这里添加一些文本 -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="_btn" type="button" class="btn btn-primary"></button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <script src="../js/nav.js"></script>
+    
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script type="text/javascript">
+    $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".firstBox")
+                setNiceScroll(".secondBox")
+                setNiceScroll(".thirdBox")
+            }, 0)
+        }
+    );
+    // 二级和三级按钮的显示控制
+    var showObj = {
+        second: false,
+        third: false
+    };
+    // 一级、二级和三级的选中数据
+    var faultParam = {
+        firstId: '',
+        firstName: '',
+        secondId: '',
+        secondName: '',
+        thirdId: '',
+        thirdName: ''
+    }
+
+    function init() {
+        findRepairInforCfgList('first', '0');
+    }
+    /**
+     * 根据级别和parentId获取数据
+     * @param  {[type]} level    [description]
+     * @param  {[type]} parentId [description]
+     * @return {[type]}          [description]
+     */
+    function findRepairInforCfgList(level, parentId) {
+        JQueryUtil.sendRCP(pathUrl + '/configManage/repairCfg/findRepairInforCfgList', {
+                parentId: parentId
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    var dataList = result.data;
+                    var html = '';
+                    if (dataList != '' && dataList != null) { // 一级数据
+                        var list = JSON.parse(dataList);
+                        if (level == 'first') {
+                            for (var i = 0; i < list.length; i++) {
+                                html += '<li class="list-group-item list-first" onclick="firstLevelClick(this,\'' + list[i].id + '\', \'' + list[i].gzname + '\')">';
+                                html += list[i].gzname;
+                                html += '</li>';
+                            }
+                            $('.secondBox').html('');
+                            $('.thirdBox').html('');
+
+                            $('.firstBox').html('').append(html);
+                        } else if (level == 'second') { // 二级数据
+                            for (var i = 0; i < list.length; i++) {
+                                html += '<li class="list-group-item list-first" onclick="secondLevelClick(this,\'' + list[i].id + '\', \'' + list[i].gzname + '\')">';
+                                html += list[i].gzname;
+                                html += '</li>';
+                            }
+                            $('.secondBox').html('').append(html);
+                        } else { // 三级数据
+                            for (var i = 0; i < list.length; i++) {
+                                html += '<li class="list-group-item list-first" onclick="thirdLevelClick(this,\'' + list[i].id + '\', \'' + list[i].gzname + '\')">';
+                                html += list[i].gzname;
+                                html += '</li>';
+                            }
+                            $('.thirdBox').html('').append(html);
+                        }
+                    } else {
+                        if (level == 'first') {
+                            $('.firstBox').html('');
+                        } else if (level == 'second') { // 二级数据
+                            $('.secondBox').html('');
+                        } else { // 三级数据
+                            $('.thirdBox').html('');
+                        }
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    //------------------------------- 点击事件 ----------------------------------
+    /**
+     * 一级数据点击事件
+     * @param  {[type]} event  [description]
+     * @param  {[type]} gzId   [description]
+     * @param  {[type]} gzName [description]
+     * @return {[type]}        [description]
+     */
+    function firstLevelClick(event, gzId, gzName) {
+        $('.list-first').removeClass('active');
+        $(event.target).addClass('active');
+        // 根据gzId去获取第二级的数据
+        findRepairInforCfgList('second', gzId);
+        // 选中li赋值
+        faultParam.firstId = gzId;
+        faultParam.firstName = gzName;
+        // 将下一级的选中取消
+        $('.list-second').removeClass('active');
+        faultParam.secondId = '';
+        faultParam.secondName = '';
+        // 显示第二级数据操作按钮
+        showObj.second = true;
+    }
+    /**
+     * 二级数据点击事件
+     * @param  {[type]} event  [description]
+     * @param  {[type]} gzId   [description]
+     * @param  {[type]} gzName [description]
+     * @return {[type]}        [description]
+     */
+    function secondLevelClick(event, gzId, gzName) {
+        $('.list-second').removeClass('active');
+        $(event.target).addClass('active');
+        // 根据gzId去获取第二级的数据
+        findRepairInforCfgList('third', gzId);
+        // 按钮显示
+        showObj.third = true;
+        // 选中li赋值
+        faultParam.secondId = gzId;
+        faultParam.secondName = gzName;
+        // 将下一级的选中取消
+        $('.list-third').removeClass('active');
+        faultParam.thirdId = '';
+        faultParam.thirdName = '';
+    }
+    /**
+     * 三级数据点击事件
+     * @param  {[type]} event  [description]
+     * @param  {[type]} gzId   [description]
+     * @param  {[type]} gzName [description]
+     * @return {[type]}        [description]
+     */
+    function thirdLevelClick(event, gzId, gzName) {
+        $('.list-third').removeClass('active');
+        $(event.target).addClass('active');
+        // 选中li赋值
+        faultParam.thirdId = gzId;
+        faultParam.thirdName = gzName;
+    }
+
+    //------------------------------- 添加编辑删除事件 ----------------------------------
+    /**
+     * 新建信息
+     * @param {[type]} level [description]
+     */
+    function addNewInfor(level) {
+        var parentId = ''; // parentId 
+        var parentName = ''; // parentName
+        var title = '添加维修配置信息';
+        var btnText = '添加'; // 显示配置里面的名称
+        var content = '';
+        content = '<form role="form" class="form-horizontal">';
+        // 根据等级获取parentId
+        if (level == 'first') {
+            parentId = '0';
+        } else if (level == 'second') {
+            parentId = faultParam.firstId;
+            parentName = faultParam.firstName;
+        } else {
+            parentId = faultParam.secondId;
+            parentName = faultParam.secondName;
+        }
+        if (level != 'first') {
+            content += '<div class="form-group">';
+            content += '<label class="col-sm-4 control-label">父级名称</label>';
+            content += '<div class="col-sm-7">';
+            content += '<p>' + parentName + '</p>';
+            content += '</div>';
+            content += '</div>';
+        }
+        // 名称 
+        content += '<div id="notPassReasonBox" class="form-group">';
+        content += '<label for="descri" class="col-sm-4 control-label">名称：</label>';
+        content += '<div class="col-sm-7">';
+        content += '<input type="text" class="form-control" id="inforName" placeholder="请输入名称">';
+        content += '</div>';
+        content += '</div>';
+        content += '</form>';
+        // 调用后台方法
+        // 传参
+        var d = {
+            parentId: parentId,
+            level: level
+        }
+        formModalPublicSetting(d, title, content, btnText, insertRepairInforCfg);
+    }
+
+    function insertRepairInforCfg(param) {
+        var parentId = param.data.obj.parentId;
+        var level = param.data.obj.level;
+        var name = $('#inforName').val().trim(); // 信息名称
+        if (name == '') {
+            alert('参数名称不能为空！');
+            return;
+        }
+        if (parentId == '') {
+            alert('参数父级ID不能为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/repairCfg/insertRepairInforCfg', {
+                inforName: name,
+                parentId: parentId
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('添加成功！');
+                    findRepairInforCfgList(level, parentId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    /**
+     * 编辑维修配置信息
+     * @param  {[type]} level [description]
+     * @return {[type]}       [description]
+     */
+    function editCfgInfor(level) {
+        var inforId = ''; // 信息id
+        var parentId = ''; // parentId 
+        var inforName = ''; // 信息name
+        var title = '修改维修配置信息';
+        var btnText = '修改'; // 显示配置里面的名称
+        var content = '';
+        // 根据等级获取parentId
+        if (level == 'first') {
+            parentId = '0';
+            inforId = faultParam.firstId;
+            inforName = faultParam.firstName;
+        } else if (level == 'second') {
+            parentId = faultParam.firstId;
+            inforId = faultParam.secondId;
+            inforName = faultParam.secondName;
+        } else {
+            parentId = faultParam.secondId;
+            inforId = faultParam.thirdId;
+            inforName = faultParam.thirdName;
+        }
+        // 名称 
+        content = '<form role="form" class="form-horizontal">';
+        content += '<div id="notPassReasonBox" class="form-group">';
+        content += '<label for="descri" class="col-sm-4 control-label">名称：</label>';
+        content += '<div class="col-sm-7">';
+        content += '<input type="text" class="form-control" id="inforName" value="' + inforName + '" placeholder="原为：' + inforName + '">';
+        content += '</div>';
+        content += '</div>';
+        content += '</form>';
+        // 调用后台方法
+        // 传参
+        var d = {
+            inforId: inforId,
+            parentId: parentId,
+            level: level
+        }
+        formModalPublicSetting(d, title, content, btnText, updateRepairInforCfg);
+    };
+    /**
+     * 修改维修信息
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    function updateRepairInforCfg(param) {
+        var inforId = param.data.obj.inforId;
+        var parentId = param.data.obj.parentId;
+        var level = param.data.obj.level;
+        var name = $('#inforName').val().trim(); // 信息名称
+        if (name == '') {
+            alert('参数名称不能为空！');
+            return;
+        }
+        if (inforId == '') {
+            alert('参数ID为空，请刷新重试！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/repairCfg/updateRepairInforCfg', {
+                inforId: inforId,
+                inforName: name
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('修改成功！');
+                    findRepairInforCfgList(level, parentId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+    /**
+     * 删除维修配置信息
+     * @param  {[type]} level [description]
+     * @return {[type]}       [description]
+     */
+    function deleteCfgInfor(level) {
+        var inforId = ''; // 信息id
+        var parentId = ''; // parentId 
+        var title = '删除维修配置信息';
+        var btnText = '删除'; // 显示配置里面的名称
+        var content = '';
+        // 根据等级获取parentId
+        if (level == 'first') {
+            parentId = '0';
+            inforId = faultParam.firstId;
+        } else if (level == 'second') {
+            parentId = faultParam.firstId;
+            inforId = faultParam.secondId;
+        } else {
+            parentId = faultParam.secondId;
+            inforId = faultParam.thirdId;
+        }
+        content = '<form role="form" class="form-horizontal">';
+        content += '<div class="inputCons">删除后将无法恢复，确认删除吗？    </div>';
+        content += '</form>';
+        // 传参
+        var d = {
+            inforId: inforId,
+            parentId: parentId,
+            level: level
+        }
+        formModalPublicSetting(d, title, content, btnText, deleteCfgInforFun);
+    };
+
+    function deleteCfgInforFun(param) {
+        var inforId = param.data.obj.inforId;
+        var parentId = param.data.obj.parentId;
+        var level = param.data.obj.level;
+
+        JQueryUtil.sendRCP(pathUrl + '/configManage/repairCfg/deleteRepairInforCfgById', {
+                cfgId: inforId
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('删除成功！');
+                    findRepairInforCfgList(level, parentId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    };
+
+
+    //************************ 公共方法 **************************
+    /**
+     * 动态控制模态框的公共方法
+     * @param _data：要传递的数据
+     * @param _title：显示的标头
+     * @param _btnText：按钮显示的文本
+     * @param _clickEvent：调用的事件
+     */
+    function formModalPublicSetting(_data, _title, _content, _btnText,
+        _clickEvent) {
+        //设置标题
+        $('#formModalLabel').text(_title);
+        //追加主体内容
+        if (_content != null) {
+            $('#formModalBody').empty().append(_content);
+        } else {
+            $('#formModalBody').empty().append('');
+        }
+        //设置事件按钮的文字c 
+        $("#_btn").text(_btnText);
+        //为按钮绑定事件,并传参
+        $('#_btn').off('click').on('click', {
+            obj: _data
+        }, _clickEvent);
+        $('#formModal').modal('show');
+    };
+
+
+    $(function() {
+        init();
+        $(".list-group").on("click", "li", function() {
+            $(this).addClass('active').siblings('li').removeClass('active')
+        })
+    })
+    </script>
+</body>
+
+</html>

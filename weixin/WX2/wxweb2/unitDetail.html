@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- 整个容器 -->
+    <div class="wrap">
+        <!-- 侧边栏 -->
+        <div class="sideBar sideBar-mini">
+            <div class="logo ">
+                <img src="img/logo.png" alt="">
+                <h2>巡检后台管理系统</h2>
+            </div>
+            <ul class="list">
+                <li>
+                    <img src="img/ico-user.png" alt="">
+                    <span>用户管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-upload.png" alt="">
+                    <span>警情管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-set.png" alt="">
+                    <span>设置</span>
+                </li>
+                <li class="now">
+                    <img src="img/ico-company.png" alt="">
+                    <span>单位管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-Statistics.png" alt="">
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 中间内容容器 -->
+        <div class="mainContainer">
+            <!-- 顶部top -->
+            <div class="topHeader">
+            </div>
+            <!-- content -->
+            <div class="content">
+                <div class="crumbNav">
+                    <a href="././UnitManage.html">单位管理 </a> 》
+                    <a href="javascript:;">宿州市水务局</a>
+                </div>
+                <div class="unitDetailContainer">
+                    <div class="unitDetailoption ">
+                        <h3>宿州市水务局</h3>
+                    </div>
+                    <div class="unitDetailmanaContainer">
+                        <ul class="unitDetailContent">
+                            <li>
+                                <span>省份</span>
+                                <span>安徽省</span>
+                            </li>
+                            <li>
+                                <span>单位名称</span>
+                                <span>宿州市水务局</span>
+                            </li>
+                            <li>
+                                <span>联系人</span>
+                                <span>张晓军</span>
+                            </li>
+                            <li>
+                                <span>联系人职务</span>
+                                <span>局长</span>
+                            </li>
+                            <li>
+                                <span>联系人电话</span>
+                                <span>14210976899</span>
+                            </li>
+                            <li>
+                                <span>注册日期</span>
+                                <span>2017.12.21 09:30:56</span>
+                            </li>
+                            <li>
+                                <span>注册人数（人）</span>
+                                <span>10</span>
+                            </li>
+                            <li>
+                                <span>管理员</span>
+                                <span>孙晓青</span>
+                            </li>
+                            <li>
+                                <span>管理员微信号</span>
+                                <span>sunxiaoqing</span>
+                            </li>
+                            <li>
+                                <span>管理员手机号</span>
+                                <span>15801542599</span>
+                            </li>
+                            <li>
+                                <span>管理员邮箱</span>
+                                <span>sunxiaoqing@163.com</span>
+                            </li>
+                        </ul>
+                        <p>组织成员<span>10</span>人</p>
+                        <div class="unitTableContainer">
+                              <table id="unitDetailTable">
+                                <thead>
+                                    <tr>
+                                        <th><i class="checkBox"><b class="fa fa-check"></b></i><span>姓名</span></th>
+                                        <th>微信号</th>
+                                        <th>邮箱</th>
+                                        <th>单位</th>
+                                        <th>部门</th>
+                                        <th>职务</th>
+                                        <th>角色</th>
+                                        <th>所属分区</th>
+                                        <th>联系电话</th>
+                                        <th>注册时间</th>
+                                        <th>上报（次）</th>
+                                        <th>处理（次）</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="./lib/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/unitDetail.js"></script>
+</body>
+
+</html>

@@ -24,9 +24,16 @@ $(function() {
     initunitTable()
     //全选和全部选功能
     allORnot()
-     $("#unitTable_wrapper").css({
-        'min-height': (h - 64-24-30-70-10-120-60) + "px"
-    });
+    //跳转详情
+ hrefUnitDetail()
+ //删除
+ unitDel()
+  //打开用户删除
+    openUserDel()
+    //取消或者 关闭 删除
+    closeUserDel()
+
+    
 })
 //初始化用户表格
 function initunitTable() {
@@ -73,8 +80,8 @@ function initunitTable() {
             {
                 targets: 8,
                 render: function(data, type, row, meta) {
-                    return '<img src="./img/ico-edit.png" title="编辑" alt="" class="tooltip userEdit" />' +
-                        '<img src="./img/ico-over copy 3.png" alt="" title="删除" class="tooltip userDel"  />';
+                    return '<img src="./img/ico-detail.png" title="详情" alt="" class="tooltip unitDetail" />' +
+                        '<img src="./img/ico-over copy 3.png" alt="" title="删除" class="tooltip unitDel"  />';
                 }
             }
         ],
@@ -99,12 +106,15 @@ $("#unitTable").on("click", ".checkBox", function() {
 function allORnot() {
     var num = 0
     var b = 0
+    
     $("#unitTable thead").on("click", ".checkBox", function() {
+         num = $("#unitTable tbody .checkBox").length
         if ($(this).attr('checked')) {
             $("#unitTable tbody .checkBox").removeAttr("checked")
             $("#unitTable tbody .checkBox b").css("display", 'none')
             $(".del").hide();
         } else {
+
             $("#unitTable tbody .checkBox").attr("checked", "checked")
             $("#unitTable tbody .checkBox b").css("display", 'block')
 
@@ -123,6 +133,7 @@ function allORnot() {
         } else {
             b--
         }
+        console.log(b)
         if (num == b) {
             $("#unitTable thead .checkBox").attr("checked", 'checked')
             $("#unitTable thead .checkBox b").css("display", 'block')
@@ -143,4 +154,17 @@ function allORnot() {
         }
 
     })
+}
+
+//跳转详情
+function hrefUnitDetail() {
+    $("#unitTable").on("click",".unitDetail",function () {
+        window.location.href = './unitDetail.html'
+    })
+}
+//删除
+function unitDel() {
+     $("#unitTable").on("click",".unitDel",function () {
+       $(".deleteContainer").show()
+     })
 }

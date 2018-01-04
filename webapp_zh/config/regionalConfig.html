@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>区域配置</title>
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/regionalConfig.css">
+</head>
+
+<body>
+    <div class="topBanner">
+    </div>
+    <div class="mainWrap">
+        <ul class="sideBar sideBar-mini">
+        </ul>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="contentMain">
+                    <div class="areaManage rightCons padding-md">
+                        <div class="taskPanel-body padding-md ">
+                            <div class="container-fulid asset-list">
+                                <div class="row">
+                                    <div class="col-md-3 qucols">
+                                        <ul class="custom clearfix">
+                                            <li class="pull-left">
+                                                <h5>区域类型</h5>
+                                            </li>
+                                            <li class="pull-right clearfix">
+                                                <button class="btn add-list-btn" title="添加" onclick="addNewRegionType()">
+                                                    <img src="../img/con_add.png" alt="">
+                                                </button>
+                                                <button class="btn add-list-btn" title="编辑" onclick="editRegionType()">
+                                                    <img src="../img/edit.png" alt="">
+                                                </button>
+                                                <button class="btn add-list-btn" title="删除" onclick="deleteRegionTypeById()">
+                                                    <img src="../img/dels.png" alt="">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-group asset-list-group-a regionTypeBox qylist">
+                                            <!-- 循环 -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 bjcols">
+                                        <ul class="custom clearfix">
+                                            <li class="pull-left">
+                                                <h5>区域编辑</h5></li>
+                                            <li class="pull-right clearfix">
+                                                <button class="btn add-list-btn" title="添加" onclick="drawPolygon(addNewRegion)">
+                                                    <img src="../img/con_add.png" alt="">
+                                                </button>
+                                                <button class="btn add-list-btn" title="编辑" onclick="drawPolygon(editRegion)">
+                                                    <img src="../img/edit.png" alt="">
+                                                </button>
+                                                <button class="btn add-list-btn" title="删除" onclick="deleteRegionById()">
+                                                    <img src="../img/dels.png" alt="">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-group asset-list-group-a regionBox bjlist">
+                                            <!-- 循环 -->
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 mapcols">
+                                        <div id="map" class="maps" style="width: 100%;height: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 蒙版 -->
+                        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title" id="formModalLabel">
+                                <!-- 模态框标题 -->
+                            </h4>
+                                    </div>
+                                    <div class="modal-body" id="formModalBody">
+                                        <!-- 在这里添加一些文本 -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="_btn" type="button" class="btn btn-primary"></button>
+                                        <button id="cancel_btn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://192.168.200.30:7003/mapapi/rmap.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 滚动条 -->
+    <script src="../lib/jquery.nicescroll.min.js"></script>
+    <!-- common.js -->
+    <script src="../js/common.js"></script>
+    <script src="../js/nav.js"></script>
+    <!-- 获取项目路径的公共方法 -->
+    <script type="text/javascript" src="../js/JQueryUtil.js"></script>
+    <script type="text/javascript" src="../js/basePath.js"></script>
+    <script type="text/javascript" src="../js/dataUtils.js"></script>
+    <script type="text/javascript">
+    $(document).ready(
+        function() {
+            setTimeout(function() {
+                setNiceScroll(".qylist")
+                setNiceScroll(".bjlist")
+            }, 0)
+        }
+    );
+
+    var regionParam = {
+        regionTypeBtn: false,
+        // 控制添加区域按钮的显示
+        regionAddBtn: false,
+        regionBtn: false,
+        // 选中的区域类型id
+        regionTypeIdSel: '',
+        // 选中的区域类型名称
+        regionTypeNameSel: '',
+        // 选中的区域id
+        regionIdSel: '',
+        // 选中的区域id
+        regionNameSel: '',
+        // 选中的区域的位置信息
+        regionSelxyJson: ''
+    };
+    var rmap;
+
+    /**
+     * [findRegionTypeCfgList 获取区域类型集合]
+     * @return {[type]} [description]
+     */
+    function findRegionTypeCfgList() {
+        var html = '';
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/findRegionTypeCfgList', {
+                // 空参
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    if (result.data != '') {
+                        rmap.removePolygon();
+                        var list = JSON.parse(result.data);
+                        for (var i = 0; i < list.length; i++) {
+                            var obj = list[i];
+                            html += '<li class="list-group-item-one" onclick="regionTypeClick(this,\'' + obj.id + '\',\'' + obj.quyuleixingname + '\')">';
+                            html += obj.quyuleixingname;
+                            html += '</li>';
+                        }
+                        $('.regionTypeBox').html('').append(html);
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+
+    /**
+     * 新建区域类型
+     */
+    function addNewRegionType() {
+        // 使用蒙版
+        var title = '新增区域类型';
+        var btnText = '确定';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            // 审核不通过的原因
+            +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">区域类型名称：</label>' +
+            '<div class="col-sm-7">' +
+            '<input type="text" class="form-control" placeholder="请简写区域类型名称" id="regionTypeNameInput"></input>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting('', title, content, btnText, insertNewRegionType);
+    }
+
+    function insertNewRegionType() {
+        var name = $('#regionTypeNameInput').val().trim();
+        if (name == '') {
+            alert('区域类型名称不得为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/insertNewRegionType', {
+                // 参数
+                regionTypeName: name
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('添加成功！');
+                    findRegionTypeCfgList();
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    /**
+     * [editRegionType 编辑区域类型]
+     * @return {[type]} [description]
+     */
+    function editRegionType() {
+        var regionTypeName = regionParam.regionTypeNameSel;
+        var title = '修改区域类型名称';
+        var btnText = '修改';
+        var content = '';
+        // 名称 
+        content = '<form role="form" class="form-horizontal">';
+        content += '<div id="notPassReasonBox" class="form-group">';
+        content += '<label for="descri" class="col-sm-4 control-label">区域类型名称：</label>';
+        content += '<div class="col-sm-7">';
+        content += '<input type="text" class="form-control" id="regionTypeNameInp" value="' + regionTypeName + '" placeholder="原为：' + regionTypeName + '">';
+        content += '</div>';
+        content += '</div>';
+        content += '</form>';
+        formModalPublicSetting('', title, content, btnText, editRegionTypeFun);
+    }
+
+    function editRegionTypeFun() {
+        var regionTypeId = regionParam.regionTypeIdSel;
+        var editName = $('#regionTypeNameInp').val();
+        if (editName == '') {
+            alert('区域类型名称不得为空！');
+            return;
+        }
+        if (regionTypeId == '') {
+            alert('区域类型ID不得为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/editRegionTypeById', {
+                // 参数
+                regionTypeId: regionTypeId,
+                regionTypeName: editName
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('修改成功！');
+                    findRegionTypeCfgList();
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    /**
+     * 删除区域类型
+     * @return {[type]} [description]
+     */
+    function deleteRegionTypeById() {
+        var regionTypeName = regionParam.regionTypeNameSel;
+        var title = '删除区域类型名称';
+        var btnText = '删除';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">';
+        content += '<div class="inputCons">删除区域类型【' + regionTypeName + '】，其下的区域也会被删除，确认继续吗？</div>';
+        content += '</form>';
+        formModalPublicSetting('', title, content, btnText, deleteRegionTypeFun);
+    }
+
+    function deleteRegionTypeFun() {
+        var regionTypeId = regionParam.regionTypeIdSel;
+        if (regionTypeId == '') {
+            alert('区域类型ID不得为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/deleteRegionTypeById', {
+                // 参数
+                regionTypeId: regionTypeId
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    findRegionTypeCfgList();
+                    alert('删除成功！');
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+
+    /**
+     * [regionTypeClick 区域类型点击事件]
+     * @param  {[type]} e        [description]
+     * @param  {[type]} typeId   [description]
+     * @param  {[type]} typeName [description]
+     * @return {[type]}          [description]
+     */
+    function regionTypeClick(e, typeId, typeName) {
+        // debugger
+        $('.list-group-item-one').removeClass('active');
+        $(e.target).addClass('active');
+        // 编辑和删除按钮显示
+        regionParam.regionTypeBtn = true;
+        // 添加区域按钮显示
+        regionParam.regionAddBtn = true;
+        // 将选中的区域类型绑定到全局变量
+        regionParam.regionTypeIdSel = typeId;
+        regionParam.regionTypeNameSel = typeName;
+        findRegionCfgByTypeIdFun(typeId);
+        // 将二级子菜单的选中项去除
+        $('.list-group-item-two').removeClass('active');
+
+    }
+
+    /**
+     * 简单添加多边形
+     * @param {[type]}  points   [description]
+     * @param {Boolean} isExtent [description]
+     */
+    function addSimplePolygon(points, isExtent) {
+        if (points) {
+            rmap.addPolygon(points); //简单调用
+        }
+        // 是否居中
+        if (isExtent) {
+            rmap.extentByData(points); // 居中
+        }
+    };
+
+    /**
+     * 根据区域类型id获取包含的区域list
+     * @param  {[type]} typeId [description]
+     * @return {[type]}        [description]
+     */
+    function findRegionCfgByTypeIdFun(typeId) {
+
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/findRegionCfgByTypeId', {
+                // 参数
+                regionTypeId: typeId
+            },
+            function success(result) {
+                if (result.resCode == 1) {
+                    var html = '';
+                    if (result.data != '') {
+                        rmap.removePolygon();
+                        var regionList = JSON.parse(result.data);
+                        // 拼接Dom、循环数据画区域
+                        if (regionList != null && regionList.length > 0) {
+                            for (var i = 0; i < regionList.length; i++) {
+                                var regionObj = regionList[i];
+                                // 拼接Dom、
+                                html += '<li class="list-group-item-two" onclick="regionClick(this,\'' + regionObj.id + '\',\'' + regionObj.quyuname + '\',\'' + regionObj.xy + '\')">';
+                                html += regionObj.quyuname;
+                                html += '</li>';
+                                // 画区域
+                                var points = JSON.parse(regionObj.xy);
+                                addSimplePolygon(points, false);
+                            }
+                            $('.regionBox').html('').append(html);
+                        }
+                    } else {
+                        // 区域的编辑和删除按钮隐藏
+                        regionParam.regionBtn = false;
+                        rmap.removePolygon();
+                        $('.regionBox').html('');
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+
+    }
+    /**
+     * 区域点击事件
+     * @param  {[type]} e          [description]
+     * @param  {[type]} regionId   [description]
+     * @param  {[type]} regionName [description]
+     * @param  {[type]} xyJson     [description]
+     * @return {[type]}            [description]
+     */
+    function regionClick(e, regionId, regionName, xyJson) {
+        $('.list-group-item-two').removeClass('active');
+        $(e.target).addClass('active');
+        // 编辑和删除按钮显示
+        regionParam.regionBtn = true;
+        // 选中的区域id赋值给全局变量
+        regionParam.regionIdSel = regionId;
+        regionParam.regionNameSel = regionName;
+        regionParam.regionSelxyJson = xyJson;
+        // 清空右侧图形
+        rmap.removePolygon();
+        // 画出当前区域图形并居中
+        addSimplePolygon(JSON.parse(xyJson), true);
+    }
+    // ---------------------- 新建区域 ---------------------------
+    var cId = 0;
+    //画多边形
+    function drawPolygon(callBackFun) {
+        rmap.drawPolygon(callBackFun, {
+            id: cId++,
+            color: '#FF0000'
+        })
+    };
+
+    function addNewRegion(gisObj) {
+        // 所属区域类型
+        var typeName = regionParam.regionTypeNameSel;
+        var gisJson = JSON.stringify(gisObj.pointList);
+        if (gisJson == '') {
+            alert('没有获取到图形坐标点集合！');
+            return;
+        }
+        // 使用蒙版
+        var title = '新增区域';
+        var btnText = '添加';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            // 所属父级
+            +
+            '<div class="form-group">' +
+            '<label class="col-sm-4 control-label">所属区域类型</label>' +
+            '<div class="col-sm-7">' +
+            '<p>' + typeName + '</p>' +
+            '</div>' +
+            '</div>' +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">区域名称：</label>' +
+            '<div class="col-sm-7">' +
+            '<input type="text" class="form-control" placeholder="请简写区域名称" id="regionNameInput"></input>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalPublicSetting(gisJson, title, content, btnText, addNewRegionFun);
+    }
+    /**
+     * [addNewRegionFun 新建区域]
+     */
+    function addNewRegionFun(param) {
+        // 区域数据
+        var gisJson = param.data.obj;
+        var regionTypeId = regionParam.regionTypeIdSel;
+        var name = $('#regionNameInput').val().trim();
+        if (name == '') {
+            alert('区域名称不得为空！');
+            return;
+        }
+        if (regionTypeId == '') {
+            alert('区域类型参数为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/addNewRegion', {
+                // 参数
+                regionName: name,
+                xy: gisJson,
+                regionTypeId: regionTypeId
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('添加成功！');
+                    findRegionCfgByTypeIdFun(regionTypeId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+
+    }
+    // -----------------------  编辑区域 --------------------- 
+    /**
+     * [editRegion 编辑区域]
+     */
+    function editRegion(gisObj) {
+        // 所属区域类型
+        var typeName = regionParam.regionTypeNameSel;
+        // 新的位置信息
+        var gisJson = JSON.stringify(gisObj.pointList);
+        var regionName = regionParam.regionNameSel;
+        if (gisJson == '') {
+            alert('没有获取到图形坐标点集合！');
+            return;
+        }
+        // 使用蒙版
+        var title = '更新区域';
+        var btnText = '更新';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">'
+            // 所属父级
+            +
+            '<div class="form-group">' +
+            '<label class="col-sm-4 control-label">所属区域类型</label>' +
+            '<div class="col-sm-7">' +
+            '<p>' + typeName + '</p>' +
+            '</div>' +
+            '</div>' +
+            '<div id="notPassReasonBox" class="form-group">' +
+            '<label for="descri" class="col-sm-4 control-label">区域名称：</label>' +
+            '<div class="col-sm-7">' +
+            '<input type="text" class="form-control" value="' + regionName + '" placeholder="请简写区域名称" id="regionNameInput"></input>' +
+            '</div>' +
+            '</div>' +
+            '</form>';
+        formModalSettingWithCancel(gisJson, title, content, btnText, updateRegionByIdFun, cancelUpdateRegionFun);
+    }
+    /**
+     * 确认更新
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    function updateRegionByIdFun(param) {
+        var regionTypeId = regionParam.regionTypeIdSel;
+        var regionId = regionParam.regionIdSel;
+        var xyJson = param.data.obj;
+        var regionName = $('#regionNameInput').val().trim();
+        if (regionName == '') {
+            alert('区域名称不得为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/updateRegionById', {
+                // 参数
+                regionId: regionId,
+                regionName: regionName,
+                regionTypeId: regionTypeId,
+                xy: xyJson
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('更新成功！');
+                    findRegionCfgByTypeIdFun(regionTypeId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+    /**
+     * 取消更新
+     * @param  {[type]} param [description]
+     * @return {[type]}       [description]
+     */
+    function cancelUpdateRegionFun(param) {
+        // 刚画的那个矩形
+        // var xyObj = JSON.parse(param.data.obj);
+        // var objId = xyObj.id;
+        // removeGraphicById(objId);
+        // // 原来编辑之前区域id
+        // var beforeRegionId = regionParam.regionIdSel;
+        // // 显示原来编辑之前的图形
+        // var beforeXyJson = regionParam.regionSelxyJson;
+        // this.drawRegionById(beforeRegionId, beforeXyJson);
+
+        // TODO 需要去除刚才画的那个区域
+        $('#formModal').modal('hide');
+    }
+
+
+    // -----------------------  删除区域 --------------------- 
+    /**
+     * [deleteRegionById 删除区域]
+     */
+    function deleteRegionById() {
+        var title = '删除区域';
+        var btnText = '删除';
+        var content = '';
+        content = '<form role="form" class="form-horizontal">';
+        content += '<div class="inputCons">删除后将无法恢复，确认删除吗？    </div>';
+        content += '</form>';
+        formModalPublicSetting('', title, content, btnText, deleteRegionByIdFun);
+    }
+
+    function deleteRegionByIdFun() {
+        // 区域类型id
+        var typeId = regionParam.regionTypeIdSel;
+        // 区域id
+        var id = regionParam.regionIdSel;
+        // 图层中的图形id
+        // var objId = JSON.parse(regionParam.regionSelxyJson).id;
+        // 所属区域类型id
+        var regionTypeId = regionParam.regionTypeIdSel;
+        if (typeId == '') {
+            alert('区域类型id为空！');
+            return;
+        }
+        if (id == '') {
+            alert('区域id为空！');
+            return;
+        }
+        JQueryUtil.sendRCP(pathUrl + '/configManage/regionCfg/deleteRegionById', {
+                // 参数
+                regionId: id,
+                regionTypeId: typeId
+            },
+            function success(result) {
+                $('#formModal').modal('hide');
+                if (result.resCode == 1) {
+                    alert('删除成功！');
+                    rmap.removePolygon();
+                    findRegionCfgByTypeIdFun(regionTypeId);
+                } else {
+                    alert(result.msg);
+                }
+            },
+            function error(error) {
+                console.log(error.msg);
+            });
+    }
+
+    //************************ 公共方法 **************************
+    /**
+     * 动态控制模态框的公共方法
+     * @param _data：要传递的数据
+     * @param _title：显示的标头
+     * @param _btnText：按钮显示的文本
+     * @param _clickEvent：调用的事件
+     */
+    function formModalPublicSetting(_data, _title, _content, _btnText,
+        _clickEvent) {
+        //设置标题
+        $('#formModalLabel').text(_title);
+        //追加主体内容
+        if (_content != null) {
+            $('#formModalBody').empty().append(_content);
+        } else {
+            $('#formModalBody').empty().append('');
+        }
+        //设置事件按钮的文字c 
+        $("#_btn").text(_btnText);
+        //为按钮绑定事件,并传参
+        $('#_btn').off('click').on('click', {
+            obj: _data
+        }, _clickEvent);
+        $('#formModal').modal('show');
+    };
+    /**
+     * 动态控制模态框的公共方法（具有取消按钮的方法）
+     * @param  {[type]} _data        [description]
+     * @param  {[type]} _title       [description]
+     * @param  {[type]} _content     [description]
+     * @param  {[type]} _btnText     [description]
+     * @param  {[type]} _clickEvent  [description]
+     * @param  {[type]} _cancelEvent [description]
+     * @return {[type]}              [description]
+     */
+    function formModalSettingWithCancel(_data, _title, _content, _btnText,
+        _clickEvent, _cancelEvent) {
+        //设置标题
+        $('#formModalLabel').text(_title);
+        //追加主体内容
+        if (_title == '操作记录') {
+            $('#formModalBody').addClass('modal-body-style');
+        } else {
+            $('#formModalBody').removeClass('modal-body-style');
+        }
+        if (_content != null) {
+            $('#formModalBody').empty().append(_content);
+        } else {
+            $('#formModalBody').empty().append('');
+        }
+        //设置事件按钮的文字
+        $("#_btn").text(_btnText);
+        //为确定按钮绑定事件,并传参
+        $('#_btn').off('click').on('click', {
+            obj: _data
+        }, _clickEvent);
+        //为取消按钮绑定事件,并传参
+        $('#cancel_btn').off('click').on('click', {
+            obj: _data
+        }, _cancelEvent);
+        $('#formModal').modal('show');
+    }
+
+    $(function() {
+
+        // --------------- 初始化地图 -------------------
+        rmap = new RMap.Map('map', { type: ["GGSL_OL"] });
+        //加载管网地图
+        rmap.addLayer("zhuhaimap", {
+            opacity: 0.9,
+            isCenter: true
+        });
+
+        findRegionTypeCfgList();
+
+        $(".list-group").on("click", "li", function() {
+            $(this).addClass('active').siblings('li').removeClass('active')
+        })
+
+    })
+    </script>
+</body>
+
+</html>

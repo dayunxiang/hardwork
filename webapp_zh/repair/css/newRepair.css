@@ -1,0 +1,155 @@
+.newBox {
+  margin-top: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.newTop {
+  height: 60px;
+  line-height: 60px;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,.18);
+  text-align: center;
+  font-size:16px;
+  color: #333;
+  font-weight: 700;
+}
+.newMain {
+  margin-top:20px;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,.18);
+  
+}
+.newForm {
+  width: 50%;
+  float: left;
+  border-right: 1px solid #ddd;
+  padding:15px;
+  box-sizing:border-box;
+  position: relative;
+}
+.newForm>ul>li {
+  margin-bottom: 20px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  width: 50%;
+  padding-right: 30px;
+  box-sizing:border-box;
+}
+// .newForm li:last-child {
+//   height: 90px;
+// }
+.newForm span {
+  font-size:14px;
+  color: #333;
+  float: left;
+}
+.newForm>ul>li input {
+  height: 32px;
+float: left;
+width: 148px;
+  // line-height: 32px;
+  margin-top:10px;
+  border: none;
+  outline-style: none;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0 10px;
+  box-sizing:border-box;
+  margin-left: 10px;
+}
+.selectContainer {
+  float: left;
+  margin-left:10px;
+  position: relative;
+  padding-left: 0; padding-right:0; 
+}
+.select {
+    height: 32px;
+    width: 148px;
+    float: left;
+  // line-height: 32px;
+  margin-top:10px;
+  border: none;
+  outline-style: none;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor:pointer;
+}
+.select>span {
+  line-height: 32px;
+  height: 32px;
+  margin-left:10px;
+
+}
+.select>i {
+  color:#666;
+  height: 32px;
+  line-height: 32px;
+  margin-right:20px;
+}
+.selectOption  {
+  border-radius:5px;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 148px;
+  border: 1px solid #ddd;
+  z-index: 9;
+  display:none;
+}
+.selectOption>li {
+    height: 30px;
+    line-height: 30px;
+    text-align:center;
+    cursor: pointer;
+
+}
+.selectOption>li:hover {
+  background-color: #f5f5f5;
+}
+.newForm>ul>li textarea {
+   border: none;
+  outline-style: none;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize:none;
+  height: 90px;
+  line-height: 25px;
+  width: 80%;
+  float: left;
+  margin-left:10px;
+  padding:10px;
+  box-sizing:border-box;
+
+}
+.newForm .newbutton {
+  width: 100%;
+  text-align:center;
+  margin-top: 50px;
+}
+.newForm .newbutton button {
+  width: 40%;
+  height: 40px;
+  line-height: 32px;
+}
+.newMap {
+  width: 50%;
+  float: left;
+}
+.form-control {
+      height: 32px;
+    float: left;
+    width: 148px;
+    margin-top: 10px;
+    border: none;
+    outline-style: none;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
