@@ -9,9 +9,7 @@ $(function() {
     })
     //初始化用户表格
     initUserTable()
-    $("#userTable_wrapper").css({
-        'min-height': (h - 64 - 24 - 30 - 70 - 10 - 120 - 60) + "px"
-    });
+
     //打开编辑
     openuserEdit()
     //取消或者关闭编辑
@@ -26,7 +24,7 @@ $(function() {
     allORnot()
 
     //模拟title
-    hovermn("#userTable")
+    hovermn("#userTable",".tooltip")
 
     //select
     select(".cityselect", '.cityselectOption')
@@ -37,7 +35,10 @@ $(function() {
     //更换箭头
     changearrow(".reportpx")
     changearrow(".dealpx")
-    sureDel()
+    //
+    sureDelOne()
+    // //刷新表头状态
+    freshStatus()
 
 })
 
@@ -107,134 +108,66 @@ function initUserTable() {
                 }
             }
         ]
+    });
+}
 
+//全返 反选
+function allORnot() {
+    $("#userTable thead").on("click", ".checkBox", function() {
+        if ($(this).is(":checked")) {
+            $("#userTable tbody .checkBox").prop("checked", true);
+            $(".del").show()
+        } else {
+            $("#userTable tbody .checkBox").prop("checked", false);
+            $(".del").hide()
+
+        }
+    })
+    //给tbody的复选框绑定单击事件
+    $("#userTable tbody").on("click", ".checkBox", function() {
+        //获取选中复选框长度
+        var length = $("#userTable tbody  input[type=checkBox]:checked").length;
+        //未选中的长度
+        var len = $("#userTable tbody input[type=checkBox]").length;
+
+        if (length == len) {
+            $("#userTable thead .checkBox").prop("checked", true);
+        } else {
+            $("#userTable thead .checkBox").prop("checked", false);
+        }
+        if (length >= 2) {
+            $(".del").show()
+        } else {
+            $(".del").hide()
+        }
     });
 }
 
 
-
-//点击checkBox 添加属性
-// $("#userTable").on("click", ".checkBox", function() {
-//     if ($(this).attr('checked')) {
-//         $(this).find('b').css("display", 'none')
-//         $(this).removeAttr('checked')
-//     } else {
-//         $(this).find('b').css("display", 'block')
-//         $(this).attr('checked', 'checked')
-//     }
-// })
-
-
-
-// //全选和全部选功能
-// function allORnot() {
-//     var num = 0
-//     var b = 0
-//     var a =0
-//     $("#userTable thead").on("click", ".checkBox", function() {
-//         if ($(this).attr('checked')) {
-//             $("#userTable tbody .checkBox").removeAttr("checked")
-//             $("#userTable tbody .checkBox b").css("display", 'none')
-//             $(".del").hide();
-//         } else {
-//             $("#userTable tbody .checkBox").attr("checked", "checked")
-//             $("#userTable tbody .checkBox b").css("display", 'block')
-//             num = $("#userTable tbody .checkBox").length
-//             // console.log(num)
-//             $(".del").show();
-//             //点击删除
-//             $(".del").on("click", function() {
-//                 alert("删除事件")
-//             })
-//         }
-//     })
-
-//     $("#userTable tbody").on("click", ".checkBox", function() {
-//         num = $("#userTable tbody .checkBox").length
-//         a = $("#userTable tbody .checkBox").length
-//         if (!($(this).attr("checked"))) {
-//             b++;
-//         } else {
-//             b--
-//         }
-//         // console.log(b)
-//         console.log(a)
-//         if (num == b) {
-//             $("#userTable thead .checkBox").attr("checked", 'checked')
-//             $("#userTable thead .checkBox b").css("display", 'block')
-//         } else {
-//             $("#userTable thead .checkBox").removeAttr("checked")
-//             $("#userTable thead .checkBox b").css("display", 'none')
-//         }
-
-//         //删除按钮的显示与隐藏
-//         if (b > 1) {
-//             $(".del").show();
-//             //点击删除
-//             $(".del").on("click", function() {
-//                 alert("删除事件")
-//             })
-//         } else {
-//             $(".del").hide();
-//         }
-
-//     })
-// }
-
-function allORnot() {
-    $("#userTable thead").on("click", ".checkBox", function() {
-        // if ($(this).attr('checked')) {
-        //     $("#userTable tbody .checkBox").prop("checked",true)
-
-        //     $(".del").hide();
-        // } else {
-
-        //     $(".del").show();
-        //     //点击删除
-        //     $(".del").on("click", function() {
-        //         alert("删除事件")
-        //     })
-        // }
-        // 
-        if ($(this).is(":checked")) {
-            $("#userTable tbody .checkBox").prop("checked", true);
-        } else {
-            $("#userTable tbody .checkBox").prop("checked", false);
-        }
-    })
-    //给name=box的复选框绑定单击事件
-          $("#userTable tbody").on("click",".checkBox",function(){
-              //获取选中复选框长度
-              var length=$("input[name=box]:checked").length;
-              //未选中的长度
-              var len=$("input[name=box]").length;
-              if(length==len){
-                  $("#all").get(0).checked=true;
-              }else{
-                  $("#all").get(0).checked=false;
-              }
-          });
-}
-
-
-
-
-//确认删除
-
-function sureDel() {
-
+//确认删除单条
+function sureDelOne() {
     $("#userTable").on("click", ".userDel", function() {
         $(".deleteContainer").show()
         that = $(this)
-        // data = $('#userTable').DataTable().row($(this).parents('tr')).data();
     })
     $(".sureDel").on("click", function() {
-        // console.log(data)
         var data = $('#userTable').DataTable().row(that.parents('tr')).data();
         console.log(data)
         //执行删除
         //成功
         $('#userTable').DataTable().ajax.reload();
+    })
+}
+//删除多条
+function sureDelMore() {
+    $(".del").on("click", function() {
+        var select = $("#userTable tbody  input[type=checkBox]:checked").parents('tr')
+        var arr = [] //存储删除数据
+        $.each(select, function(index, item) {
+            arr.push($('#userTable').DataTable().row($(item)).data())
+        })
+
+        console.log(arr)
     })
 }
 
@@ -248,3 +181,13 @@ function changearrow(ele) {
         }
     })
 }
+
+//刷新表头状态
+function freshStatus() {
+   $('#userTable').on( 'page.dt', function () {
+    $("#userTable .checkBox").prop("checked",false);
+} );
+}
+
+
+

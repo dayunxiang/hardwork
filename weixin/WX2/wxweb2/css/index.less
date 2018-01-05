@@ -141,7 +141,7 @@
                             float: left;
                             .select {
                                 float: left;
-                                width: 117px;
+                                width: 1.2rem;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 ;
@@ -167,7 +167,7 @@
                                 position: absolute;
                                 top: 40px;
                                 left: 0px;
-                                width: 117px;
+                                width: 1.2rem;
                                 border: 1px solid #D7DCE4;
                                 background-color: #fff;
                                 border-radius: 5px;
@@ -210,8 +210,7 @@
                         }
                         .del {
                             display: none;
-                        }
-                        // &:last-child {
+                        } // &:last-child {
                         //     float: right;
                         //     position: relative;
                         //     &>input {
@@ -238,10 +237,9 @@
                         // opacity: 0;
                         position: absolute;
                         top: -80px;
-                        right: 25px;
-                        // z-index:-1;
+                        right: 25px; // z-index:-1;
                         input {
-                            width: 240px;
+                            width: 2.4rem;
                             height: 32px;
                             margin-top: 25px;
                             border-radius: 32px;
@@ -274,6 +272,8 @@
                                 letter-spacing: 0;
                                 line-height: 12px;
                                 font-weight: 100;
+                               
+
                                 th {
                                     font-weight: 100;
                                     height: 40px;
@@ -319,6 +319,13 @@
                                         cursor: pointer;
                                     }
                                 }
+                                .red {
+                                    color: #F86E6E;
+                                }
+                                .blue {
+                                    color: #4495FF;
+                                }
+
                                 &:hover {
                                     background-color: #F7FAFE;
                                     cursor: pointer;
@@ -435,7 +442,7 @@
                             font-size: 12px;
                             color: #383D40;
                             &>input {
-                                width: 117PX;
+                                width: 1.2rem;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 border-radius: 5px;
@@ -458,7 +465,7 @@
                             float: left;
                             .select {
                                 float: left;
-                                width: 117px;
+                                width: 1.2rem;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 ;
@@ -484,7 +491,7 @@
                                 position: absolute;
                                 top: 40px;
                                 left: 0px;
-                                width: 117px;
+                                width: 1.2rem;
                                 border: 1px solid #D7DCE4;
                                 background-color: #fff;
                                 border-radius: 5px;
@@ -525,7 +532,7 @@
                         top: -80px;
                         right: 25px;
                         input {
-                            width: 240px;
+                            width: 2.4rem;
                             height: 32px;
                             margin-top: 25px;
                             border-radius: 32px;
@@ -698,7 +705,6 @@
                     &>li {
                         float: left;
                         line-height: 70px;
-
                         font-family: PingFangSC-Medium;
                         font-size: 15px;
                         color: #383D40;
@@ -719,13 +725,13 @@
                     box-sizing: border-box;
                     &>li {
                         width: 100%;
-                        height: 150px;
+                        height: 130px;
                         position: relative;
                         &>span {
                             position: absolute;
                             left: 0;
                             top: 0;
-                            height: 150px;
+                            height: 130px;
                             width: 85px;
                             box-sizing: border-box;
                             font-family: PingFangSC-Medium;
@@ -747,10 +753,12 @@
                             }
                         }
                         &:last-child {
+                             width: 100%;
+                        height: 130px;
                             &>span {
-                                border-right: 2px solid #4495FF;
+                                border-right: 2px solid #03A67B;
                                 &:before {
-                                    border: 2px solid #4495FF;
+                                    border: 2px solid #03A67B;
                                 }
                                 &:after {
                                     content: '';
@@ -760,8 +768,8 @@
                                     width: 20px;
                                     height: 20px;
                                     border-radius: 50%;
-                                    border: 2px solid #4495FF;
-                                    background-color: #4495FF;
+                                    border: 2px solid #03A67B;
+                                    background: #03A67B;
                                 }
                             }
                         }
@@ -769,7 +777,7 @@
                             margin-left: 85px;
                             margin-right: 200px;
                             padding: 0 20px;
-                            height: 150px;
+                            height: 130px;
                             box-sizing: border-box;
                             &>dt {
                                 font-family: PingFangSC-Regular;
@@ -778,8 +786,7 @@
                                 letter-spacing: 0;
                             }
                             &>dd {
-                                margin-top: 15px;
-
+                                margin-top: 10px;
                                 span {
                                     font-family: PingFangSC-Regular;
                                     font-size: 12px;
@@ -849,6 +856,15 @@
                             }
                         }
                     }
+                    .fxInfo {
+                         &>span {
+                                border-right: 2px solid #4495FF;
+                                &:before {
+                                    border: 2px solid #4495FF;
+                                }
+                              
+                            }
+                    }
                 }
                 .detailmap {
                     padding: 0 20px;
@@ -890,6 +906,7 @@
                             position: absolute;
                             left: 0;
                             top: 0;
+                            z-index:9998;
                             width: 270px;
                             background-color: #fff;
                             box-shadow: 0 4px 8px 0 rgba(68, 149, 255, 0.12);
@@ -929,6 +946,9 @@
                                         &>img {
                                             float: right;
                                             margin-top: 15px;
+                                            &:last-child {
+                                                margin-right:5px;
+                                            }
                                         }
                                         &:hover {
                                             cursor: pointer;
@@ -1138,7 +1158,7 @@
                             font-size: 12px;
                             color: #383D40;
                             &>input {
-                                width: 117PX;
+                                width: 1.2rem;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 border-radius: 5px;
@@ -1161,7 +1181,7 @@
                             float: left;
                             .select {
                                 float: left;
-                                width: 117px;
+                                width: 1.2rem;
                                 height: 32px;
                                 border: 1px solid #D7DCE4;
                                 ;
@@ -1187,7 +1207,7 @@
                                 position: absolute;
                                 top: 40px;
                                 left: 0px;
-                                width: 117px;
+                                width: 1.2rem;
                                 border: 1px solid #D7DCE4;
                                 background-color: #fff;
                                 border-radius: 5px;
@@ -1228,7 +1248,7 @@
                         top: -80px;
                         right: 25px;
                         input {
-                            width: 240px;
+                            width: 2.4rem;
                             height: 32px;
                             margin-top: 25px;
                             border-radius: 32px;
@@ -1710,10 +1730,10 @@
                         font-size: .12rem;
                         color: #7D8694;
                         letter-spacing: 0;
-                        position: relative; 
+                        position: relative;
 
                         &:before {
-                            content:'';
+                            content: '';
                             position: absolute;
                             top: .1rem;
                             left: 0;
@@ -1725,16 +1745,15 @@
                             position: absolute;
                             top: -3px;
                             left: 50%;
-                            transform:translateX(-50%);
-                            padding:0.05rem 0.1rem;
+                            transform: translateX(-50%);
+                            padding: 0.05rem 0.1rem;
                             background-color: #fff;
                         }
-                     
                     }
                     .pic {
-                        padding-top:.4rem;
+                        padding-top: .4rem;
                         img {
-                            cursor:pointer;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -1826,6 +1845,7 @@
 
 
 
+
 /*删除*/
 
 .deleteContainer {
@@ -1833,6 +1853,7 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .5);
+    z-index:9999;
     display: none;
     .deleteContent {
         width: 5.4rem;
@@ -1895,6 +1916,7 @@
         }
     }
 }
+
 
 
 
@@ -2110,6 +2132,7 @@
 
 
 
+
 /*新建单位*/
 
 .newunitContainer {
@@ -2241,6 +2264,7 @@
 
 
 
+
 /*hover效果*/
 
 #tooltip {
@@ -2248,11 +2272,12 @@
     background-color: #333;
     color: #fff;
     position: absolute;
-
+    z-index:9999;
     font-size: 12px;
     text-align: center;
     display: none;
 }
+
 
 
 
@@ -2405,6 +2430,7 @@
         }
     }
 }
+
 
 
 

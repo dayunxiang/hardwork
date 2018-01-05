@@ -57,10 +57,10 @@ function height() {
     });
      //详情地图
      $(".detailmap").css({
-        'height': (h - 64 - 60 - 24 - 30-70-340) + "px",
+        'height': (h - 64 - 60 - 24 - 30-70-430) + "px",
     });
      $("#map").css({
-        'height': (h - 64 - 60 - 24 - 30-70-340-20) + "px",
+        'height': (h - 64 - 60 - 24 - 30-70-430-20) + "px",
     });
 
      //设置
@@ -122,7 +122,7 @@ function height() {
     });
 
     //分配任务
-    $(".taskContainer").css({
+    $(".taskFpContainer").css({
         'height': h + "px",
         'width': w + 'px'
     });
@@ -170,10 +170,10 @@ function changeSideBarMini() {
 
 
 //模拟title
-function hovermn(ele) {
+function hovermn(ele,tooltip) {
     var x = -20;
     var y = 30;
-    $(ele).on("mouseover", ".tooltip", function(e) {
+    $(ele).on("mouseover", tooltip, function(e) {
         this.myTitle = this.title;
         this.title = "";
         var tooltip = "<div id='tooltip'>" + this.myTitle + "<\/div>"; //创建 div 元素 文字提示
@@ -184,11 +184,11 @@ function hovermn(ele) {
                 "left": (e.pageX + x) + "px"
             }).show(); //设置x坐标和y坐标，并且显示
     })
-    $(ele).on("mouseout", ".tooltip", function(e) {
+    $(ele).on("mouseout", tooltip, function(e) {
         this.title = this.myTitle;
         $("#tooltip").remove(); //移除 
     })
-    $(ele).on("mousemove", ".tooltip", function(e) {
+    $(ele).on("mousemove", tooltip, function(e) {
         $("#tooltip")
             .css({
                 "top": (e.pageY + y) + "px",

@@ -1,5 +1,5 @@
 $(function() {
-    mySwiper()
+    
     setNiceScroll(".optionSearch")
 
     //待处理详情
@@ -7,6 +7,32 @@ $(function() {
     showSearchOption()
     //呼出选择菜单
     showSearchOption('.option li')
+
+      $.ajax({
+                type:'get',
+                url:"./11.json",
+                dataType:'json',
+                success:function (data) {
+                    var str = ''
+                    $.each(data,function (index,item) {
+                        str+='<li class="clearfix">'+
+                                '<a href="dclDetail.html">'+
+                                    '<img src="img/ico-photo@1x.png" alt="">'+
+                                '<dl>'+
+                                    '<dt>堵塞漫溢</dt>'+
+                                    '<dd>2017.06.26 12:30:30</dd>'+
+                                    '<dd>阜成门内大街68号</dd>'+
+                                '</dl>'+
+                                '</a>'+
+                            '</li>'
+                    })
+                    $("#aa").html(str)
+                    mySwiper()
+                },
+                error:function (err) {
+                    console.log(err)
+                }
+            })
 })
 
 

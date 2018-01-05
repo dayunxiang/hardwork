@@ -1,10 +1,11 @@
 $(function() {
     var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    
+
     //select
     select(".wtlxselect", '.wtlxselectOption')
     select(".ssqyselect", '.ssqyselectOption')
     select(".rwztselect", '.rwztselectOption')
+    select(".fzrselect", '.fzrselectOption')
 
 
     //动态设置表格页加载数量
@@ -16,11 +17,11 @@ $(function() {
 
     //初始化用户表格
     initjqTable()
-      $("#jqTable_wrapper").css({
-        'min-height': (h - 64-24-30-70-10-120-60) + "px"
+    $("#jqTable_wrapper").css({
+        'min-height': (h - 64 - 24 - 30 - 70 - 10 - 120 - 60) + "px"
     });
     //模拟title
-    hovermn("#jqTable")
+    hovermn("#jqTable",".tooltip")
 
     $('#demo-1').fdatepicker({
         format: 'yyyy-mm-dd'
@@ -36,13 +37,12 @@ $(function() {
     closeFp()
     //打开任务分配
     openFpTask()
-//关闭或取消结束任务
- closeTaskEnd()
-//打开任务分配
- openTaskEnd()
-
- /*字数限制*/  
- textnumxz()
+    //关闭或取消结束任务
+    closeTaskEnd()
+    //打开任务分配
+    openTaskEnd()
+    /*字数限制*/
+    textnumxz()
 
 })
 
@@ -88,9 +88,9 @@ function initjqTable() {
             targets: 11,
             title: "操作",
             render: function(data, type, row, meta) {
-                return '<img src="./img/ico-detail.png" title="详情" alt="" class="tooltip jqDetail" />' +
-                    '<img src="./img/ico-push.png" alt="" title="分配任务" class="tooltip jqrwfp"  style="display:' + row.isFp + '"/>' +
-                    '<img src="./img/Slice 2.png" alt="" title="结束任务" class="tooltip jqend"  />';
+                return '<img src="./img/Slice 2.png" title="结束任务" alt="" class="tooltip jqend  fl-r" />' +
+                    '<img src="./img/ico-push.png" alt="" title="分配任务" class="tooltip jqrwfp fl-r"  style="display:' + row.isFp + '"/>' +
+                    '<img src="./img/ico-detail.png" alt="" title="详情" class="tooltip jqDetail  fl-r"  />';
             }
         }],
         searching: true,
@@ -107,18 +107,18 @@ function openJqDetail() {
 
 //关闭或取消分配
 function closeFp() {
-    $(".taskContainer .taskContent .title>img").on("click", function() {
-        $(".taskContainer").hide()
+    $(".taskFpContainer .taskContent .title>img").on("click", function() {
+        $(".taskFpContainer").hide()
     })
     $(".cancleFpTask").on("click", function() {
-        $(".taskContainer").hide()
+        $(".taskFpContainer").hide()
     })
 }
 
 //打开任务分配
 function openFpTask() {
     $("#jqTable").on("click", ".jqrwfp", function() {
-        $(".taskContainer").show()
+        $(".taskFpContainer").show()
     })
 }
 
@@ -139,18 +139,18 @@ function openTaskEnd() {
     })
 }
 
- /*字数限制*/  
- function textnumxz() {
-      $("#area").on("input propertychange", function() {  
-        var $this = $(this),  
-            _val = $this.val(),  
-            count = "";  
-        if (_val.length > 200) {  
-            $this.val(_val.substring(0, 200));  
-        }  
-        count = $this.val().length +'/200';  
-        $("#count").text(count);  
-    });  
- }
+/*字数限制*/
+function textnumxz() {
+    $("#area").on("input propertychange", function() {
+        var $this = $(this),
+            _val = $this.val(),
+            count = "";
+        if (_val.length > 200) {
+            $this.val(_val.substring(0, 200));
+        }
+        count = $this.val().length + '/200';
+        $("#count").text(count);
+    });
+}
 //search 添加 按钮
 $("#jqTable_filter").append("<img src='img/Slice.png' alt='' />")
