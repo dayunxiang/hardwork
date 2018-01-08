@@ -1,4 +1,5 @@
 $(function () {
+  initSelect()
   tabcount('.setoption','now','.settabsubcontent')
   //初始化地图
  initMap()
@@ -9,7 +10,19 @@ $(function () {
  hovermn(".delLstInfo")
  hovermn(".editLstInfo")
  hovermn(".newFq")
- 
+
+ //打开新建分区
+ showNewFq()
+ //取消或者关闭 新建分区
+ closeNewFq()
+ //打开新建类型
+ showNewFq()
+//取消或者关闭 新建分区
+closeNewFq()
+//编辑新建类型
+showEditFq()
+//编辑或者关闭 新建分区
+ closeEditFq()
 })
 //初始化地图
 function initMap() {
@@ -23,5 +36,66 @@ function initMap() {
 function delFq() {
   $(".delLstInfo").on("click",function () {
     $(".deleteContainer").show()
+  })
+  $(".DelLx").on("click",function () {
+    $(".deleteContainer").show()
+  })
+}
+
+//打开新建分区
+function showNewFq() {
+  $(".newFq").on("click",function () {
+    $(".newFQContainer").show()
+    //初始化宽度
+      $(".chosen-container").css({
+     'width': ($(".newFQContent").width()-40) + 'px'
+  })
+  })
+}
+
+//取消或者关闭 新建分区
+function closeNewFq() {
+  $(".newFQContainer .newFQContent .title>img").on("click",function () {
+     $(".newFQContainer").hide()
+  })
+  $(".cancleNew").on("click",function () {
+     $(".newFQContainer").hide()
+  })
+}
+
+
+//打开新建类型
+function showNewFq() {
+  $(".newLX").on("click",function () {
+    $(".newLxContainer").show()
+  
+  })
+}
+
+//取消或者关闭 新建分区
+function closeNewFq() {
+  $(".newLxContainer .newLxContent .title>img").on("click",function () {
+     $(".newLxContainer").hide()
+  })
+  $(".cancleNewLx").on("click",function () {
+     $(".newLxContainer").hide()
+  })
+}
+
+//编辑新建类型
+function showEditFq() {
+  $(".EditLx").on("click",function () {
+    $(".EditLxContainer").show()
+  
+  })
+}
+
+//编辑或者关闭 新建分区
+function closeEditFq() {
+  $(".EditLxContainer .EditLxContent .title>img").on("click",function () {
+     $(".EditLxContainer").hide()
+  })
+  $(".cancleEditLx").on("click",function () {
+     $(".EditLxContainer").hide()
   })
 }

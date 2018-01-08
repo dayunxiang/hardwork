@@ -10,6 +10,7 @@ $(function() {
 
     select(".unitCityselect", '.unitCityselectOption')
     select(".unitNameselect", '.unitNameselectOption')
+    select(".Xsselect", '.XsselectOption')
 
     $('#startTime').fdatepicker({
         format: 'yyyy-mm-dd'
@@ -18,12 +19,14 @@ $(function() {
         format: 'yyyy-mm-dd'
     });
     //模拟title
-    hovermn("#unitTable")
+    hovermn("#unitTable",".tooltip")
 
     //初始化用户表格
     initunitTable()
-    //全选和全部选功能
-    allORnot()
+    //全返 反选
+ allORnot() 
+//刷新表头状态
+freshStatus()
     //跳转详情
  hrefUnitDetail()
  //删除
@@ -67,18 +70,23 @@ function initunitTable() {
             { data: "department" },
             { data: "duty" },
             { data: "role" },
-            { data: 'subpart' }
+            { data: 'subpart' },
+            { data: 'subpart1' },
+            { data: 'subpart2' },
+            { data: 'subpart3' },
+            { data: 'subpart4' },
+            { data: 'subpart5' }
 
         ],
         columnDefs: [{
                 targets: 0,
                 render: function(data, type, row, meta) {
-                    return '<td><i class="checkBox"><b class="fa fa-check"></b></i>' +
+                    return '<td><input type="checkBox" class="checkBox" />' +
                         '<span>' + row.name + '</span></td>';
                 }
             },
             {
-                targets: 8,
+                targets: 13,
                 render: function(data, type, row, meta) {
                     return '<img src="./img/ico-detail.png" title="详情" alt="" class="tooltip unitDetail" />' +
                         '<img src="./img/ico-over copy 3.png" alt="" title="删除" class="tooltip unitDel"  />';
@@ -91,71 +99,6 @@ function initunitTable() {
 }
 
 
-//点击checkBox 添加属性
-$("#unitTable").on("click", ".checkBox", function() {
-    if ($(this).attr('checked')) {
-        $(this).find('b').css("display", 'none')
-        $(this).removeAttr('checked')
-    } else {
-        $(this).find('b').css("display", 'block')
-        $(this).attr('checked', 'checked')
-    }
-})
-
-//全选和全部选功能
-function allORnot() {
-    var num = 0
-    var b = 0
-    
-    $("#unitTable thead").on("click", ".checkBox", function() {
-         num = $("#unitTable tbody .checkBox").length
-        if ($(this).attr('checked')) {
-            $("#unitTable tbody .checkBox").removeAttr("checked")
-            $("#unitTable tbody .checkBox b").css("display", 'none')
-            $(".del").hide();
-        } else {
-
-            $("#unitTable tbody .checkBox").attr("checked", "checked")
-            $("#unitTable tbody .checkBox b").css("display", 'block')
-
-            $(".del").show();
-            //点击删除
-            $(".del").on("click", function() {
-                alert("删除事件")
-            })
-        }
-    })
-
-    $("#unitTable tbody").on("click", ".checkBox", function() {
-        num = $("#unitTable tbody .checkBox").length
-        if (!($(this).attr("checked"))) {
-            b++;
-        } else {
-            b--
-        }
-        console.log(b)
-        if (num == b) {
-            $("#unitTable thead .checkBox").attr("checked", 'checked')
-            $("#unitTable thead .checkBox b").css("display", 'block')
-        } else {
-            $("#unitTable thead .checkBox").removeAttr("checked")
-            $("#unitTable thead .checkBox b").css("display", 'none')
-        }
-
-        //删除按钮的显示与隐藏
-        if (b > 1) {
-            $(".del").show();
-            //点击删除
-            $(".del").on("click", function() {
-                alert("删除事件")
-            })
-        } else {
-            $(".del").hide();
-        }
-
-    })
-}
-
 //跳转详情
 function hrefUnitDetail() {
     $("#unitTable").on("click",".unitDetail",function () {
@@ -167,4 +110,44 @@ function unitDel() {
      $("#unitTable").on("click",".unitDel",function () {
        $(".deleteContainer").show()
      })
+}
+
+//全返 反选
+function allORnot() {
+    $("#unitTable thead").on("click", ".checkBox", function() {
+        if ($(this).is(":checked")) {
+            $("#unitTable tbody .checkBox").prop("checked", true);
+            $(".del").show()
+        } else {
+            $("#unitTable tbody .checkBox").prop("checked", false);
+            $(".del").hide()
+
+        }
+    })
+    //给tbody的复选框绑定单击事件
+    $("#unitTable tbody").on("click", ".checkBox", function() {
+        //获取选中复选框长度
+        var length = $("#unitTable tbody  input[type=checkBox]:checked").length;
+        //未选中的长度
+        var len = $("#unitTable tbody input[type=checkBox]").length;
+
+        if (length == len) {
+            $("#unitTable thead .checkBox").prop("checked", true);
+        } else {
+            $("#unitTable thead .checkBox").prop("checked", false);
+        }
+        if (length >= 2) {
+            $(".del").show()
+        } else {
+            $(".del").hide()
+        }
+    });
+}
+
+
+//刷新表头状态
+function freshStatus() {
+   $('#unitTable').on( 'page.dt', function () {
+    $("#unitTable .checkBox").prop("checked",false);
+} );
 }

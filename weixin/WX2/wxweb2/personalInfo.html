@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <!-- 整个容器 -->
+    <div class="wrap">
+        <!-- 侧边栏 -->
+        <div class="sideBar sideBar-mini">
+            <div class="logo ">
+                <img src="img/logo.png" alt="">
+                <h2>巡检后台管理系统</h2>
+            </div>
+            <ul class="list">
+                <li>
+                    <img src="img/ico-user.png" alt="">
+                    <span>用户管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-upload.png" alt="">
+                    <span>警情管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-set.png" alt="">
+                    <span>设置</span>
+                </li>
+                <li class="now">
+                    <img src="img/ico-company.png" alt="">
+                    <span>单位管理</span>
+                </li>
+                <li class="">
+                    <img src="img/ico-Statistics.png" alt="">
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 中间内容容器 -->
+        <div class="mainContainer">
+            <!-- 顶部top -->
+            <div class="topHeader">
+                <div class="avator">
+                    <img src="./img/111.jpg" alt="">
+                </div>
+                <ul class="avatoeList">
+                    <li>个人资料</li>
+                    <li>退出登录</li>
+                </ul>
+            </div>
+            <!-- content -->
+            <div class="content">
+                <div class="crumbNav">
+                    <a href="javascript:;">个人资料 </a>
+                </div>
+                <div class="perosonalContainer">
+                    <div class="perosonaloption ">
+                        <h3>基本信息</h3>
+                        <img src="./img/ico-edit.png" title="编辑" class="editInfo">
+                    </div>
+                    <div class="perosonalmanaContainer">
+                        <ul>
+                            <li>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名:</span>
+                                <span>宋晓军</span>
+                            </li>
+                              <li>
+                                <span>单位名称:</span>
+                                <span>宿州市水务局</span>
+                            </li>
+                              <li>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职务:</span>
+                                <span>局长</span>
+                            </li>
+                              <li>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色:</span>
+                                <span>管理员</span>
+                            </li>
+                              <li>
+                                <span>&nbsp;&nbsp;&nbsp;手机号:</span>
+                                <span>15801542599</span>
+                            </li>
+                              <li>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱:</span>
+                                <span>songxiaojun@163.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="./lib/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function () {
+            hovermn(".editInfo")
+            $(".editInfo").on('click',function () {
+                window.location.href = './personalEdit.html'
+            })
+        })
+    </script>
+</body>
+
+</html>

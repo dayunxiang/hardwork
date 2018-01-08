@@ -4,6 +4,8 @@ $(function() {
     $(window).on("resize", function() {
         height()
     })
+    //显示个人中心
+    showPerson()
 
 })
 
@@ -31,6 +33,9 @@ function height() {
     $(".mainContainer").css({
         'height': h + "px"
     });
+    $("#MainContent").css({
+        'height': (h - 64) + "px"
+    });
     $(".content").css({
         'height': (h - 64) + "px"
     });
@@ -38,72 +43,85 @@ function height() {
     $(".userContainer").css({
         'height': (h - 64 - 60 - 24 - 30) + "px",
     });
-     //用户表格
+    //用户表格
     $(".usermanaContainer").css({
-        'height': (h - 64 - 60 - 24 - 30 - 60 - 20 - 50-15) + "px"
+        'height': (h - 64 - 60 - 24 - 30 - 60 - 20 - 50 - 15) + "px"
     });
     //警情管理
-     $(".jqContainer").css({
+    $(".jqContainer").css({
         'height': (h - 64 - 60 - 24 - 30) + "px",
     });
-     //警情表格
-     $(".jqmanaContainer").css({
-        'height': (h - 64-24-30-70-10-120) + "px"
-    });
-     
-     //待处理警情
-     $(".jqdclContainer").css({
-        'height': (h - 64 - 60 - 24 - 30) + "px",
-    });
-     //详情地图
-     $(".detailmap").css({
-        'height': (h - 64 - 60 - 24 - 30-70-430) + "px",
-    });
-     $("#map").css({
-        'height': (h - 64 - 60 - 24 - 30-70-430-20) + "px",
+    //警情表格
+    $(".jqmanaContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120) + "px"
     });
 
-     //设置
-     $(".setContainer").css({
+    //待处理警情
+    $(".jqdclContainer").css({
         'height': (h - 64 - 60 - 24 - 30) + "px",
     });
-     $(".settabsubcontent").css({
-        'height': (h - 64 - 60 - 24 - 30-88) + "px",
+    //详情地图
+    $(".detailmap").css({
+        'height': (h - 64 - 60 - 24 - 30 - 70 - 430) + "px",
     });
-     $(".areaList").css({
-        'height': (h - 64 - 60 - 24 - 30-88) + "px",
+    $("#map").css({
+        'height': (h - 64 - 60 - 24 - 30 - 70 - 430 - 20) + "px",
     });
-     $(".areaSubListContainer").css({
-        'height': (h - 64 - 60 - 24 - 30-88-55-9-5) + "px",
-    });
-     //设置地图 区域划分
-     $("#areaMap").css({
-        'height': (h - 64 - 60 - 24 - 30-88) + "px",
-    });
-     //警情类型设置
-     $(".jqlxSetContainer").css({
-        'height': (h - 64 - 60 - 24 - 30-88-72-9-5) + "px",
-    });
-     //任务分区设置
-     $(".rwfqSetContainer").css({
-        'height': (h - 64 - 60 - 24 - 30-88-72-9-5) + "px",
-    });
-     //单位管理
-     $(".unitContainer").css({
+
+    //设置
+    $(".setContainer").css({
         'height': (h - 64 - 60 - 24 - 30) + "px",
     });
-     $(".unitmanaContainer").css({
-        'height': (h - 64-24-30-70-10-120) + "px"
+    $(".settabsubcontent").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88) + "px",
     });
-     //单位详情
-     $('.unitDetailContainer').css({
-        'height': (h - 64 - 60 - 24 - 30) + "px",
+    $(".areaList").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88) + "px",
     });
-     $(".unitDetailmanaContainer").css({
-        'height': (h - 64-24-30-70-10-120) + "px"
+    $(".areaSubListContainer").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88 - 55 - 9 - 5) + "px",
     });
-     $(".unitTableContainer").css({
-        'height': (h - 64-24-30-70-10-120-150-56) + "px"
+    //设置地图 区域划分
+    $("#areaMap").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88) + "px",
+    });
+    //警情类型设置
+    $(".jqlxSetContainer").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88 - 72 - 9 - 5) + "px",
+    });
+    //任务分区设置
+    $(".rwfqSetContainer").css({
+        'height': (h - 64 - 60 - 24 - 30 - 88 - 72 - 9 - 5) + "px",
+    });
+    //单位管理
+    $(".unitContainer").css({
+        'height': (h - 64 - 60 - 24 - 30) + "px"
+    });
+    $(".unitmanaContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120) + "px"
+    });
+    //单位详情
+    $('.unitDetailContainer').css({
+        'height': (h - 64 - 60 - 24 - 30) + "px"
+    });
+    $(".unitDetailmanaContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120) + "px"
+    });
+    $(".unitTableContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120 - 150 - 56) + "px"
+    });
+    //个人中心
+    $(".perosonalContainer").css({
+       'height': (h - 64 - 60 - 24 - 30) + "px"
+    });
+    $(".perosonalmanaContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120) + "px"
+    });
+      $(".perosonalEidtContainer").css({
+       'height': (h - 64 - 60 - 24 - 30) + "px"
+    });
+    $(".perosonalEidtmanaContainer").css({
+        'height': (h - 64 - 24 - 30 - 70 - 10 - 120) + "px"
     });
     // 删除容器
     $(".deleteContainer").css({
@@ -131,12 +149,32 @@ function height() {
         'height': h + "px",
         'width': w + 'px'
     });
+
+    //新建分区
+    $(".newFQContainer").css({
+        'height': h + "px",
+        'width': w + 'px'
+    });
+    //新建类型
+    $(".newLxContainer").css({
+        'height': h + "px",
+        'width': w + 'px'
+    });
+    //编辑类型
+    $(".EditLxContainer").css({
+        'height': h + "px",
+        'width': w + 'px'
+    });
     //login
     $(".loginContainer").css({
         'height': h + "px",
         'width': w + 'px'
     });
-  
+
+
+    $(".chosen-container").css({
+        'width': ($(".newFQContent").width() - 40) + 'px'
+    })
 
 
 }
@@ -170,7 +208,7 @@ function changeSideBarMini() {
 
 
 //模拟title
-function hovermn(ele,tooltip) {
+function hovermn(ele, tooltip) {
     var x = -20;
     var y = 30;
     $(ele).on("mouseover", tooltip, function(e) {
@@ -247,11 +285,11 @@ function setNiceScroll(containerClass1) {
 }
 //init滚动条
 function initBar() {
-            setNiceScroll(".areaSubListContainer")
-                setNiceScroll(".jqlxSetContainer")
-                setNiceScroll(".rwfqSetContainer")
+    setNiceScroll(".areaSubListContainer")
+    setNiceScroll(".jqlxSetContainer")
+    setNiceScroll(".rwfqSetContainer")
 
-    
+
 }
 //
 //tab
@@ -261,7 +299,7 @@ function tabcount(eleid, activeclass, subareatabcontent) {
         $(this).addClass(activeclass);
         $(this).siblings('li').removeClass(activeclass)
         $(subareatabcontent).eq(index).show().siblings(subareatabcontent).hide();
-initBar()
+        initBar()
     })
 }
 
@@ -300,5 +338,43 @@ function closeUserDel() {
     $(".cancleDel").on("click", function() {
         $(".deleteContainer").hide()
     })
+
+}
+
+
+//初始化多选
+function initSelect() {
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 10 },
+        '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+        '.chosen-select-width': { width: "95%" }
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+}
+
+
+//显示个人中心
+function showPerson() {
+    $(".avator").on("click", function() {
+        console.log(111)
+        stopBubble("e")
+        $(".avatoeList").show()
+    })
+    $(".avatoeList li").on("click", function() {
+        stopBubble("e")
+
+    })
+    $(document).click(function() {
+        $(".avatoeList").css("display", 'none')
+    })
+}
+
+
+//生成侧边栏
+function nav() {
 
 }

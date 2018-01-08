@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/chosen_v1.8.2/chosen.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="lib/less.min.js"></script>
@@ -76,7 +77,7 @@
                                         <li>
                                             <span>河道上游</span>
                                             <span>孙晓青</span>
-                                             <img src="img/ico-over copy 3.png" title="删除分区" class="delLstInfo ">
+                                            <img src="img/ico-over copy 3.png" title="删除分区" class="delLstInfo ">
                                             <img src="img/ico-edit.png" title="编辑分区" class="editLstInfo ">
                                         </li>
                                         <li>
@@ -93,7 +94,7 @@
                         <div class="settabsubcontent" style="display: none;">
                             <div class="newJqlx">
                                 <span>共10个问题类型</span>
-                                <input type="button" value="新建类型">
+                                <input type="button" value="新建类型" class="newLX">
                             </div>
                             <div class="jqlxSetContainer">
                                 <dl class="jqlxSetContent">
@@ -104,15 +105,15 @@
                                     <dd>
                                         <span>问题类型</span>
                                         <a href="javascript:;">
-                                         <img src="./img/ico-edit.png" alt="">
-                                         <img src="./img/ico-over copy 3.png" alt="">
+                                         <img src="./img/ico-edit.png" alt="" class="EditLx">
+                                         <img src="./img/ico-over copy 3.png" alt="" class="DelLx">
                                      </a>
                                     </dd>
                                     <dd>
                                         <span>问题类型</span>
                                         <a href="javascript:;">
-                                         <img src="./img/ico-edit.png" alt="">
-                                         <img src="./img/ico-over copy 3.png" alt="">
+                                         <img src="./img/ico-edit.png" alt="" class="EditLx">
+                                         <img src="./img/ico-over copy 3.png" alt="" class="DelLx">
                                      </a>
                                     </dd>
                                 </dl>
@@ -120,10 +121,10 @@
                         </div>
                         <div class="settabsubcontent" style="display: none;">
                             <div class="newRwfp">
-                                 <span>共10个任务分区</span>
+                                <span>共10个任务分区</span>
                                 <input type="button" value="新建分区">
                             </div>
-                              <div class="rwfqSetContainer">
+                            <div class="rwfqSetContainer">
                                 <dl class="rwfqSetContent">
                                     <dt>
                                         <span>任务分区</span>
@@ -140,7 +141,7 @@
                                          
                                      </a>
                                     </dd>
-                                     <dd>
+                                    <dd>
                                         <span>河道上游</span>
                                         <span>手动推送</span>
                                         <span>孙晓青、张骞、吴生</span>
@@ -149,7 +150,7 @@
                                          
                                      </a>
                                     </dd>
-                                     <dd>
+                                    <dd>
                                         <span>河道上游</span>
                                         <span>手动推送</span>
                                         <span>孙晓青、张骞、吴生</span>
@@ -158,7 +159,7 @@
                                          
                                      </a>
                                     </dd>
-                                     <dd>
+                                    <dd>
                                         <span>河道上游</span>
                                         <span>手动推送</span>
                                         <span>孙晓青、张骞、吴生</span>
@@ -167,7 +168,7 @@
                                          
                                      </a>
                                     </dd>
-                                     <dd>
+                                    <dd>
                                         <span>河道上游</span>
                                         <span>手动推送</span>
                                         <span>孙晓青、张骞、吴生</span>
@@ -176,7 +177,6 @@
                                          
                                      </a>
                                     </dd>
-                                    
                                 </dl>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
             </div>
         </div>
     </div>
-     <!-- 删除 -->
+    <!-- 删除 -->
     <div class="deleteContainer">
         <div class="deleteContent">
             <div class="title">
@@ -207,12 +207,102 @@
     <!-- 新建分区 -->
     <div class="newFQContainer">
         <div class="newFQContent">
-            
+            <div class="title">
+                <span>
+                    新建分区
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="newFQmain">
+                <li>
+                    <span>新分区名称</span>
+                    <input type="text" value="" placeholder="请输入新分区名称">
+                </li>
+                <li>
+                    <span>分区描述</span>
+                    <input type="text" value="" placeholder="请输入分区描述">
+                </li>
+                <li>
+                    <span>选择分区负责人</span>
+                    <select data-placeholder="请选择选择分区负责人" class="chosen-select" style="width:100%; height: .32rem; border:none; outline: none;outline-style: none; margin-top: 10px; " tabindex="18">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option>Sloth Bear</option>
+                        <option>Sun Bear</option>
+                        <option>Polar Bear</option>
+                        <option>Spectacled Bear</option>
+                    </select>
+                </li>
+                <li>
+                    <span>选择组员</span>
+                    <select data-placeholder="请选择选择组员" multiple class="chosen-select" style="width:100%; height: .32rem; border:none; outline: none;outline-style: none; margin-top: 10px;" tabindex="18">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option>Sloth Bear</option>
+                        <option>Sun Bear</option>
+                        <option>Polar Bear</option>
+                        <option>Spectacled Bear</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="newFQfooter">
+                <input type="button" value="保存" class="sureNew">
+                <input type="button" value="取消" class="cancleNew">
+            </div>
+        </div>
+    </div>
+    <!-- 新建类型 -->
+    <div class="newLxContainer">
+        <div class="newLxContent">
+            <div class="title">
+                <span>
+                    新建类型
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="newLxmain">
+                <li>
+                    <span>问题类型名称</span>
+                    <input type="text" value="" placeholder="请输入问题类型名称">
+                </li>
+            </ul>
+            <div class="newLxfooter">
+                <input type="button" value="保存" class="sureNewLx">
+                <input type="button" value="取消" class="cancleNewLx">
+            </div>
+        </div>
+    </div>
+    <!-- 编辑类型 -->
+    <div class="EditLxContainer">
+        <div class="EditLxContent">
+            <div class="title">
+                <span>
+                    新建类型
+                </span>
+                <img src="img/yishui copy 6@3x.png" alt="">
+            </div>
+            <ul class="EditLxmain">
+                <li>
+                    <span>问题类型名称</span>
+                    <input type="text" value="">
+                </li>
+            </ul>
+            <div class="EditLxfooter">
+                <input type="button" value="保存" class="sureEditLx">
+                <input type="button" value="取消" class="cancleEditLx">
+            </div>
         </div>
     </div>
     <script src="./lib/RMap/rmap.js"></script>
     <script src="lib/jquery.min.js"></script>
     <script src="./lib/jquery.nicescroll.min.js"></script>
+    <script src="./lib/chosen_v1.8.2/chosen.jquery.js" type="text/javascript"></script>
     <script src="js/common.js"></script>
     <script src="js/set.js"></script>
     <script>
@@ -221,9 +311,9 @@
             setTimeout(function() {
                 setNiceScroll(".areaSubListContainer")
                 setNiceScroll(".jqlxSetContainer")
-
             }, 0)
         }
+
     );
     </script>
 </body>

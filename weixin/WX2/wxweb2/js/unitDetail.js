@@ -1,16 +1,21 @@
-$(function () {
-   var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+$(function() {
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     //动态设置表格页加载数量
     page = Math.floor($(".unitTableContainer").height() / 41) - 1;
     $(window).on("resize", function() {
         page = Math.floor($(".unitTableContainer").height() / 41) - 1;
     })
- //模拟title
-    hovermn("#unitDetailTable")
-     //初始化用户表格
+    //初始化用户表格
     initunitDetailTable()
 
-    
+    //全返 反选
+    allORnot()
+    //刷新表头状态
+    freshStatus()
+    //模拟title
+    hovermn("#unitDetailTable", "tooltip")
+
+
 })
 //初始化用户表格
 function initunitDetailTable() {
@@ -54,7 +59,7 @@ function initunitDetailTable() {
         columnDefs: [{
                 targets: 0,
                 render: function(data, type, row, meta) {
-                    return '<td><i class="checkBox"><b class="fa fa-check"></b></i>' +
+                    return '<td><input type="checkBox" class="checkBox" />' +
                         '<span>' + row.name + '</span></td>';
                 }
             },
@@ -73,3 +78,42 @@ function initunitDetailTable() {
 
 
 
+//全返 反选
+function allORnot() {
+    $("#unitDetailTable thead").on("click", ".checkBox", function() {
+        if ($(this).is(":checked")) {
+            $("#unitDetailTable tbody .checkBox").prop("checked", true);
+            $(".del").show()
+        } else {
+            $("#unitDetailTable tbody .checkBox").prop("checked", false);
+            $(".del").hide()
+
+        }
+    })
+    //给tbody的复选框绑定单击事件
+    $("#unitDetailTable tbody").on("click", ".checkBox", function() {
+        //获取选中复选框长度
+        var length = $("#unitDetailTable tbody  input[type=checkBox]:checked").length;
+        //未选中的长度
+        var len = $("#unitDetailTable tbody input[type=checkBox]").length;
+
+        if (length == len) {
+            $("#unitDetailTable thead .checkBox").prop("checked", true);
+        } else {
+            $("#unitDetailTable thead .checkBox").prop("checked", false);
+        }
+        if (length >= 2) {
+            $(".del").show()
+        } else {
+            $(".del").hide()
+        }
+    });
+}
+
+
+//刷新表头状态
+function freshStatus() {
+    $('#unitDetailTable').on('page.dt', function() {
+        $("#unitDetailTable .checkBox").prop("checked", false);
+    });
+}
