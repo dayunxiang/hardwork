@@ -1,0 +1,54 @@
+<!-- content -->
+<div class="crumbNav">
+    <a href="javascript:;">个人资料 </a>
+</div>
+<div class="perosonalContainer">
+    <div class="perosonaloption ">
+        <h3>基本信息</h3>
+        <img src="./img/ico-edit.png" title="编辑" class="editInfo">
+    </div>
+    <div class="perosonalmanaContainer">
+        <ul>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名:</span>
+                <span>宋晓军</span>
+            </li>
+            <li>
+                <span>单位名称:</span>
+                <span>宿州市水务局</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职务:</span>
+                <span>局长</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色:</span>
+                <span>管理员</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;手机号:</span>
+                <span>15801542599</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱:</span>
+                <span>songxiaojun@163.com</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+$(function() {
+    height()
+    hovermn(".editInfo")
+    $(".editInfo").on("click", function() {
+        $.ajax({
+            type: 'get',
+            url: './personalEdit.html',
+            success: function(data) {
+                $(".mainContainer .content").empty().html(data)
+
+            }
+        })
+    })
+})
+</script>

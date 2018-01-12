@@ -1,0 +1,131 @@
+
+ 
+            <!-- content -->
+                <h3>单位管理</h3>
+                <div class="unitContainer">
+                    <ul class="unitoption clearfix">
+                        <li class="clearfix">
+                            <p>
+                                城市
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix unitCityselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption unitCityselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                单位名称
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix unitNameselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption unitNameselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                          <li class="clearfix">
+                            <p>
+                                销售
+                            </p>
+                            <div class="selectContainer">
+                                <div class="select clearfix Xsselect">
+                                    <span class="fl-l"></span>
+                                    <i class="fa fa-caret-down fl-r"></i>
+                                </div>
+                                <ul class="selectOption XsselectOption clearfix">
+                                    <li>50m</li>
+                                    <li>100m</li>
+                                    <li>150m</li>
+                                    <li>200m</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p>
+                                选择注册时间范围
+                            </p>
+                            <div class="start fl-l">
+                                <input type="text" value="" id="startTime">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                            <span class="fl-l">至</span>
+                            <div class="end fl-l">
+                                <input type="text" value="" id="endTime">
+                                <i class="fa fa-caret-down fl-r"></i>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="cx">
+                                <input type="button" value="查询">
+                            </div>
+                            <div class="udel clearfix">
+                                <img src="img/ico-over copy 3.png" alt="">
+                                <span>删除</span>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                    <div class="unitmanaContainer">
+                        <table id="unitTable">
+                            <thead>
+                                <tr>
+                                   
+                                     <th><input type="checkBox" class="checkBox"><span>所在省份</span></th>
+                                    <th>单位</th>
+                                    <th>联系人</th>
+                                    <th>联系人职务</th>
+                                    <th>联系人电话</th>
+                                    <th>管理员</th>
+                                    <th>管理员微信号</th>
+                                    <th>管理员电话</th>
+                                    <th>管理员邮箱</th>
+                                    <th>注册时间</th>
+                                    <th>注册人数(人)</th>
+                                    <th>销售</th>
+                                    <th>到期时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+     
+     <!-- 删除 -->
+    <div class="deleteContainer">
+        <div class="deleteContent">
+            <div class="title">
+                <span>
+                    提示
+                </span>
+                <img src="img/closeBtn.png" alt="">
+            </div>
+            <div class="deletemain">
+                <img src="img/delIco.png" alt="">
+                <p>删除后，数据将不可恢复，你确定要删除？</p>
+            </div>
+            <div class="deltefooter">
+                <input type="button" value="取消" class="cancleDel">
+                <input type="button" value="删除" class="sureDel">
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/UnitManage.js"></script>
+

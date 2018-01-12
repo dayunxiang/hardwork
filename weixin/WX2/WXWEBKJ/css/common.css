@@ -1,0 +1,115 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: normal;
+    box-sizing: border-box;
+    line-height: initial;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none
+}
+
+th {
+    text-align: inherit;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none
+}
+
+input,
+button {
+    outline-style: none;
+    outline: none;
+    border: none;
+    line-height: initial;
+}
+
+img {
+    vertical-align: initial;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+.fl-r {
+    float: right;
+}
+
+.fl-l {
+    float: left;
+}
+
+
+.chosen-container-multi .chosen-choices {
+    width: 100%;
+    border: none;
+    border-image: none;
+    background-image: none;
+    border: 1px solid #E8E8E8; // margin-top: 10px;
+}
+
+.chosen-container {
+    width: 100%;
+    border: none;
+    border-image: none;
+    background-image: none;
+    margin-top: 10px;
+}
+.chosen-container-active  .chosen-choices  {
+    box-shadow:none;
+}
+.chosen-container-active  .chosen-single{
+    background-image:none;
+    box-shadow:none;
+    border: none;
+}
+.chosen-container-single .chosen-single {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    height: .32rem;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+    background-color: #fff;
+    background: none;
+    background-clip: padding-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: .32rem;
+}

@@ -98,6 +98,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*样式处理*/
 
 body {
@@ -133,6 +154,27 @@ img {
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -988,21 +1030,121 @@ body::-webkit-scrollbar {
                         width: 100%;
                         height: 3.2rem;
                         position: relative;
+
+                        .bg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: -9;
+
+                            svg {
+                                .water1 {
+                                    animation: water1 160s infinite;
+                                    transform-origin: 0% 100%;
+                                }
+                                .water2 {
+                                    animation: water2 200s infinite;
+                                     transform-origin: 0% 100%;
+                                }
+                                @keyframes water1 {
+                                    0% {
+                                        transform: translateX(0%);
+                                    }
+                                    100% {
+                                        transform: translateX(-80%);
+                                    }
+                                }
+                                @keyframes water2 {
+                                    0% {
+                                        transform: translateX(0%);
+                                    }
+                                    100% {
+                                        transform: translateX(80%);
+                                    }
+                                }
+                                .bg-shadow {
+                                    box-shadow: 0 .5rem 1rem 0 rgba(74, 144, 226, 0.50);
+                                }
+                            }
+                        }
                         .audioCont {
                             position: absolute;
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
                             text-align: center;
-                            img {
-                                width: 1rem;
-                                height: 1rem;
+
+                            svg {
+                                width: 1.4rem;
+                                height: 1.4rem;
                                 margin-bottom: .2rem;
+
+                                .st0 {
+                                    fill: #ccc;
+                                    enable-background: new;
+                                    animation: myscale 2s infinite;
+                                    transform-origin: 50% 50%;
+                                }
+                                .st1 {
+                                    fill: #ccc;
+                                    enable-background: new;
+                                    animation: myscale 2s infinite;
+                                    transform-origin: 50% 50%;
+                                    animation-delay: 1s;
+                                }
+                                @keyframes myscale {
+                                    0% {
+                                        transform: scale(0.7);
+                                        opacity: 1;
+                                    }
+                                    100% {
+                                        transform: scale(1);
+                                        opacity: 0;
+                                    }
+                                }
+
+                                .st2 {
+                                    fill: #FFFFFF;
+                                }
+                                .st3,
+                                .st4,
+                                .st5 {
+                                    fill: #4A90E2;
+                                    stroke: #4A90E2;
+                                    stroke-width: 3;
+                                    transform-origin: 50% 100%;
+                                    animation: myheight 1s infinite;
+                                }
+                                .st4 {
+                                    animation-delay: .4s;
+                                }
+                                .st5 {
+                                    animation-delay: .8s;
+                                }
+                                @keyframes myheight {
+                                    0% {
+                                        transform: scale(1, .2);
+                                    }
+                                    25% {
+                                        transform: scale(1, .50);
+                                    }
+                                    50% {
+                                        transform: scale(1, .75);
+                                    }
+                                    25% {
+                                        transform: scale(1, 1);
+                                    }
+                                    100% {
+                                        transform: scale(1, .2);
+                                    }
+                                }
                             }
                             p {
                                 font-family: PingFangSC-Regular;
                                 font-size: .3rem;
-                                color: #1082FF;
+                                color: #FFFFFF;
                             }
                         }
                     }
@@ -1363,6 +1505,7 @@ body::-webkit-scrollbar {
         }
     }
 
+    /*统计*/
     .countContainer {
         .counttabbar {
             width: 100%;
@@ -1433,8 +1576,7 @@ body::-webkit-scrollbar {
                     }
                 }
                 #countMap {
-                    width: 100%;
-                    // height: 100%;
+                    width: 100%; // height: 100%;
                 }
                 .cazResult {
                     position: fixed;
@@ -1522,6 +1664,349 @@ body::-webkit-scrollbar {
                         }
                     }
                 }
+            }
+        }
+    }
+    /*公司列表*/
+    .companyListContainer {
+
+        background: #fff;
+        .listTab {
+            background-color: #fff;
+            border-bottom: 1px solid #EAEAEA;
+            position: fixed;
+            top: 0rem;
+            left: 0;
+            z-index: 9;
+            height: 1rem;
+            width: 100%;
+            &>li {
+                float: left;
+                height: .96rem;
+                line-height: .93rem;
+                width: 50%;
+                text-align: center;
+                font-family: PingFangSC-Regular;
+                font-size: .28rem;
+                color: #333333;
+
+                &:last-child {
+                    border-right: none;
+                }
+                &>a {
+                    display: inline-block;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #666666;
+                    letter-spacing: 0;
+                    line-height: .98rem;
+                }
+                .active {
+                    color: #1B1B1F;
+                    border-bottom: 2px solid #1B1B1F;
+                }
+            }
+        }
+
+        .swiper-container {
+            padding-top: 1rem;
+            z-index: 0;
+            .swiper-wrapper {
+                .swiper-slide {
+                    padding: .4rem;
+                    position: relative;
+                    &>ul {
+                        &>li {
+                            a {
+                                display: block;
+                                height: 1.34rem;
+                                box-sizing: border-box;
+                                margin-bottom: .3rem;
+                                background-image: linear-gradient(-221deg, #63A8E9 0%, #4A90E2 76%);
+                                box-shadow: 0 6px 16px 0 rgba(16, 130, 255, 0.20);
+                                border-radius: 4px;
+                                position: relative;
+                                color: #fff;
+                                .leerm {
+                                    width: 1.1rem;
+                                    height: 1.04rem;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    margin: .1rem;
+                                    border-right: 1px dashed #fff;
+                                    &>img {
+                                        width: .82rem;
+                                        height: .82rem;
+                                        padding: .1rem;
+                                        margin-top: .15rem;
+                                        margin-left: .05rem;
+                                        border: 1px solid rgba(255, 255, 255, 0.20);
+                                        ;
+                                    }
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        right: -.10rem;
+                                        top: -.2rem;
+                                        width: .2rem;
+                                        height: .2rem;
+                                        border-radius: 50%;
+                                        background-color: #fff;
+                                    }
+                                    &:after {
+                                        content: '';
+                                        position: absolute;
+                                        right: -.1rem;
+                                        bottom: -.28rem;
+                                        width: .2rem;
+                                        height: .2rem;
+                                        border-radius: 50%;
+                                        background-color: #fff;
+                                    }
+                                }
+                                .rghname {
+                                    margin-left: 1.4rem;
+                                    height: 1.34rem;
+                                    span {
+                                        font-family: PingFangSC-Regular;
+                                        font-size: .32rem;
+                                        color: #FFFFFF;
+                                        line-height: 1.34rem;
+                                        float: left;
+                                    }
+                                    i {
+                                        float: right;
+                                        margin-right: .3rem;
+                                        font-size: .48rem;
+                                        line-height: 1.34rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    p {
+                        font-family: PingFangSC-Regular;
+                        font-size: .32rem;
+                        color: #666666;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+        /*添加单位*/
+        .addCompany {
+            position: fixed;
+            bottom: .3rem;
+            left: 0;
+            width: 100%;
+            height: .9rem;
+            text-align: center;
+            padding: 0 .3rem;
+            &>input {
+                height: .9rem;
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                width: 100%;
+            }
+        }
+    }
+    /*编辑单位*/
+    .editCompanyContainer,
+    .addCompanyContainer {
+        padding: .3rem;
+        h5 {
+            font-family: PingFangSC-Medium;
+            font-size: .3rem;
+            color: #515253;
+            font-weight: 400;
+        }
+        ul {
+            li {
+                margin-top: .3rem;
+                input {
+                    height: .88rem;
+                    width: 100%;
+                    padding: .2rem .3rem;
+                    background: #FFFFFF;
+                    border: 1px solid #DDDDDD;
+                    border-radius: .88rem;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #333333;
+                }
+                textarea {
+                    height: 5.6rem;
+                    width: 100%;
+                    padding: .2rem;
+                    background: #FFFFFF;
+                    border: 1px solid #DDDDDD;
+                    resize: none;
+                    outline: none;
+                    outline-style: none;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #333333;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .tjCompany {
+            position: fixed;
+            bottom: .3rem;
+            left: 0;
+            width: 100%;
+            height: .9rem;
+            text-align: center;
+            padding: 0 .3rem;
+            &>input {
+                height: .9rem;
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                width: 100%;
+            }
+        }
+    }
+    .addCompanyContainer {
+        ul {
+            li {
+                margin-top: .3rem;
+                input {
+                    border: none;
+                    background-color: #f5f5f5;
+                }
+                textarea {
+                    border: none;
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+        .tjCompany {
+            position: fixed;
+            bottom: .3rem;
+            left: 0;
+            width: 100%;
+            height: .9rem;
+            text-align: center;
+            padding: 0 .3rem;
+            &>input {
+                height: .9rem;
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                width: 100%;
+            }
+        }
+    }
+    /*单位详情*/
+    .CompanyDetailContainer {
+        padding: .3rem;
+        ul {
+            li {
+                height: 1rem;
+                border-bottom: 1px solid #DDDDDD;
+                line-height: 1rem;
+                span {
+                    float: left;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #666666;
+                    letter-spacing: 0;
+                    &:last-child {
+                        float: right;
+                        font-family: PingFangSC-Regular;
+                        font-size: .3rem;
+                        color: #333333;
+                        letter-spacing: 0;
+                    }
+                }
+                &:last-child {
+                    border: none;
+                    span {
+                        float: left;
+                        width: 100%;
+                        &:last-child {
+                            line-height: .5rem;
+                            color: #333333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*单位二维码*/
+    .companyEWMContainer {
+        width: 100%;
+        height: 100vh;
+        background-color: #2D333A;
+        position: relative;
+        .ewmContent {
+            background: #FFFFFF;
+            border-radius: 3px;
+            width: 6.7rem;
+            height: 8.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: .4rem;
+            padding-top: 0;
+            box-sizing: border-box;
+            .top {
+                height: 1.56rem;
+                line-height: 1.56rem;
+                padding: 0 .2rem;
+                box-sizing: border-box;
+
+                span {
+                    float: left;
+                    font-family: PingFangSC-Medium;
+                    font-size: .34rem;
+                    color: #333333;
+                    letter-spacing: 0;
+                    &:last-child {
+                        float: right;
+                        font-family: PingFangSC-Regular;
+                        font-size: .3rem;
+                        color: #1082FF;
+                        letter-spacing: 0;
+                    }
+                }
+            }
+            .pic {
+                width: 5.9rem;
+                height: 5.9rem;
+                padding: .2rem;
+                box-sizing: border-box;
+                &>img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &>p {
+                text-align: center;
+                width: 100%;
+                font-family: PingFangSC-Regular;
+                font-size: .28rem;
+                color: #666666;
+                line-height: .44rem;
             }
         }
     }

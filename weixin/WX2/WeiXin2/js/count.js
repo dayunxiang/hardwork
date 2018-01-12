@@ -126,5 +126,3 @@ function tabcount(eleid, activeclass) {
     }
 }
 
-//kongzhi 
-console.log($("#zs_tabMap").css("display"))

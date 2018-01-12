@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="lib/photoswipe/css/photoswipe.css">
+    <link rel="stylesheet" href="lib/photoswipe/css/default-skin/default-skin.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <div class="companyEWMContainer">
+            <div class="ewmContent">
+                <div class="top">
+                    <span>
+                        苏州市水务局
+                    </span>
+                    <span class="hrefEdit">编辑</span>
+                </div>
+                <div class="pic">
+                    <img src="img/ico-QR@3x.png" alt="">
+                </div>
+                <p>请扫描二维码加入巡查系统</p>
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function () {
+            $(".hrefEdit").on("click",function () {
+                window.location.href = './editCompany.html'
+            })
+        })
+    </script>
+</body>
+
+</html>

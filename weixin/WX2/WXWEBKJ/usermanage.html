@@ -1,0 +1,200 @@
+<!-- content -->
+<h3>用户管理</h3>
+<div class="userContainer">
+    <ul class="useroption clearfix">
+        <li class="clearfix">
+            <p>
+                城市
+            </p>
+            <div class="selectContainer">
+                <div class="select clearfix cityselect">
+                    <span class="fl-l"></span>
+                    <i class="fa fa-caret-down fl-r"></i>
+                </div>
+                <ul class="selectOption cityselectOption clearfix">
+                    <li>50m</li>
+                    <li>100m</li>
+                    <li>150m</li>
+                    <li>200m</li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <p>
+                公司名称
+            </p>
+            <div class="selectContainer">
+                <div class="select clearfix companyselect">
+                    <span class="fl-l"></span>
+                    <i class="fa fa-caret-down fl-r"></i>
+                </div>
+                <ul class="selectOption companyselectOption clearfix">
+                    <li>50m</li>
+                    <li>100m</li>
+                    <li>150m</li>
+                    <li>200m</li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <p>
+                注册时间
+            </p>
+            <div class="selectContainer">
+                <div class="select clearfix startDateselect">
+                    <span class="fl-l"></span>
+                    <i class="fa fa-caret-down fl-r"></i>
+                </div>
+                <ul class="selectOption  startDateselectOption clearfix">
+                    <li>50m</li>
+                    <li>100m</li>
+                    <li>150m</li>
+                    <li>200m</li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <p>
+                角色
+            </p>
+            <div class="selectContainer">
+                <div class="select clearfix roleselect">
+                    <span class="fl-l"></span>
+                    <i class="fa fa-caret-down fl-r"></i>
+                </div>
+                <ul class="selectOption roleselectOption clearfix">
+                    <li>50m</li>
+                    <li>100m</li>
+                    <li>150m</li>
+                    <li>200m</li>
+                </ul>
+            </div>
+        </li>
+        <li class="clearfix">
+            <!-- <div class="new"> <img src="img/ico-over copy 3.png" alt=""> <span>新建</span> </div> -->
+            <div class="del clearfix">
+                <img src="img/ico-over copy 3.png" alt="">
+                <span>删除</span>
+            </div>
+        </li>
+    </ul>
+    <div class="usermanaContainer">
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <!-- <th><i class="checkBox"><b class="fa fa-check"></b></i><span>姓名</span></th> -->
+                    <th>
+                        <input type="checkBox" class="checkBox"><span>姓名</span></th>
+                    <th>微信号</th>
+                    <th>邮箱</th>
+                    <th>单位</th>
+                    <th>部门</th>
+                    <th>职务</th>
+                    <th>角色</th>
+                    <th>所属分区</th>
+                    <th>联系电话</th>
+                    <th>注册时间</th>
+                    <th style="-webkit-tap-highlight-color: transparent; ">上报(次) <i class="fa fa-caret-down reportpx" style="color: #4495FF;  cursor: pointer;"></i></th>
+                    <th style="-webkit-tap-highlight-color: transparent; ">处理(次) <i class="fa fa-caret-down dealpx" style="color: #4495FF; cursor: pointer;"></i></th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 删除 -->
+<div class="deleteContainer">
+    <div class="deleteContent">
+        <div class="title">
+            <span>
+                    提示
+                </span>
+            <img src="img/closeBtn.png" alt="">
+        </div>
+        <div class="deletemain">
+            <img src="img/delIco.png" alt="">
+            <p>删除后，数据将不可恢复，你确定要删除？</p>
+        </div>
+        <div class="deltefooter">
+            <input type="button" value="取消" class="cancleDel">
+            <input type="button" value="删除" class="sureDel">
+        </div>
+    </div>
+</div>
+<!-- 编辑 -->
+<div class="editContainer">
+    <div class="editContent">
+        <div class="title">
+            <span>
+                    编辑
+                </span>
+            <img src="img/closeBtn.png" alt="">
+        </div>
+        <ul class="editmain">
+            <li>
+                <span>姓名（不可修改）</span>
+                <input type="text" readonly="true" value="胡建">
+            </li>
+            <li>
+                <span>微信号（不可修改）</span>
+                <input type="text" value="胡建" readonly="true">
+            </li>
+            <li>
+                <span>邮箱</span>
+                <input type="text" value="胡建">
+            </li>
+            <li>
+                <span>联系电话</span>
+                <input type="text" value="胡建">
+            </li>
+            <li>
+                <span>单位（不可修改）</span>
+                <input type="text" value="胡建" readonly="true">
+            </li>
+            <li>
+                <span>职务</span>
+                <input type="text" value="胡建">
+            </li>
+            <li>
+                <span>角色</span>
+                <input type="text" value="胡建">
+            </li>
+            <li>
+                <span>姓名（不可修改）</span>
+                <input type="text" value="胡建">
+            </li>
+            <li>
+                <span>所属分区</span>
+                <input type="text" value="胡建">
+            </li>
+        </ul>
+        <div class="editfooter">
+            <input type="button" value="取消" class="cancleEdit">
+            <input type="button" value="保存" class="sureEdit">
+        </div>
+    </div>
+</div>
+<!-- 新建单位 -->
+<div class="newunitContainer">
+    <div class="newunitContent">
+        <div class="title">
+            <span>
+                    新建单位
+                </span>
+            <img src="img/closeBtn.png" alt="">
+        </div>
+        <ul class="newunitmain">
+            <li>
+                <span>单位名称</span>
+                <input type="text" value="" placeholder="请输入单位名称">
+            </li>
+        </ul>
+        <div class="newunitfooter">
+            <input type="button" value="取消" class="cancleNew">
+            <input type="button" value="删除" class="sureNew">
+        </div>
+    </div>
+</div>
+<script src="js/usermanage.js"></script>

@@ -1,0 +1,2989 @@
+/*整个容器*/
+
+.wrap {
+    /*侧边栏*/
+    .sideBar {
+        width: 250px;
+        height: 500px;
+        box-sizing: border-box;
+        float: left;
+        background-color: #fff;
+        border-right: 1px solid #e8e8e8;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12); // transition: all .3s;
+        cursor: pointer; // transition: all .1s;
+        .logo {
+            font-size: 13px;
+            height: 64px;
+            line-height: 64px;
+            position: relative;
+            transition: all .01s;
+
+            &>img {
+                height: 46px;
+                width: 46px;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+            &>h2 {
+                font-family: MicrosoftYaHei;
+                font-size: 20px;
+                color: #333333;
+                letter-spacing: 0;
+                line-height: 64px;
+                margin-left: 70px;
+                font-weight: 700;
+            }
+        }
+        .list {
+            font-size: 13px;
+            &>li {
+                // width: 100%;
+                // height: 52px;
+                // line-height: 52px;
+                // padding-left: 20px;
+                // cursor: pointer;
+                // position: relative;
+                &:hover {
+                    background-color: #E9EBED;
+                    color: #333;
+                    font-weight: 700;
+                }
+                &>a {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 52px;
+                    line-height: 52px; // padding-left: 20px;
+                    cursor: pointer;
+                    &>img {
+                        position: absolute;
+                        top: 11px;
+                        left: 15px;
+                        width: 30px;
+                        height: 30px;
+                    }
+                    &>span {
+                        font-family: PingFangSC-Regular;
+                        font-size: 13px;
+                        color: #5A5A5A;
+                        margin-left: 50px;
+                    }
+                }
+            }
+            .now {
+                background-color: #E9EBED;
+                color: #333;
+                font-weight: 700;
+            }
+        }
+    }
+    .sideBar-mini {
+        width: 64px;
+        .logo {
+            transition: all .01s;
+            h2 {
+                display: none;
+            }
+        }
+        .list {
+            &>li {
+                &>a {
+                    &>span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    /*中间内容容器*/
+    .mainContainer {
+        box-sizing: border-box;
+        padding-left: 64px;
+        /*顶部top*/
+        .topHeader {
+            height: 64px;
+            background-color: #fff;
+            border-bottom: 1px solid #EBEBEB;
+            box-sizing: border-box;
+            position: relative;
+            .avator {
+                width: 30px;
+                height: 30px;
+                float: right;
+                margin: 15px 15px 0 0;
+                position: relative;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &>img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+            .avatoeList {
+                background: #FFFFFF;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+                width: 150px;
+                font-size: 12px;
+                position: absolute;
+                top: 64px;
+                right: 30px;
+                display: none;
+                &>li {
+                    font-family: PingFangSC-Regular;
+                    font-size: 13px;
+                    color: #333;
+                    letter-spacing: 0;
+                    line-height: 13px;
+                    height: 45px;
+                    line-height: 45px;
+                    text-align: center;
+                    border-bottom: 1px solid #e8e8e8;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        color: #4495FF;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        /*主体*/
+        .content {
+            box-sizing: border-box;
+            background-color: #F8F8F8;
+            font-size: 15px;
+            padding: 30px;
+            padding-left: 40px;
+            h3 {
+                color: #383D40;
+                font-weight: 700;
+                margin-bottom: 30px;
+            }
+            /*面包屑导航*/
+            .crumbNav {
+                margin-bottom: 30px;
+                &>a {
+                    color: #383D40;
+                    font-weight: 700;
+                    ont-size: 15px;
+                    letter-spacing: 0;
+                }
+            }
+            /*用户管理主体*/
+            .userContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 10px;
+                .useroption {
+                    margin-bottom: 10px;
+                    height: 70px;
+                    &>li {
+                        float: left;
+                        margin-right: 20px;
+                        &>p {
+                            color: #383D40;
+                            font-size: 12px;
+                            line-height: 26px;
+                        }
+
+                        .selectContainer {
+                            position: relative;
+                            float: left;
+                            .select {
+                                float: left;
+                                width: 1.2rem;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                ;
+                                border-radius: 5px;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                line-height: 32px;
+                                span {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 13px;
+                                    color: #8D96BA;
+                                    ;
+                                }
+                                i {
+                                    color: #8D96BA;
+                                    ;
+                                    margin-top: 8px;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .selectOption {
+                                position: absolute;
+                                top: 40px;
+                                left: 0px;
+                                width: 1.2rem;
+                                border: 1px solid #D7DCE4;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                display: none;
+                                box-sizing: border-box;
+                                z-index: 999;
+                                &>li {
+                                    width: 100%;
+                                    cursor: pointer;
+                                    font-size: 12px;
+                                    padding: 10px 10px;
+                                    color: #5A6388;
+                                    box-sizing: border-box;
+                                }
+                            }
+                        }
+                        .new,
+                        .del {
+                            margin-top: 25px;
+                            margin-right: 10px;
+                            float: left;
+                            height: 32px;
+                            width: 60px;
+                            border: 1px solid #4495FF;
+                            border-radius: 4px;
+                            line-height: 32px;
+                            cursor: pointer;
+                            &>img {
+                                float: left;
+                                vertical-align: middle;
+                                margin: 5px 0 0 5px;
+                            }
+
+                            &>span {
+                                float: left;
+                                color: #4495FF;
+                                font-size: 12px;
+                                vertical-align: middle;
+                            }
+                        }
+                        .del {
+                            display: none;
+                        } // &:last-child {
+                        //     float: right;
+                        //     position: relative;
+                        //     &>input {
+                        //         width: 240px;
+                        //         height: 32px;
+                        //         margin-top: 25px;
+                        //         border-radius: 32px;
+                        //         background: #F1F2F4;
+                        //         padding: 0 10px;
+                        //         box-sizing: border-box;
+                        //     }
+                        //     &>img {
+                        //         position: absolute;
+                        //         right: 15px;
+                        //         top: 32px;
+                        //         cursor: pointer;
+                        //     }
+                        // }
+                    }
+                }
+                .usermanaContainer {
+                    position: relative;
+                    #userTable_filter {
+                        // opacity: 0;
+                        position: absolute;
+                        top: -80px;
+                        right: 25px; // z-index:-1;
+                        input {
+                            width: 2.4rem;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
+                    #userTable {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        empty-cells: show;
+                        text-align: center;
+                        font-size: 12px;
+                        thead {
+
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #7F8FA4;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                font-weight: 100;
+
+
+                                th {
+                                    font-weight: 100;
+                                    height: 40px;
+                                    box-sizing: border-box;
+
+                                    line-height: 40px;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #333333;
+                                letter-spacing: 0;
+                                line-height: 13px;
+                                td {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    box-sizing: border-box;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                    &>img {
+                                        margin-right: 20px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .red {
+                                    color: #F86E6E;
+                                }
+                                .blue {
+                                    color: #4495FF;
+                                }
+
+                                &:hover {
+                                    background-color: #F7FAFE;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .checkBox {
+                            width: 16px;
+                            height: 16px;
+                            border: 1px solid #D7DCE4;
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            &>b {
+                                display: none;
+                                position: absolute;
+                                color: #5D6D98;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                    #userTable_info {
+                        position: absolute;
+                        bottom: -30px;
+                        left: 0;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                    #userTable_paginate {
+                        position: absolute;
+                        bottom: -30px;
+                        right: 0;
+                        height: 35px;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: .AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
+                }
+            }
+            /*警情管理主体*/
+            .jqContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 10px;
+                .jqoption {
+                    margin-bottom: 10px;
+                    height: 70px;
+                    &>li {
+                        float: left;
+                        margin-right: 20px;
+                        &>p {
+                            color: #383D40;
+                            font-size: 12px;
+                            line-height: 26px;
+                        }
+                        &>span {
+                            margin: 0 5px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #383D40;
+                            letter-spacing: 0;
+                            line-height: 32px;
+                        }
+                        .start,
+                        .end {
+                            position: relative;
+                            font-size: 12px;
+                            color: #383D40;
+                            &>input {
+                                width: 1.2rem;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                border-radius: 5px;
+                                padding: 5px;
+                                box-sizing: border-box;
+                                font-size: 12px;
+                                color: #383D40;
+                                cursor: pointer;
+                            }
+                            &>i {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                color: #8D96BA;
+                            }
+                        }
+
+                        .selectContainer {
+                            position: relative;
+                            float: left;
+                            .select {
+                                float: left;
+                                width: 1.2rem;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                ;
+                                border-radius: 5px;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                line-height: 32px;
+                                span {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    ;
+                                }
+                                i {
+                                    color: #8D96BA;
+                                    ;
+                                    margin-top: 8px;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .selectOption {
+                                position: absolute;
+                                top: 40px;
+                                left: 0px;
+                                width: 1.2rem;
+                                border: 1px solid #D7DCE4;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                display: none;
+                                box-sizing: border-box;
+                                z-index: 999;
+                                &>li {
+                                    width: 100%;
+                                    cursor: pointer;
+                                    font-size: 12px;
+                                    padding: 10px 10px;
+                                    color: #5A6388;
+                                    box-sizing: border-box;
+                                }
+                            }
+                        }
+                        .cx {
+                            margin-top: 25px;
+                            margin-right: 10px;
+                            float: left;
+                            font-size: 12px;
+                            input {
+                                height: 32px;
+                                width: 60px;
+                                border-radius: 5px;
+                                line-height: 32px;
+                                background-color: #2793FF;
+                                color: #fff;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .jqmanaContainer {
+                    position: relative;
+                    #jqTable_filter {
+                        position: absolute;
+                        top: -80px;
+                        right: 25px;
+                        input {
+                            width: 2.4rem;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
+                    #jqTable {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        empty-cells: show;
+                        text-align: center;
+                        font-size: 12px;
+                        thead {
+
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #7F8FA4;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                font-weight: 100;
+                                th {
+                                    font-weight: 100;
+                                    height: 40px;
+                                    box-sizing: border-box;
+                                    line-height: 40px;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        box-sizing: border-box;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #333333;
+                                letter-spacing: 0;
+                                line-height: 13px;
+                                td {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    box-sizing: border-box;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        box-sizing: border-box;
+                                    }
+                                    &>img {
+                                        margin-right: 20px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                &:hover {
+                                    background-color: #F7FAFE;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .checkBox {
+                            width: 16px;
+                            height: 16px;
+                            border: 1px solid #D7DCE4;
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            &>b {
+                                display: none;
+                                position: absolute;
+                                color: #5D6D98;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                    #jqTable_info {
+                        position: absolute;
+                        bottom: -30px;
+                        left: 0;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                    #jqTable_paginate {
+                        position: absolute;
+                        bottom: -30px;
+                        right: 0;
+                        height: 35px;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: .AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
+                }
+            }
+            /*警情处理详情*/
+            .jqdclContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .jqdcloption {
+                    height: 70px;
+                    border-bottom: 1px solid #F3F6FC;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    &>li {
+                        float: left;
+                        line-height: 70px;
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        color: #383D40;
+                        letter-spacing: 0;
+                        &:last-child {
+                            float: right;
+                            &>img {
+                                cursor: pointer;
+                                width: 20px;
+                                height: 20px;
+                                margin-left: 15px;
+                            }
+                        }
+                    }
+                }
+                .jqdclmanaContainer {
+                    padding: 20px;
+                    box-sizing: border-box;
+                    &>li {
+                        width: 100%;
+                        height: 130px;
+                        position: relative;
+                        &>span {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            height: 130px;
+                            width: 85px;
+                            box-sizing: border-box;
+                            font-family: PingFangSC-Medium;
+                            font-size: 15px;
+                            color: #383D40;
+                            letter-spacing: 0;
+                            font-weight: 700;
+                            border-right: 2px solid #FF6269;
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                right: -13px;
+                                top: 0;
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 50%;
+                                border: 2px solid #FF6269;
+                                background-color: #fff;
+                            }
+                        }
+                        &:last-child {
+                            width: 100%;
+                            height: 130px;
+                            &>span {
+                                border-right: 2px solid #03A67B;
+                                &:before {
+                                    border: 2px solid #03A67B;
+                                }
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    right: -13px;
+                                    bottom: -15px;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 50%;
+                                    border: 2px solid #03A67B;
+                                    background: #03A67B;
+                                }
+                            }
+                        }
+                        .info {
+                            margin-left: 85px;
+                            margin-right: 200px;
+                            padding: 0 20px;
+                            height: 130px;
+                            box-sizing: border-box;
+                            &>dt {
+                                font-family: PingFangSC-Regular;
+                                font-size: 15px;
+                                color: #383D40;
+                                letter-spacing: 0;
+                            }
+                            &>dd {
+                                margin-top: 10px;
+                                span {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    letter-spacing: 0;
+                                }
+                                &:last-child {
+                                    &>a {
+                                        padding: 10px;
+                                        background: #2793FF;
+                                        border-radius: 4px;
+                                        color: #fff;
+                                        font-size: 12px;
+                                        margin-left: 20px;
+                                        audio {
+                                            opacity: 0;
+                                            height: 40px;
+                                            width: 100px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .photo {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: 200px;
+                            height: 150px;
+                            &>div {
+                                width: 100%;
+                                height: 150px;
+                                text-align: center;
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 30px;
+                                    left: 5px;
+                                    width: 10px;
+                                    height: 90px;
+                                    background: rgba(0, 0, 0, .18);
+                                    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20);
+                                }
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 30px;
+                                    right: 5px;
+                                    width: 10px;
+                                    height: 90px;
+                                    background: rgba(0, 0, 0, .18);
+                                    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20);
+                                }
+                                &>img {
+                                    width: 170px;
+                                    height: 100px;
+                                    position: relative;
+                                    margin-top: 25px;
+                                    cursor: pointer;
+                                }
+                                &>p {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    letter-spacing: 0;
+                                }
+                            }
+                        }
+                    }
+                    .fxInfo {
+                        &>span {
+                            border-right: 2px solid #4495FF;
+                            &:before {
+                                border: 2px solid #4495FF;
+                            }
+                        }
+                    }
+                }
+                .detailmap {
+                    padding: 0 20px;
+                }
+            }
+            /*设置*/
+            .setContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .setoption {
+                    height: 88px;
+                    background: #4495FF;
+                    border-radius: 2px 2px 0 0;
+                    &>li {
+                        float: left;
+                        height: 88px;
+                        line-height: 88px;
+                        text-align: center;
+                        width: 140px;
+                        color: #fff;
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        letter-spacing: 0;
+                        cursor: pointer;
+                        &:first-child {
+                            margin-left: 20px;
+                        }
+                    }
+                    .now {
+                        background-color: rgba(255, 255, 255, .2);
+                    }
+                }
+                .setmanaContainer {
+                    .settabsubcontent {
+                        background-color: #fff;
+                        position: relative;
+                        /*区域列表*/
+                        .areaList {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 9998;
+                            width: 270px;
+                            background-color: #fff;
+                            box-shadow: 0 4px 8px 0 rgba(68, 149, 255, 0.12);
+                            .addList {
+                                height: 55px;
+                                width: 100%;
+                                line-height: 55px;
+                                padding: 0 20px;
+                                box-sizing: border-box;
+                                box-shadow: 0 1px 0 0 #F2F6FD;
+
+                                &>span {
+                                    float: left;
+                                }
+                                &>img {
+                                    float: right;
+                                    margin-top: 15px;
+                                    cursor: pointer;
+                                }
+                            }
+                            .areaSubListContainer {
+                                .areaSubListContent {
+                                    &>li {
+                                        height: 48px;
+                                        width: 100%;
+                                        line-height: 48px;
+                                        box-sizing: border-box;
+                                        box-shadow: 0 1px 0 0 #F2F6FD;
+                                        padding: 0 20px;
+                                        cursor: pointer;
+                                        &>span {
+                                            float: left;
+                                            &:first-child {
+                                                margin-right: 50px;
+                                            }
+                                        }
+                                        &>img {
+                                            float: right;
+                                            margin-top: 15px;
+                                            &:last-child {
+                                                margin-right: 5px;
+                                            }
+                                        }
+                                        &:hover {
+                                            cursor: pointer;
+
+                                            background: rgba(68, 149, 255, 0.20);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #areaMap {
+                            margin-left: 270px;
+                        }
+                        /*警情类型设置*/
+                        .newJqlx {
+                            height: 72px;
+                            width: 100%;
+                            line-height: 72px;
+                            padding: 0 20px;
+                            box-sizing: border-box;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #666666;
+                                letter-spacing: 0;
+                                float: left;
+                            }
+                            &>input {
+                                float: right;
+                                padding: 10px 20px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #2793FF;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                background-color: #fff;
+                                border: 1px solid #4495FF;
+                                border-radius: 4px;
+                                margin-top: 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        .jqlxSetContainer {
+                            .jqlxSetContent {
+                                &>dt {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 70px 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #7C8FA6;
+                                        letter-spacing: 0;
+                                        &:last-child {
+                                            float: right;
+                                        }
+                                    }
+                                }
+                                &>dd {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 50px 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #333333;
+                                        letter-spacing: 0;
+                                    }
+                                    &>a {
+                                        float: right;
+                                        &>img {
+                                            &:last-child {
+                                                margin-left: 20px;
+                                            }
+                                        }
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+
+                                        background: rgba(68, 149, 255, 0.20);
+                                    }
+                                }
+                            }
+                        }
+                        /*任务分配设置*/
+                        .newRwfp {
+                            height: 72px;
+                            width: 100%;
+                            line-height: 72px;
+                            padding: 0 20px;
+                            box-sizing: border-box;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #666666;
+                                letter-spacing: 0;
+                                float: left;
+                            }
+                            &>input {
+                                float: right;
+                                padding: 10px 20px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #2793FF;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                background-color: #fff;
+                                border: 1px solid #4495FF;
+                                border-radius: 4px;
+                                margin-top: 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        .rwfqSetContainer {
+                            .rwfqSetContent {
+                                &>dt {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        width: 25%;
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #7C8FA6;
+                                        letter-spacing: 0;
+                                        box-sizing: border-box;
+                                        &:last-child {
+                                            text-align: right;
+                                            padding-right: 30px;
+                                            box-sizing: border-box;
+                                        }
+                                    }
+                                }
+                                &>dd {
+                                    width: 100%;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    padding: 0 20px;
+                                    box-sizing: border-box;
+                                    border-bottom: 1px solid #F3F6FC;
+                                    &>span {
+                                        float: left;
+                                        width: 25%;
+
+                                        font-family: PingFangSC-Regular;
+                                        font-size: 12px;
+                                        color: #333333;
+                                        letter-spacing: 0;
+                                    }
+                                    &>a {
+                                        float: right;
+                                        &>img {
+                                            &:last-child {
+                                                padding-right: 35px;
+                                            }
+                                        }
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+
+                                        background: rgba(68, 149, 255, 0.20);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*单位管理*/
+            .unitContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 10px;
+                .unitoption {
+                    margin-bottom: 10px;
+                    height: 70px;
+                    &>li {
+                        float: left;
+                        margin-right: 20px;
+                        &>p {
+                            color: #383D40;
+                            font-size: 12px;
+                            line-height: 26px;
+                        }
+                        &>span {
+                            margin: 0 5px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #383D40;
+                            letter-spacing: 0;
+                            line-height: 32px;
+                        }
+                        .start,
+                        .end {
+                            position: relative;
+                            font-size: 12px;
+                            color: #383D40;
+                            &>input {
+                                width: 1.2rem;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                border-radius: 5px;
+                                padding: 5px;
+                                box-sizing: border-box;
+                                font-size: 12px;
+                                color: #383D40;
+                                cursor: pointer;
+                            }
+                            &>i {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                color: #8D96BA;
+                            }
+                        }
+
+                        .selectContainer {
+                            position: relative;
+                            float: left;
+                            .select {
+                                float: left;
+                                width: 1.2rem;
+                                height: 32px;
+                                border: 1px solid #D7DCE4;
+                                ;
+                                border-radius: 5px;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                line-height: 32px;
+                                span {
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #383D40;
+                                    ;
+                                }
+                                i {
+                                    color: #8D96BA;
+                                    ;
+                                    margin-top: 8px;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .selectOption {
+                                position: absolute;
+                                top: 40px;
+                                left: 0px;
+                                width: 1.2rem;
+                                border: 1px solid #D7DCE4;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                display: none;
+                                box-sizing: border-box;
+                                z-index: 999;
+                                &>li {
+                                    width: 100%;
+                                    cursor: pointer;
+                                    font-size: 12px;
+                                    padding: 10px 10px;
+                                    color: #5A6388;
+                                    box-sizing: border-box;
+                                }
+                            }
+                        }
+                        .cx {
+                            margin-top: 25px;
+                            margin-right: 10px;
+                            float: left;
+                            font-size: 12px;
+                            input {
+                                height: 32px;
+                                width: 60px;
+                                border-radius: 5px;
+                                line-height: 32px;
+                                background-color: #2793FF;
+                                color: #fff;
+                                cursor: pointer;
+                            }
+                        }
+                        .udel {
+                            margin-top: 25px;
+                            margin-right: 10px;
+                            float: left;
+                            height: 32px;
+                            width: 60px;
+                            border: 1px solid #4495FF;
+                            border-radius: 4px;
+                            line-height: 32px;
+                            cursor: pointer;
+                            display: none;
+                            &>img {
+                                float: left;
+                                vertical-align: middle;
+                                margin: 5px 0 0 5px;
+                            }
+
+                            &>span {
+                                float: left;
+                                color: #4495FF;
+                                font-size: 12px;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+                .unitmanaContainer {
+                    position: relative;
+                    #unitTable_filter {
+                        position: absolute;
+                        top: -80px;
+                        right: 25px;
+                        input {
+                            width: 2.4rem;
+                            height: 32px;
+                            margin-top: 25px;
+                            border-radius: 32px;
+                            background: #F1F2F4;
+                            padding: 0 10px;
+                            box-sizing: border-box;
+                        }
+                        img {
+                            position: absolute;
+                            right: 15px;
+                            top: 32px;
+                            cursor: pointer;
+                        }
+                    }
+                    #unitTable {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        empty-cells: show;
+                        text-align: center;
+                        font-size: 12px;
+                        thead {
+
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #7F8FA4;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                font-weight: 100;
+                                th {
+                                    font-weight: 100;
+                                    height: 40px;
+                                    box-sizing: border-box;
+
+                                    line-height: 40px;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                height: 40px;
+                                line-height: 40px;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #333333;
+                                letter-spacing: 0;
+                                line-height: 13px;
+                                td {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    box-sizing: border-box;
+                                    padding: 0;
+                                    position: relative;
+                                    border: 1px solid #F3F6FC;
+                                    border-left: none;
+                                    border-right: none;
+                                    &:first-child {
+                                        padding-left: 18px;
+                                        box-sizing: border-box;
+                                    }
+                                    &>img {
+                                        margin-right: 20px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                &:hover {
+                                    background-color: #F7FAFE;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .checkBox {
+                            width: 16px;
+                            height: 16px;
+                            border: 1px solid #D7DCE4;
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 10px;
+                            left: 0;
+                            &>b {
+                                display: none;
+                                position: absolute;
+                                color: #5D6D98;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                    #unitTable_info {
+                        height: 35px;
+                        line-height: 35px;
+                        position: absolute;
+                        bottom: -30px;
+                        left: 0;
+                    }
+                    #unitTable_paginate {
+                        height: 35px;
+                        position: absolute;
+                        bottom: -30px;
+                        right: 0;
+                        &>a {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #E6EAEE;
+                            display: inline-block;
+                            text-align: center;
+                            line-height: 35px;
+                            font-family: AppleSystemUIFont;
+                            font-size: 14px;
+                            color: #CED0DA;
+                            outline-style: none;
+                            outline: none;
+                            cursor: pointer;
+                            &:first-child {
+                                border-right: none;
+                            }
+                            &:last-child {
+                                border-left: none;
+                            }
+                        }
+                        &>span {
+                            &>a {
+                                display: inline-block;
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            .current {
+                                font-family: .AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #354052;
+                            }
+                        }
+                    }
+                }
+            }
+            /*单位详情*/
+            .unitDetailContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .unitDetailoption {
+                    height: 70px;
+                    border-bottom: 1px solid #F3F6FC;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    h3 {
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        color: #383D40;
+                        letter-spacing: 0;
+                        line-height: 70px;
+                    }
+                }
+                .unitDetailmanaContainer {
+                    position: relative;
+                    box-sizing: border-box;
+                    .unitDetailContent {
+                        padding: 20px;
+                        padding-top: 0;
+                        height: 150px;
+                        background-color: #3A80D9;
+                        &>li {
+                            width: 14%;
+                            float: left;
+                            margin-top: 20px;
+                            span {
+                                float: left;
+                                width: 100%;
+                                opacity: 0.8;
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: rgba(255, 255, 255, 0.8);
+                                letter-spacing: 0;
+                                line-height: 13px;
+                                &:last-child {
+                                    font-family: PingFangSC-Medium;
+                                    font-size: 13px;
+                                    color: #FFFFFF;
+                                    letter-spacing: 0;
+                                    line-height: 16px;
+                                    margin-top: 10px;
+                                }
+                            }
+                            &:last-child {
+                                width: 42%;
+                                float: left;
+                                margin-top: 20px;
+                                span {
+                                    &:last-child {
+                                        overflow: hidden;
+                                        /*内容超出后隐藏*/
+                                        text-overflow: ellipsis;
+                                        /* 超出内容显示为省略号*/
+                                        white-space: nowrap;
+                                        /*文本不进行换行*/
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &>p {
+                        font-family: PingFangSC-Regular;
+                        font-size: 12px;
+                        color: #666666;
+                        letter-spacing: 0;
+                        padding: 20px;
+                    }
+                    .unitTableContainer {
+                        padding: 0 15px;
+
+                        #unitDetailTable {
+                            width: 100%;
+                            border-collapse: collapse;
+                            border-spacing: 0;
+                            empty-cells: show;
+                            text-align: center;
+                            font-size: 12px;
+                            thead {
+
+                                tr {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #7F8FA4;
+                                    letter-spacing: 0;
+                                    line-height: 12px;
+                                    font-weight: 100;
+                                    th {
+                                        font-weight: 100;
+                                        height: 40px;
+                                        box-sizing: border-box;
+
+                                        line-height: 40px;
+                                        padding: 0;
+                                        position: relative;
+                                        border: 1px solid #F3F6FC;
+                                        border-left: none;
+                                        border-right: none;
+                                        &:first-child {
+                                            padding-left: 18px;
+                                            box-sizing: border-box;
+                                        }
+                                    }
+                                }
+                            }
+                            tbody {
+                                tr {
+                                    height: 40px;
+                                    line-height: 40px;
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 12px;
+                                    color: #333333;
+                                    letter-spacing: 0;
+                                    line-height: 13px;
+                                    td {
+                                        height: 40px;
+                                        line-height: 40px;
+                                        box-sizing: border-box;
+                                        padding: 0;
+                                        position: relative;
+                                        border: 1px solid #F3F6FC;
+                                        border-left: none;
+                                        border-right: none;
+                                        &:first-child {
+                                            padding-left: 18px;
+                                            box-sizing: border-box;
+                                        }
+                                        &>img {
+                                            margin-right: 20px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    &:hover {
+                                        background-color: #F7FAFE;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                            .checkBox {
+                                width: 16px;
+                                height: 16px;
+                                border: 1px solid #D7DCE4;
+                                border-radius: 2px;
+                                position: absolute;
+                                top: 10px;
+                                left: 0;
+                                &>b {
+                                    display: none;
+                                    position: absolute;
+                                    color: #5D6D98;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+                            }
+                        }
+                        #unitDetailTable_info {
+                            height: 35px;
+                            line-height: 35px;
+                            position: absolute;
+                            bottom: -30px;
+                            left: 20px;
+                        }
+                        #unitDetailTable_paginate {
+                            height: 35px;
+                            position: absolute;
+                            bottom: -30px;
+                            right: 20px;
+                            &>a {
+                                width: 35px;
+                                height: 35px;
+                                border: 1px solid #E6EAEE;
+                                display: inline-block;
+                                text-align: center;
+                                line-height: 35px;
+                                font-family: AppleSystemUIFont;
+                                font-size: 14px;
+                                color: #CED0DA;
+                                outline-style: none;
+                                outline: none;
+                                cursor: pointer;
+                                &:first-child {
+                                    border-right: none;
+                                }
+                                &:last-child {
+                                    border-left: none;
+                                }
+                            }
+                            &>span {
+                                &>a {
+                                    display: inline-block;
+                                    width: 35px;
+                                    height: 35px;
+                                    border: 1px solid #E6EAEE;
+                                    text-align: center;
+                                    line-height: 35px;
+                                    font-family: .AppleSystemUIFont;
+                                    font-size: 14px;
+                                    color: #CED0DA;
+                                    outline-style: none;
+                                    outline: none;
+                                    cursor: pointer;
+                                    &:first-child {
+                                        border-right: none;
+                                    }
+                                    &:last-child {
+                                        border-left: none;
+                                    }
+                                }
+                                .current {
+                                    font-family: .AppleSystemUIFont;
+                                    font-size: 14px;
+                                    color: #354052;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*个人中心*/
+            .perosonalContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .perosonaloption {
+                    height: 70px;
+                    border-bottom: 1px solid #F3F6FC;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    h3 {
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        color: #383D40;
+                        letter-spacing: 0;
+                        line-height: 70px;
+                        float: left;
+                    }
+                    img {
+                        float: right;
+                        margin-top: 25px;
+                        cursor: pointer;
+                    }
+                }
+                .perosonalmanaContainer {
+                    padding: 30px;
+                    &>ul {
+                        &>li {
+                            margin-bottom: 25px;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #383D40;
+                                letter-spacing: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            /*个人中心编辑*/
+            .perosonalEidtContainer {
+                background-color: #fff;
+                box-sizing: border-box;
+                .perosonalEidtoption {
+                    height: 70px;
+                    border-bottom: 1px solid #F3F6FC;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    h3 {
+                        font-family: PingFangSC-Medium;
+                        font-size: 15px;
+                        color: #383D40;
+                        letter-spacing: 0;
+                        line-height: 70px;
+                        float: left;
+                    }
+                    img {
+                        float: right;
+                        margin-top: 25px;
+                        cursor: pointer;
+                    }
+                }
+                .perosonalEidtmanaContainer {
+                    padding: 30px;
+                    &>ul {
+                        &>li {
+                            margin-bottom: 25px;
+                            &>span {
+
+                                font-family: PingFangSC-Regular;
+                                font-size: 12px;
+                                color: #383D40;
+                                letter-spacing: 0;
+                            }
+                            input {
+                                width: 5rem;
+                                height: 32px;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                font-size: 12px;
+                                color: #383D40;
+                                border: 1px solid #E8E8E8;
+                                border-radius: 4px;
+                            }
+                        }
+                    }
+                    .editfooter {
+                        font-size: .12rem;
+                        margin-top: .4rem;
+                        text-align: center;
+                        input {
+                            color: #fff;
+                            font-size: .12rem;
+
+                            width: .8rem;
+                            height: .32rem;
+                            line-height: .32rem;
+                            text-align: center;
+                            background-color: #2793FF;
+                            margin-right: .3rem;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*login*/
+    .loginContainer {
+        background-color: #fff;
+        position: relative;
+        .loginContent {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            text-align: center;
+            font-size: .15rem;
+            .logo {
+                font-size: .34rem;
+                position: relative;
+                margin-bottom: .5rem;
+                &>img {
+                    position: absolute;
+                    top: .1rem;
+                    left: 0;
+                    width: .6rem;
+                    height: .6rem;
+                }
+                &>h1 {
+                    line-height: .8rem;
+                    font-family: PingFangSC-Medium;
+                    font-size: .34rem;
+                    color: #3F3E3E;
+                    letter-spacing: 0;
+                    margin-left: .6rem;
+                }
+            }
+            &>span {
+                font-family: PingFangSC-Regular;
+                font-size: .15rem;
+                color: #666666;
+                letter-spacing: 0;
+                padding: 5px;
+                border-bottom: 1px solid #4495FF;
+            }
+            .zhmm {
+                padding: .4rem 0 .1rem 0;
+                &>li {
+                    width: 2.4rem;
+                    height: .45rem;
+                    margin: 0 auto;
+                    background-color: #fff;
+                    margin-bottom: 10px;
+                    position: relative;
+                    &>img {
+                        width: .2rem;
+                        height: .2rem;
+                        position: absolute;
+                        left: .1rem;
+                        top: .1rem;
+                    }
+
+                    &>input {
+                        height: .4rem;
+                        background-color: #fff;
+                        width: 2.4rem;
+                        padding-left: .35rem;
+                        box-sizing: border-box;
+                        border: 1px solid #E0E0E0;
+                    }
+                    &>button {
+                        font-family: PingFangSC-Medium;
+                        font-size: .14rem;
+                        color: #FFFFFF;
+                        letter-spacing: 0;
+                        width: 2.4rem;
+                        height: .4rem;
+                        background: #4495FF;
+                        box-shadow: 0 8px 16px 0 rgba(68, 149, 255, 0.20);
+                        cursor: pointer;
+                    }
+                }
+                .phone {
+                    &>input {
+                        height: .4rem;
+                        background-color: #fff;
+                        width: 1.5rem;
+                        float: left;
+                        padding-left: .35rem;
+                        box-sizing: border-box;
+                        border: 1px solid #E0E0E0;
+                    }
+                    .phoneVali {
+                        float: right;
+                        width: .8rem;
+                        height: .4rem;
+                        text-align: center;
+                        line-height: .4rem;
+                        background: #E0E0E0;
+                        font-family: PingFangSC-Regular;
+                        font-size: .12rem;
+                        color: #FFFFFF;
+                        letter-spacing: 0;
+                        cursor: pointer;
+                    }
+                }
+                .kjdl {
+                    margin-top: .4rem;
+                    .word {
+                        font-family: PingFangSC-Regular;
+                        font-size: .12rem;
+                        color: #7D8694;
+                        letter-spacing: 0;
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: .1rem;
+                            left: 0;
+                            height: 1px;
+                            width: 2.4rem;
+                            background-color: #e0e0e0;
+                        }
+                        &>span {
+                            position: absolute;
+                            top: -3px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            padding: 0.05rem 0.1rem;
+                            background-color: #fff;
+                        }
+                    }
+                    .pic {
+                        padding-top: .4rem;
+                        img {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .wxewm {
+                display: none;
+                padding: .4rem 0 .1rem 0;
+                .erwm {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    background-color: green;
+                    margin: 0 auto .1rem;
+                }
+                &>p {
+                    font-family: PingFangSC-Medium;
+                    font-size: .13rem;
+                    color: #333333;
+                    line-height: .24rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/*删除*/
+
+.deleteContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+    display: none;
+    .deleteContent {
+        width: 5.4rem;
+        height: 3.32rem;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .deletemain {
+            font-size: .15rem;
+            text-align: center;
+            padding-top: .4rem;
+            color: #383D40;
+            &>img {
+                width: .8rem;
+                height: .8rem;
+                margin-bottom: 15px;
+            }
+        }
+        .deltefooter {
+            font-size: .12rem;
+            margin-top: .4rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+                &:last-child {
+                    background-color: #F86E6E;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/*编辑*/
+
+.editContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    .editContent {
+        width: 5.4rem; // height: 7.56rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .editmain {
+            padding: 20px;
+            font-size: .12rem;
+
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .editfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*新建单位*/
+
+.newunitContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    .newunitContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .newunitmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .newunitfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*hover效果*/
+
+#tooltip {
+    padding: 7px 15px;
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    z-index: 9999;
+    font-size: 12px;
+    text-align: center;
+    display: none;
+}
+
+
+
+
+
+
+/*分配任务*/
+
+.taskFpContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1999;
+    display: none;
+    .taskContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .taskmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                .selectContainer {
+                    position: relative;
+                    margin-top: 10px;
+                    .select {
+                        width: 100%;
+                        height: 32px;
+                        border: 1px solid #D7DCE4;
+                        ;
+                        border-radius: 5px;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        line-height: 32px;
+                        span {
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #383D40;
+                            ;
+                        }
+                        i {
+                            color: #8D96BA;
+                            ;
+                            margin-top: 8px;
+                            box-sizing: border-box;
+                        }
+                    }
+                    .selectOption {
+                        position: absolute;
+                        top: 40px;
+                        left: 0px;
+                        width: 100%;
+                        border: 1px solid #D7DCE4;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        display: none;
+                        box-sizing: border-box;
+                        z-index: 999;
+                        &>li {
+                            width: 100%;
+                            cursor: pointer;
+                            font-size: 12px;
+                            padding: 10px 10px;
+                            color: #5A6388;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+            }
+        }
+        .taskfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*结束任务*/
+
+.taskEndContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1999;
+    font-size: .12rem;
+    display: none;
+    .taskEndContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .taskEndmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                    &:last-child {
+                        float: right;
+                    }
+                }
+                &>textarea {
+                    width: 100%;
+                    height: 1rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    resize: none;
+                    margin: 10px 0;
+                    outline: none;
+                    outline-style: none;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    font-family: PingFangSC-Regular;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: #383D40;
+                }
+            }
+        }
+        .taskEndfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*新建分区*/
+
+.newFQContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+    display: none;
+    .newFQContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .newFQmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .newFQfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*新建类型*/
+
+.newLxContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+    display: none;
+    .newLxContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .newLxmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .newLxfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/*编辑类型*/
+
+.EditLxContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+    display: none;
+    .EditLxContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .EditLxmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .EditLxfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/*任务分配设置*/
+
+.settaskFpContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+    display: none;
+    .settaskFpContent {
+        width: 5.4rem;
+        background-color: #fff;
+        padding-bottom: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .title {
+            height: .7rem;
+            position: relative;
+            font-size: 15px;
+            padding: 0 .2rem;
+            border-bottom: 1px solid #E7E9EC;
+            span {
+                color: #383D40;
+                line-height: .7rem;
+            }
+            &>img {
+                position: absolute;
+                right: .2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: .15rem;
+                height: .15rem;
+                cursor: pointer;
+            }
+        }
+        .settaskFpmain {
+            padding: 20px;
+            font-size: .12rem;
+            box-sizing: border-box;
+            &>li {
+                margin-bottom: 15px;
+                &>span {
+                    font-family: PingFangSC-Regular;
+                    font-size: .12rem;
+                    color: #383D40;
+                    letter-spacing: 0;
+                    display: block;
+                }
+                &>input {
+                    height: .32rem;
+                    line-height: .32rem;
+                    border: 1px solid #E8E8E8;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+                .selectContainer {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+
+                    .select {
+                        float: left;
+                        width: 100%;
+                        height: 32px;
+                        border: 1px solid #D7DCE4;
+                        ;
+                        border-radius: 5px;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        line-height: 32px;
+                        span {
+                            font-family: PingFangSC-Regular;
+                            font-size: 13px;
+                            color: #8D96BA;
+                            ;
+                        }
+                        i {
+                            color: #8D96BA;
+                            ;
+                            margin-top: 8px;
+                            box-sizing: border-box;
+                        }
+                    }
+                    .selectOption {
+                        position: absolute;
+                        top: 40px;
+                        left: 0px;
+                        width: 100%;
+                        border: 1px solid #D7DCE4;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        display: none;
+                        box-sizing: border-box;
+                        z-index: 999;
+                        &>li {
+                            width: 100%;
+                            cursor: pointer;
+                            font-size: 12px;
+                            padding: 10px 10px;
+                            color: #5A6388;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+            }
+        }
+        .settaskFpfooter {
+            font-size: .12rem;
+            margin-top: .15rem;
+            text-align: center;
+            input {
+                color: #fff;
+                font-size: .12rem;
+
+                width: .8rem;
+                height: .32rem;
+                line-height: .32rem;
+                text-align: center;
+                background-color: #2793FF;
+                margin-right: .3rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/* 绘制地图*/
+
+.drawpart {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 2px;
+    width: 140px;
+    z-index: 9998;
+    padding: 10px;
+    &>i {
+        position: absolute;
+        left: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(0, 0, 0, 0.95);
+    }
+    &>p {
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #F8E71C;
+        &:last-child {
+
+            color: #949494;
+            margin-top: .1rem;
+        }
+    }
+}
+
+.drawInfo {
+    position: absolute;
+    top: 400px;
+    left: 500px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 2px;
+    width: 140px;
+    z-index: 9998;
+    padding: 10px;
+    &>i {
+        position: absolute;
+        left: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(0, 0, 0, 0.95);
+    }
+    &>input {
+        width: 60px;
+        height: 24px;
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #FFFFFF;
+        line-height: 12px;
+        background: #FE6036;
+        cursor: pointer;
+        &:last-child {
+            background: #4495FF;
+            margin-left: 10px;
+        }
+    }
+}
+
+.pqAlert {
+    position: absolute;
+    top: 300px;
+    left: 800px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(68, 149, 255, 0.12);
+    border-radius: 4px;
+    width: 3.4rem;
+    padding: .2rem;
+    z-index: 9998;
+    box-sizing: border-box;
+    &>img {
+        position: absolute;
+        right: .2rem;
+        top: .2rem;
+        cursor: pointer;
+    }
+    &>dl {
+        &>dt {
+            margin-bottom: 15px;
+            font-family: PingFangSC-Regular;
+            font-size: 15px;
+            color: #383D40;
+            letter-spacing: 0;
+        }
+        &>dd {
+            margin-bottom: 15px;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #383D40;
+            letter-spacing: 0;
+            &:last-child {
+                margin: 0;
+            }
+            p {
+                margin-top:10px;
+            }
+        }
+    }
+}

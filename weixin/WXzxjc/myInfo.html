@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <div class="zs_layout ">
+        <!-- 遮罩层 -->
+        <div class="masker"></div>
+      
+        <div class="myInfoContainer">
+        <i></i>
+           <div class="avator">
+               <img src="./img/Group 4@3x.png" alt="">
+               <p>王帅</p>
+           </div>
+           <ul class="myInfocont">
+               <li class="clearfix grxxck">
+                   <img src="img/ico-me@3x.png" alt="" >
+                   <span>个人信息</span>
+               </li>
+               <li class="clearfix erweimfx">
+                   <img src="img/ico-QR@3x.png" alt="" >
+                   <span>绑定新设备</span>
+               </li>
+              
+           </ul>
+        </div>
+         
+    </div>
+    <script src="lib/jquery.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    $(".grxxck").on("click",function () {
+      window.location.href = 'personInfo.html'
+    })
+     $(".erweimfx").on("click",function () {
+      window.location.href = 'erweima.html'
+    })
+     $(".companyList").on("click",function () {
+      window.location.href = 'companyList.html'
+    })
+    </script>
+</body>
+
+</html>

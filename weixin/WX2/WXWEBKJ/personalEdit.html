@@ -1,0 +1,57 @@
+<!-- content -->
+<div class="crumbNav">
+    <a href="javascript:;" class="personalInfo" page="personalInfo">个人资料 </a>》
+    <a href="javascript:;">编辑</a>
+</div>
+<div class="perosonalEidtContainer">
+    <div class="perosonalEidtoption ">
+        <h3>基本信息</h3>
+    </div>
+    <div class="perosonalEidtmanaContainer">
+        <ul>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名:</span>
+                <input type="text" value="宋晓军">
+            </li>
+            <li>
+                <span>单位名称:</span>
+                <span>宿州市水务局</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职务:</span>
+                <input type="text" value="局长">
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色:</span>
+                <span>管理员</span>
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;手机号:</span>
+                <input type="text" value="15801542599">
+            </li>
+            <li>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱:</span>
+                <input type="text" value="songxiaojun@163.com">
+            </li>
+        </ul>
+        <div class="editfooter">
+            <input type="button" value="保存" class="sureEdit">
+            <input type="button" value="取消" class="cancleEdit">
+        </div>
+    </div>
+</div>
+<script>
+$(function() {
+    height()
+    $(".personalInfo").on("click", function() {
+        $.ajax({
+            type: 'get',
+            url: './personalInfo.html',
+            success: function(data) {
+                $(".mainContainer .content").empty().html(data)
+
+            }
+        })
+    })
+})
+</script>
