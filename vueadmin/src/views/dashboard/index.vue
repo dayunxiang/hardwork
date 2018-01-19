@@ -98,18 +98,27 @@
               <li>
                 <span>液位计：AO689967</span>
               </li>
-              <li class="clearfix">
+              <li class="clearfix" @click="isshowMap = !isshowMap">
                 <img src="../../assets/ico-gz-a.png" height="24" width="24" alt="">
                 <span>北京海淀区安河桥北</span>
               </li>
             </ul>
             <div class="describTable">
+            <div id="devicemap" class="devicemap" v-if='isshowMap'>
+
+            </div>
              <table>
                <tr>
                  <th>最新数据时间</th>
                  <th>液位（m）</th>
                  <th>电量</th>
                  <th>通讯状态</th>
+               </tr>
+               <tr v-for="item in tableData">
+                 <td>{{item.date}}</td>
+                 <td>{{item.name}}</td>
+                 <td>{{item.address}}</td>
+                 <td>{{item.link}}</td>
                </tr>
              </table>
             </div>
@@ -158,7 +167,8 @@ export default {
       devicestyle: '',
       warningstyle: '',
       isShow: false,
-      screenHeight: document.documentElement.clientHeight - 50
+      screenHeight: document.documentElement.clientHeight - 50,
+      isshowMap: false
     }
   },
   mounted() {
@@ -166,7 +176,6 @@ export default {
     document.getElementById('jcDeviceContent').style.height = this.screenHeight - 70 + 'px'
     document.getElementById('jcDeviceContentLeft').style.height = this.screenHeight - 70 + 'px'
     document.getElementById('jcDeviceContentRight').style.height = this.screenHeight - 70 + 'px'
-
     window.onresize = () => {
       return (() => {
         this.screenHeight = document.documentElement.clientHeight
@@ -182,7 +191,16 @@ export default {
       document.getElementById('jcDeviceContentLeft').style.height = this.screenHeight - 70 + 'px'
       document.getElementById('jcDeviceContentRight').style.height = this.screenHeight - 70 + 'px'
     }
+  },
+  methods: {
+    // initDeviceMap: function () {
+    //   //初始化地图，默认地图为在线高德地图
+    //   var rmap = new RMap.Map('devicemap');
+    //   //以116.390985, 39.906358（天安门广场）为中心点坐标，地图缩放到12级
+    //   rmap.centerZoom(116.390985, 39.906358, 12);
+    // }
   }
+
 }
 </script>
 
