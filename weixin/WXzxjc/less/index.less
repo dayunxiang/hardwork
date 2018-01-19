@@ -40,6 +40,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 /*样式处理*/
 
 body {
@@ -75,6 +85,16 @@ img {
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -388,6 +408,15 @@ body::-webkit-scrollbar {
                                     height: .48rem;
                                 }
                             }
+                            .normal {
+                                background-color: rgba(51, 204, 90, 1);
+                            }
+                            .yj {
+                                background-color: rgba(254, 155, 54, 1);
+                            }
+                            .bj {
+                                background-color: rgba(254, 96, 54, 1);
+                            }
                         }
                         &:nth-child(2) {
                             &>span {
@@ -405,13 +434,14 @@ body::-webkit-scrollbar {
                             }
                         }
                         &:last-child {
-                            margin-top: .1rem;
+                            margin-top: .15rem;
                             &>img {
                                 float: left;
                                 width: .48rem;
                                 height: .48rem;
                                 &:first-child {
-                                    margin-top: .15rem;
+                                    margin-top: .1rem;
+                                    margin-right: .1rem;
                                 }
                                 &:last-child {
                                     float: right;
@@ -429,6 +459,15 @@ body::-webkit-scrollbar {
                         }
                     }
                 }
+            }
+            .normal {
+                background-color: rgba(51, 204, 90, .12);
+            }
+            .yj {
+                background-color: rgba(254, 155, 54, .12);
+            }
+            .bj {
+                background-color: rgba(254, 96, 54, .12);
             }
         }
         .deviceMapContent {
@@ -503,8 +542,9 @@ body::-webkit-scrollbar {
                 margin: 0;
                 &>img {
                     float: right;
-                    width: .64rem;
-                    height: .64rem;
+                    width: .58rem;
+                    height: .36rem;
+                    margin-top: .15rem;
                 }
                 &>span {
                     float: left;
@@ -577,58 +617,83 @@ body::-webkit-scrollbar {
             }
             .content {
                 padding: .3rem;
-                height: 3.72rem;
+                padding-bottom: 0.1rem;
                 width: 100%;
                 box-sizing: border-box;
-                &>li {
-                    position: relative;
-                    margin-bottom: .4rem;
-                    &:first-child {
-                        &>span {
-                            float: left;
-                            font-family: PingFangSC-Regular;
-                            font-size: .36rem;
-                            color: #FFFFFF;
-                            line-height: .42rem;
+                .top {
+                    margin-bottom: .3rem;
+                    &>span {
+                        float: left;
+                        font-family: PingFangSC-Regular;
+                        font-size: .36rem;
+                        color: #FFFFFF;
+                        &:last-child {
+                            float: right;
+                            font-family: PingFangSC-Light;
+                            font-size: .26rem;
+                            color: rgba(255, 255, 255, .9);
                         }
                     }
-                    &:nth-child(2) {
-                        text-align: center;
-                        &>span {
-                            float: left;
-                            width: 100%;
-                            font-family: PingFangSC-Thin;
-                            font-size: .8rem;
-                            color: #FFFFFF;
-                            line-height: .8rem;
-                            &:last-child {
-                                font-size: .26rem;
-                                color: rgba(255, 255, 255, .35);
-                                line-height: .6rem;
+                }
+                .middlemain {
+                    height: 2.56rem;
+                    width: 100%;
+                    background-color: #fff;
+                    border-radius: 6px;
+                    &>li {
+                        width: 100%;
+                        border-bottom: 1px solid #DEE3E8;
+                        &>ul {
+                            &>li {
+                                float: left;
+                                width: 33.33%;
+                                text-align: center;
+                                padding: .3rem 0;
+                                &>span {
+                                    float: left;
+                                    width: 100%;
+                                    font-family: PingFangSC-Regular;
+                                    font-size: .48rem;
+                                    color: #334B68;
+                                    line-height: .8rem;
+                                    &:last-child {
+                                        font-family: PingFangSC-Regular;
+                                        font-size: .26rem;
+                                        color: rgba(116, 132, 150, .9);
+                                        line-height: .24rem;
+                                    }
+                                }
+                                .red {
+                                    color: red;
+                                }
                             }
                         }
                     }
-                    &:last-child {
+                    .position {
+                        border-bottom: none;
                         margin: 0;
+                        padding: .3rem .2rem;
                         &>img {
                             float: left;
-                            width: .48rem;
-                            height: .48rem;
+                            width: .4rem;
+                            height: .4rem;
                             &:first-child {
-                                // margin-top: .15rem;
+                                margin-right: .15rem;
                             }
                             &:last-child {
                                 float: right;
-                                width: .64rem;
-                                height: .64rem;
+                                width: .4rem;
+                                height: .4rem;
                             }
                         }
                         &>span {
                             float: left;
                             opacity: 0.85;
                             font-family: PingFangSC-Regular;
-                            font-size: .3rem;
-                            color: #FFFFFF;
+                            font-size: .24rem;
+                            color: #748496;
+                            line-height: .3rem;
+                            margin-top: .05rem;
                         }
                     }
                 }
@@ -738,6 +803,19 @@ body::-webkit-scrollbar {
                             &:before {
                                 border: 2px solid rgba(51, 204, 90, 1);
                                 box-shadow: 0 2px 4px 0 rgba(51, 204, 90, .5);
+                            }
+                        }
+                    }
+                }
+
+                /*报警*/
+                .bjInfo {
+                    &>li {
+                        &:last-child {
+                            border-left: 2px solid transparent;
+                            &:before {
+                                border: 2px solid #FE6036;
+                                box-shadow: 0 2px 4px 0 rgba(254, 96, 54, 0.50);
                             }
                         }
                     }
@@ -899,5 +977,77 @@ body::-webkit-scrollbar {
                 box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
             }
         }
+    }
+
+    /*添加设备*/
+    .addDeviceContainer {
+        .logo {
+            width: 100%;
+            height: 5.06rem;
+            background-color: #fff;
+            position: relative;
+            &>img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1.2rem;
+                height: 1.06rem;
+            }
+        }
+        .addDeviceContent {
+            padding: .4rem;
+            &>li {
+                width: 100%;
+                margin-bottom: .6rem;
+                &>input {
+                    width: 100%;
+                    height: 1rem;
+                    border: 1px solid #4A90E2;
+                    border-radius: 1rem;
+                    padding: 0 .2rem;
+                    font-family: PingFangSC-Regular;
+                    font-size: .3rem;
+                    color: #787878;
+                }
+                &:last-child {
+                    input {
+                        width: 100%;
+                        height: 1rem;
+                        border: 1px solid #4A90E2;
+                        border-radius: 1rem;
+                        padding: 0 .2rem;
+                        background: #4A90E2;
+                        font-family: PingFangSC-Medium;
+                        font-size: .3rem;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+
+    .hrefPerson {
+        position: fixed;
+        bottom: .4rem;
+        right: .4rem;
+        &>img {
+            width: 1.08rem;
+            height: 1.08rem;
+        }
+    }
+    /*提示*/
+    .warningContainer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: .4rem .3rem;
+        background: rgba(37, 37, 37, 0.90);
+        border-radius: 10px;
+        font-family: PingFangSC-Medium;
+        font-size: .30rem;
+        color: #FFFFFF;
+        display: none;
     }
 }

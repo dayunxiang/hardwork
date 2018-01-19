@@ -15,20 +15,31 @@
         <!-- 添加设备  -->
         <div class="addDeviceContainer">
             <div class="logo">
-                <img src="img/ico-crure-o.png" alt="">
+                <img src="img/ico-logo@3x.png" alt="">
             </div>
             <ul class="addDeviceContent">
                 <li>
                     <input type="text" placeholder="输入验证码">
                 </li>
-                  <li>
+                <li class="qq">
                     <input type="button" value="提交">
                 </li>
             </ul>
         </div>
+        <!-- 提示 -->
+        <!--  <div class="warningContainer">
+            错误
+        </div> -->
     </div>
     <script src="lib/jquery.js"></script>
     <script src="js/common.js"></script>
+    <script>
+    $(function() {
+        $(".qq").on("click", function() {
+            warningConten("请的设备号")
+        })
+    })
+    </script>
 </body>
 
 </html>

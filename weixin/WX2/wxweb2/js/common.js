@@ -374,7 +374,4 @@ function showPerson() {
 }
 
 
-//生成侧边栏
-function nav() {
 
-}

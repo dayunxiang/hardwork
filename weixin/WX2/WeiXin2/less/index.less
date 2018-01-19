@@ -119,6 +119,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*样式处理*/
 
 body {
@@ -134,6 +147,7 @@ input[type="search"] {
     -webkit-box-sizing: border-box;
     margin: 0;
     padding: 0;
+    outline-style: none;
 }
 
 ul {
@@ -143,6 +157,7 @@ ul {
 input {
     border: none;
     outline: none;
+    outline-style: none;
 }
 
 a,
@@ -154,6 +169,19 @@ img {
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -376,6 +404,14 @@ body::-webkit-scrollbar {
                     color: #1082FF;
                     line-height: .28rem;
                 }
+                .error {
+                    background: #FFFFFF;
+                    border: 1px solid red !important;
+                    box-shadow: 0 5px 10px 0 rgba(255, 0, 0, 0.30);
+                    font-size: .3rem;
+                    color: red;
+                    line-height: .28rem;
+                }
             }
         }
         .toumeth {
@@ -486,11 +522,10 @@ body::-webkit-scrollbar {
             background-color: #fff;
             width: 100%;
             position: fixed;
-            top: .98rem;
+            top: .96rem;
             left: 0;
             z-index: 9;
-
-            box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12);
             &>li {
                 float: left;
                 padding: .08rem 0;
@@ -532,7 +567,7 @@ body::-webkit-scrollbar {
                                 background-color: #fff;
                                 height: 1.8rem;
                                 box-sizing: border-box;
-                                box-shadow: 0 6px 12px 0 rgba(74, 144, 226, 0.20);
+                                box-shadow: 0 4px 8px 0 rgba(74, 144, 226, 0.12);
                                 border-radius: 3px;
                                 margin-bottom: .3rem;
                                 img {
@@ -574,7 +609,8 @@ body::-webkit-scrollbar {
     }
 
     /*选项*/
-    .optionSearch {
+    .optionSearch,
+    .zfContainer {
         position: fixed;
         top: .1rem;
         left: .1rem;
@@ -600,18 +636,55 @@ body::-webkit-scrollbar {
             width: 100%;
             li {
                 height: 1.2rem;
-                line-height: 1.2rem;
-                border-bottom: 1px solid #A5A5A5;
+                line-height: 1.2rem; // border-bottom: 1px solid #A5A5A5;
                 font-family: PingFangSC-Regular;
                 font-size: .34rem;
                 color: #333333;
                 text-align: center;
             }
         }
+        .button {
+            position: fixed;
+            bottom: .5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            input {
+                background: #1082FF;
+                box-shadow: 0 7px 14px 0 rgba(0, 127, 255, 0.50);
+                border-radius: .9rem;
+                width: 4rem;
+                height: .9rem;
+                font-family: PingFangSC-Regular;
+                font-size: .3rem;
+                color: #FFFFFF;
+                letter-spacing: 0;
+            }
+        }
+    }
+    .zfContainer {
+        .optioncont {
+            li {
+                position: relative;
+                img {
+                    position: absolute;
+                    right:.25rem;
+                    top:.35rem;
+                    width: .4rem;
+                    height: .4rem;
+                }
+                &:last-child {
+                    margin-bottom: 3rem !important;
+                }
+            }
+        }
     }
 
     /*处理详情*/
     .dclContainer {
+        #localMap {
+            width: 100%;
+            height: 5rem;
+        }
         .title {
             padding: .3rem .3rem 0 .3rem;
 
@@ -642,8 +715,8 @@ body::-webkit-scrollbar {
             border-bottom: 1px solid #E9E9E9;
             &>li {
                 margin: 0 .3rem;
-                height: .88rem;
-                line-height: .88rem;
+                height: 1rem;
+                line-height: 1rem;
                 border-bottom: 1px solid #E9E9E9;
                 img {
                     float: left;
@@ -678,17 +751,59 @@ body::-webkit-scrollbar {
                 letter-spacing: 0;
                 font-weight: 600;
             }
-            .audio {
-                margin-top: .24rem;
-                width: 5.06rem;
-                height: .8rem; // background-image: linear-gradient(-180deg, rgba(255,255,255,0.01) 0%, rgba(0,0,0,0.01) 100%);
-                border: 1px solid #BFDEFF;
-                box-shadow: 0 5px 10px 0 rgba(74, 144, 226, 0.20);
-                border-radius: 2px;
-                img {
-                    width: .4rem;
-                    height: .4rem;
-                    margin: .2rem 0 .2rem .3rem;
+            .isbx {
+                .audio {
+                    margin-top: .24rem;
+                    width: 5.06rem;
+                    height: .8rem; // background-image: linear-gradient(-180deg, rgba(255,255,255,0.01) 0%, rgba(0,0,0,0.01) 100%);
+                    background: #4A90E2;
+                    background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.01) 0%, rgba(0, 0, 0, 0.01) 100%);
+                    border: 0 solid #BFDEFF;
+                    box-shadow: 0 5px 10px 0 rgba(74, 144, 226, 0.20);
+                    border-radius: 100px;
+                    position: relative;
+                    svg {
+                        width: .4rem;
+                        height: .4rem;
+                        margin: .2rem 0 .2rem .3rem;
+                        .audio-p1 {
+                            animation: opc1 1s infinite;
+                        }
+                        .audio-p2 {
+                            animation: opc2 1s infinite;
+                            animation-delay: 1s;
+                        }
+                        @keyframes opc1 {
+                            0% {
+                                opacity: 0;
+                            }
+                            50% {
+                                opacity: 0.5;
+                            }
+                            100% {
+                                opacity: 1;
+                            }
+                        }
+                        @keyframes opc2 {
+                            0% {
+                                opacity: 1;
+                            }
+                            50% {
+                                opacity: 0.5;
+                            }
+                            100% {
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    &>span {
+                        font-family: PingFangSC-Regular;
+                        font-size: .26rem;
+                        color: #4A90E2;
+                        position: absolute;
+                        right: -.7rem;
+                        top: .5rem;
+                    }
                 }
             }
             .word {
@@ -860,68 +975,17 @@ body::-webkit-scrollbar {
         }
     }
 
-    /*topBar*/
-    .topbar {
-        width: 100%;
-        height: .9rem;
+    /*转发*/
+    .zfIco {
         position: fixed;
+        width: 1.44rem;
+        height: 1.44rem;
+        bottom: .4rem;
+        right: .4rem;
         z-index: 999;
-        left: 0;
-        top: 0;
-        line-height: .9rem;
-        background-color: #2D2B31;
-        color: #fff;
-        padding: 0 .22rem;
-        .return {
-            position: absolute;
-            top: 0;
-            left: .22rem;
-            height: .9rem;
-            line-height: .9rem;
-            color: #fff;
-            i {
-                font-size: .6rem;
-                line-height: .9rem;
-            }
-            span {
-                display: inline-block;
-                font-size: .34rem;
-                color: #FFFFFF;
-                line-height: .9rem;
-                height: .9rem;
-                margin-left: .1rem;
-            }
-        }
-        ul {
+        &>img {
             width: 100%;
             height: 100%;
-            text-align: center;
-            li {
-                // float: left;
-                text-align: center;
-
-                a {
-                    display: block;
-                    color: #fff;
-                    span {
-                        margin-right: 0.1rem;
-                        margin-top: 0.2rem;
-                    }
-                    i {
-                        font-style: normal;
-                        font-size: 0.28rem;
-                        margin-top: 0.2rem;
-                    }
-                }
-                .Submit {
-                    text-align: right;
-                }
-                .return {}
-            }
-            .title {
-                text-align: center;
-                font-size: 0.36rem;
-            }
         }
     }
 
@@ -994,6 +1058,7 @@ body::-webkit-scrollbar {
                 }
                 .audioDes {
                     line-height: initial;
+                    position: relative;
                     &>span {
                         font-size: .28rem;
                         color: #666666;
@@ -1038,15 +1103,178 @@ body::-webkit-scrollbar {
                             width: 100%;
                             height: 100%;
                             z-index: -9;
-
                             svg {
+                                width: 100%;
+                                height: 100%;
                                 .water1 {
                                     animation: water1 160s infinite;
                                     transform-origin: 0% 100%;
                                 }
                                 .water2 {
                                     animation: water2 200s infinite;
-                                     transform-origin: 0% 100%;
+                                    transform-origin: 0% 100%;
+                                }
+                                @keyframes water1 {
+                                    0% {
+                                        transform: translateX(0%);
+                                    }
+                                    100% {
+                                        transform: translateX(-100%);
+                                    }
+                                }
+                                @keyframes water2 {
+                                    0% {
+                                        transform: translateX(0%);
+                                    }
+                                    100% {
+                                        transform: translateX(100%);
+                                    }
+                                }
+                                .bg-shadow {
+                                    box-shadow: 0 .5rem 1rem 0 rgba(74, 144, 226, 0.50);
+                                }
+                            }
+                        }
+
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            svg {
+                                width: 1.4rem;
+                                height: 1.4rem;
+                                .st0 {
+                                    fill: #ccc;
+                                    enable-background: new;
+                                    animation: myscale 2s infinite;
+                                    transform-origin: 50% 50%;
+                                }
+
+                                .st1 {
+                                    fill: #ccc;
+                                    enable-background: new;
+                                    animation: myscale 2s infinite;
+                                    transform-origin: 50% 50%;
+                                    animation-delay: 1s;
+                                }
+
+                                @keyframes myscale {
+                                    0% {
+                                        transform: scale(0.7);
+                                        opacity: 1;
+                                    }
+                                    100% {
+                                        transform: scale(1);
+                                        opacity: 0;
+                                    }
+                                }
+
+                                .st2 {
+                                    fill: #FFFFFF;
+                                }
+
+                                .st3,
+                                .st4,
+                                .st5 {
+                                    fill: #4A90E2;
+                                    stroke: #4A90E2;
+                                    stroke-width: 3;
+                                    transform-origin: 50% 50%;
+                                    animation: myheight 1s infinite;
+                                }
+
+                                .st4 {
+                                    animation-delay: .4s;
+                                }
+
+                                .st5 {
+                                    animation-delay: .8s;
+                                }
+
+                                @keyframes myheight {
+                                    0% {
+                                        transform: scale(1, .2);
+                                    }
+                                    25% {
+                                        transform: scale(1, .50);
+                                    }
+                                    50% {
+                                        transform: scale(1, .75);
+                                    }
+                                    25% {
+                                        transform: scale(1, 1);
+                                    }
+                                    100% {
+                                        transform: scale(1, .2);
+                                    }
+                                }
+                            }
+
+                            p {
+                                font-family: PingFangSC-Regular;
+                                font-size: .3rem;
+                                color: #FFFFFF;
+                            }
+                        }
+                    }
+                    /*录制结束*/
+                    .audiobOXend {
+                        margin-top: .2rem;
+                        border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        background: url('../img/water-bg@3x.png') no-repeat top center;
+                        background-size: 100% 100%;
+                        position: relative;
+                        .audioCont {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            text-align: center;
+                            img {
+                                width: 1.2rem;
+                                height: 1.2rem; // margin-bottom: .2rem;
+                            }
+                            div {
+                                width: 2rem;
+                                height: .64rem;
+                                line-height: .64rem;
+                                background: #83BEF3;
+                                box-shadow: 0 4px 8px 0 rgba(84, 184, 245, 0.51);
+                                border-radius: .64rem;
+                                font-family: PingFangSC-Regular;
+                                font-size: .28rem;
+                                color: #FFFFFF;
+                                letter-spacing: 0;
+                            }
+                        }
+                    }
+                    /*播放录制*/
+                    .audiobOXbf {
+                        margin-top: .2rem; // border: 1px solid rgba(16, 130, 255, 0.15);
+                        width: 100%;
+                        height: 3.2rem;
+                        position: relative;
+                        box-shadow: 0 6px 12px 0 rgba(74, 144, 226, 0.50);
+                        .bg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: -9;
+
+                            svg {
+                                .water1 {
+                                    animation: water1 90s infinite;
+                                    transform-origin: 0% 100%;
+                                }
+                                .water2 {
+                                    animation: water2 120s infinite;
+                                    transform-origin: 0% 100%;
                                 }
                                 @keyframes water1 {
                                     0% {
@@ -1075,126 +1303,52 @@ body::-webkit-scrollbar {
                             left: 50%;
                             transform: translate(-50%, -50%);
                             text-align: center;
-
-                            svg {
-                                width: 1.4rem;
-                                height: 1.4rem;
+                            img {
+                                width: 1.2rem;
+                                height: 1.2rem;
                                 margin-bottom: .2rem;
-
-                                .st0 {
-                                    fill: #ccc;
-                                    enable-background: new;
-                                    animation: myscale 2s infinite;
-                                    transform-origin: 50% 50%;
-                                }
-                                .st1 {
-                                    fill: #ccc;
-                                    enable-background: new;
-                                    animation: myscale 2s infinite;
-                                    transform-origin: 50% 50%;
-                                    animation-delay: 1s;
-                                }
-                                @keyframes myscale {
-                                    0% {
-                                        transform: scale(0.7);
-                                        opacity: 1;
-                                    }
-                                    100% {
-                                        transform: scale(1);
-                                        opacity: 0;
-                                    }
-                                }
-
-                                .st2 {
-                                    fill: #FFFFFF;
-                                }
-                                .st3,
-                                .st4,
-                                .st5 {
-                                    fill: #4A90E2;
-                                    stroke: #4A90E2;
-                                    stroke-width: 3;
-                                    transform-origin: 50% 100%;
-                                    animation: myheight 1s infinite;
-                                }
-                                .st4 {
-                                    animation-delay: .4s;
-                                }
-                                .st5 {
-                                    animation-delay: .8s;
-                                }
-                                @keyframes myheight {
-                                    0% {
-                                        transform: scale(1, .2);
-                                    }
-                                    25% {
-                                        transform: scale(1, .50);
-                                    }
-                                    50% {
-                                        transform: scale(1, .75);
-                                    }
-                                    25% {
-                                        transform: scale(1, 1);
-                                    }
-                                    100% {
-                                        transform: scale(1, .2);
-                                    }
-                                }
                             }
                             p {
                                 font-family: PingFangSC-Regular;
                                 font-size: .3rem;
+                                color: #fff;
+                            }
+                        }
+                        /*进度条*/
+                        .timeLine {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            &>span {
+                                font-family: PingFangSC-Regular;
+                                font-size: .26rem;
                                 color: #FFFFFF;
+                                float: left;
+                                margin-bottom: .1rem;
+                                margin-left: .1rem;
+                                &:last-child {
+                                    float: right;
+                                    margin-right: .1rem;
+                                }
                             }
-                        }
-                    }
-                    /*录制结束*/
-                    .audiobOXend {
-                        margin-top: .2rem;
-                        border: 1px solid rgba(16, 130, 255, 0.15);
-                        width: 100%;
-                        height: 3.2rem;
-                        position: relative;
-                        .audioCont {
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            text-align: center;
-                            img {
-                                width: 1rem;
-                                height: 1rem;
-                                margin-bottom: .2rem;
-                            }
-                            p {
-                                font-family: PingFangSC-Regular;
-                                font-size: .3rem;
-                                color: #1082FF;
-                            }
-                        }
-                    }
-                    /*播放录制*/
-                    .audiobOXbf {
-                        margin-top: .2rem;
-                        border: 1px solid rgba(16, 130, 255, 0.15);
-                        width: 100%;
-                        height: 3.2rem;
-                        position: relative;
-                        .audioCont {
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            text-align: center;
-                            img {
-                                width: 1rem;
-                                height: 1rem;
-                                margin-bottom: .2rem;
-                            }
-                            p {
-                                font-family: PingFangSC-Regular;
-                                font-size: .3rem;
-                                color: #1082FF;
+                            .line {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                width: 100%;
+                                height: .1rem;
+                                background-color: rgba(255, 255, 255, .24);
+                                z-index: 999;
+                                &>span {
+                                    background-color: #fff;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    height: .1rem;
+                                    width: 100%;
+                                }
                             }
                         }
                     }
@@ -1413,6 +1567,13 @@ body::-webkit-scrollbar {
                     color: #1082FF;
                     line-height: .28rem;
                 }
+                .error {
+                    border: 1px solid red !important;
+                    box-shadow: 0 5px 10px 0 rgba(255, 0, 0, 0.30);
+                    font-size: .3rem;
+                    color: red;
+                    line-height: .28rem;
+                }
             }
         }
         .toumeth {
@@ -1514,6 +1675,11 @@ body::-webkit-scrollbar {
             text-align: center;
             font-size: 0.36rem;
             border-bottom: 1px solid #E9E9E9;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index:4998;
+            background-color: #fff;
             li {
                 float: left;
                 width: 50%;
@@ -1535,7 +1701,7 @@ body::-webkit-scrollbar {
         }
 
         .zs_tabcont {
-            margin-top: 0;
+            margin-top: 1rem;
             background-color: #fff;
             .tabcontent {
                 width: 100%;
@@ -1547,7 +1713,11 @@ body::-webkit-scrollbar {
                 .countoption {
                     background-color: #fff;
                     width: 100%;
-                    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12);
+                      position: fixed;
+                    top: 1rem;
+                    left: 0;
+                    z-index:4998;
                     &>li {
                         float: left;
                         padding: .08rem 0;
@@ -1576,13 +1746,17 @@ body::-webkit-scrollbar {
                     }
                 }
                 #countMap {
-                    width: 100%; // height: 100%;
+                    z-index: 0;
+                    width: 100%;
+                    position: fixed;
+                    top: 1.9rem;
+                    left: 0;
                 }
                 .cazResult {
                     position: fixed;
                     bottom: 1.3rem;
                     left: 50%;
-                    z-index: 599;
+                    z-index: 999;
                     transform: translateX(-50%);
                     box-sizing: border-box;
                     input {
@@ -1607,6 +1781,10 @@ body::-webkit-scrollbar {
                     height: .9rem;
                     line-height: .9rem;
                     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .2);
+                    position: fixed;
+                    top: 1rem;
+                    left: 0;
+                    z-index:4998;
                     &>li {
                         float: left;
                         width: 50%;
@@ -1634,6 +1812,7 @@ body::-webkit-scrollbar {
                 #countChart {
                     width: 100%;
                     height: 6rem;
+                    margin-top:2rem;
                 }
                 .chartmonthInfo {
                     padding: .3rem;
@@ -2007,6 +2186,49 @@ body::-webkit-scrollbar {
                 font-size: .28rem;
                 color: #666666;
                 line-height: .44rem;
+            }
+        }
+    }
+
+
+    /*提示*/
+    .warningContainer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: .4rem .3rem;
+        background: rgba(37, 37, 37, 0.90);
+        border-radius: 10px;
+        font-family: PingFangSC-Medium;
+        font-size: .30rem;
+        color: #FFFFFF;
+        display: none;
+    }
+
+    /*上报中*/
+    .reporting {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, .6);
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            &>img {
+                width: .8rem;
+                height: .8rem;
+            }
+            &>p {
+                margin-top: .3rem;
+                font-size: .36rem;
             }
         }
     }

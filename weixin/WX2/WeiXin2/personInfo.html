@@ -14,8 +14,8 @@
     <div class="zs_layout ">
         <!-- 遮罩层 -->
         <div class="masker"></div>
-          <!-- topBar -->
-       <!--  <div class="topbar">
+        <!-- topBar -->
+        <!--  <div class="topbar">
             <div class="return">
                 <i class="fa fa-angle-left fl-l"></i>
                 <span class="fl-l">返回</span>
@@ -24,7 +24,7 @@
                 <li class="title" style="margin: 0 auto;">水务巡查系统</li>
             </ul>
         </div> -->
-        <div class="personInfoContainer class="clearfix"">
+        <div class="personInfoContainer clearfix">
             <dl>
                 <dt>个人信息</dt>
                 <dd>
@@ -36,7 +36,7 @@
                 <dd>
                     <input type="text" value="所在部门">
                 </dd>
-                  <dd>
+                <dd>
                     <input type="text" value="职务">
                 </dd>
             </dl>
@@ -50,16 +50,45 @@
                 </dd>
                 <dd class="clearfix">
                     <input type="text" value="输入验证码">
-                    <input type="button" value="点击发送验证码" class="active">
+                    <input type="button" value="点击发送验证码" class="active valiNum">
                 </dd>
             </dl>
             <div class="bcxgBtn">
-               <input type="button" value="保存修改" class="btnactive">
+                <input type="button" value="保存修改" class="btnactive">
             </div>
         </div>
     </div>
-    <script src="lib/zepto.min.js"></script>
+    <script src="lib/jquery.js"></script>
     <script src="js/common.js"></script>
+    <script>
+    $(function() {
+        djs()
+        function djs() {
+            $(".valiNum").on("click", function() {
+                var time = 60;
+                $(this).removeClass('active');
+                $(this).css('font-size', '.26rem');
+                $(this).val("点击发送验证码(60)")
+                $(this).attr("disabled","disabled")
+                var timeset = setInterval(function() {
+                    time--;
+                    if (time < 10) {
+                        time = "0" + time
+                    }
+                    $(".valiNum").val("点击发送验证码(" + time + ")")
+                    if (time == '0-1') {
+                        $(".valiNum").removeAttr("disabled")
+                        $(".valiNum").css('font-size', '.3rem');
+                        $(".valiNum").val("点击发送验证码")
+                        $(".valiNum").addClass('active');
+                        clearTimeout(timeset)
+                    }
+                }, 1000)
+            })
+        }
+
+    })
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 $(function() {
     
     setNiceScroll(".optionSearch")
-
+   
+mySwiper()
     //待处理详情
     tzdclDetail()
     showSearchOption()

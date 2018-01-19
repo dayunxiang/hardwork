@@ -1,4 +1,3 @@
-
 /**
  * [changeOptionInfo 修改筛选设备]
  * @param  {[type]} changeOption [设备]
@@ -31,34 +30,53 @@ function changeOptionInfo(changeOption, data, optionSearch) {
  * @param  {[type]} page [要跳转的页面]
  * @return {[type]}      [description]
  */
-function hrefPage(ele,page) {
-     $(ele).on("click",function () {
-      window.location.href = './'+page+'.html'
+function hrefPage(ele, page) {
+    $(ele).on("click", function() {
+        window.location.href = './' + page + '.html'
     })
 }
 
 /**
  * [获取url中的字符串]
  */
- function GetRequest() {
-     var url = location.search; //获取url中"?"符后的字串  
-     var theRequest = new Object();
-     if (url.indexOf("?") != -1) {
-         var str = url.substr(1);
-         strs = str.split("&");
-         for (var i = 0; i < strs.length; i++) {
-             theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-         }
-     }
-     return theRequest;
- }
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串  
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
 
 /**
- * 改变s背景颜色
+ * 改变背景颜色
  * @param  {[type]} color [description]
  * @return {[type]}       [description]
+ * 主页 rgba(74,144,226,1)
+ * 正常 rgba(51,204,90,1)
+ * 预警 rgba(254,155,54,1)
+ * 报警 rgba(254,96,54,1)
  */
-function changeColor(ele,color) {
-    $(ele).css("fill",color)
-    $(ele).css("background",color)
+function changeColor(ele, color) {
+    $(ele).css("fill", color)
+    $(ele).css("background", color)
+}
+
+
+/**
+ * [warningConten 生成警告框]
+ * @return {[type]} [警告内容]
+ */
+function warningConten(text) {
+    var str = ' <div class="warningContainer">' + text + '</div>'
+    $(".zs_layout").append(str)
+    $(".warningContainer").fadeIn(300)
+    setTimeout(function() {
+        $(".warningContainer").fadeOut(300)
+    }, 1000)
+
 }

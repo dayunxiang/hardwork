@@ -1,0 +1,198 @@
+.jcDeviceContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  .jcDeviceTop {
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid #DBDEE4;
+    font-family: PingFangSC-Regular;
+    font-size: 15px;
+    color: #393C40;
+    letter-spacing: 0;
+    line-height: 70px;
+    padding-left: 20px;
+  }
+  .jcDeviceContent {
+    /*左侧列表*/
+    .jcDeviceContentLeft {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      border-right: 1px solid #DBDEE4;
+      position: relative;
+      /* 搜索*/
+      .jcDeviceContentLeftOption {
+        padding: 10px;
+        position: relative;
+        border-bottom: 1px solid #DBDEE4; //搜索框
+        .serachBox {
+          margin-right: 90px;
+          position: relative;
+          i {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: #979797;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+          }
+          input {
+            width: 100%;
+            height: 34px;
+            background: #EFF1F4;
+            border: none;
+            border: 1px solid #DBDEE4;
+            outline: none;
+            outline-style: none;
+            padding-left: 37px;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #424242;
+            letter-spacing: 0;
+          }
+        }
+        /*高级搜索按钮*/
+        .searchButton {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 80px;
+          height: 32px;
+          border: 1px solid #4A90E2;
+          font-family: PingFangSC-Regular;
+          font-size: 12px;
+          color: #4A90E2;
+          line-height: 32px;
+          text-align: center;
+          cursor: pointer;
+        }
+        /*高级搜索盒子*/
+        .gjSearch {
+          margin-top: 10px;
+          p {
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #4A90E2;
+            line-height: 30px;
+          }
+          .el-select {
+            width: 30%;
+            font-size: 12px;
+            margin-right: 20px;
+          }
+        }
+      }
+      /*设备类型 数量*/
+      .deviceCount {
+        height: 46px;
+        line-height: 46px;
+        border-bottom: 1px solid #ECEDEF;
+        padding: 0 10px;
+        span {
+          float: left;
+          font-family: PingFangSC-Regular;
+          font-size: 12px;
+          color: #393C40;
+          letter-spacing: 0;
+          &:last-child {
+            float: right;
+          }
+        }
+      }
+      /*设备列表*/
+      .deviceList {
+        li {
+          height: 50px;
+          list-style: none;
+          border-bottom: 1px solid #ECEDEF;
+          padding: 13px 10px 0;
+          &>img {
+            float: left;
+            width: 32px;
+            height: 32px;
+          }
+          span {
+            float: left;
+            font-family: OpenSans;
+            font-size: 12px;
+            color: #393C40;
+            letter-spacing: 0;
+            line-height: 12px;
+            margin-top: 5px;
+            &:last-child {
+              float: right;
+              font-family: PingFangSC-Light;
+              font-size: 20px;
+              color: #393C40;
+              line-height: 30px;
+            }
+          }
+          .icons {
+            float: right;
+            &>img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+      /*设备统计*/
+      .deviceCount {
+        height: 53px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        padding-left: 10px;
+        line-height: 53px;
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #393C40;
+        letter-spacing: 0;
+        border-top: 1px solid #ECEDEF;
+      }
+    }
+    /*右侧信息*/
+    .jcDeviceContentRight {
+      width: 100%;
+      padding: 20px;
+      .describ {
+        margin-bottom: 20px;
+        &>li {
+          float: left;
+          font-family: OpenSans;
+          font-size: 12px;
+          color: #393C40;
+          &:last-child {
+            float: right;
+            color: #4A90E2;
+            &>span {
+              float: right;
+              vertical-align:middle;
+              margin-top: 3px;
+              cursor:pointer;
+
+            }
+            &>img {
+              float: right;
+              vertical-align:middle;
+            }
+          }
+        }
+      }
+      .describTable {
+        table {
+            tr {
+              th {
+                text-align:center;
+                background-color: red;
+              }
+            }
+        }
+      }
+    }
+  }
+}

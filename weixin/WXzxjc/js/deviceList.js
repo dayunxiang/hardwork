@@ -18,4 +18,6 @@ $(function() {
     //点击跳转详情
     hrefPage(".deviceListContent li", 'deviceInfo')
     
+   
+   
 })
